@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+    auto-import="false"
+    default-access="field">
+
+    <!-- 配餐对象 -->
+    <class name="com.wit.fxp.nxft.domain.model.subject.NxftSubject" table="NXFT_SUBJECT" schema="NXFT"
+            dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+
+        <!-- 单字段主键 -->
+        <id name="id" column="FSUBJECT_ID" type="string" access="property">
+        </id>
+
+        <version name="version" type="integer" insert="true">
+            <column name="FVERSION" not-null="true" />
+        </version>
+
+<!--
+ | 以下请勿修改，下次生成后将被覆盖！！！
+ | BEGIN>>>@$^*!#%&1
+ |
+ | Created by Benewit Code Generator V1.0
+ | codegen/templates//java/java-enthbm.template
+ |-->
+
+        <component name="logInfo">
+            <property name="logcby" type="string">
+                <column name="FLOGCBY" length="32" not-null="true" />
+            </property>
+            <property name="logcdate" type="timestamp">
+                <column name="FLOGCDATE" not-null="true" />
+            </property>
+            <property name="logluby" type="string">
+                <column name="FLOGLUBY" length="32" not-null="true" />
+            </property>
+            <property name="logludate" type="timestamp">
+                <column name="FLOGLUDATE" not-null="true" />
+            </property>
+            <property name="loglaby" type="string">
+                <column name="FLOGLABY" length="32" not-null="true" />
+            </property>
+            <property name="logladate" type="timestamp">
+                <column name="FLOGLADATE" not-null="true" />
+            </property>
+        </component>
+
+
+        <!-- 联系电话 -->
+        <property name="contactPhone" type="string">
+            <column name="FCONTACT_PHONE" length="30" not-null="false" />
+        </property>
+
+
+        <!-- 行政区域ID -->
+        <property name="regionId" type="string">
+            <column name="FREGION_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 行政区域名称 -->
+        <property name="regionName" type="string">
+            <column name="FREGION_NAME" length="80" not-null="true" />
+        </property>
+
+
+        <!-- 详细地址 -->
+        <property name="address" type="string">
+            <column name="FADDRESS" length="200" not-null="false" />
+        </property>
+
+
+        <!-- 是否本地户籍（本镇）Y/N -->
+        <property name="isNative" type="yes_no">
+            <column name="FIS_NATIVE" not-null="false" />
+        </property>
+
+
+        <!-- 居住情况，多选，用逗号分隔 -->
+        <property name="livingCondiName" type="string">
+            <column name="FLIVING_CONDI_NAME" length="60" not-null="false" />
+        </property>
+
+
+        <!-- 联系人关系ID -->
+        <property name="familyRelationId" type="string">
+            <column name="FFAMILY_RELATION_ID" length="32" not-null="false" />
+        </property>
+
+
+        <!-- 联系人关系name -->
+        <property name="familyRelationName" type="string">
+            <column name="FFAMILY_RELATION_NAME" length="30" not-null="false" />
+        </property>
+
+
+        <!-- 是否属于政府扶助类型 -->
+        <property name="isGovHelp" type="yes_no">
+            <column name="FIS_GOV_HELP" not-null="false" />
+        </property>
+
+
+        <!-- 政府扶助类型id -->
+        <property name="govHelpId" type="string">
+            <column name="FGOV_HELP_ID" length="32" not-null="false" />
+        </property>
+
+
+        <!-- 政府扶助类型中文名称 -->
+        <property name="govHelpName" type="string">
+            <column name="FGOV_HELP_NAME" length="30" not-null="false" />
+        </property>
+
+
+        <!-- 是否有食物过敏 -->
+        <property name="haveFoodAllergy" type="yes_no">
+            <column name="FHAVE_FOOD_ALLERGY" not-null="true" />
+        </property>
+
+
+        <!-- 食物过敏 -->
+        <property name="foodAllergy" type="string">
+            <column name="FFOOD_ALLERGY" length="200" not-null="false" />
+        </property>
+
+
+        <!-- 对象食物禁忌，名称逗号分隔 -->
+        <property name="subjectFoodProhibit" type="string">
+            <column name="FSUBJECT_FOOD_PROHIBIT" length="100" not-null="false" />
+        </property>
+
+
+        <!-- 客户信息 -->
+        <component name="personInfo" class="com.wit.fxp.nxft.domain.model.subject.NxftSubject$PersonInfo">
+            <property name="personId" type="string">
+                <column name="FPERSON_ID" length="32" not-null="true" />
+            </property>
+            <property name="subjectName" type="string">
+                <column name="FSUBJECT_NAME" length="80" not-null="true" />
+            </property>
+            <property name="sexId" type="string">
+                <column name="FSEX_ID" length="32" not-null="true" />
+            </property>
+            <property name="sexName" type="string">
+                <column name="FSEX_NAME" length="30" not-null="true" />
+            </property>
+            <property name="idtypeId" type="string">
+                <column name="FIDTYPE_ID" length="32" not-null="true" />
+            </property>
+            <property name="idtypeName" type="string">
+                <column name="FIDTYPE_NAME" length="30" not-null="true" />
+            </property>
+            <property name="idcardno" type="string">
+                <column name="FIDCARDNO" length="20" not-null="true" />
+            </property>
+            <property name="birthDate" type="timestamp">
+                <column name="FBIRTH_DATE" not-null="true" />
+            </property>
+            <property name="subjectFoodLoveId" type="string">
+                <column name="FSUBJECT_FOOD_LOVE_ID" length="32" not-null="false" />
+            </property>
+            <property name="subjectFoodLoveName" type="string">
+                <column name="FSUBJECT_FOOD_LOVE_NAME" length="30" not-null="false" />
+            </property>
+            <property name="circleId" type="string">
+                <column name="FCIRCLE_ID" length="32" not-null="true" />
+            </property>
+            <property name="isMealHelp" type="yes_no">
+                <column name="FIS_MEAL_HELP" not-null="false" />
+            </property>
+        </component>
+
+
+        <!-- 客户扩展信息 -->
+        <component name="subjectInfo" class="com.wit.fxp.nxft.domain.model.subject.NxftSubject$SubjectInfo">
+            <property name="relationName" type="string">
+                <column name="FRELATION_NAME" length="40" not-null="false" />
+            </property>
+            <property name="relationPhone" type="string">
+                <column name="FRELATION_PHONE" length="40" not-null="false" />
+            </property>
+            <property name="subjectTypeId" type="string">
+                <column name="FSUBJECT_TYPE_ID" length="32" not-null="true" />
+            </property>
+            <property name="subjectTypeName" type="string">
+                <column name="FSUBJECT_TYPE_NAME" length="30" not-null="true" />
+            </property>
+            <property name="subjectDesc" type="string">
+                <column name="FSUBJECT_DESC" length="256" not-null="false" />
+            </property>
+            <property name="deliveType" type="string">
+                <column name="FDELIVE_TYPE" length="30" not-null="true" />
+            </property>
+            <property name="deliveSiteId" type="string">
+                <column name="FDELIVE_SITE_ID" length="32" not-null="true" />
+            </property>
+            <property name="deliveSiteName" type="string">
+                <column name="FDELIVE_SITE_NAME" length="40" not-null="true" />
+            </property>
+            <property name="overdraft" type="double">
+                <column name="FOVERDRAFT" not-null="true" />
+            </property>
+            <property name="subjectDisease" type="string">
+                <column name="FSUBJECT_DISEASE" length="100" not-null="false" />
+            </property>
+            <property name="lunchBoxNo" type="string">
+                <column name="FLUNCH_BOX_NO" length="20" not-null="false" />
+            </property>
+        </component>
+
+
+        <!-- 创建信息 -->
+        <component name="createInfo" class="com.wit.fxp.nxft.domain.model.subject.NxftSubject$CreateInfo">
+            <property name="createTime" type="timestamp">
+                <column name="FCREATE_TIME" not-null="true" />
+            </property>
+            <property name="createCircleId" type="string">
+                <column name="FCREATE_CIRCLE_ID" length="32" not-null="true" />
+            </property>
+            <property name="createTeamId" type="string">
+                <column name="FCREATE_TEAM_ID" length="32" not-null="true" />
+            </property>
+            <property name="createUserId" type="string">
+                <column name="FCREATE_USER_ID" length="32" not-null="true" />
+            </property>
+            <property name="createNickname" type="string">
+                <column name="FCREATE_NICKNAME" length="30" not-null="true" />
+            </property>
+        </component>
+
+
+        <!-- 注销信息 -->
+        <component name="cancelInfo" class="com.wit.fxp.nxft.domain.model.subject.NxftSubject$CancelInfo">
+            <property name="isCancel" type="yes_no">
+                <column name="FIS_CANCEL" not-null="true" />
+            </property>
+            <property name="cancelReason" type="string">
+                <column name="FCANCEL_REASON" length="60" not-null="false" />
+            </property>
+            <property name="cancelDate" type="timestamp">
+                <column name="FCANCEL_DATE" not-null="false" />
+            </property>
+            <property name="cancelUserId" type="string">
+                <column name="FCANCEL_USER_ID" length="32" not-null="false" />
+            </property>
+            <property name="cancelUserName" type="string">
+                <column name="FCANCEL_USER_NAME" length="30" not-null="false" />
+            </property>
+        </component>
+
+
+        <!-- keys -->
+
+
+
+        <!-- relationship -->
+
+
+        <!-- 对象常见病 -->
+        <set name="nxftSubjectDiseaseSet" table="NXFT_SUBJECT_DISEASE" schema="NXFT"
+                sort="unsorted"
+                inverse="true" cascade="all,delete-orphan">
+            <key>
+                <column name="FSUBJECT_ID" />
+            </key>
+
+            <one-to-many class="com.wit.fxp.nxft.domain.model.subject.NxftSubjectDisease" />
+        </set>
+
+        <!-- 客户禁忌食物集合 -->
+        <set name="nxftSubjectFoodProhibitSet" table="NXFT_SUBJECT_FOOD_PROHIBIT" schema="NXFT"
+                sort="unsorted"
+                inverse="true" cascade="all,delete-orphan">
+            <key>
+                <column name="FSUBJECT_ID" />
+            </key>
+
+            <one-to-many class="com.wit.fxp.nxft.domain.model.subject.NxftSubjectFoodProhibit" />
+        </set>
+
+        <!-- 客户居住情况集合 -->
+        <set name="nxftSubjectLivingCondiSet" table="NXFT_SUBJECT_LIVING_CONDI" schema="NXFT"
+                sort="unsorted"
+                inverse="true" cascade="all,delete-orphan">
+            <key>
+                <column name="FSUBJECT_ID" />
+            </key>
+
+            <one-to-many class="com.wit.fxp.nxft.domain.model.subject.NxftSubjectLivingCondi" />
+        </set>
+<!--
+ | 以上请勿修改，下次生成后将被覆盖！！！
+ | END<<<&%#!*^$@1
+ |-->
+    </class>
+
+</hibernate-mapping>

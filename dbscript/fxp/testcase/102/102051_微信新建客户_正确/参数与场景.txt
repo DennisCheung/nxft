@@ -1,0 +1,30 @@
+场景：客户通过微信注册个人信息，输入资料如下：
+   姓名：      卫绮琼
+   性别:       2   女
+   手机：   15800420000
+   
+ 1、新建客户 FXP.P_PERSON
+    fuser_id   32位uuid 生成    
+ 
+ 三、新建客户账户表  FXP.P_ACCOUNT
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 账户信息
+   --
+   faccount_id                   32位UUID                   -- 账户id
+   faccount_name                 卫绮琼                     -- 账户名
+   fbalance_cash                 0                          -- 现金余额
+   
+  
+    
+  2.2 插账户和客户关系表 fxp.p_account_person
+-- +-----------------------------+--------------+-----------+
+   faccount_id                   =fxp.P_ACCOUNT.faccount_id   -- 账户id
+   fperson_id                    =fxp.p_person.fperson_id     -- 客户id 
+ 
+ 
+ 3、原 新建     FXP.P_USER
+ 
+    现 不插     FXP.P_USER
+ 
+  

@@ -1,0 +1,31 @@
+使用 000\init_user.xml
+
+参数：
+    东东甘棠士多店（fsite_id=3010801）老板张小明 （平台用户id fuser_id = 00001）为服务点“东东甘棠士多店” 添加成员
+      
+  1、参数：
+  
+     1）平台用户id fuser_id  = 会话传入   00001
+     2）服务商ID             = 会话传入   30108
+     3）服务点ID             = 会话传入   3010801
+     4）选择的服务商成员id   = 会话传入   00002
+
+
+场景：
+  
+  1、在添加服务点成员界面
+     
+      1）选择准备添加的fuse_id = 00002
+  
+  2、点击“完成”， 实现服务点创建
+
+结果：
+
+  
+   1、插服务点用户表  fxp.p_site_user 表
+   
+     fsite_id                    3010801                   -- 服务点id
+     fuser_id                    00002                      -- 用户id    = fxp.p_site.fadmin_user_id 
+     fcreate_date                当前日期                   -- 创建日期（录入时输入的日期） 
+     fcreate_user_id             00001                      -- 创建操作员id
+     fcreate_user_name           张小明                     -- 创建操作员姓名

@@ -1,0 +1,49 @@
+吴艳艳（平台用户id fuser_id= 10001028 ）删除发券活动 “2016年甘棠村基金助老服务” 的“60-69岁老人”名单
+
+参数：
+   
+   1） fuser_id          10001028       --  操作员id
+   2） fnickname         吴艳艳         --  操作员姓名
+   3） forg_id           10001          --  登录的机构id
+   4） fsite_id          1000131        --  登录的服务点id
+   5） factivity_id      00123          --  活动id
+   6） fcrowds_id        30001          --  名单id
+     
+场景：
+
+  前提：发券活动 “2016年甘棠村基金助老服务” 未发券 & “60-69岁老人”的名单已有成员或券明细
+
+  1、吴艳艳（平台用户id fuser_id= 10001028 ）登录系统，在 “我的主页” 选择 “发券管理”
+     进入“发券管理”界面
+     
+  2、在发券界面显示所有发券活动列表
+  
+  3、在 “2016年甘棠村基金助老服务” 一列选择 “活动主页”，进入活动主页面
+  
+  4、在活动主页选择 “名单管理” 系统弹出 “名单管理” 编辑窗口
+  
+  5、在已创建名单列表中选择 “60-69岁老人” 的记录 点击 “删除”
+  
+  6、判断名单已有成员明细或券明细，系统提示 “该名单已有成员或券明细，若删除该名单明细或券明细将一起删除！”
+     选择 “确定” 完成名单删除，系统提示 “删除成功！”
+  
+  7、更新已创建名单列表减少 “60-69岁老人 ” 的记录
+  
+  8、同时系统自动刷新活动主页的 名单列表减少 “60-69岁老人 ” 的记录
+  
+  
+ 说明：若名单已创建（名单明细、券明细），则做级联删除，即同时删除所有与该名单相关的信息
+  
+    1、删除 "名单发券类型表" fxp.p_crowds_coupon
+    
+       delete from fxp.p_crowds_coupon t where t.factivity_id = :factivity_id and fcrowds_id = :fcrowds_id ;
+       
+    2、删除 "活动名单明细表" fxp.p_crowds_list
+    
+      delete from fxp.p_crowds_list t where t.factivity_id = :factivity_id and fcrowds_id = :fcrowds_id ;
+      
+    3、删除 "活动名单表" fxp.p_activity_crowds
+    
+      delete from fxp.p_activity_crowds t where t.factivity_id = :factivity_id and fcrowds_id = :fcrowds_id ;  
+     
+   

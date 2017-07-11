@@ -1,0 +1,183 @@
+@charset "UTF-8";
+html {
+  width: 100%;
+  height: 100%; }
+
+body {
+  width: 100%;
+  height: 100%; }
+
+.mask {
+  overflow: hidden;
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3); }
+  .mask .alert {
+    background: #fff;
+    border: 1px solid #ccc;
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 65%;
+    margin-top: 3rem; }
+    .mask .alert .title {
+      text-align: center;
+      line-height: 0.8rem;
+      font-size: 0.3rem;
+      border-bottom: 1px solid #ccc;
+      position: relative; }
+      .mask .alert .title img {
+        position: absolute;
+        right: 10px;
+        top: 0.2rem;
+        width: 0.41rem;
+        height: auto;
+        cursor: pointer; }
+    .mask .alert table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 0 auto; }
+      .mask .alert table td, .mask .alert table th {
+        border: 1px solid #d2d2d2;
+        text-align: center; }
+      .mask .alert table thead {
+        font-size: 0.24rem;
+        color: #ff7e00;
+        background: #fff3e8;
+        line-height: 0.6rem; }
+      .mask .alert table tbody {
+        font-size: 0.24rem;
+        color: #333333;
+        line-height: 2.36; }
+
+.selectIndex {
+  overflow: hidden; }
+  .selectIndex .select-left {
+    width: 3rem; }
+    .selectIndex .select-left .menu {
+      width: 100%;
+      background: url("../images/3-bgnev.png") no-repeat;
+      background-size: 100% 100%; }
+      .selectIndex .select-left .menu li {
+        height: 2.16rem;
+        border-bottom: 1px solid #736E6B;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 0; }
+        .selectIndex .select-left .menu li i {
+          display: inline-block;
+          width: 38%;
+          height: 100%;
+          vertical-align: top;
+          padding-left: 0.31rem;
+          padding-top: 0.8rem; }
+          .selectIndex .select-left .menu li i img {
+            vertical-align: top;
+            height: auto;
+            width: 0.67rem; }
+        .selectIndex .select-left .menu li span {
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size: 0.48rem;
+          padding-top: 0.75rem; }
+        .selectIndex .select-left .menu li .guidance {
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size: 0.48rem;
+          padding-top: 0.43rem; }
+      .selectIndex .select-left .menu li.active i {
+        background: #ff7e00; }
+      .selectIndex .select-left .menu li.active span, .selectIndex .select-left .menu li.active .guidance {
+        color: #ff7e00;
+        background: #2a2d32; }
+  .selectIndex .select-right {
+    padding-left: 3.00rem;
+    /*系统版本*/ }
+    .selectIndex .select-right .system-ver {
+      height: 0.64rem;
+      width: 100%;
+      background: #ff7e00;
+      color: #fefefe;
+      font-size: 0.30rem;
+      padding-top: 0.13rem;
+      text-align: left;
+      padding-left: 0.3rem; }
+      .selectIndex .select-right .system-ver .close {
+        float: right;
+        margin-right: 20px;
+        cursor: pointer; }
+        .selectIndex .select-right .system-ver .close img {
+          width: 0.41rem; }
+    .selectIndex .select-right .sel-module {
+      /*表格数据*/ }
+      .selectIndex .select-right .sel-module .condition {
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px; }
+        .selectIndex .select-right .sel-module .condition .comon {
+          margin-left: 30px; }
+        .selectIndex .select-right .sel-module .condition input {
+          cursor: pointer;
+          background: #F0F0F0;
+          color: #8C8C8C;
+          width: 200px;
+          height: 38px;
+          text-align: center;
+          border-radius: 6px;
+          border: 1px solid #D2D2D2; }
+        .selectIndex .select-right .sel-module .condition select {
+          width: 150px;
+          padding-left: 35px;
+          border-radius: 5px;
+          color: #333333;
+          height: 38px; }
+        .selectIndex .select-right .sel-module .condition button {
+          padding: 6px 30px;
+          border: none;
+          border-radius: 18px;
+          background: rgba(255, 126, 0, 0.47);
+          color: #333333;
+          font-size: 23px; }
+      .selectIndex .select-right .sel-module .content {
+        padding-top: 0.26rem;
+        position: relative;
+        height: 9rem;
+        overflow-y: auto; }
+        .selectIndex .select-right .sel-module .content .data {
+          border-collapse: collapse;
+          width: 95.743368%;
+          margin: 0 auto; }
+          .selectIndex .select-right .sel-module .content .data td, .selectIndex .select-right .sel-module .content .data th {
+            border: 1px solid #d2d2d2;
+            text-align: center; }
+          .selectIndex .select-right .sel-module .content .data thead {
+            font-size: 0.30rem;
+            color: #ff7e00;
+            background: #fff3e8;
+            line-height: 0.6rem; }
+          .selectIndex .select-right .sel-module .content .data tbody {
+            font-size: 0.30rem;
+            color: #333333;
+            line-height: 2.36; }
+            .selectIndex .select-right .sel-module .content .data tbody td button {
+              width: 120px;
+              height: 40px;
+              background: #ff7e00;
+              border: none;
+              font-size: 20px;
+              color: #fff; }
+            .selectIndex .select-right .sel-module .content .data tbody td .active {
+              background: #ccc; }
+
+/*# sourceMappingURL=mSend.css.map */

@@ -1,0 +1,162 @@
+@import "../valo/valo.scss";
+
+@mixin fxplogin {
+      @include valo;
+
+      .loginmainstyle {
+    text-align:center;
+    background-color: #f8fae6;
+    height: 100%;
+    background-image: url("image/loginbg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%,100%;
+    .v-label{
+        line-height: 30px;
+    }
+  }
+
+
+   .loginvlymainStyle {
+    text-align:center;
+   }
+
+   .loginnamestyle {
+    color:#956f26;
+   }
+
+   .logintfstyle {
+    width:130px;
+    height: 30px;
+    background-color: #f8fae6;
+}
+
+.loginnamestyle {
+    color:#956f26;
+}
+
+.logintfstyle {
+    width:130px;
+    height: 30px;
+    background-color: #f8fae6;
+}
+
+.dafustyle {
+    display:none;
+    margin-top:110px;
+    margin-left:8px;
+}
+
+.loginbbtnstyle{
+     left: -230px;
+    top: 162px;
+    font-size:14px;
+    font-weight:bold;
+    width:100px;
+    border-radius:5px;
+}
+
+.companylbottom {
+    font-size:13px;
+    color:white;
+    margin-left:1100px;
+}
+
+.companybottomhly {
+    margin-top:110px;
+    -webkit-margin-before:105px;
+
+}
+
+.loginformstyle {
+    width: 364px;
+    height: 260px;
+    text-align:center;
+    font-size:14px;
+    margin-top:245px;
+    color:#9D9D30;
+    margin-left:600px;
+    background: #fff;
+      box-shadow: 0 0 1px #333;
+      padding-top: 30px;
+      border-radius: 5px;
+
+}
+
+.loginformstyle .v-image{
+    margin-top:13px;
+    padding-right:12px;
+}
+
+.loginformstyle .v-button{
+    background: #ff7e00;
+    color:#fff;
+}
+
+.loginhly2style {
+    margin-top:10px;
+}
+
+.vlyStyle {
+    margin-top:10px;
+    line-height:10px;
+    margin-left:50px;
+    .v-textfield {
+      width: 200px;
+      line-height: 30px;
+    }
+}
+
+.rememberhorstyle {
+    margin-top: 20px;
+    margin-left: 180px;
+    color:#000;
+}
+
+.loginhortitlestyle {
+    width:365px;
+    height:40px;
+    margin-top:-73px;
+    background:#fff9d5;
+    border-radius: 5px;
+    margin-left:-51px;
+    -webkit-margin-start:-51px;
+}
+
+.loginlbtitltstyle {
+ color:#bb7c03;
+ margin-top:4px;
+ margin-left:15px;
+}
+
+.loginimgtopstyle {
+   margin-left:40px;
+   margin-top:213px;
+   width:130px;
+   height:120px;
+}
+
+.loginimgbottomstyle {
+margin-left:40px;
+   margin-top:6px;
+   width:130px;
+   height:120px;
+}
+
+.loginlbgfstyle {
+  font-size:11px;
+  margin-left:67px;
+
+}
+
+.loginlbqystyle {
+ font-size:11px;
+  margin-left:67px;
+}
+
+.loginlmabostyle {
+  margin-left:5px;
+  margin-top:2px;
+}
+
+}
+

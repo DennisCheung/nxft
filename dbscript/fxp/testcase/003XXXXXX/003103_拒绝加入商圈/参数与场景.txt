@@ -1,0 +1,62 @@
+使用 000\init_user.xml
+
+ 张梅东（平台用户id fuser_id = 00002）拒绝   “黄生粮油店、何锦英电工申请加入商圈”申请，申请单号 FREQNOTE_ID="301111"  
+
+参数：
+  
+  1）平台用户id fuser_id = 00002        会话传入
+  2）申请单号 FREQNOTE_ID="301111"
+  3）拒绝原因：不好意思，人员已满。
+ 
+  
+场景：
+  
+  1、运营商 10008 广州福来 管理员 张梅东 00002 在“申请审核页面” 调出 FREQNOTE_ID="301111" 加入商圈申请单。
+  
+  2、点击“拒绝”，
+  
+  3、填写拒绝原因   不好意思，人员已满。
+  
+   
+结果：
+
+  1、商圈表 fxp.p_business_circle 不变
+ 
+  
+  2、插加入商圈申请单表 fxp.req_join_business_circle 表，修改以下字段，其他字段不变
+  
+   --
+   -- 环节信息
+   --
+   --
+   -- 申请单状态  1、 已新建  2 已接受  3、 已拒绝
+   --
+   --
+   flast_state                   已拒绝                     -- 最后状态，完成时ID
+   flast_time                    当前时间                   -- 最新完成时间
+   flast_user_id                 00002                      -- 最新完成操作员id
+   flast_nickname                张梅东                     -- 最新完成操作员name
+   flast_desc                    不好意思，人员已满。       -- 流程备注
+   --
+   -- 下一环节的信息，采用待办作为入口
+   --
+   fnext_node_id                 空                         -- 下一环节 常量，和环节状态、备注同时更新
+   fnext_node_content            空                         -- 下一环节工作内容
+   --
+   -- 完成信息
+   --
+   fis_complete                   Y                         -- 申请单是否已完成？  Y/N
+   fcomplete_state                FAIL                      -- 完成状态  SUCCESS  成功  FAIL 失败（取消）
+   fcomplete_time                 当前时间                  -- 完成时间
+   fcomplete_user_id              00002                     -- 完成工号id
+   fcomplete_nickname             张梅东                    -- 完成姓名
+   fcomplete_desc                 不好意思，人员已满。                        -- 完成备注
+   
+   
+  3、插申请加入商圈服务点列表 fxp.req_join_business_site 表 不变
+  
+  
+  4、 插下一环节的部门待办 fxp.p_todo 清空
+
+  5、 下一环节的部门待办部门表  fxp.p_todo_dept   清空 
+ 

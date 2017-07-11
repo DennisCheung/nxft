@@ -1,0 +1,23 @@
+参数：
+  
+  1）平台用户id fuser_id          = 会话传入   00001
+  
+场景：
+
+             
+     1、在微信企业号用户表 fxp.p_qyh_user 找到企业号 userid
+  
+     select fqyh_user_id  from fxp.p_qyh_user where fuser_id = :fuser_id ; 
+     
+     找到的 fqyh_user_id = '234567'
+    
+    
+     2、调用微信企业号--管理通讯录--管理成员--获取成员接口，根据企业号UserID 查询到成员的详情
+     
+         userid	  成员UserID。对应管理端的帐号
+         name	    成员名称
+         mobile	  手机号码
+         gender	  性别。0表示未定义，1表示男性，2表示女性
+         email	  邮箱
+         avatar	  头像url。注：如果要获取小图将url最后的"/0"改成"/64"即可
+        

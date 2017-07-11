@@ -1,0 +1,60 @@
+使用 000\init_user.xml
+
+参数：张小明（fuser_id = 00001）新增一个工作圈
+
+      
+  1、参数：
+     1）平台用户id fuser_id = 00001
+     2）老板id fboss_id = FLJK
+     
+       select fboss_id from fxp.p_boss t where t.fadmin_user_id = :本操作员id ;
+       
+  前置条件：
+  
+   1、登录的用户id fuser_id = 00001 是 BOSS 的管理员
+
+场景：
+  1、张小明已通过微信验证成为  系统用户，新增工作圈 
+     
+     在创建工作圈界面输入
+     
+     1) 工作圈LOGO  选 456.jpg
+     
+     2）工作圈名称    荆州福来科技
+     
+     3）工作圈简称    荆州福来
+     
+     4）备注          由张小明新增
+     
+       
+  2、点击“保存”， 实现工作圈注册
+
+结果：
+
+  1、插工作圈 fxp.p_circle
+-- +-----------------------------+--------------+-----------+
+   fcircle_id                    000100                     -- 工作圈id     票据号生成 FBILL_TYPE_ID = CIRCLE_ID
+   fcircle_name                  荆州福来科技               -- 工作圈名称
+   fcircle_short_name            荆州福来                   -- 工作圈简称
+   fboss_id                      FLJK                       -- 老板id = fxp.p_boss.fboss_id
+   fcircle_desc                  由张小明新增               -- 备注 
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 创建者
+   --
+   fcreate_time                  当前时间                  -- 创建时间 
+   fcreate_user_id               00001                     -- 创建操作员id
+   fcreate_user_name             张小明                    -- 创建操作员姓名  
+   
+
+ 2、工作圈logo表  
+-- +-----------------------------+--------------+-----------+
+   fcircle_id                    000100                   -- 工作圈id
+   ffile_id                      按命名规则生成             -- 文件id
+   ffile_name                    456.jpg                    -- 文件名
+   ffile_type                    JPG                        -- 文件格式（常量：JPG BMP PNG)
+   fcreate_time                  当前时间                   -- 创建时间
+   fcreate_desc                  空                         -- 创建备注
+   
+  
+ 

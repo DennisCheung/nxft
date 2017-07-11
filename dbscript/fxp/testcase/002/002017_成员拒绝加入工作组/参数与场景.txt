@@ -1,0 +1,27 @@
+使用 000\init_user.xml
+
+参数：普通坐席2（fuser_id = 00002）拒绝邀请，不加入   1000101  “番禺坐席工作站” 工作组
+
+      
+  1、参数：
+     1）被邀请平台用户id fuser_id = 00002
+     
+     2）邀请id  finvite_id= 12346536565 
+            
+ 
+场景：
+
+  1、从我的消息 fxp.p_todo 查找到 邀请信息
+  
+     select * from fxp.p_todo t where t.fis_grabbed = 'Y' and t.fgrab_user_id = 登录的user_id
+  
+  2、普通坐席2（fuser_id = 00002）接受邀请，确认加入   1000101  “番禺坐席工作站” 工作组
+
+结果：
+
+1、不插 工作组成员表 fxp.p_team_member
+
+2、 按 finvite_id= 12346536565  删除 fxp.invite_join_team 记录
+
+3、 删除 对应的待办消息  fxp.p_todo 
+

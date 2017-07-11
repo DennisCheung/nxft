@@ -1,0 +1,51 @@
+普通坐席1（平台用户id fuser_id= 00001 ）为客户 卫绮琼 开通服务
+
+
+参数：
+   
+   1） fuser_id          00001          --  操作员id
+   2） fnickname         普通坐席1      --  操作员姓名
+   3） forg_id           10001          --  登录的机构id
+   4） fsite_id          1000101        --  登录的服务点id
+   5） fperson_id        12345678       --  客户ID
+   
+     
+场景：
+
+  1、普通坐席1（平台用户id fuser_id= 00001 ）打开微信企业号，进入服务点主页
+      
+  2、选择“开通服务” 功能
+  
+  3、搜索(姓名、联系电话、身份证号)查找客户，找到客户"卫绮琼"(fperson_id = 12345678)
+  
+  4、选择服务（服务分客户服务和家庭服务，本功能仅选择可供客户开展的服务），可多选，本用例选择 TEH 老人回家 服务
+   
+      select * from p_service t where t.ffamily_or_person ='PERSON' ;
+  
+  5、选择周期  2016-01-01 至 2016-12-31
+  
+结果：
+  
+  1、 新增 客户开通的服务目录表  fxp.p_person_service
+  
+   1.1 TEH 老人回家
+-- +-----------------------------+--------------+-----------+
+   fperson_id                    12345678                   -- 客户ID
+   fservice_id                   TEH                        -- 服务id
+   fservice_name                 老人回家                   -- 服务名称
+   fservice_begin                2016-01-01                 -- 服务开始时间
+   fservice_end                  2016-12-31                 -- 服务结束时间
+   --
+   -- 所属运营商
+   --
+   FCIRCLE_ID                  10001                      -- 运营商id  = fxp.p_person.FCIRCLE_ID    
+   --
+   -- 创建
+   --
+   fcreate_date                  当前时间                   -- 创建时间
+   fcreate_CIRCLE_ID                10001                      -- 创建机构id
+   fcreate_site_id               1000101                    -- 创建服务点id
+   fcreate_user_id               00001                      -- 创建操作员id
+   fcreate_nickname              普通坐席1                  -- 创建操作员姓名
+   fcreate_desc                  空                         -- 创建备注
+

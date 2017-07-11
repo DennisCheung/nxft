@@ -1,0 +1,1711 @@
+// Global variable overrides. Must be declared before importing Valo.
+
+// Defines the plaintext font size, weight and family. Font size affects general component sizing.
+//$v-font-size: 16px;
+//$v-font-weight: 300;
+//$v-font-family: "Open Sans", sans-serif;
+
+// Defines the border used by all components.
+//$v-border: 1px solid (v-shade 0.7);
+//$v-border-radius: 4px;
+
+// Affects the color of some component elements, e.g Button, Panel title, etc
+//$v-background-color: hsl(210, 0%, 98%);
+// Affects the color of content areas, e.g  Panel and Window content, TextField input etc
+//$v-app-background-color: $v-background-color;
+
+// Affects the visual appearance of all components
+//$v-gradient: v-linear 8%;
+//$v-bevel-depth: 30%;
+//$v-shadow-opacity: 5%;
+
+// Defines colors for indicating status (focus, success, failure)
+//$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
+//$v-friendly-color: #2c9720;
+//$v-error-indicator-color: #ed473b;
+
+// For more information, see: https://vaadin.com/book/-/page/themes.valo.html
+// Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
+
+@import "../valo/valo.scss";
+
+@mixin meal {
+  @include valo;
+  .namestyless{
+  font-size:18px !important;
+  color:red;
+  font-weight:bold !important;
+  }
+  .v-align-right{
+    // text-align: center;
+ }
+ .infostyless{
+     margin-top: 20px;
+     margin-left: 12px;
+    .v-label{
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 10px;
+    text-align: center;
+    }
+ }
+.btnstyless{
+    margin-top:10px;
+    text-align: center;
+    width:100%;
+    .btn2{
+        line-height: 26px;
+        height: 25px;
+        width: 105px;
+        background: #fff;
+        color:#FF7E00;
+        border: 1px solid #FF7E00;
+}
+    .btn1{
+        height: 25px;
+        margin-left: 5px;
+        width: 85px;
+        line-height: 26px;
+        color:#999999;
+        background: #fff;
+        border: 1px solid #999999;
+}
+}
+.v-label {
+    //font-size: 14px;
+    //font-weight: bold;
+    //line-height: 20px;
+   // text-align: center;
+    }
+.v-window-header{
+    background:#ccc;
+    color:#000;
+}
+.v-window-closebox{
+    font-size:40px;
+}
+
+  /*新增订单*/
+  .MealAddOrderViewImpl{
+    input {
+      outline: none;
+      border-color:#B69167;
+    }
+    input:focus{
+      outline-color:#FF7E00;
+      outline:none;
+      border-color:#FF7E00;
+      box-shadow:0 0;
+    }
+    .dietDateLabel{
+        margin-top: 8px;
+    }
+    .topInfo{
+      line-height: 51px;
+      border-bottom: 1px solid #ECD2B7;
+
+      .lbleftstyle{
+        color:#B6B6B6;
+        font-weight: normal;
+        font-size: 14px;
+        margin-left: 0px;
+        margin-top: 0;
+       .dietDateLabel{
+      color: red;
+      }
+      }
+      .lbrightstyle{
+        color:#B6B6B6;
+        font-weight: normal;
+        font-size: 14px;
+      }
+      /*客户信息：*/
+      .title{
+        font-size: 18px;
+        width: 102px;
+        height: 28px;
+        border-right: 1px solid #D6D6D6;
+        margin-top: 11px;
+        line-height: 28px;
+      }
+
+      /*姓名*/
+      .name{
+        .lbleftstyle,.lbrightstyle{
+          color:#333333;
+        }
+        margin-right: 22px;
+        margin-left: 22px;
+      }
+      /*余额*/
+      .yue{
+        margin-right: 22px;
+        .lbleftstyle,.lbrightstyle{
+          color:#333333;
+        }
+      }
+      /*性别*/
+      .gender{
+        margin-right: 22px;
+      }
+      /*年龄*/
+      .age{
+        margin-right: 22px;
+        color:#999999;
+      }
+      /*联系电话*/
+      .phone{
+        margin-right: 22px;
+      }
+      /*地址*/
+      .address{
+        margin-right: 22px;
+      }
+      /*配送地址*/
+      .peisong{
+        margin-right: 22px;
+      }
+      /*对象类型*/
+      .type{
+        margin-right: 22px;
+      }
+      /*常见疾病*/
+      .diseaseType{
+        margin-right: 22px;
+      }
+
+    }
+    .maingridlayout{
+      padding-top: 17px;
+      padding-left: 102px;
+        .NxftDateHor{
+          margin-left: 14px;
+          /*前一天*/
+          .NxftTodatBtn{
+            margin-right: 30px;
+            color:#FF7E00;
+            border: none;
+            background: #fff;
+            text-underline: #FF7E00;
+            text-decoration:underline;
+          }
+          input{
+            border: 1px solid #ECD2B7;
+          }
+          /*后一天*/
+          .NxftTomorrowBtn{
+            margin-left: 30px;
+            color:#FF7E00;
+            border: none;
+            background: #fff;
+            text-underline: #FF7E00;
+            text-decoration:underline;
+          }
+        }
+
+      .NxftOrderHor{
+        .NxftBreakfastVer{
+          width: 317px;
+          margin-right: 61px;
+          /*早中晚餐按钮*/
+          .NxftBreakfastLb{
+            width: 139px;
+            height: 36px;
+            font-size: 18px;
+            line-height: 36px;
+            text-align: center;
+            color:#FF7E00;
+            background-color: #FFF7EF;
+            border: 1px solid #FF7E00;
+            border-radius: 9px 9px 0 0;
+          }
+          /*各种餐*/
+          .NxftBreakfastWcb{
+            min-width: 317px;
+            min-height: 150px;
+            border:1px solid #FF7E00;
+            border-radius: 0 5px 5px 5px;
+            padding-top: 7px;
+            padding-bottom:10px;
+            padding-left: 15px;
+            .v-radiobutton{
+              line-height: 20px;
+              white-space:normal;
+              width:286px;
+            }
+          }
+        }
+
+      }
+      .NxftBtnHor{
+        height: 10px;
+      }
+      /*页尾*/
+      .NxftPlaceHor{
+        width:1080px;
+        .plactBtn{
+          margin-left: 954px;
+          background: #FF7E00;
+          color:#fff;
+          border: none;
+        }
+        .plactBtnjy{
+          margin-left: 954px;
+          background: #B6B6B6;
+          color:#fff;
+          border: none;
+        }
+      }
+      .NxftOrderPoorLb{
+        line-height: 30px;
+        font-size: 16px;
+      }
+      .NxftOrderHorlayout{
+        background: #FFE9D2;
+        padding-bottom: 40px;
+        width:1075px;
+        .dingdanchistyle {
+          margin-top: 46px;
+          margin-left: 55px;
+        }
+      }
+      /*去下单按钮*/
+      .NxftOrderComfirmHor{
+        background: #FF7E00;
+        color:#fff;
+        margin-top: -41px;
+      }
+      .ordervly{
+        margin-top: 20px;
+        border: 1px solid #F7C89E;
+        background: #fff;
+        margin-right: 38px;
+        border-radius:7px;
+        padding: 10px;
+      }
+    }
+  }
+  /*订单管理查看*/
+  .ShowOrderViewImpl{
+    border: 1px solid #ccc;
+    .lbleftstyle{
+      font-weight: normal;
+      font-size: 14px;
+      margin-left: 0px;
+      width: 80px;
+      text-align: right;
+      margin-top: 0px;
+    }
+    /*查看*/
+    .title{
+      line-height: 44px;
+      font-size: 18px;
+      text-align: center;
+      color:#b6b6b6;
+      border-bottom: 1px solid #eff0f2;
+    }
+    /*第一行*/
+    .hor1{
+      line-height: 42px;
+      height: 42px;
+      width: 100%;
+      /*订单编号*/
+      .orderno{
+        width: 210px;
+      }
+      /*姓名*/
+      .name{
+      }
+    }
+    /*第二行*/
+    .hor2 {
+      line-height: 42px;
+      /*联系电话*/
+      .phone {
+        width: 210px;
+      }
+      /*时间*/
+      .time {
+        height: 26px;
+        margin-right: 15px;
+      }
+    }
+    /*第三行*/
+    .hor3{
+      line-height: 42px;
+      /*星期*/
+      .week{
+        width: 210px;
+      }
+      /*餐别*/
+      .cb{
+        height: 26px;
+      }
+    }
+    /*第四行*/
+    .hor4{
+      line-height: 42px;
+      /*套餐*/
+      .tc{
+        width: 210px;
+      }
+      /*数量*/
+      .num{
+      }
+    }
+    /*hor44*/
+    .hor44{
+      width: 100%;
+      line-height: 42px;
+      height: 42px;
+      .xiadan{
+        width: 210px;
+      }
+    }
+    /*hor5*/
+    .hor5{
+      line-height: 42px;
+      /*状态*/
+      .state{
+        width: 210px;
+      }
+      /*配送方式*/
+      .stype{
+      }
+    }
+    /*第六行*/
+    .hor6{
+      line-height: 42px;
+      /*透支额度：*/
+      .address{
+      }
+    }
+    /*第七行*/
+    .hor7 {
+      line-height: 42px;
+      /*备注*/
+      .desc{
+        height: 26px;
+      }
+    }
+    /*关闭*/
+    .btn{
+      background: #fff;
+      width: 106px;
+      height: 26px;
+      border: 1px solid #FF7E00;
+      color:#FF7E00;
+      text-align: center;
+      line-height: 26px;
+      margin-left: 156px;
+      margin-bottom: 10px;
+    }
+
+  }
+  /*订单管理*/
+ .OrderManagerViewImpl {
+    margin-top: 10px;
+   /*表格查看按钮*/
+   .link{
+     background: #fff;
+     border: 1px solid #FF7E00;
+     color:#FF7E00;
+     margin-bottom:5px;
+     margin-top:5px;
+     margin-left: 10px;
+   }
+    .selecthor{
+      text-align: center;
+      line-height: 30px;
+      padding-left: 7px;
+      input {
+        outline: none;
+        border-color:#B69167;
+      }
+      input:focus{
+        outline-color:#FF7E00;
+        outline:none;
+        border-color:#FF7E00;
+        box-shadow:0 0;
+      }
+      .lbtitle{
+        line-height: 30px;
+        text-align: center;
+        padding: 0px 7px;
+      }
+      .name {
+        outline: none;
+        border-color:#B69167;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+      .name:focus{
+        outline-color:#FF7E00;
+        outline:none;
+        border-color:#FF7E00;
+        box-shadow:0 0;
+      }
+      .idNo {
+        outline: none;
+        border-color:#B69167;
+        margin-right: 10px;
+      }
+      .idNo:focus{
+        outline-color:#FF7E00;
+        outline:none;
+        border-color:#FF7E00;
+        box-shadow:0 0;
+      }
+      .phone {
+        outline: none;
+        border-color:#B69167;
+        margin-right: 10px;
+      }
+      .phone:focus{
+        outline-color:#FF7E00;
+        outline:none;
+        border-color:#FF7E00;
+        box-shadow:0 0;
+      }
+      .select {
+        margin-left:10px;
+        margin-right: 10px;
+        width: 69px;
+        line-height: 32px;
+        background: #B4895C;
+        color: #fff;
+        border:none;
+        border-radius: 6px;
+      }
+      .lbct1{
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+      .address {
+        width: 40px;
+        margin-right: 10px;
+      }
+      .clean {
+        margin-right: 10px;
+        width: 69px;
+        line-height: 32px;
+        background: #B4895C;
+        color: #fff;
+        border:none;
+        border-radius: 6px;
+      }
+    }
+    /* 表格 */
+    .beanTable {
+    .v-table-row-odd{
+            background:#fdefe2;
+        }
+      margin-top: 10px;
+      table:first-child{
+        tr:first-child{
+          background-color: #FFA200;
+          color:#FEFBF9;
+          font-size: 15px;
+        }
+      }
+
+    }
+    .totalNum,.now,.pp,.total{
+      line-height: 32px;
+      margin-top:5px;
+    }
+    .totalNum{
+      margin-left: 10px;
+    }
+   .pagehor {
+   margin-left:845px;
+   }
+  }
+
+  /*对象管理*/
+  .SubjectManagerView {
+    margin-top: 10px;
+    /*表格查看按钮*/
+    .link{
+      background: #fff;
+      border: 1px solid #FF7E00;
+      color:#FF7E00;
+      margin-top:5px;
+      margin-bottom:5px;
+      margin-left: 10px;
+    }
+    .selecthor {
+      text-align: center;
+      line-height: 30px;
+      padding-left: 7px;
+      .lbps {
+        line-height: 30px;
+        text-align: center;
+        padding: 0px 7px;
+      }
+      input {
+        outline: none;
+        border-color:#B69167;
+      }
+      input:focus{
+        outline-color:#FF7E00;
+        outline:none;
+        border-color:#FF7E00;
+        box-shadow:0 0;
+      }
+      .name {
+        outline: none;
+        border-color:#B69167;
+        margin-right: 10px;
+      }
+      .name:focus{
+        outline-color:#FF7E00;
+        outline:none;
+        border-color:#FF7E00;
+        box-shadow:0 0;
+      }
+      .idNo {
+        outline: none;
+        border-color:#B69167;
+        margin-right: 10px;
+      }
+      .idNo:focus{
+        outline-color:#FF7E00;
+        outline:none;
+        border-color:#FF7E00;
+        box-shadow:0 0;
+      }
+      .phone {
+        outline: none;
+        border-color:#B69167;
+        margin-right: 10px;
+      }
+      .phone:focus{
+        outline-color:#FF7E00;
+        outline:none;
+        border-color:#FF7E00;
+        box-shadow:0 0;
+      }
+      .select {
+        margin-right: 10px;
+        width: 69px;
+        line-height: 32px;
+        background: #B4895C;
+        color: #fff;
+        border:none;
+        border-radius: 6px;
+
+      }
+      .address {
+        margin-right: 10px;
+      }
+      .clean {
+         margin-right: 10px;
+        width: 69px;
+        line-height: 32px;
+        background: #B4895C;
+        color: #fff;
+        border:none;
+        border-radius: 6px;
+      }
+      .add{
+      color: #FF7E00;
+        background: #fff;
+        border:1px solid #FF7E00;
+        border-radius: 6px;
+
+      }
+    }
+    /* 表格 */
+    .beanTable {
+    .v-table-row-odd{
+            background:#fdefe2;
+        }
+      margin-top: 10px;
+      table:first-child{
+        tr:first-child{
+          background-color: #FFA200;
+          color:#FEFBF9;
+          font-size: 15px;
+        }
+      }
+    }
+    .totalNum,.now,.pp,.total{
+      line-height: 32px;
+      margin-top:5px;
+    }
+    .totalNum{
+      margin-left: 10px;
+    }
+    .pagehor{
+    margin-left:825px;
+    }
+  }
+  /*对象管理按钮新增对象*/
+  .AddSubjectViewImpl{
+  .xin13{
+        margin-left:15px;
+        font-weight:bold;
+        color:red;
+      }
+   .lbl13style{
+       text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+  .v-select-option.v-checkbox {
+        display: inline-block;
+         }
+         .v-radiobutton.v-select-option{
+         display: inline-block;
+         }
+    input {
+      outline: none;
+      border-color:#B69167;
+    }
+    input:focus{
+      outline-color:#FF7E00;
+      outline:none;
+      border-color:#FF7E00;
+      box-shadow:0 0;
+    }
+    .hordis{
+    line-height: 30px;
+      margin: 10px 0;
+      .lbdisease{
+      width: 110px;
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .diseases{
+      width:1000px;
+      .v-select-option.v-checkbox {
+        display: inline-block;
+         }
+    }
+    /*复选框*/
+    .wchStyle{
+    .v-select-option.v-checkbox {
+        display: inline-block;
+         }
+    }
+    /*单选框*/
+    .v-slot.v-slot-wraStyle {
+        display:block;
+        padding-left: 117px;
+        width: 620px;
+    }
+    .wra13diseases{
+    .v-select-option.v-radiobutton {
+        display: inline-block;
+         }
+    }
+    }
+
+
+    /*第一行*/
+    .hor1{
+      margin-top:5px;
+      line-height: 44px;
+      height: 44px;
+      width: 100%;
+      border-bottom: 1px solid #effef2;
+      text-align: center;
+      /*客户信息――新增*/
+      .lbtitle{
+        font-size: 18px;
+        color: #b6b6b6;
+      }
+    }
+    /*第二行*/
+    .hor2 {
+      line-height: 30px;
+      margin: 10px 0;
+      /*姓名*/
+      .xin1{
+        color:red;
+        font-weight:bold;
+        margin-left:59px;
+      }
+      .lbname {
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .name {
+        height: 26px;
+        width: 430px;
+      }
+      /*对象类型*/
+      .xin2{
+        color:red;
+        font-weight:bold;
+        margin-left:20px;
+      }
+      .lbsubjectType {
+        font-size: 15px;
+      }
+      .subjectType {
+        height: 26px;
+      }
+      select{
+        width: 430px;
+        margin-left: 5px;
+      }
+    }
+    /*第三行*/
+    .hor3{
+      line-height: 30px;
+      /*身份证号*/
+      .xin3{
+        color:red;
+        font-weight:bold;
+        margin-left:29px;
+      }
+      .lbno{
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      /*身份证框*/
+      .idNo{
+        height: 26px;
+        width: 430px;
+      }
+      /*联系电话*/
+      .xin4{
+        margin-left:20px;
+        font-weight:bold;
+        color:red;
+      }
+      .lbphone{
+        font-size: 15px;
+      }
+      .phone{
+        height: 26px;
+        margin-left: 5px;
+        width: 430px;
+      }
+    }
+    /*第四行*/
+    .hor4{
+      line-height: 30px;
+      margin: 10px 0;
+      /*所在地区*/
+      .xin2llstyle{
+        color:red;
+        font-weight:bold;
+        margin-left:29px;
+      }
+      .lbreg{
+        text-align: right;
+        font-size: 15px;
+      }
+    }
+
+    /*hor5*/
+    .hor5{
+      line-height: 30px;
+      margin: 10px 0;
+      .xin33{
+        color:red;
+        font-weight:bold;
+        margin-left:29px;
+      }
+      /*详细地址：*/
+      .lbaddress{
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .address{
+        height: 26px;
+        width:965px;
+      }
+    }
+    /*第五行*/
+    .hor55{
+      line-height: 30px;
+      /*透支额度：*/
+      .xin5{
+        color:red;
+        font-weight:bold;
+        margin-left:29px;
+      }
+      .lbeee{
+        width: 110px;
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .overDraft{
+        height: 26px;
+        width: 165px;
+      }
+      .hor5yuan{
+        margin-left: 5px;
+      }
+    }
+    /*第六行*/
+    .hor6 {
+      margin-top: 10px;
+      line-height: 30px;
+      /*配送方式：*/
+      .xin6{
+        margin-left:29px;
+        color:red;
+        font-weight:bold;
+      }
+      .lbsdtype{
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .sendType{
+        height: 26px;
+        width:430px;
+      }
+      /*助餐点：*/
+      .xin7{
+        margin-left:45px;
+        font-weight:bold;
+        color:red;
+      }
+      .lbzcd{
+        font-size: 15px;
+        text-align: right;
+      }
+      .mealSite{
+        height: 26px;
+        width:430px;
+      }
+      select{
+        width: 430px;
+      }
+    }
+     /*第66行*/
+    .hor66 {
+      margin-top: 10px;
+      line-height: 30px;
+      .lb666{
+          margin-left:35px;
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .subjectFoodLove{
+        height: 26px;
+        width: 430px;
+        select{
+          width: 430px;
+        }
+      }
+      .lb676{
+        margin-left:35px;
+        font-size: 15px;
+        text-align: right;
+      }
+      .isMealHelp{
+        margin-top: -5px;
+        margin-left: 10px;
+      }
+    }
+    /*第七行*/
+    .hor7 {
+      line-height: 30px;
+      margin: 10px 0;
+      /*备注：*/
+      .lbdesc{
+        width: 110px;
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .desc{
+        width:965px;
+        height: 26px;
+        margin-right: 15px;
+      }
+    }
+    /*第八行*/
+    .hor8 {
+      line-height: 30px;
+      /*紧急联系人：*/
+      .lbjinji{
+        width: 110px;
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .jinjiName{
+        height: 26px;
+        width: 271px;
+      }
+      /*联系电话：*/
+      .jjphone{
+        text-align: right;
+        font-size: 15px;
+        margin-left: 15px;
+      }
+      .jinjiPhone{
+        height: 26px;
+        width: 271px;
+        margin-left: 5px;
+      }
+
+      .wnjinjiselect {
+        height: 26px;
+        width: 270px;
+        select{
+          width: 270px;
+        }
+      }
+
+    }
+    /*第九行*/
+    .hor9 {
+      line-height: 30px;
+      margin: 12px 0;
+      /*取消*/
+      .btn1{
+        height: 25px;
+        width: 105px;
+        line-height: 26px;
+        margin-left: 450px;
+        color:#999999;
+        background: #fff;
+        border: 1px solid #999999;
+      }
+      /*保存*/
+      .btn2{
+        line-height: 26px;
+        height: 25px;
+        width: 105px;
+        margin-left: 37px;
+        background: #fff;
+        color:#FF7E00;
+        border: 1px solid #FF7E00;
+      }
+    }
+  }
+  /*对象管理查看按钮表格*/
+  .ShowSubjectViewImpl{
+  .xin13{
+        margin-left:15px;
+        font-weight:bold;
+        color:red;
+      }
+   .lbl13style{
+      text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+  .v-select-option.v-checkbox {
+        display: inline-block;
+         }
+  .v-select-option.v-radiobutton {
+        display: inline-block;
+         }
+    input {
+      outline: none;
+      border-color:#B69167;
+    }
+    input:focus{
+      outline-color:#FF7E00;
+      outline:none;
+      border-color:#FF7E00;
+      box-shadow:0 0;
+    }
+    .hordis{
+    line-height: 30px;
+      margin: 10px 0;
+      .lbdisease{
+      width: 110px;
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .diseases{
+      width:1000px;
+        .v-select-option.v-checkbox {
+        display: inline-block;
+     }
+     .addsubjectjjtfstyle {
+        margin-left:-220px;
+
+      }
+    }
+    /*复选框*/
+    .wchStyle{
+    .v-select-option.v-checkbox {
+        display: inline-block;
+         }
+    }
+    /*单选框*/
+    .v-slot.v-slot-wraStyle {
+        display:block;
+        padding-left: 117px;
+        width: 620px;
+    }
+    .wra13diseases{
+    .v-select-option.v-radiobutton {
+        display: inline-block;
+         }
+    }
+    }
+    /*第一行*/
+    .hor1{
+      margin-top:5px;
+      line-height: 44px;
+      height: 44px;
+      width: 100%;
+      border-bottom: 1px solid #effef2;
+      text-align: center;
+      /*客户信息――新增*/
+      .lbtitle{
+        font-size: 18px;
+        color: #b6b6b6;
+      }
+    }
+    /*第二行*/
+    .hor2 {
+      line-height: 30px;
+      margin: 10px 0;
+      /*姓名*/
+      .xin1{
+        color:red;
+        font-weight:bold;
+        margin-left:59px;
+      }
+      .lbname {
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .name {
+        height: 26px;
+        width: 430px;
+      }
+      /*对象类型*/
+      .xin2{
+        color:red;
+        font-weight:bold;
+        margin-left:20px;
+      }
+      .lbsubjectType {
+        font-size: 15px;
+      }
+      .subjectType {
+        height: 26px;
+      }
+      select{
+        width: 430px;
+        margin-left: 5px;
+      }
+    }
+    /*第三行*/
+    .hor3{
+      line-height: 30px;
+      /*身份证号*/
+      .xin3{
+        color:red;
+        font-weight:bold;
+        margin-left:29px;
+      }
+      .lbno{
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      /*身份证框*/
+      .idNo{
+        height: 26px;
+        width: 430px;
+      }
+      /*联系电话*/
+      .xin4{
+        margin-left:20px;
+        font-weight:bold;
+        color:red;
+      }
+      .lbphone{
+        font-size: 15px;
+      }
+      .phone{
+        height: 26px;
+        margin-left: 5px;
+        width: 430px;
+      }
+    }
+    /*第四行*/
+    .hor4{
+      line-height: 30px;
+      margin: 10px 0;
+      /*所在地区*/
+      .xin2llstyle{
+        color:red;
+        font-weight:bold;
+        margin-left:29px;
+      }
+      .lbreg{
+        text-align: right;
+        font-size: 15px;
+      }
+    }
+
+    /*hor5*/
+    .hor5{
+      line-height: 30px;
+      margin: 10px 0;
+      .xin33{
+        color:red;
+        font-weight:bold;
+        margin-left:29px;
+      }
+      /*详细地址：*/
+      .lbaddress{
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .address{
+        height: 26px;
+        width:965px;
+      }
+    }
+    /*第五行*/
+    .hor55{
+      line-height: 30px;
+      /*透支额度：*/
+      .xin5{
+        width: 110px;
+        color:red;
+        font-weight:bold;
+        margin-left:29px;
+      }
+      .lbeee{
+        width: 110px;
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .overDraft{
+        height: 26px;
+        width: 165px;
+      }
+      .hor5yuan{
+        margin-left: 5px;
+      }
+
+    }
+    /*第六行*/
+    .hor6 {
+      margin-top: 10px;
+      line-height: 30px;
+      /*配送方式：*/
+      .xin6{
+        margin-left:29px;
+        color:red;
+        font-weight:bold;
+      }
+      .lbsdtype{
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .sendType{
+        height: 26px;
+        width:430px;
+      }
+      /*助餐点：*/
+      .xin7{
+        margin-left:45px;
+        font-weight:bold;
+        color:red;
+      }
+      .lbzcd{
+        font-size: 15px;
+        text-align: right;
+      }
+      .mealSite{
+        height: 26px;
+        width:430px;
+      }
+      select{
+        width: 430px;
+      }
+    }
+     /*第66行*/
+    .hor66 {
+      margin-top: 10px;
+      line-height: 30px;
+      .lb666{
+          margin-left:35px;
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .subjectFoodLove{
+        height: 26px;
+        width: 430px;
+        select{
+          width: 430px;
+        }
+      }
+      .lb676{
+        margin-left:35px;
+        font-size: 15px;
+        text-align: right;
+      }
+      .isMealHelp{
+        margin-top: -5px;
+        margin-left: 10px;
+      }
+    }
+    /*第七行*/
+    .hor7 {
+      line-height: 30px;
+      margin: 10px 0;
+      /*备注：*/
+      .lbdesc{
+        width: 110px;
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .desc{
+        width:965px;
+        height: 26px;
+        margin-right: 15px;
+      }
+    }
+    /*第八行*/
+    .hor8 {
+      line-height: 30px;
+      /*紧急联系人：*/
+      .lbjinji{
+        width: 110px;
+        text-align: right;
+        font-size: 15px;
+        margin-right: 5px;
+      }
+      .jinjiName{
+        height: 26px;
+        width: 271px;
+      }
+      /*联系电话：*/
+      .jjphone{
+        text-align: right;
+        font-size: 15px;
+        margin-left: 15px;
+      }
+      .jinjiPhone{
+        height: 26px;
+        width: 271px;
+        margin-left: 5px;
+      }
+
+      .wnjinjiselect {
+        height: 26px;
+        width: 270px;
+        select{
+          width: 270px;
+        }
+      }
+
+    }
+    /*第九行*/
+    .hor9 {
+      line-height: 30px;
+      margin: 12px 0;
+      /*取消*/
+      .btn1{
+        height: 25px;
+        width: 105px;
+        line-height: 26px;
+        margin-left: 450px;
+        color:#999999;
+        background: #fff;
+        border: 1px solid #999999;
+      }
+      /*保存*/
+      .btn2{
+        line-height: 26px;
+        height: 25px;
+        width: 105px;
+        margin-left: 37px;
+        background: #fff;
+        color:#FF7E00;
+        border: 1px solid #FF7E00;
+      }
+    }
+  }
+  /*充值管理*/
+
+  .RechargeManagerView {
+    margin-top: 10px;
+    .link{
+      color:#FF7E00;
+      border: 1px solid #FF7E00;
+      margin-top:5px;
+      margin-bottom:5px;
+      margin-left: 25px;
+    }
+    input {
+      outline: none;
+      border-color:#B69167;
+    }
+    input:focus{
+      outline-color:#FF7E00;
+      outline:none;
+      border-color:#FF7E00;
+      box-shadow:0 0;
+    }
+    .selecthor {
+      text-align: center;
+      line-height: 30px;
+      padding-left: 7px;
+      .lbps {
+        line-height: 30px;
+        text-align: center;
+        padding: 0px 7px;
+      }
+      .name {
+        outline: none;
+        margin-right: 10px;
+      }
+      .idNo {
+        margin-right: 10px;
+      }
+      .phone {
+        margin-right: 10px;
+      }
+      .select {
+        margin-right: 10px;
+        width: 69px;
+        line-height: 32px;
+        background: #B4895C;
+        color: #fff;
+        border:none;
+        border-radius: 6px;
+      }
+      .address {
+        margin-right: 10px;
+        margin-top: 7px;
+      }
+      .clean {
+        margin-right: 10px;
+        width: 69px;
+        line-height: 32px;
+        background: #B4895C;
+        color: #fff;
+        border:none;
+        border-radius: 6px;
+      }
+      .add{
+        color: #FF7E00;
+        background: #fff;
+        border:1px solid #FF7E00;
+        border-radius: 6px;
+      }
+    }
+    /* 表格 */
+    .beanTable {
+    .v-table-row-odd{
+            background:#fdefe2;
+        }
+      margin-top: 10px;
+      table:first-child{
+        tr:first-child {
+          background-color: #FFA200;
+          color:#FEFBF9;
+          font-size: 15px;
+        }
+      }
+      .link{
+        color:#FF7E00;
+        border: 1px solid #FF7E00;
+        margin-left: 25px;
+      }
+    }
+    .totalNum,.now,.pp,.total{
+      line-height: 32px;
+      margin-top:5px;
+    }
+    .totalNum{
+      margin-left: 10px;
+    }
+    .pagehor{
+    margin-left:765px;
+    }
+  }
+  /*充值管理充值按钮*/
+  .RechargeViewImpl{
+    border: 1px solid #ccc;
+    padding: 20px;
+    input {
+      outline: none;
+      border-color:#B69167;
+    }
+    input:focus{
+      outline-color:#FF7E00;
+      outline:none;
+      border-color:#FF7E00;
+      box-shadow:0 0;
+    }
+    .title{
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    /*第一行*/
+    .hor1{
+      line-height: 30px;
+      margin-bottom: 10px;
+      /*姓名*/
+      .name{
+        font-weight: 600;
+        font-size: 15px;
+        margin-right: 40px;
+        margin-left: 30px;
+      }
+      /*性别*/
+      .gender{
+        font-weight: 600;
+        font-size: 15px;
+      }
+
+    }
+    /*第二行*/
+    .hor2 {
+      line-height: 30px;
+      margin: 10px 0;
+      /*电话*/
+      .phone {
+        width: 110px;
+        text-align: right;
+        margin-left: 30px;
+        font-size: 15px;
+        margin-right: 22px;
+      }
+      /*余额*/
+      .yue {
+        height: 26px;
+        margin-right: 15px;
+      }
+    }
+    /*第三行*/
+    .hor3{
+      line-height: 30px;
+      /*取消*/
+      .btn{
+        font-size: 15px;
+        margin-right: 8px;
+        margin-left: 50px;
+        color:#999999;
+        background: #fff;
+        border: 1px solid #999999;
+        border-radius: 6px;
+      }
+      .btn1{
+          font-size: 15px;
+        margin-right: 8px;
+        margin-left: 50px;
+        color:#FF7E00;
+        background: #fff;
+        border: 1px solid #FF7E00;
+        border-radius: 6px;
+      }
+    }
+    /*第四行*/
+    .hor4{
+      line-height: 30px;
+      margin: 10px 0;
+      /*所在地区*/
+      .lb{
+        margin-right: 10px;
+        font-size: 15px;
+      }
+      .lb1{
+        margin-left: 10px;
+        font-size: 15px;
+      }
+    }
+  }
+  /*充值管理查看按钮*/
+  .ShowRechargeViewImpl{
+    padding: 15px;
+    padding-right:30px;
+    .title{
+        line-height: 44px;
+    font-size: 18px;
+    text-align: center;
+    color: #b6b6b6;
+    border-bottom: 1px solid #eff0f2;
+      /*line-height: 30px;
+      font-size: 16px;*/
+    }
+    .list{
+      line-height: 30px;
+    }
+    .btn{
+          margin: 15px 100px;
+        color: #FF7E00;
+        background: #fff;
+        border:1px solid #FF7E00;
+        border-radius: 6px;
+          line-height: 30px;
+    }
+  }
+  /*查看充值流水*/
+  .MoneyListViewImpl {
+    margin-top: 10px;
+    padding-left: 20px;
+    /*查看充值流水：近20条记录*/
+    .title {
+      line-height: 33px;
+      padding: 0px 12px;
+      font-size: 16px;
+    }
+    .hor {
+      text-align: center;
+      line-height: 30px;
+      padding-left: 7px;
+      input {
+        outline: none;
+        border-color:#B69167;
+      }
+      input:focus{
+        outline-color:#FF7E00;
+        outline:none;
+        border-color:#FF7E00;
+        box-shadow:0 0;
+      }
+      .lb {
+        line-height: 30px;
+        text-align: center;
+        padding: 0px 7px;
+      }
+      /*是否本人*/
+      .check {
+        outline: none;
+        text-align: center;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 7px;
+      }
+      /*查询*/
+      .select {
+        margin-right: 10px;
+        width: 69px;
+        line-height: 32px;
+        background: #B4895C;
+        color: #fff;
+        border:none;
+        border-radius: 6px;
+      }
+    }
+    /* 表格 */
+    .beanTable {
+    .v-table-row-odd{
+            background:#fdefe2;
+        }
+      margin-top: 10px;
+      table:first-child{
+        tr:first-child {
+          background-color: #FFA200;
+          color:#FEFBF9;
+          font-size: 15px;
+        }
+      }
+
+    }
+    /*关闭*/
+    .btn{
+      line-height: 25px;
+      margin: 15px 264px;
+      height: 25px;
+      width: 105px;
+      background: #fff;
+      color: #FF7E00;
+      border:1px solid #FF7E00;
+      border-radius: 6px;
+    }
+  }
+
+  .mealaddorderaabbccsstyle {
+     margin-left:20px;
+     color:#FF7E00;
+
+  }
+
+  .aabsbkdjjbsytle {
+        margin-left:15px;
+      }
+
+      .addorderfhlbstyle {
+         margin-left:1px;
+      }
+
+      .addorderfhtfstyle {
+         width:171px;
+      }
+
+      .addsubjecthorlllstyle {
+        margin-left:-540px;
+
+        .addorderfhtfstyle {
+         width:433px;
+      }
+
+
+      }
+
+      .addorderjbtfstyle {
+        margin-top:30px;
+        margin-left:-680px;
+      }
+
+
+      .addsubjectjjtfstyle {
+        margin-left:-600px;
+      }
+
+      .mwtpsmhorstyle {
+      }
+
+      .mwtpsmhorstyle .v-vertical {
+         margin-left:5px;
+      }
+
+      .v-slot-mealworititlestyle{
+         margin-left:37px;
+         -webkit-margin-start:10px;
+         background: url(image/title-dot.png) no-repeat left center;
+            padding-left: 17px;
+            margin-bottom: 10px;
+        }
+        .mealworititlestyle{
+        font-size:18px;
+        line-height:30px;
+        font-weight:normal;
+        }
+
+        .mealorderlbcnamestyle {
+          margin-left:10px;
+        }
+
+        .mealorderlbzhucanstyle {
+          margin-left:10px;
+        }
+
+        .mealorderlbstatestyle {
+          margin-left:10px;
+        }
+
+        .mealorderlbduixstyle {
+          margin-left:10px;
+        }
+
+}

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+    auto-import="false"
+    default-access="field">
+
+    <!-- 每天菜谱 -->
+    <class name="com.wit.fxp.nxft.domain.model.meal.MealScheday" table="MEAL_SCHEDAY" schema="NXFT"
+            dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+
+        <!-- 单字段主键 -->
+        <id name="id" column="FSCHEDULE_ID" type="string" access="property">
+        </id>
+
+        <version name="version" type="integer" insert="true">
+            <column name="FVERSION" not-null="true" />
+        </version>
+
+<!--
+ | 以下请勿修改，下次生成后将被覆盖！！！
+ | BEGIN>>>@$^*!#%&1
+ |
+ | Created by Benewit Code Generator V1.0
+ | codegen/templates//java/java-enthbm.template
+ |-->
+
+        <component name="logInfo">
+            <property name="logcby" type="string">
+                <column name="FLOGCBY" length="32" not-null="true" />
+            </property>
+            <property name="logcdate" type="timestamp">
+                <column name="FLOGCDATE" not-null="true" />
+            </property>
+            <property name="logluby" type="string">
+                <column name="FLOGLUBY" length="32" not-null="true" />
+            </property>
+            <property name="logludate" type="timestamp">
+                <column name="FLOGLUDATE" not-null="true" />
+            </property>
+            <property name="loglaby" type="string">
+                <column name="FLOGLABY" length="32" not-null="true" />
+            </property>
+            <property name="logladate" type="timestamp">
+                <column name="FLOGLADATE" not-null="true" />
+            </property>
+        </component>
+
+
+        <!-- 厨房工作圈id -->
+        <property name="kitchenCircleId" type="string">
+            <column name="FKITCHEN_CIRCLE_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 排班单id -->
+        <property name="schenoteId" type="string">
+            <column name="FSCHENOTE_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 厨房teamid -->
+        <property name="kitchenTeamId" type="string">
+            <column name="FKITCHEN_TEAM_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 就餐日期 -->
+        <property name="mealDate" type="timestamp">
+            <column name="FMEAL_DATE" not-null="true" />
+        </property>
+
+
+        <!-- 周几 -->
+        <property name="week" type="integer">
+            <column name="FWEEK" not-null="true" />
+        </property>
+
+
+        <!-- 餐别ID -->
+        <property name="mealTypeId" type="string">
+            <column name="FMEAL_TYPE_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 餐别名称 -->
+        <property name="mealTypeName" type="string">
+            <column name="FMEAL_TYPE_NAME" length="40" not-null="true" />
+        </property>
+
+
+        <!-- 套餐id -->
+        <property name="mealId" type="string">
+            <column name="FMEAL_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 套餐CODE -->
+        <property name="mealCode" type="string">
+            <column name="FMEAL_CODE" length="30" not-null="true" />
+        </property>
+
+
+        <!-- 套餐名称 -->
+        <property name="mealName" type="string">
+            <column name="FMEAL_NAME" length="40" not-null="true" />
+        </property>
+
+
+        <!-- 套餐内容 -->
+        <property name="mealContent" type="string">
+            <column name="FMEAL_CONTENT" length="60" not-null="false" />
+        </property>
+
+
+        <!-- 单价 -->
+        <property name="mealPrice" type="double">
+            <column name="FMEAL_PRICE" not-null="true" />
+        </property>
+
+
+        <!-- 备注 -->
+        <property name="scheduleDesc" type="string">
+            <column name="FSCHEDULE_DESC" length="256" not-null="false" />
+        </property>
+
+
+        <!-- 是否已发布？ Y/N -->
+        <property name="isPublished" type="yes_no">
+            <column name="FIS_PUBLISHED" not-null="true" />
+        </property>
+
+
+        <!-- keys -->
+
+
+
+        <!-- relationship -->
+
+<!--
+ | 以上请勿修改，下次生成后将被覆盖！！！
+ | END<<<&%#!*^$@1
+ |-->
+    </class>
+
+</hibernate-mapping>

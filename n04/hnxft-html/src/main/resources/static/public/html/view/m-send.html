@@ -1,0 +1,96 @@
+<!--查看明细弹框-->
+<div class="mask" ng-show="maskshow">
+    <div class="alert">
+        <h2 class="title">配送单详细信息 <img src="zhidao/img/off1.png"  ng-click="maskshow=false;" alt=""/></h2>
+        <table>
+            <thead>
+            <tr>
+                <th>配餐单号</th>
+                <th>餐具号</th>
+                <th>套餐名称</th>
+                <th>数量</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in listDetail">
+                <td ng-bind="item.deliveNoteId"></td>
+                <td ng-bind="item.mealCode"></td>
+                <td ng-bind="item.mealName"></td>
+                <td ng-bind="item.quantity"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="selectIndex">
+    <div class="select-left fl">
+        <ul class="menu">
+            <li ui-sref="gaikuang">
+                <i class="gaik"><img src="../images/n1-gai.png" alt=""/></i><span>概况</span>
+            </li>
+            <li ui-sref="useList">
+                <i class="dianc"><img src="../images/n2-dian.png" alt=""/></i><span>点餐</span>
+            </li>
+            <li ui-sref="selectIndex">
+                <i class="chax"><img src="../images/n3-cha.png" alt=""/></i><span>查询</span>
+            </li>
+            <li ui-sref="guidance">
+                <i class="zhid"><img src="../images/n4-zhi.png" alt=""/></i><div class="guidance">
+                <p>饮食</p>
+                <p>指导</p>
+            </div>
+            </li>
+            <li class="active" ui-sref="manage">
+                <i class="manage"><img src="../images/5-manage.png" alt=""/></i><span>管理</span>
+            </li>
+        </ul>
+    </div>
+    <div class="select-right">
+        <div class="system-ver">
+            <span>送达确认</span>
+            <span class="close" ui-sref="manage">
+                <img src="../images/off.png" alt=""/>
+            </span>
+        </div>
+        <div class="sel-module">
+            <div class="condition">
+                <span>日期：</span><input type="text" id="selectTime" readonly/>
+                <span class="comon">状态：</span>
+                <select ng-model="selected" ng-change="myFunc()" ng-init="selected='已配送';company=[{circleName:'已配送',id:'已配送'},{circleName:'已送达',id:'已送达'}]" ng-options="m.id as m.circleName for m in company">
+                </select>
+                <button class="comon" ng-click="search()">查询</button>
+            </div>
+            <div class="content">
+                <table class="data">
+                    <thead>
+                    <tr>
+                        <th>配餐单号</th>
+                        <th>就餐日期</th>
+                        <th>星期</th>
+                        <th>餐别</th>
+                        <th>份数</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="m in list">
+                        <td ng-bind="m.id">
+                        </td>
+                        <td ng-bind="m.deliveInfo.mealDate | date:'yyyy-MM-dd'"></td>
+                        <td ng-bind="m.deliveInfo.mealDate | week"></td>
+                        <td ng-bind="m.deliveInfo.mealTypeName"></td>
+                        <td  ng-bind="m.deliveInfo.quantity"></td>
+                        <td ng-bind="m.lastState.lastState"></td>
+                        <td>
+                            <button ng-click="send($event,m.id)" ng-class="m.lastState.lastState=='已送达'?'active':'null'"  ng-bind="m.lastState.lastState=='已送达'?'已送达':'确认送达'">确认送达</button>
+                            &nbsp;<button ng-click="detail(m.id)">查看明细</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

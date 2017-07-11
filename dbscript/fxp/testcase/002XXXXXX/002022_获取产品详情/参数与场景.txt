@@ -1,0 +1,47 @@
+参数：
+  
+  1）服务产品id  fproduct_id= 00001
+ 
+     
+场景：
+  
+  1、在产品目录页选择“打扫室内卫生”查询服务产品详情
+  
+  
+结果：
+
+   1、根据服务产品id查询服务产品表2000010_p_site_product & 服务产品大类表 & 服务产品子分类表 获取服务产品信息
+   
+   界面显示
+   
+   fproduct_name               打扫室内卫生 -- 服务产品名称
+   fproduct_info               做饭         -- 产品信息
+   fproduct_subclass_name      小时工服务   -- 服务产品子分类名称
+   fproduct_class_name         生活照料     -- 服务大类名称
+   fisavailable                是           -- 是否上架
+   fproduct_price              50           -- 价格
+   fupdate_price               是           -- 是否允许修改价格
+   fproduct_unit               次           -- 单位
+   
+   查询语句：
+   
+   select  
+         x.fproduct_name,             -- 服务产品名称
+         y.fproduct_class_name,       -- 服务分类名称
+         z.fproduct_subclass_name,    -- 服务产品子分类名称
+         x.fproduct_info,             -- 产品信息
+         x.fisavailable,              -- 是否可用   
+         --   
+         x.fproduct_price,            -- 价格
+         x.fupdate_price,             -- 是否允许修改价格
+         x.fproduct_unit,             -- 单位
+         --
+         x.fuse_coupon                -- 是否可用券？
+    from fxp.p_site_product x,
+        fxp.p_product_class    y,
+        fxp.p_product_subclass z
+  where x.fproduct_class_id = y.fproduct_class_id          and
+        x.fproduct_subclass_id = z.fproduct_subclass_id    and
+        x.fproduct_id = :product_id ;
+   
+   

@@ -1,0 +1,65 @@
+使用 000\init_user.xml
+
+参数：
+  1、配置环境常量：
+    [QYH_VISTOR_DEPT]    企业号通讯录部门 游客部门
+    
+       
+  2、参数：
+     1）微信企业号 userid= 234567 
+     
+ 
+
+场景：
+
+  1、张小明通过微信企业号--企业小助手--用户注册成为 系统游客。 
+  
+  2、关闭“用户注册”界面
+  
+     1）自动验证：当前登录的微信号或微信号绑定的手机 等于 微信通讯录中的微信号或手机，当前微信和企业号通讯录关注。
+     
+        
+     
+     2）手动验证：（当前登录的微信号或微信号绑定的手机 <> 微信通讯录中的微信号或手机）
+     
+           点击“企业小助手” 应用，完成微信关注
+           
+        A、输入微信通讯录中的手机号及短信验证码，完成当前微信和和企业号通讯录绑定（关注）。
+        B、输入微信通讯录中的邮箱号及邮箱验证码，完成当前微信和和企业号通讯录绑定（关注）。
+        
+        
+   3、完成微信企业号关注后，获取张小明在企业号通讯录userid= 234567 调用本服务，成为系统散客
+   
+   4、自动验证/手工验证通过后提示：您已通过身份验证，加入企业号。
+
+   
+
+结果：
+
+  1、插用户表，fxp.p_user
+  
+    fuser_id                      13662487771                -- 用户id   FXP.P_QYH_GUEST （fweixinid、fmobile、femail 任何一个不为空)
+    fpassword                     空                         -- 用户密码，密码需加密存储，如果为空不允许直接输入用户id登录
+    fnickname                     张小明                     -- 显示名(昵称）
+    fsex_id                       1                          -- 性别id
+    fsex_name                     男                         -- 性别名称
+    fphoto_id                     空                         -- 最新头像id
+    fsignature_id                 空                         -- 最新签名id
+    fuser_desc                    空                         -- 备注
+    
+  2、根据fqyh_user_id，将fxp.p_qyh_guest 记录插入到微信企业号用户表 fxp.p_qyh_user中
+  
+     fqyh_user_id                fxp.p_qyh_guest.fqyh_user_id     -- 微信企业号user id
+     fuser_type                  UNORG                            -- 用户类型 常量  UNORG  散客  EMP 职工
+     fuser_name                  fxp.p_qyh_guest.fuser_name       -- 姓名
+     fsex_id                     fxp.p_qyh_guest.fsex_id          -- 性别id
+     fsex_name                   fxp.p_qyh_guest.fsex_name        -- 性别名称
+     fweixinid                   fxp.p_qyh_guest.fweixinid        -- 注册微信号
+     fmobile                     fxp.p_qyh_guest.fmobile          -- 注册手机号
+     femail                      fxp.p_qyh_guest.femail           -- 注册邮箱号
+     fuser_id                    fxp.p_user.fuser_id              -- 用户ID
+  
+   3、删除fxp.p_qyh_guest   fqyh_user_id= 234567
+   
+
+ 

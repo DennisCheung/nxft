@@ -1,0 +1,123 @@
+@charset "UTF-8";
+.selectIndex {
+  overflow: hidden; }
+  .selectIndex .select-left {
+    width: 3rem; }
+    .selectIndex .select-left .menu {
+      width: 100%;
+      background: url("../images/3-bgnev.png") no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%; }
+      .selectIndex .select-left .menu li {
+        height: 2.16rem;
+        line-height: 2.17rem;
+        border-bottom: 1px solid #736E6B;
+        font-size: 0.48rem;
+        color: #ffffff;
+        cursor: pointer; }
+        .selectIndex .select-left .menu li i {
+          display: inline-block;
+          width: 38%;
+          height: 100%;
+          vertical-align: top;
+          padding-left: 0.31rem;
+          padding-top: .80rem; }
+          .selectIndex .select-left .menu li i img {
+            vertical-align: top;
+            height: auto;
+            width: 0.67rem; }
+        .selectIndex .select-left .menu li span {
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem; }
+      .selectIndex .select-left .menu li.active i {
+        background: #ff7e00; }
+      .selectIndex .select-left .menu li.active span {
+        color: #ff7e00;
+        background: #2a2d32; }
+      .selectIndex .select-left .menu li.guidance span {
+        line-height: normal;
+        padding-top: 0.5rem; }
+  .selectIndex .select-right {
+    padding-left: 3.00rem;
+    /*系统版本*/ }
+    .selectIndex .select-right .system-ver {
+      height: 0.64rem;
+      width: 100%;
+      background: #ff7e00;
+      color: #fefefe;
+      font-size: 0.30rem;
+      padding-top: 0.13rem;
+      padding-right: 0.31rem;
+      text-align: right; }
+    .selectIndex .select-right .sel-module .login-box {
+      padding-top: 0.99rem; }
+      .selectIndex .select-right .sel-module .login-box .title {
+        font-size: 0.60rem;
+        color: #ff7e00;
+        text-align: center;
+        margin-bottom: 0.80rem; }
+      .selectIndex .select-right .sel-module .login-box .user {
+        margin: 0.30rem 0;
+        text-align: center;
+        font-size: 0; }
+        .selectIndex .select-right .sel-module .login-box .user .u-img {
+          border: 1px solid #faa858;
+          display: inline-block;
+          width: 0.96rem;
+          height: 1.08rem;
+          border-radius: 0.30rem 0 0 0.30rem;
+          background: url("../images/manage-user.png") no-repeat center center;
+          background-color: #fce8d5;
+          background-size: 0.48rem 0.46rem;
+          border-right: none;
+          vertical-align: middle; }
+        .selectIndex .select-right .sel-module .login-box .user .password {
+          background-image: url("../images/manage-password.png"); }
+        .selectIndex .select-right .sel-module .login-box .user .u-info {
+          font-size: 0.36rem;
+          color: #b4b2b2;
+          width: 6rem;
+          height: 1.08rem;
+          border-radius: 0 0.30rem 0.30rem 0;
+          border: 1px solid #faa858;
+          vertical-align: middle;
+          text-indent: 0.25rem; }
+        .selectIndex .select-right .sel-module .login-box .user .u-info:focus {
+          box-shadow: 5px 1px 29px 7px #fbe9d9; }
+      .selectIndex .select-right .sel-module .login-box .remember {
+        width: 6.96rem;
+        text-align: right;
+        margin: 0 auto; }
+        .selectIndex .select-right .sel-module .login-box .remember .u-img {
+          display: inline;
+          cursor: pointer; }
+          .selectIndex .select-right .sel-module .login-box .remember .u-img img {
+            vertical-align: bottom;
+            width: 0.40rem;
+            height: auto; }
+        .selectIndex .select-right .sel-module .login-box .remember .txt {
+          font-size: 0.36rem;
+          color: #333333; }
+      .selectIndex .select-right .sel-module .login-box .login-in {
+        margin-top: 0.83rem;
+        text-align: center; }
+        .selectIndex .select-right .sel-module .login-box .login-in .btn {
+          width: 6.95rem;
+          height: 1.08rem;
+          border-radius: 0.50rem;
+          border: 1px solid #ffffff;
+          background: #ff7e00;
+          color: #ffffff;
+          text-align: center;
+          font-size: 0.40rem;
+          cursor: pointer; }
+      .selectIndex .select-right .sel-module .login-box .login-alert {
+        margin-top: 0.35rem;
+        font-size: 0.30rem;
+        color: #ee4040;
+        text-align: center; }
+
+/*# sourceMappingURL=manageLogin.css.map */

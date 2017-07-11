@@ -1,0 +1,19 @@
+.gaikuang-content .header {
+  height: 124px;
+  line-height: 124px;
+  background: #fefce9;
+  text-align: center;
+  position: relative; }
+  .gaikuang-content .header .title {
+    font-size: 48px;
+    color: #010101; }
+  .gaikuang-content .header .close {
+    width: 41px;
+    height: 41px;
+    display: inline-block;
+    background: url("../images/widget/off1.png") no-repeat center center;
+    position: absolute;
+    top: 41px;
+    right: 41px; }
+
+/*# sourceMappingURL=gaikuangContent.css.map */

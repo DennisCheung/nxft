@@ -1,0 +1,13 @@
+<!--<link rel="stylesheet" href="../../css/loginZcd.css"/>
+<title>登录-选择助餐点</title>-->
+<div class="login-zcd">
+        <div class="zcd"><span>助餐点</span></div>
+        <div class="sel-module">
+            <div class="word">
+                <span>选择助餐点：</span>
+            </div>
+            <div class="ydzcd" ng-repeat="item in data" ng-click="save(item)">
+                <span ng-bind="item.teamName | cut:15"></span>
+            </div>
+        </div>
+</div>

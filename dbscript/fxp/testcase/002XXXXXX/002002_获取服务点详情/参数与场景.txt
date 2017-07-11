@@ -1,0 +1,30 @@
+参数： 查询服务点详情
+  
+  1）服务商id   fsite_id= 30001 
+
+     
+场景：
+  
+  1、查询某一服务点详情
+  
+  
+结果：
+
+   1、查询服务商祥情
+   
+    select
+        y.fsupplier_name, -- 所属服务商名称
+        x.fsite_name,     -- 服务点名称
+        z.fnickname,      -- 店长姓名
+        x.fservice_scope_desc,  -- 经营范围
+        x.fsite_info,     -- 服务点简介
+        x.faddress        -- 服务点地址 
+    from  fxp.p_site x,
+          fxp.p_supplier y,
+          fxp.p_user z
+     where x.forg_id = y.fsupplier_id and
+           x.fadmin_user_id = z.fuser_id  and
+           x.fsite_id = :site_id ;  
+  
+  
+  

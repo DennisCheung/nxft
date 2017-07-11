@@ -1,0 +1,183 @@
+@charset "utf-8";
+body{
+  font-family: "Microsoft YaHei";
+}
+.selectIndex{
+  overflow: hidden;
+  .select-left{
+    width:3rem;
+    .menu{
+      width: 100%;
+      background: url("../images/3-bgnev.png") no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%;
+      li{
+        height: 2.16rem;
+        border-bottom:1px solid #736E6B;
+        color:#ffffff;
+        cursor:pointer;
+        font-size: 0;
+        i{
+          display: inline-block;
+          width: 38%;
+          height: 100%;
+          vertical-align: top;
+          padding-left:0.31rem;
+          padding-top: 0.8rem;
+          img{
+            vertical-align: top;
+            height: auto;
+            width: 0.67rem;
+          }
+        }
+        span{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.75rem;
+        }
+        .guidance{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.43rem;
+        }
+      }
+      li.active{
+        i{
+          background: #ff7e00;
+        }
+        span,.guidance{
+          color:#ff7e00;
+          background:#2a2d32;
+        }
+      }
+    }
+  }
+  .select-right{
+    padding-left:3rem;
+    /*用户信息*/
+    .condition{
+      overflow: hidden;
+      background: #ff7e00;
+      position: relative;
+      height: 1.12rem;
+      ul li.calendar{
+        cursor:pointer;
+      }
+      ul li.food{
+        button{
+          width: 1.6rem;
+          height: 0.60rem;
+          font-size: 0.30rem;
+          color: #999999;
+          border-radius: 0.30rem;
+          text-align: center;
+          border: none;
+          background-color: #ffffff;
+          margin-left: 10px;
+        }
+        .active{
+          color:#FF7F00;
+        }
+      }
+      ul li{
+        float: left;
+        line-height: 0.96rem;
+        margin-top: 0.10rem;
+        height: 0.96rem;
+        color: #ffffff;
+        font-size: 0.30rem;
+        padding-right: 0.3rem;
+        padding-left: 0.3rem;
+        border-right: 1px dashed #ffffff;
+        i img{
+          vertical-align: middle;
+          width: 0.67rem;
+          height: auto;
+        }
+        .span{
+          padding-left: 0.24rem;
+          display: inline-block;
+          vertical-align: top;
+          background: #ff7e00;
+          width: 2rem;
+          height: 0.96rem;
+          border: none;
+          cursor:pointer;
+          color: #fff;
+        }
+        span{
+          padding-left: 0.24rem;
+          display: inline-block;
+          vertical-align: top;
+          i{
+            font-style: normal;
+          }
+          /*点击早餐*/
+          .sanjiao{
+            margin-left: 10px;
+            border-left: 0.15rem solid transparent;
+            border-right: 0.15rem solid transparent;
+            border-top: 0.30rem solid white;
+            box-sizing: content-box;
+            display: inline-block;
+            vertical-align: middle;
+          }
+        }
+
+      }
+      ul li.sea{
+        border: none;
+        .search{
+          width: 1.56rem;
+          height: 0.65rem;
+          border: none;
+          border-radius: 0.36rem;
+          background: #fff3e8;
+          color: #333333;
+          font-size: 0.36rem;
+        }
+      }
+      .closed{
+        position: absolute;
+        right:0.45rem;
+        top:0.30rem;
+        cursor:pointer;
+      }
+    }
+    /*表格数据*/
+    .content{
+      padding-top: 0.26rem;
+      position: relative;
+      height: 9.55rem;
+      overflow-y: auto;
+      .data{
+        border-collapse: collapse;
+        width: 95.743368%;
+        margin: 0 auto;
+        td,th{
+          border: 1px solid #d2d2d2;
+          text-align: center;
+        }
+        thead{
+          font-size: 0.30rem;
+          color:#ff7e00;
+          background: #fff3e8;
+          line-height: 3.53;
+        }
+        tbody{
+          font-size:0.30rem;
+          color:#333333;
+          line-height: 2.36;
+        }
+      }
+    }
+  }
+}

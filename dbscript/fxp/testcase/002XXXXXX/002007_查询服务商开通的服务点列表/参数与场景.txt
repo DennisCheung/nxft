@@ -1,0 +1,25 @@
+参数：
+  
+  1）服务商id   fsupplier_id= 30001 
+ 
+     
+场景：
+  
+  1、查询服务商开通的服务点列表
+  
+  
+结果：
+
+   1、查询服务商开通的服务点列表
+   
+     select 
+          fsite_id ,              -- 经营场所id
+          fsite_name,             -- 经营场所名称
+          fsite_info,             -- 场所简介
+          fservice_scope_desc,    -- 服务范围
+          faddress,               -- 详细地址
+          fsite_desc              -- 场所备注
+     from  fxp.p_site
+     where forg_id = :supplier_id and
+           fis_cancel = 'N' ;  
+           

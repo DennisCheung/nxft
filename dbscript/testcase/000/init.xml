@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+
+  <!-- 01 对象 -->
+  <NXFT.NXFT_SUBJECT/>
+  <NXFT.NXFT_SUBJECT_DISEASE/>
+  <NXFT.NXFT_SUBJECT_FOOD_PROHIBIT/>
+  <NXFT.NXFT_SUBJECT_LIVING_CONDI/>
+  <NXFT.NXFT_SUBJECT_SMS_LOG/>
+  
+  <!-- 02 菜谱 -->
+  <NXFT.MEAL_SCHENOTE/>
+  <NXFT.MEAL_SCHEDAY/> 
+  
+  <!-- 03 订单 -->
+  <NXFT.NXFT_ORDER/>
+  
+  <NXFT.DELIVE_NOTE/>
+  <NXFT.DELIVE_DETAIL/> 
+  <NXFT.DELIVE_CREATE_LOG/> 
+  
+  <!-- 04 统计 -->
+  <NXFT.SIS_SERVICE_RESOURCE/>
+     
+</dataset>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+    auto-import="false"
+    default-access="field">
+
+    <!-- 套餐禁忌疾病 -->
+    <class name="com.wit.fxp.nxft.domain.model.meal.MealDisease" table="MEAL_DISEASE" schema="NXFT"
+            dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+
+        <!-- 单字段主键 -->
+        <id name="id" column="FPK_ID" type="string" access="property">
+        </id>
+
+        <version name="version" type="integer" insert="true">
+            <column name="FVERSION" not-null="true" />
+        </version>
+
+<!--
+ | 以下请勿修改，下次生成后将被覆盖！！！
+ | BEGIN>>>@$^*!#%&1
+ |
+ | Created by Benewit Code Generator V1.0
+ | codegen/templates//java/java-enthbm.template
+ |-->
+
+        <component name="logInfo">
+            <property name="logcby" type="string">
+                <column name="FLOGCBY" length="32" not-null="true" />
+            </property>
+            <property name="logcdate" type="timestamp">
+                <column name="FLOGCDATE" not-null="true" />
+            </property>
+            <property name="logluby" type="string">
+                <column name="FLOGLUBY" length="32" not-null="true" />
+            </property>
+            <property name="logludate" type="timestamp">
+                <column name="FLOGLUDATE" not-null="true" />
+            </property>
+            <property name="loglaby" type="string">
+                <column name="FLOGLABY" length="32" not-null="true" />
+            </property>
+            <property name="logladate" type="timestamp">
+                <column name="FLOGLADATE" not-null="true" />
+            </property>
+        </component>
+
+
+        <!-- 疾病id -->
+        <property name="diseaseId" type="string">
+            <column name="FDISEASE_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 疾病名称 -->
+        <property name="diseaseName" type="string">
+            <column name="FDISEASE_NAME" length="40" not-null="true" />
+        </property>
+
+
+        <!-- 套餐id -->
+        <property name="mealId" type="string">
+            <column name="FMEAL_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 备注 -->
+        <property name="diseaseDesc" type="string">
+            <column name="FDISEASE_DESC" length="256" not-null="false" />
+        </property>
+
+
+        <!-- keys -->
+
+
+
+        <!-- relationship -->
+
+<!--
+ | 以上请勿修改，下次生成后将被覆盖！！！
+ | END<<<&%#!*^$@1
+ |-->
+    </class>
+
+</hibernate-mapping>

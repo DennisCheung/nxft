@@ -1,0 +1,46 @@
+使用 000\init_user.xml
+
+参数：张小明（fuser_id = 00001）修改工作圈名称
+
+      
+    1、参数：
+	 1）用户id fuser_id = 00001
+     2）老板id fboss_id = FLJK
+     3）工作圈id fcircle_id = 000100
+     4）工作名称 fcircle_name = 广州福来科技
+     
+       select fboss_id from fxp.p_boss t where t.fadmin_user_id = :本操作员id ;
+
+   前置条件：
+  
+   1、登录的用户id fuser_id = 00001 是 BOSS 的管理员
+   
+   2、用户张小明已经新建了工作圈 荆州福来科技
+
+场景：
+  1、张小明是 BOSS 的管理员
+     
+     在工作圈点击进入管理后台，点击工作圈详情，点击工作圈名称，进入修改工作圈名称
+     
+     2）工作圈名称    由荆州福来科技 修改为 广州福来科技
+     
+       
+  2、点击“保存”， 实现工作圈修改名称功能
+
+结果：
+
+  1、更新 工作圈表 fxp.p_circle
+-- +-----------------------------+--------------+-----------+
+   fcircle_id                    000100                     -- 工作圈id     票据号生成 FBILL_TYPE_ID = CIRCLE_ID -- 不变
+   fcircle_name                  广州福来科技               -- 工作圈名称 -- 修改为广州福来科技
+   fcircle_short_name            荆州福来                   -- 工作圈简称 -- 不变
+   fboss_id                      FLJK                       -- 老板id = fxp.p_boss.fboss_id -- 不变
+   fcircle_desc                  由张小明新增               -- 备注  -- 不变
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 创建者
+   --
+   fcreate_time                  当前时间                  -- 创建时间 
+   fcreate_user_id               00001                     -- 创建操作员id
+   fcreate_user_name             张小明                    -- 创建操作员姓名  
+ 

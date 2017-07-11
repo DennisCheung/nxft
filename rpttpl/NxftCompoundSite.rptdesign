@@ -1,0 +1,1849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">6</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">6</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">6</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="deliveNoteId" id="5">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">40002</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.h2.Driver</property>
+            <property name="odaURL">jdbc:h2:tcp://localhost/~/h2/nxft;MODE=Oracle</property>
+            <property name="odaUser">sa</property>
+            <property name="odaJndiName">java:comp/env/jdbc/nxftprintserver</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="deliveNote" id="6">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">FDELIVE_NOTE_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FDELIVE_NOTE_ID</text-property>
+                    <text-property name="heading">FDELIVE_NOTE_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCIRCLE_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCIRCLE_ID</text-property>
+                    <text-property name="heading">FCIRCLE_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FDELIVE_TYPE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FDELIVE_TYPE</text-property>
+                    <text-property name="heading">FDELIVE_TYPE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FDELIVE_SITE_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FDELIVE_SITE_ID</text-property>
+                    <text-property name="heading">FDELIVE_SITE_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FDELIVE_SITE_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FDELIVE_SITE_NAME</text-property>
+                    <text-property name="heading">FDELIVE_SITE_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FDELIVE_ADDR</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FDELIVE_ADDR</text-property>
+                    <text-property name="heading">FDELIVE_ADDR</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FKITCHEN_CIRCLE_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FKITCHEN_CIRCLE_ID</text-property>
+                    <text-property name="heading">FKITCHEN_CIRCLE_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FMEAL_DATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FMEAL_DATE</text-property>
+                    <text-property name="heading">FMEAL_DATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FWEEK</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">FWEEK</text-property>
+                    <text-property name="heading">FWEEK</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FMEAL_TYPE_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FMEAL_TYPE_ID</text-property>
+                    <text-property name="heading">FMEAL_TYPE_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FMEAL_TYPE_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FMEAL_TYPE_NAME</text-property>
+                    <text-property name="heading">FMEAL_TYPE_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FQUANTITY</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">FQUANTITY</text-property>
+                    <text-property name="heading">FQUANTITY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FQUANTITY_DESC</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FQUANTITY_DESC</text-property>
+                    <text-property name="heading">FQUANTITY_DESC</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCREATE_TIME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCREATE_TIME</text-property>
+                    <text-property name="heading">FCREATE_TIME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCREATE_USER_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCREATE_USER_ID</text-property>
+                    <text-property name="heading">FCREATE_USER_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCREATE_USER_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCREATE_USER_NAME</text-property>
+                    <text-property name="heading">FCREATE_USER_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLAST_STATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLAST_STATE</text-property>
+                    <text-property name="heading">FLAST_STATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLAST_TIME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLAST_TIME</text-property>
+                    <text-property name="heading">FLAST_TIME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLAST_USER_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLAST_USER_ID</text-property>
+                    <text-property name="heading">FLAST_USER_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLAST_NICKNAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLAST_NICKNAME</text-property>
+                    <text-property name="heading">FLAST_NICKNAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLAST_DESC</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLAST_DESC</text-property>
+                    <text-property name="heading">FLAST_DESC</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FNEXT_NODE_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FNEXT_NODE_ID</text-property>
+                    <text-property name="heading">FNEXT_NODE_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FNEXT_NODE_CONTENT</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FNEXT_NODE_CONTENT</text-property>
+                    <text-property name="heading">FNEXT_NODE_CONTENT</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FIS_COMPLETE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FIS_COMPLETE</text-property>
+                    <text-property name="heading">FIS_COMPLETE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCOMPLETE_STATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCOMPLETE_STATE</text-property>
+                    <text-property name="heading">FCOMPLETE_STATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FFAIL_REASON_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FFAIL_REASON_NAME</text-property>
+                    <text-property name="heading">FFAIL_REASON_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCOMPLETE_TIME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCOMPLETE_TIME</text-property>
+                    <text-property name="heading">FCOMPLETE_TIME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCOMPLETE_USER_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCOMPLETE_USER_ID</text-property>
+                    <text-property name="heading">FCOMPLETE_USER_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCOMPLETE_NICKNAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCOMPLETE_NICKNAME</text-property>
+                    <text-property name="heading">FCOMPLETE_NICKNAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCOMPLETE_DESC</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCOMPLETE_DESC</text-property>
+                    <text-property name="heading">FCOMPLETE_DESC</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FVERSION</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">FVERSION</text-property>
+                    <text-property name="heading">FVERSION</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLOGCBY</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLOGCBY</text-property>
+                    <text-property name="heading">FLOGCBY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLOGCDATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLOGCDATE</text-property>
+                    <text-property name="heading">FLOGCDATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLOGLUBY</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLOGLUBY</text-property>
+                    <text-property name="heading">FLOGLUBY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLOGLUDATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLOGLUDATE</text-property>
+                    <text-property name="heading">FLOGLUDATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLOGLABY</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLOGLABY</text-property>
+                    <text-property name="heading">FLOGLABY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FLOGLADATE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FLOGLADATE</text-property>
+                    <text-property name="heading">FLOGLADATE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FKITCHEN_TEAM_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FKITCHEN_TEAM_ID</text-property>
+                    <text-property name="heading">FKITCHEN_TEAM_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCONTACT_PERSON</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCONTACT_PERSON</text-property>
+                    <text-property name="heading">FCONTACT_PERSON</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FCONTACT_MOBILE</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FCONTACT_MOBILE</text-property>
+                    <text-property name="heading">FCONTACT_MOBILE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FTEAM_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FTEAM_NAME</text-property>
+                    <text-property name="heading">FTEAM_NAME</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">deliveNoteId</property>
+                    <property name="paramName">deliveNoteId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">FDELIVE_NOTE_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">FCIRCLE_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">FDELIVE_TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">FDELIVE_SITE_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">FDELIVE_SITE_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">FDELIVE_ADDR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">FKITCHEN_CIRCLE_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">FMEAL_DATE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">FWEEK</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">FMEAL_TYPE_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">FMEAL_TYPE_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">FQUANTITY</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">FQUANTITY_DESC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">FCREATE_TIME</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">FCREATE_USER_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">FCREATE_USER_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">FLAST_STATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">FLAST_TIME</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">FLAST_USER_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">FLAST_NICKNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">FLAST_DESC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">FNEXT_NODE_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">FNEXT_NODE_CONTENT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">FIS_COMPLETE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">FCOMPLETE_STATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">FFAIL_REASON_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">FCOMPLETE_TIME</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">FCOMPLETE_USER_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">FCOMPLETE_NICKNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">FCOMPLETE_DESC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">FVERSION</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">FLOGCBY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">33</property>
+                        <property name="name">FLOGCDATE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">34</property>
+                        <property name="name">FLOGLUBY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">35</property>
+                        <property name="name">FLOGLUDATE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">36</property>
+                        <property name="name">FLOGLABY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">37</property>
+                        <property name="name">FLOGLADATE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">38</property>
+                        <property name="name">FKITCHEN_TEAM_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">39</property>
+                        <property name="name">FCONTACT_PERSON</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">40</property>
+                        <property name="name">FCONTACT_MOBILE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">41</property>
+                        <property name="name">FTEAM_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">FDELIVE_NOTE_ID</property>
+                    <property name="nativeName">FDELIVE_NOTE_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">FCIRCLE_ID</property>
+                    <property name="nativeName">FCIRCLE_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">FDELIVE_TYPE</property>
+                    <property name="nativeName">FDELIVE_TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">FDELIVE_SITE_ID</property>
+                    <property name="nativeName">FDELIVE_SITE_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">FDELIVE_SITE_NAME</property>
+                    <property name="nativeName">FDELIVE_SITE_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">FDELIVE_ADDR</property>
+                    <property name="nativeName">FDELIVE_ADDR</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">FKITCHEN_CIRCLE_ID</property>
+                    <property name="nativeName">FKITCHEN_CIRCLE_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">FMEAL_DATE</property>
+                    <property name="nativeName">FMEAL_DATE</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">FWEEK</property>
+                    <property name="nativeName">FWEEK</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">FMEAL_TYPE_ID</property>
+                    <property name="nativeName">FMEAL_TYPE_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">FMEAL_TYPE_NAME</property>
+                    <property name="nativeName">FMEAL_TYPE_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">FQUANTITY</property>
+                    <property name="nativeName">FQUANTITY</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">FQUANTITY_DESC</property>
+                    <property name="nativeName">FQUANTITY_DESC</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">FCREATE_TIME</property>
+                    <property name="nativeName">FCREATE_TIME</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">FCREATE_USER_ID</property>
+                    <property name="nativeName">FCREATE_USER_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">FCREATE_USER_NAME</property>
+                    <property name="nativeName">FCREATE_USER_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">FLAST_STATE</property>
+                    <property name="nativeName">FLAST_STATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">FLAST_TIME</property>
+                    <property name="nativeName">FLAST_TIME</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">FLAST_USER_ID</property>
+                    <property name="nativeName">FLAST_USER_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">FLAST_NICKNAME</property>
+                    <property name="nativeName">FLAST_NICKNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">FLAST_DESC</property>
+                    <property name="nativeName">FLAST_DESC</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">FNEXT_NODE_ID</property>
+                    <property name="nativeName">FNEXT_NODE_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">FNEXT_NODE_CONTENT</property>
+                    <property name="nativeName">FNEXT_NODE_CONTENT</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">FIS_COMPLETE</property>
+                    <property name="nativeName">FIS_COMPLETE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">FCOMPLETE_STATE</property>
+                    <property name="nativeName">FCOMPLETE_STATE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">FFAIL_REASON_NAME</property>
+                    <property name="nativeName">FFAIL_REASON_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">FCOMPLETE_TIME</property>
+                    <property name="nativeName">FCOMPLETE_TIME</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">FCOMPLETE_USER_ID</property>
+                    <property name="nativeName">FCOMPLETE_USER_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">FCOMPLETE_NICKNAME</property>
+                    <property name="nativeName">FCOMPLETE_NICKNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">FCOMPLETE_DESC</property>
+                    <property name="nativeName">FCOMPLETE_DESC</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">FVERSION</property>
+                    <property name="nativeName">FVERSION</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">FLOGCBY</property>
+                    <property name="nativeName">FLOGCBY</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">33</property>
+                    <property name="name">FLOGCDATE</property>
+                    <property name="nativeName">FLOGCDATE</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">34</property>
+                    <property name="name">FLOGLUBY</property>
+                    <property name="nativeName">FLOGLUBY</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">35</property>
+                    <property name="name">FLOGLUDATE</property>
+                    <property name="nativeName">FLOGLUDATE</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">36</property>
+                    <property name="name">FLOGLABY</property>
+                    <property name="nativeName">FLOGLABY</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">37</property>
+                    <property name="name">FLOGLADATE</property>
+                    <property name="nativeName">FLOGLADATE</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">38</property>
+                    <property name="name">FKITCHEN_TEAM_ID</property>
+                    <property name="nativeName">FKITCHEN_TEAM_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">39</property>
+                    <property name="name">FCONTACT_PERSON</property>
+                    <property name="nativeName">FCONTACT_PERSON</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">40</property>
+                    <property name="name">FCONTACT_MOBILE</property>
+                    <property name="nativeName">FCONTACT_MOBILE</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">41</property>
+                    <property name="name">FTEAM_NAME</property>
+                    <property name="nativeName">FTEAM_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select n.*,t.fteam_name
+from NXFT.DELIVE_NOTE n,fxp.p_team t
+where n.FDELIVE_NOTE_ID = ?
+and t.fteam_id = n.fkitchen_team_id;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+          <design:precision>32</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="orderDetail" id="200">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">rowCount</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">RUNNINGCOUNT</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">LUNBOXNO</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">LUNBOXNO</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">LUNBOXNO</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SUBJECTNAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SUBJECTNAME</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">SUBJECTNAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">MEALNAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">MEALNAME</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">MEALNAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">MEALPRICE</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">MEALPRICE</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">MEALPRICE</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">QUANTITY</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">QUANTITY</text-property>
+                    <property name="onColumnLayout">false</property>
+                    <text-property name="heading">QUANTITY</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">MEALHELP</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">MEALHELP</text-property>
+                    <text-property name="heading">MEALHELP</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">LOVEFOOD</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">LOVEFOOD</text-property>
+                    <text-property name="heading">LOVEFOOD</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FOODPHOHIBIT</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FOODPHOHIBIT</text-property>
+                    <text-property name="heading">FOODPHOHIBIT</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">deliveNoteId</property>
+                    <property name="paramName">deliveNoteId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">LUNBOXNO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">SUBJECTNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">MEALNAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">MEALPRICE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">QUANTITY</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">MEALHELP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">LOVEFOOD</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">FOODPHOHIBIT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">rowCount</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">LUNBOXNO</property>
+                    <property name="nativeName">LUNBOXNO</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">SUBJECTNAME</property>
+                    <property name="nativeName">SUBJECTNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">MEALNAME</property>
+                    <property name="nativeName">MEALNAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">MEALPRICE</property>
+                    <property name="nativeName">MEALPRICE</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">QUANTITY</property>
+                    <property name="nativeName">QUANTITY</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">MEALHELP</property>
+                    <property name="nativeName">MEALHELP</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">LOVEFOOD</property>
+                    <property name="nativeName">LOVEFOOD</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">FOODPHOHIBIT</property>
+                    <property name="nativeName">FOODPHOHIBIT</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select s.flunch_box_no lunboxno, o.fsubject_name subjectname,
+ o.fmeal_name mealname, o.fmeal_price mealprice,fquantity quantity,
+ s.fis_meal_help mealHelp, s.fsubject_food_love_name loveFood,
+ s.fsubject_food_prohibit foodPhohibit
+from nxft.nxft_order o,nxft.nxft_subject s
+where o.fdelive_note_id = ?
+and o.fsubject_id = s.fsubject_id
+order by s.flunch_box_no,s.faddress,o.fsubject_name,o.fquantity;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+          <design:precision>32</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>LUNBOXNO</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>LUNBOXNO</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>LUNBOXNO</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>SUBJECTNAME</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>80</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>SUBJECTNAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>SUBJECTNAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>80</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>MEALNAME</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>MEALNAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>MEALNAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>MEALPRICE</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>3</design:nativeDataTypeCode>
+            <design:precision>4</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>MEALPRICE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>MEALPRICE</design:label>
+            <design:formattingHints>
+              <design:displaySize>4</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>QUANTITY</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>6</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>QUANTITY</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>QUANTITY</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="deliveNoteDetail" id="396">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">rowcount</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">RUNNINGCOUNT</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">FMEAL_ID</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FMEAL_ID</text-property>
+                    <text-property name="heading">FMEAL_ID</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FMEAL_NAME</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FMEAL_NAME</text-property>
+                    <text-property name="heading">FMEAL_NAME</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">QUANTITY</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">QUANTITY</text-property>
+                    <text-property name="heading">QUANTITY</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">deliveNoteId</property>
+                    <property name="paramName">deliveNoteId</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">FMEAL_ID</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">FMEAL_NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">QUANTITY</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">rowcount</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">FMEAL_ID</property>
+                    <property name="nativeName">FMEAL_ID</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">FMEAL_NAME</property>
+                    <property name="nativeName">FMEAL_NAME</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">QUANTITY</property>
+                    <property name="nativeName">QUANTITY</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select fmeal_id, fmeal_name,sum(fquantity) quantity
+from nxft.nxft_order d
+where d.fdelive_note_id = ? 
+group by fmeal_id, fmeal_name
+order by fmeal_id;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+          <design:precision>32</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="bigFontStyle" id="133">
+            <property name="fontSize">38pt</property>
+            <property name="textAlign">center</property>
+        </style>
+        <style name="bigFontStyle2" id="138">
+            <property name="fontSize">20pt</property>
+            <property name="fontWeight">bolder</property>
+            <property name="marginTop">0pt</property>
+            <property name="marginBottom">15pt</property>
+            <property name="textAlign">center</property>
+        </style>
+        <style name="midFontStyle" id="148">
+            <property name="fontSize">18pt</property>
+            <property name="textAlign">center</property>
+        </style>
+        <style name="tableStyle" id="198">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+        <style name="tableContentStyle" id="199">
+            <property name="borderTopStyle">dashed</property>
+        </style>
+        <style name="smallFont" id="205">
+            <property name="fontSize">16pt</property>
+        </style>
+        <style name="tableHeader" id="207">
+            <property name="backgroundColor">#C0C0C0</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+        </style>
+        <style name="alignLeft" id="208">
+            <property name="fontSize">16pt</property>
+            <property name="textAlign">left</property>
+        </style>
+        <style name="pageNumber" id="210">
+            <property name="fontSize">26pt</property>
+            <property name="textAlign">right</property>
+        </style>
+        <style name="tableMealSet" id="424">
+            <property name="fontSize">16pt</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+        <style name="detailTitle" id="425">
+            <property name="fontSize">18pt</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="marginTop">10pt</property>
+            <property name="marginBottom">5pt</property>
+            <property name="textAlign">left</property>
+        </style>
+        <style name="tableTitleCenter" id="426">
+            <property name="fontSize">18pt</property>
+            <property name="textAlign">center</property>
+        </style>
+        <style name="tableMealSetContent" id="427">
+            <property name="fontSize">16pt</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+        </style>
+        <style name="tableTitleLeft" id="428">
+            <property name="fontSize">16pt</property>
+            <property name="fontWeight">bolder</property>
+            <property name="textAlign">left</property>
+        </style>
+        <style name="bg1" id="476">
+            <property name="backgroundColor">#C0C0C0</property>
+        </style>
+        <style name="boldercontent" id="482">
+            <property name="fontSize">16pt</property>
+            <property name="fontWeight">bolder</property>
+            <property name="textAlign">left</property>
+        </style>
+        <style name="rightPageHead" id="495">
+            <property name="fontSize">18pt</property>
+            <property name="textAlign">right</property>
+            <property name="verticalAlign">middle</property>
+        </style>
+        <style name="leftPageHead" id="496">
+            <property name="fontSize">18pt</property>
+            <property name="fontWeight">bolder</property>
+            <property name="textAlign">left</property>
+            <property name="verticalAlign">middle</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="headerHeight">1.86in</property>
+            <property name="footerHeight">0.8in</property>
+            <page-header>
+                <grid id="363">
+                    <property name="width">7.947916666666667in</property>
+                    <column id="364">
+                        <property name="width">2.8333333333333335in</property>
+                    </column>
+                    <column id="365">
+                        <property name="width">2.46875in</property>
+                    </column>
+                    <column id="366">
+                        <property name="width">2.6458333333333335in</property>
+                    </column>
+                    <row id="320">
+                        <cell id="321">
+                            <property name="colSpan">3</property>
+                            <property name="rowSpan">1</property>
+                            <data id="340">
+                                <property name="style">bigFontStyle2</property>
+                                <property name="dataSet">deliveNote</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">FTEAM_NAME</property>
+                                        <text-property name="displayName">FTEAM_NAME</text-property>
+                                        <expression name="expression" type="javascript">dataSetRow["FTEAM_NAME"] + "配送单_助餐点";</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">FTEAM_NAME</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="477">
+                        <cell id="478">
+                            <property name="colSpan">3</property>
+                            <property name="rowSpan">1</property>
+                            <data id="481">
+                                <property name="style">midFontStyle</property>
+                                <property name="dataSet">deliveNote</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">FDELIVE_NOTE_ID</property>
+                                        <text-property name="displayName">FDELIVE_NOTE_ID</text-property>
+                                        <expression name="expression" type="javascript">var a = dataSetRow["FDELIVE_NOTE_ID"];&#13;
+a = a + " （配送单编号）";</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">FDELIVE_NOTE_ID</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="388">
+                        <cell id="389">
+                            <property name="colSpan">3</property>
+                            <property name="rowSpan">1</property>
+                            <data id="393">
+                                <property name="style">midFontStyle</property>
+                                <property name="dataSet">deliveNote</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">FMEAL_DATE</property>
+                                        <text-property name="displayName">FMEAL_DATE</text-property>
+                                        <expression name="expression" type="javascript">var a = dataSetRow["FMEAL_DATE"];&#13;
+var a1 = a.getFullYear() + "年";&#13;
+var a2 = a.getMonth() + 1 + "月";&#13;
+var a3 = a.getDate() + "日";&#13;
+a =  a1+ a2 + a3;&#13;
+var b = dataSetRow["FWEEK"];&#13;
+var c = ["星期一","星期二","星期三","星期四","星期五","星期六","星期日"];&#13;
+var d = dataSetRow["FQUANTITY"];&#13;
+d = "共 " + d + " 份";&#13;
+a = a + "  " + c[b-1] + "    " + dataSetRow["FMEAL_TYPE_NAME"] + "    " + d;</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">FMEAL_DATE</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="483">
+                        <cell id="484">
+                            <property name="colSpan">3</property>
+                            <property name="rowSpan">1</property>
+                            <grid id="487">
+                                <property name="width">7.875in</property>
+                                <column id="488">
+                                    <property name="width">3.1666666666666665in</property>
+                                </column>
+                                <column id="489">
+                                    <property name="width">4.708333333333333in</property>
+                                </column>
+                                <row id="490">
+                                    <cell id="491">
+                                        <text id="493">
+                                            <property name="style">rightPageHead</property>
+                                            <property name="contentType">auto</property>
+                                            <text-property name="content"><![CDATA[助餐点：]]></text-property>
+                                        </text>
+                                    </cell>
+                                    <cell id="492">
+                                        <data id="494">
+                                            <property name="style">leftPageHead</property>
+                                            <property name="dataSet">deliveNote</property>
+                                            <list-property name="boundDataColumns">
+                                                <structure>
+                                                    <property name="name">FDELIVE_SITE_NAME</property>
+                                                    <text-property name="displayName">FDELIVE_SITE_NAME</text-property>
+                                                    <expression name="expression" type="javascript">dataSetRow["FDELIVE_SITE_NAME"];</expression>
+                                                    <property name="dataType">string</property>
+                                                    <property name="allowExport">true</property>
+                                                </structure>
+                                            </list-property>
+                                            <property name="resultSetColumn">FDELIVE_SITE_NAME</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                    <row id="377">
+                        <cell id="378">
+                            <property name="colSpan">3</property>
+                            <property name="rowSpan">1</property>
+                            <data id="381">
+                                <property name="style">midFontStyle</property>
+                                <property name="dataSet">deliveNote</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">FCONTACT_PERSON</property>
+                                        <text-property name="displayName">FCONTACT_PERSON</text-property>
+                                        <expression name="expression" type="javascript">"联系人： " + dataSetRow["FCONTACT_PERSON"] + "         联系电话： " + dataSetRow["FCONTACT_MOBILE"];</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">FCONTACT_PERSON</property>
+                            </data>
+                        </cell>
+                    </row>
+                </grid>
+            </page-header>
+            <page-footer>
+                <grid id="110">
+                    <property name="width">7.697916666666667in</property>
+                    <column id="111">
+                        <property name="width">1.875in</property>
+                    </column>
+                    <column id="112">
+                        <property name="width">5.822916666666667in</property>
+                    </column>
+                    <row id="472">
+                        <cell id="473">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <text id="475">
+                                <property name="style">smallFont</property>
+                                <property name="contentType">auto</property>
+                                <text-property name="content"><![CDATA[配餐员签名：________   助餐员签名：________   送餐员签名：________]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="113">
+                        <cell id="114">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <text id="119">
+                                <property name="style">smallFont</property>
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[打印时间：<value-of>new Date()</value-of>]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <text id="429">
+            <property name="style">detailTitle</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[汇总]]></text-property>
+        </text>
+        <table id="397">
+            <property name="width">7.739583333333333in</property>
+            <property name="dataSet">deliveNoteDetail</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">FMEAL_NAME</property>
+                    <text-property name="displayName">FMEAL_NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FMEAL_NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">QUANTITY</property>
+                    <text-property name="displayName">QUANTITY</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["QUANTITY"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">rowcount</property>
+                    <text-property name="displayName">rowcount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["rowcount"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <column id="410">
+                <property name="width">1.71875in</property>
+            </column>
+            <column id="411">
+                <property name="width">3.7916666666666665in</property>
+            </column>
+            <column id="412">
+                <property name="width">2.2291666666666665in</property>
+            </column>
+            <header>
+                <row id="398">
+                    <property name="style">bg1</property>
+                    <cell id="399">
+                        <property name="style">tableMealSet</property>
+                        <text id="413">
+                            <property name="style">tableTitleLeft</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[序号]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="400">
+                        <property name="style">tableMealSet</property>
+                        <text id="414">
+                            <property name="style">tableTitleLeft</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[套餐名称]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="401">
+                        <property name="style">tableMealSet</property>
+                        <text id="415">
+                            <property name="style">tableTitleLeft</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[总份数]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="402">
+                    <property name="style">tableMealSetContent</property>
+                    <cell id="403">
+                        <property name="style">tableMealSet</property>
+                        <data id="418">
+                            <property name="style">alignLeft</property>
+                            <property name="resultSetColumn">rowcount</property>
+                        </data>
+                    </cell>
+                    <cell id="404">
+                        <property name="style">tableMealSet</property>
+                        <data id="416">
+                            <property name="style">alignLeft</property>
+                            <property name="resultSetColumn">FMEAL_NAME</property>
+                        </data>
+                    </cell>
+                    <cell id="405">
+                        <property name="style">tableMealSet</property>
+                        <data id="417">
+                            <property name="style">boldercontent</property>
+                            <property name="resultSetColumn">QUANTITY</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+        <text id="419">
+            <property name="style">detailTitle</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[明细]]></text-property>
+        </text>
+        <table id="179">
+            <property name="style">tableStyle</property>
+            <property name="width">7.791666666666667in</property>
+            <property name="dataSet">orderDetail</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">MEALNAME</property>
+                    <text-property name="displayName">MEALNAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MEALNAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">LUNBOXNO</property>
+                    <text-property name="displayName">LUNBOXNO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["LUNBOXNO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">SUBJECTNAME</property>
+                    <text-property name="displayName">SUBJECTNAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["SUBJECTNAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">rowCount</property>
+                    <text-property name="displayName">rowCount</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["rowCount"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">MEALHELP</property>
+                    <text-property name="displayName">MEALHELP</text-property>
+                    <expression name="expression" type="javascript">var a = dataSetRow["MEALHELP"];&#13;
+if ("N" == a) {&#13;
+"";&#13;
+}&#13;
+else if ("Y" == a) {&#13;
+"是"&#13;
+}</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">FOODPHOHIBIT</property>
+                    <text-property name="displayName">FOODPHOHIBIT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FOODPHOHIBIT"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">LOVEFOOD</property>
+                    <text-property name="displayName">LOVEFOOD</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["LOVEFOOD"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="433">
+                <property name="width">0.5416666666666666in</property>
+            </column>
+            <column id="192">
+                <property name="width">1.0416666666666667in</property>
+            </column>
+            <column id="193">
+                <property name="width">0.8333333333333334in</property>
+            </column>
+            <column id="194">
+                <property name="width">2.03125in</property>
+            </column>
+            <column id="422">
+                <property name="width">1.0520833333333333in</property>
+            </column>
+            <column id="455">
+                <property name="width">1.21875in</property>
+            </column>
+            <column id="461">
+                <property name="width">1.0729166666666667in</property>
+            </column>
+            <header>
+                <row id="180">
+                    <property name="style">tableHeader</property>
+                    <cell id="431">
+                        <text id="434">
+                            <property name="style">tableTitleLeft</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[序号]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="181">
+                        <text id="195">
+                            <property name="style">tableTitleLeft</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[饭盒编号]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="182">
+                        <text id="196">
+                            <property name="style">tableTitleLeft</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[姓名]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="183">
+                        <text id="197">
+                            <property name="style">tableTitleLeft</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[套餐]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="420">
+                        <text id="423">
+                            <property name="style">tableTitleLeft</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[是否协助]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="453">
+                        <text id="457">
+                            <property name="style">tableTitleLeft</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[食物禁忌]]></text-property>
+                        </text>
+                    </cell>
+                    <cell id="459">
+                        <text id="467">
+                            <property name="style">tableTitleLeft</property>
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[饮食偏好]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="184">
+                    <property name="style">tableMealSetContent</property>
+                    <cell id="432">
+                        <data id="452">
+                            <property name="style">alignLeft</property>
+                            <property name="resultSetColumn">rowCount</property>
+                        </data>
+                    </cell>
+                    <cell id="185">
+                        <data id="202">
+                            <property name="style">boldercontent</property>
+                            <property name="resultSetColumn">LUNBOXNO</property>
+                        </data>
+                    </cell>
+                    <cell id="186">
+                        <data id="204">
+                            <property name="style">alignLeft</property>
+                            <property name="resultSetColumn">SUBJECTNAME</property>
+                        </data>
+                    </cell>
+                    <cell id="187">
+                        <data id="203">
+                            <property name="style">alignLeft</property>
+                            <property name="resultSetColumn">MEALNAME</property>
+                        </data>
+                    </cell>
+                    <cell id="421">
+                        <data id="456">
+                            <property name="style">boldercontent</property>
+                            <property name="resultSetColumn">MEALHELP</property>
+                        </data>
+                    </cell>
+                    <cell id="454">
+                        <data id="458">
+                            <property name="style">boldercontent</property>
+                            <property name="resultSetColumn">FOODPHOHIBIT</property>
+                        </data>
+                    </cell>
+                    <cell id="460">
+                        <data id="468">
+                            <property name="style">boldercontent</property>
+                            <property name="resultSetColumn">LOVEFOOD</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+</report>

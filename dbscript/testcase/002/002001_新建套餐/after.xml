@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+
+  <NXFT.MEAL_SET FMEAL_ID="1000100" FMEAL_CODE="01" FMEAL_NAME="早餐A套餐" FMEAL_CONTENT="包子、馒头、白粥"  FPEPPERY_LEVEL="[null]"
+     FMEAL_PRICE="5" FKITCHEN_CIRCLE_ID="30201"  FKITCHEN_TEAM_ID="3020101" FISAVAILABLE="Y"  FMEAL_DESC="配咸菜" />
+  
+</dataset>

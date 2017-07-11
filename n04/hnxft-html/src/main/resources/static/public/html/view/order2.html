@@ -1,0 +1,124 @@
+<!--<link rel="stylesheet" href="../../css/order2.css"/>
+<title>点餐2</title>-->
+<!--下单成功弹框清-->
+<div class="mask" id="maskQuorder">
+    <div class="box">
+        <p class="box-alert">下单成功！</p>
+        <p class="box-time"><span class="box-second" ng-bind="second" id="second"></span>秒后跳转</p>
+    </div>
+</div>
+<!--不适合套餐弹框-->
+<div class="mask" id="maskDisease">
+    <div class="disease">
+        <div class="title"><h2>点餐提醒</h2></div>
+        <p class="box-alert" ng-bind="bushiname"></p>
+        <p class="box-alert c-alert" ng-bind="bushi"></p>
+        <p class="box-time"><button ng-click="yes()">继续点餐</button>&nbsp;&nbsp;<button class="no">取消</button><span class="box-second">×</span></p>
+    </div>
+</div>
+<div class="selectIndex">
+    <!--左边菜单栏-->
+    <div class="select-left fl">
+        <ul class="menu">
+            <li ui-sref="gaikuang">
+                <i class="gaik"><img src="../images/n1-gai.png" alt=""/></i><span>概况</span>
+            </li>
+            <li ng-class="{'active':useList}" ui-sref="useList">
+                <i class="dianc"><img src="../images/n2-dian.png" alt=""/></i><span>点餐</span>
+            </li>
+            <li ui-sref="selectIndex">
+                <i class="chax"><img src="../images/n3-cha.png" alt=""/></i><span>查询</span>
+            </li>
+            <li ui-sref="guidance" class="guidance">
+                <i class="zhid"><img src="../images/n4-zhi.png" alt=""/></i><div class="guidance">
+                <p>饮食</p>
+                <p>指导</p>
+            </div>
+            </li>
+            <li ui-sref="manage" ng-class="{'active':useDetail}">
+                <i class="manage"><img src="../images/5-manage.png" alt=""/></i><span>管理</span>
+            </li>
+        </ul>
+    </div>
+    <div class="select-right">
+        <div class="condition">
+            <ul>
+                <li class="calendar">
+                    <span class="prev" id="prev">< 前一天</span>
+                    <i class="c-i"><img src="../images/4-time1.png" alt=""/></i>
+                    <span class="c-time" id="cTime"></span>
+                    <span class="next" id="next">后一天 ></span>
+                </li>
+                <li class="canbie">
+                    <button ng-repeat="tab in tabs"  ng-class="{active:isActiveTab(tab.mealType.id)}" ng-click="onClickTab(tab)" >{{tab.mealType.name}}</button>
+                </li>
+            </ul>
+            <span class="closed" ng-click="goBack()"><img src="../images/off.png" alt=""/></span>
+        </div>
+        <div class="content">
+            <!--菜单列表-->
+            <div class="menu">
+                <ul>
+                    <li ng-repeat="item in list">
+                        <div class="img">
+                            <img src="../images/5-pic2.png" alt=""/>
+                        </div>
+                        <div class="title">
+                            <h3 ng-bind="item.option.name"></h3>
+                            <p></p>
+                        </div>
+                        <div class="btn">
+                            <span></span>
+                            <button ng-click="save(item)" ng-show="item.enable">来一份</button>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <!--下单列表-->
+            <div class="order-menu">
+                <div class="my-order">
+                    <!--已选数量-->
+                    <div class="number">
+                        <img src="../images/6-dd.png" alt=""/>
+                        <span ng-bind="number"></span>
+                    </div>
+                    <ul class="order-sum clearfix">
+                        <li class="kong" id="kong">您的订单是空的！</li>
+                        <li ng-repeat="item in list2 track by $index">
+                            <div class="c-content">
+                                <h3 ng-bind="item.mealDate | limitTo:10"></h3>
+                                <p ng-bind="item.option.name"></p>
+                                <p style="display: none">备注：<span ng-bind="item.remark"></span></p>
+                            </div>
+                            <div class="del"><button ng-click="delete(item)">删除订单</button></div>
+                        </li>
+                    </ul>
+                    <div class="quorder" id="quorder" ng-click="quorder()">
+                        <p></p>
+                        <span>去下单</span>
+                    </div>
+                </div>
+                <div class="user-info">
+                    <i><img src="../images/7-zhang.png" alt=""/></i>
+                    <span class="usename" ng-bind="info.personInfo.subjectName"></span>
+                    <span ng-bind="info.personInfo.sexName"></span><b></b>
+                    <span ng-bind="info.age"></span><b></b>
+                    <span ng-bind="info.subjectInfo.subjectTypeName"></span><b></b>
+                    <span ng-bind="info.contactPhone
+"></span><b></b>
+                    <span ng-bind="info.regionName"></span>
+                    <i class="gao-img" ng-show="gaoImg"><img src="../images/8-bing.png" alt=""/></i>
+                        <span class="gao" ng-bind="data.disease | cut :10"><!--高血压<b></b>
+                        糖尿病--></span>
+                    <i class="yue-img"><img src="../images/9-money.png" alt=""/></i>
+                    <span class="yue">余额：</span>
+                    <span class="money" ng-bind="'¥ '+ info.balance"><!--¥ 10.00--></span>
+                    <button class="logout">退出登录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

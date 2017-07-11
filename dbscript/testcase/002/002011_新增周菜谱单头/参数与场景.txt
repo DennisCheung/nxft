@@ -1,0 +1,63 @@
+客户经理1 fuser_id= 00041 ）新建2017年5月15日-2017年5月21日周菜谱 
+
+
+参数：
+  
+   1） fuser_id          00041          --  操作员id
+   2） fcircle_id        30201          --  登录的工作圈id
+   3） fteam_id          3020101        --  登录的团队id
+   4） fbegin_date      2017-05-15      --  排班起始日期=上周期终止日期 + 1
+   5） fend_date        2017-05-21      --  排班终止日期
+
+场景：
+
+   1、客户经理1（平台用户id fuser_id= 00041 ）登录系统，在“菜谱管理”选择“菜谱”
+     
+   2、界面显示最近两个月的周菜谱列表
+   
+   3、点击“新增菜谱”，自动创建下一周的菜谱表头。
+      
+      3.1 查询本厨房已制作的菜谱最大截止日期
+         select max(t.fend_date) from nxft.meal_schenote t where t.fkitchen_circle_id = 操作员登录的工作圈id and t.fkitchen_team_id = 操作员登录的工作teamid ;
+         
+         如果没找到记录，= 今天之前最近的星期日日期
+         
+      3.2 确定下一周日期范围段
+   
+      下一周日期范围段： 截止日期 的下一周
+       
+       本测试用例 开始日期 = 2017-05-15 截止日期 2017-05-21
+ 
+
+   
+数据结果：
+
+ 1、插菜谱安排单表  nxft.meal_schenote (
+-- +-----------------------------+--------------+-----------+
+   fschenote_id                  32位UUID                   -- 排班单id
+   fschenote_desc                空                         -- 排班单备注   
+   --
+   -- 所属机构
+   --
+   fkitchen_circle_id            30201                      -- 厨房圈id
+   fkitchen_team_id              3020101                    -- 厨房teamid
+   --
+   -- 排班
+   --
+   fbegin_date                   2017-05-15                 -- 排班起始日期=上周期终止日期 + 1
+   fend_date                     2017-05-21                 -- 排班终止日期
+   fperiod_model                 WEEK                       -- 排班周期模式 WEEK 周 MONTH 月
+   --
+   -- 创建信息
+   --
+   fcreate_time                  当前日期                   -- 创建时间
+   fcreate_user_id               00041                      -- 创建工号id
+   fcreate_nickname              客户经理1                  -- 创建姓名
+   --
+   -- 发布信息
+   --   
+   fis_published                 N                          -- 是否已发布？ Y/N
+   fpublish_time                 空                         -- 发布时间
+   fpublish_user_id              空                         -- 发布工号id
+   fpublish_nickname             空                         -- 发布姓名
+

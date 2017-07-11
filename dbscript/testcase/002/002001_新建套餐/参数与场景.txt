@@ -1,0 +1,65 @@
+客户经理1 fuser_id= 00041 ）新建菜谱套餐 
+
+
+参数：
+  
+   1） fuser_id          00041          --  操作员id
+   2） fcircle_id        30201          --  登录的工作圈id
+   3） fteam_id          3020101        --  登录的团队id
+
+
+场景：
+
+   1、客户经理1（平台用户id fuser_id= 00041 ）登录系统，在“菜谱管理”选择“套餐管理”
+     
+   2、在新增套餐界面输入
+   
+    
+     1）套餐CODE      01                
+     2）套餐名称    早餐A套餐
+     3）套餐内容    包子、馒头、白粥  
+     4）单价          5
+     5）辣          空
+     6）备注        配咸菜
+     7）禁忌常见病  08 高血压 10 冠心病
+   
+       
+   3、点击 “保存” 系统提示“ 创建成功！” 完成套餐创建
+
+   
+数据结果：
+
+ 1、新建 菜谱套餐  nxft.meal_set (
+-- +-----------------------------+--------------+-----------+
+   fmeal_id                      100100                     -- 套餐id     NXFT_MEAL_ID 票据号生成
+   fmeal_code                    01                         -- 套餐CODE   界面输入
+   fmeal_name                    早餐A套餐                  -- 套餐名称   界面输入
+   fmeal_content                 包子、馒头、白粥           -- 套餐内容   界面输入
+   ftaboo_disease                高血压、冠心病             -- 禁忌疾病，名称逗号分隔
+   fpeppery_level                空                         -- 辣度       界面输入
+   fmeal_price                   5                          -- 单价       界面输入
+   fphoto_id                     空                         -- 最新图片id
+   fkitchen_circle_id            30201                      -- 厨房id   = 操作员登录的圈id
+   fkitchen_team_id              3020101                    -- 厨房id   = 操作员登录的teamid
+   fisavailable                  Y                          -- 是否可用？
+   fmeal_desc                    配咸菜                     -- 备注       界面输入
+
+  2、插套餐禁忌的疾病 nxft.meal_disease (
+-- +-----------------------------+--------------+-----------+
+   fpk_id                        32位UUID                   -- 主键id
+   fdisease_id                   08                         -- 疾病id
+   fdisease_name                 高血压                     -- 疾病名称
+   --
+   fmeal_id                      100100                     -- 套餐id
+   fdisease_desc                 空                         -- 备注
+
+
+-- +-----------------------------+--------------+-----------+
+   fpk_id                        32位UUID                   -- 主键id
+   fdisease_id                   10                         -- 疾病id
+   fdisease_name                 冠心病                     -- 疾病名称
+   --
+   fmeal_id                      100100                     -- 套餐id
+   fdisease_desc                 空                         -- 备注
+   
+   

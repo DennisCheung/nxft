@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+ 
+  <!-- 地址字典 -->
+ 
+  <FXP.P_REGIONALISM/>
+    
+  <!-- 用户 -->
+  <FXP.P_USER />
+  
+  <!-- 工作圈 -->
+  <FXP.P_BOSS/>
+  <FXP.P_CIRCLE/>
+  <FXP.P_APPLICATION/>
+  <FXP.P_TEAM/>
+  <FXP.P_TEAM_MEMBER/>
+  <FXP.INVITE_JOIN_TEAM/>
+  <FXP.P_CIRCLE_SIGN/>
+  
+  <!-- 产品 -->
+  <FXP.P_PRODUCT/>
+  <FXP.P_ITEM/>
+  <FXP.P_GOODS/>
+  <FXP.P_GOODS_COMPOSE/>
+  
+  <!-- 订单 -->
+  <FXP.P_ORDER/>
+   
+  <!-- 客户档案字典 -->
+
+  <FXP.P_CUSTOMER_TYPE />
+  <FXP.P_ECONOMY_STATE />
+  <FXP.P_EDU_DEGREE />
+  <FXP.P_HEALTH_STATE />
+  <FXP.P_HOUSE_RELATION />
+  <FXP.P_ID_TYPE />
+  <FXP.P_MARRIAGE />
+  <FXP.P_MEDINSU_METH />
+  <FXP.P_NATION />
+  <FXP.P_OCCUPATION />
+  <FXP.P_SEX />
+  <FXP.P_HBC_DISEASE />
+  <FXP.P_LANGUAGE/> 
+  <FXP.P_BLOOD_TYPE />
+  <FXP.P_CITIZENSHIP />
+  <FXP.P_PERSON_RELATION />
+
+   <!-- 家庭档案字典 -->
+   <FXP.P_LIFE_ITEM /> 
+   <FXP.P_LIVING_CONDI />   
+   <FXP.P_FAMILY_RELATION/> 
+  
+  <!-- 票据号 -->
+  
+  <FXP.P_BILL_TYPE />
+  <FXP.P_GLOBAL_BILL_NUM/>
+  
+  <!-- 环节 -->
+  <FXP.P_NOTE_TYPE />
+  <FXP.P_NOTE_NODE />
+  <FXP.P_NOTE_TAG />
+  
+  
+  <!-- 电话 -->
+  <FXP.P_PHONE_AREACODE />
+  <FXP.P_PHONE_BUSINESS />
+  <FXP.P_PHONE_FIX />
+  
+  <FXP.P_PHONE_MOBILE />
+  
+  <FXP.P_PHONE_REGEXP />
+  
+  <FXP.P_PHONE_SPECIAL /> 
+  
+  <FXP.P_PHONE_TYPE />
+  
+  <!-- 用户 -->
+  <FXP.P_USER_ANSWER_NUM />
+  <FXP.P_USER_MESSAGE />
+  <FXP.P_USER_WECHAT />
+  <FXP.P_USER_LOCATION/>
+  <FXP.P_DEV_USER_IDCARD/>
+  <FXP.P_LOGIN_DEFAULT_TEAM/>
+   
+  <!-- 档案 -->
+  <FXP.P_FAMILY />
+  <FXP.P_FAMILY_CALL_IDENTIFY/> 
+  <FXP.P_FAMILY_LIVING_CONDI/>
+  <FXP.P_FAMILY_CONTACTS/> 
+  <FXP.P_FAMILY_FOLLOW/> 
+  <FXP.P_FAMILY_LIFE/> 
+  <FXP.P_FAVORITE_FAMILY/>
+  <FXP.P_FAMILY_SOCIETY/>
+    
+  <FXP.P_PERSON />
+  <FXP.P_PERSON_DISEASE /> 
+  <FXP.P_PERSON_LANGUAGE /> 
+  <FXP.P_PERSON_MEDICAL/> 
+  <FXP.P_FAVORITE_PERSON/>
+  <FXP.P_FAVORITE_REGION/>
+  <FXP.P_FAVORITE_LINK/>
+  <FXP.P_FAVORITE_MAP/>
+  
+  <FXP.P_ACCOUNT/>
+  <FXP.P_ACCOUNT_LIST/>
+  <FXP.P_ACCOUNT_USER/>
+    
+  <FXP.P_VOUCHER/>
+  <FXP.P_VOUCHER_COMPOSE/>
+   
+  <FXP.P_PERSON_LOCATION/>
+  <FXP.P_PERSON_SERVICE/>
+  
+  <!-- 设备 -->
+  
+  <FXP.P_DEVICE_COMPANY />
+  <FXP.P_DEVICE_TYPE />
+  <FXP.P_DEVICE_MODEL />
+  
+  <FXP.P_DEVICE/> 
+  <FXP.P_DEVICE_CALL/> 
+  <FXP.P_DEVICE_WRISTBAND/>
+  <FXP.P_DEVICE_TEH/>
+  <FXP.P_DEVICE_HMO/>  
+   
+  <FXP.P_DEV_ISSUE_FAMILY/> 
+  <FXP.P_DEV_ISSUE_PERSON />
+  
+  <FXP.P_DEV_ISSUE_CALL/>  
+  <FXP.P_DEV_ISSUE_WRISTBAND/> 
+  <FXP.P_DEV_ISSUE_TEH/>
+  <FXP.P_DEV_ISSUE_HMO/>
+  
+  <FXP.P_DEV_RECYCLE_PERSON/>
+  <FXP.P_DEV_RECYCLE_FAMILY/>
+   
+  <!-- 微信企业号 -->
+  
+  <FXP.P_QYH_GUEST />
+  <FXP.P_QYH_USER  />
+     
+ 
+   <!-- 消息 -->
+  
+  <FXP.P_MESSAGE_HISTORY />
+  <FXP.P_MESSAGE_SEND /> 
+  
+  <!-- 待办 -->
+  
+  <FXP.P_TODO />
+  <FXP.P_TODO_TEAM />
+  <FXP.P_TODO_AUTO />
+  
+  <!-- 订单 -->
+  <FXP.P_ORDER/>
+  
+ <!-- 作废的表 -->
+ <FXP.P_COUPON_TYPE />
+ <FXP.P_COUPON_SCOPE />
+ 
+ <FXP.P_COUPON_ACTIVITY/>
+ <FXP.P_ACTIVITY_CROWDS/>
+ <FXP.P_CROWDS_COUPON/>
+ 
+ <FXP.P_CROWDS_LIST/>
+ <FXP.P_ACCOUNT_PERSON/>
+ <FXP.P_COUPON/>
+ 
+ <FXP.P_CHGNOTE/>
+ <FXP.P_CHGNOTE_COUPON/>
+ <FXP.P_CHGNOTE_COUPON_SUM/>
+  
+  </dataset>

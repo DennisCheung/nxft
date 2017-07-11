@@ -1,0 +1,141 @@
+客户经理1（fuser_id= 00041 ），对未接单的订单，手动接单并生成配送单
+
+参数：
+  
+   1） fuser_id                  00041            -- 操作员id
+   2） fkitchen_circle_id        30201            -- 厨房圈id
+   3） fkitchen_team_id          3020101          -- 厨房teamid
+   4） fmeal_date               2017-05-06        -- 就餐日期
+   5） fmeal_type_id              2               -- 餐别ID      
+ 
+
+场景：
+
+
+   1、生成5月6日午餐 的配送单
+               
+      1.1 5月6日午餐的未接单的配送单订单接单处理
+      
+      select * from  nxft.nxft_order t where fkitchen_team_id = :登录的厨房teamid and fmeal_date = :就餐日期 and fmeal_type_id = :餐别ID  and flast_state = '已派单' ;
+      
+      1.2 生成5月6日午餐配送单，订单按  厨房圈fkitchen_circle_id + 厨房fkitchen_team_id + 就餐日期fmeal_date + 餐别fmeal_type_id + 助餐点fdelive_site_id + 配送方式fdelive_type  分组生成配送单
+      
+                                      也就是说 一个助餐点+就餐日期+餐别 最多只有（助餐点和到户） 两张单
+
+ 
+   
+数据结果：
+
+  1、更新订单表 2017-05-06 午餐 订单  nxft.nxft_order (
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 配送单
+   --
+   fdelive_note_id                                          -- 配送单id   填生成的配送单号id   NXFT_DELIVE_NOTE_ID 票据号
+   --
+   -- 环节信息
+   --
+   --
+   -- 订单状态  1、 已派单  2、 已接单   4、已配送     6、已取消   
+   --
+   --
+   flast_state                   已接单                     -- 最后状态，完成时ID
+   flast_time                    当前日期                   -- 最新完成时间
+   flast_user_id                 00041                      -- 最新完成操作员id
+   flast_nickname                客户经理1                  -- 最新完成操作员name
+   flast_desc                    空                         -- 流程备注，如为退单，填退单原因。
+   --
+   -- 下一环节的信息，采用待办作为入口  ACCEPT  接单  DELIVE  配送  
+   --
+   fnext_node_id                 DELIVE                     -- 下一环节 常量，和环节状态、备注同时更新
+   fnext_node_content            配送订餐(测试福来第一助餐点)   -- 下一环节工作内容
+   
+                                 格式：助餐点：  "配送订餐" + "( + 助餐点名称 + ")" 
+                                       到户：    "配送订餐" + "(" + 对象姓名 + " " + 详细住址 + ")"
+ 
+   2、生成配送单  nxft.delive_note (
+-- +-----------------------------+--------------+-----------+
+   fdelive_note_id                                          -- 配送单ID   NXFT_DELIVE_NOTE_ID 票据号
+   --
+   -- 客户所属
+   --
+   fcircle_id                    10001                     -- 客户所属的工作圈id
+   --
+   -- 配餐信息
+   --
+   fdelive_type                                             -- 配送方式  助餐点 SITE  到户上门  HOME
+   fdelive_site_id                                          -- 配送地点id  = 助餐点fxp.p_team.team_id
+   fdelive_site_name                                        -- 配送地点名称  = 助餐点fxp.p_team.team_name 
+   fdelive_addr                                             -- 配送地址    = 助餐点fxp.p_team.faddress
+   
+   
+   fcontact_person                                          -- 联系人
+   助餐点和到户
+      = 助餐点fxp.team.fcontact_person
+   fcontact_mobile               varchar2(30),              -- 联系手机
+   助餐点和到户  = 助餐点fxp.team.fcontact_mobile
+
+   --
+   -- 厨房
+   --
+   fkitchen_circle_id                                       -- 厨房圈id
+   fkitchen_team_id                                         -- 厨房teamid
+   --
+   -- 排班
+   --
+   fmeal_date                                               -- 就餐日期
+   fweek                                                    -- 周几
+   fmeal_type_id                                            -- 餐别ID
+   fmeal_type_name                                          -- 餐别名称
+   --
+   -- 数量
+   --
+   fquantity                                                -- 数量   按数量汇总
+   fquantity_desc                                           -- 数量描述  格式类似 早餐A套餐1份，早餐B套餐1份
+   --
+   --  新建信息
+   --
+-- +-----------------------------+--------------+-----------+   
+   fcreate_time                  当前时间                   -- 创建时间
+   fcreate_user_id               00041                      -- 创建操作员id
+   fcreate_user_name             JOB                        -- 创建操作员姓名
+   --
+   -- 环节信息
+   --
+   --
+   -- 订单状态  1、 已接单     2、已配送   
+   --
+   --
+   flast_state                   已接单                     -- 最后状态，完成时ID
+   flast_time                    当前时间                   -- 最新完成时间
+   flast_user_id                 JOB                        -- 最新完成操作员id
+   flast_nickname                JOB                        -- 最新完成操作员name
+   flast_desc                    空                         -- 流程备注，如为退单，填退单原因。
+   --
+   -- 下一环节的信息，采用待办作为入口  DELIVE  配送  
+   --
+   fnext_node_id                 DELIVE                     -- 下一环节 常量，和环节状态、备注同时更新
+   fnext_node_content                                       -- 下一环节工作内容 配送订餐(测试福来第一助餐点) 
+                                 格式   "配送订餐(" + 配餐点地址 + ")"
+   --
+   -- 工单完成信息
+   --
+   fis_complete                  N                          -- 是否已完成？  Y/N
+   fcomplete_state               空                         -- 完成状态  SUCCESS  成功  FAIL 失败（取消）
+   ffail_reason_name             空                         -- 失败原因名称  常量  客户取消、改派
+   fcomplete_time                空                         -- 完成时间
+   fcomplete_user_id             空                         -- 完成操作员工号id
+   fcomplete_nickname            空                         -- 完成操作员姓名
+   fcomplete_desc                空                         -- 完成备注 
+   
+   4、生成配送单明细  nxft.delive_detail (   
+-- +-----------------------------+--------------+-----------+
+   fdetail_id                    32位UUID                   -- 明细ID
+   --
+   -- 菜谱
+   --
+   fmeal_id                                                 -- 套餐id
+   fmeal_code                                               -- 套餐CODE
+   fmeal_name                                               -- 套餐名称
+   fquantity                                                -- 数量
+         

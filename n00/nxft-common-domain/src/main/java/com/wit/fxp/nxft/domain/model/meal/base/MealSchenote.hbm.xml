@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+    auto-import="false"
+    default-access="field">
+
+    <!-- 菜谱安排单 -->
+    <class name="com.wit.fxp.nxft.domain.model.meal.MealSchenote" table="MEAL_SCHENOTE" schema="NXFT"
+            dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+
+        <!-- 单字段主键 -->
+        <id name="id" column="FSCHENOTE_ID" type="string" access="property">
+        </id>
+
+        <version name="version" type="integer" insert="true">
+            <column name="FVERSION" not-null="true" />
+        </version>
+
+<!--
+ | 以下请勿修改，下次生成后将被覆盖！！！
+ | BEGIN>>>@$^*!#%&1
+ |
+ | Created by Benewit Code Generator V1.0
+ | codegen/templates//java/java-enthbm.template
+ |-->
+
+        <component name="logInfo">
+            <property name="logcby" type="string">
+                <column name="FLOGCBY" length="32" not-null="true" />
+            </property>
+            <property name="logcdate" type="timestamp">
+                <column name="FLOGCDATE" not-null="true" />
+            </property>
+            <property name="logluby" type="string">
+                <column name="FLOGLUBY" length="32" not-null="true" />
+            </property>
+            <property name="logludate" type="timestamp">
+                <column name="FLOGLUDATE" not-null="true" />
+            </property>
+            <property name="loglaby" type="string">
+                <column name="FLOGLABY" length="32" not-null="true" />
+            </property>
+            <property name="logladate" type="timestamp">
+                <column name="FLOGLADATE" not-null="true" />
+            </property>
+        </component>
+
+
+        <!-- 排班信息 -->
+        <component name="scheInfo" class="com.wit.fxp.nxft.domain.model.meal.MealSchenote$ScheInfo">
+            <property name="schenoteDesc" type="string">
+                <column name="FSCHENOTE_DESC" length="256" not-null="false" />
+            </property>
+            <property name="kitchenCircleId" type="string">
+                <column name="FKITCHEN_CIRCLE_ID" length="32" not-null="true" />
+            </property>
+            <property name="beginDate" type="timestamp">
+                <column name="FBEGIN_DATE" not-null="true" />
+            </property>
+            <property name="kitchenTeamId" type="string">
+                <column name="FKITCHEN_TEAM_ID" length="32" not-null="true" />
+            </property>
+            <property name="endDate" type="timestamp">
+                <column name="FEND_DATE" not-null="true" />
+            </property>
+            <property name="periodModel" type="string">
+                <column name="FPERIOD_MODEL" length="20" not-null="true" />
+            </property>
+        </component>
+
+
+        <!-- 创建信息 -->
+        <component name="createInfo" class="com.wit.fxp.nxft.domain.model.meal.MealSchenote$CreateInfo">
+            <property name="createTime" type="timestamp">
+                <column name="FCREATE_TIME" not-null="true" />
+            </property>
+            <property name="createUserId" type="string">
+                <column name="FCREATE_USER_ID" length="32" not-null="true" />
+            </property>
+            <property name="createNickname" type="string">
+                <column name="FCREATE_NICKNAME" length="30" not-null="true" />
+            </property>
+        </component>
+
+
+        <!-- 发布信息 -->
+        <component name="publishInfo" class="com.wit.fxp.nxft.domain.model.meal.MealSchenote$PublishInfo">
+            <property name="isPublished" type="yes_no">
+                <column name="FIS_PUBLISHED" not-null="true" />
+            </property>
+            <property name="publishTime" type="timestamp">
+                <column name="FPUBLISH_TIME" not-null="false" />
+            </property>
+            <property name="publishUserId" type="string">
+                <column name="FPUBLISH_USER_ID" length="32" not-null="false" />
+            </property>
+            <property name="publishNickname" type="string">
+                <column name="FPUBLISH_NICKNAME" length="30" not-null="false" />
+            </property>
+        </component>
+
+
+        <!-- keys -->
+
+
+
+        <!-- relationship -->
+
+
+        <!-- 周菜谱详情 -->
+        <set name="mealSchedaySet" table="MEAL_SCHEDAY" schema="NXFT"
+                sort="unsorted"
+                inverse="true" cascade="all,delete-orphan">
+            <key>
+                <column name="FSCHENOTE_ID" />
+            </key>
+
+            <one-to-many class="com.wit.fxp.nxft.domain.model.meal.MealScheday" />
+        </set>
+<!--
+ | 以上请勿修改，下次生成后将被覆盖！！！
+ | END<<<&%#!*^$@1
+ |-->
+    </class>
+
+</hibernate-mapping>

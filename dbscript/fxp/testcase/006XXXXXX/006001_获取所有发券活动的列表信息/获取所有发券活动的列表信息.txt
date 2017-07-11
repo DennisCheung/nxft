@@ -1,0 +1,30 @@
+查询最近一年的发券活动列表
+
+参数：
+   
+   1） fuser_id          10001028       --  操作员id
+   2） fnickname         吴艳艳         --  操作员姓名
+   3） forg_id           10001          --  登录的机构id
+   4） fsite_id          1000131        --  登录的服务点id
+   
+   
+场景：
+
+  1、吴艳艳（平台用户id fuser_id= 10001028 ）登录系统，在“我的主页”选择“发券管理”
+     进入“发券管理”界面
+     
+  2、在当前页面显示所有发券活动列表
+  
+     显示规则按创建日期倒序排列 
+     
+     显示内容：
+     1）创建日期
+     2）活动名称
+     3）是否已发券
+     4）发券日期
+     
+     select * from fxp.p_coupon_activity t
+     where t.foperator_id = :forg_id and
+           t.fcreate_date > sysdate - 365 ;
+     
+  

@@ -1,0 +1,56 @@
+使用 000\init_user.xml
+
+参数：
+  1、配置环境常量：
+    [QYH_VISTOR_DEPT]    企业号通讯录部门 游客部门
+        
+  2、参数：
+      
+     1) 微信open_id  = 'ABCDEFGH'   (微信获取)
+     2）昵称   张小明               (微信获取)
+     3）性别   sex = '1'            (微信获取)   
+     4）微信号  
+     5）手机号 13662487771          界面输入
+     6）邮箱     
+
+场景：
+
+  1、张小明关注“枫润福来健康”企业号，由于非通讯录成员，应用列表只出现“企业小助手”应用。
+  2、点击“企业小助手”，出现“登录验证”提示消息和 “注册”菜单。
+  3、点击“注册”，打开用户注册界面，输入
+      1）微信号、手机号、邮箱 三者选一不能为空
+         输入手机号  13662487771
+         
+  4、点击“注册” 
+  
+  
+
+结果：
+    
+  1、插微信企业号游客表，fxp.p_qyh_guest
+-- +-----------------------------+--------------+-----------+  
+   fqyh_user_id                  00000100                   -- 微信企业号userid  票据号生成 fbill_type_id = QYH_USER_ID
+   fopen_id                      ABCDEFGH                   -- openid
+   fuser_name                    张小明                     -- 姓名
+   fsex_id                       1                          -- 性别id
+   fsex_name                     男                         -- 性别名称
+   fweixinid                     空                         -- 注册微信号   
+   fweixinid                     空                         -- 注册微信号
+   fmobile                       13662487771,               -- 注册手机号
+   femail                        空                         -- 注册邮箱号   
+   
+   
+  2、调用企业号：管理通讯录--管理成员--创建成员 接口，将输入的用户注册信息，添加到企业号通讯录中
+   
+  
+    userid：           =fxp.p_qyh_guest.fqyh_user_id 
+    name:              张小明
+    department         [QYH_VISTOR_DEPT]   配置文件中 企业号通讯录部门 游客部门
+    position           空
+    mobile             13662487771   = 界面输入手机号
+    gender             1   1男 2女
+    email              空        = 界面输入邮箱号
+    weixinid           空        = 界面输入微信号
+    avatar_mediaid     空
+    extattr            空
+ 

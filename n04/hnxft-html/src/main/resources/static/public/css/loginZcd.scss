@@ -1,0 +1,60 @@
+@charset "utf-8";
+body{
+  font-family: "Microsoft YaHei";
+}
+.login-zcd{
+    /*系统版本*/
+    .zcd{
+      height: 0.64rem;
+      line-height: 0.64rem;
+      background: #ff7e00;
+      color:#fefefe;
+      font-size: 0.3rem;
+      text-align: right;
+      span{
+        margin-right: 0.6rem;
+      }
+    }
+    .sel-module{
+      text-align: center;
+      color:#333333;
+      font-size: 0.72rem;
+      .word{
+        line-height: 1.75rem;
+        font-size:0.60rem;
+        color:#333333;
+        span{
+          margin-left: -8.05rem;
+        }
+      }
+      .ydzcd,.grmx{
+        display: inline-block;
+        vertical-align: top;
+        //width: 516px;
+        width: 5.16rem;
+        //height: 681px;
+        height: 6.81rem;
+        //margin-left: 25px;
+        margin-left: 0.25rem;
+        cursor:pointer;
+        span{
+          margin-top: 1.40rem;
+          padding: 0 0.69rem;
+          display: block;
+          width: 100%;
+        }
+      }
+      .ydzcd{
+        background: url("../images/12-Z.png") no-repeat;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+      }
+      .grmx{
+        background: url("../images/11-P.png") no-repeat;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        //margin-left: 177px;
+        margin-left: 1.77rem;
+      }
+    }
+}

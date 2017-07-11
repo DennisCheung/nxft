@@ -1,0 +1,29 @@
+#
+# 本地集成测试环境的配置文件。
+#
+# 由于本文件放在config目录下，因此将覆盖hbcsq-web里的设置
+#
+
+# 文件根目录
+fileroot: ${user-home}/hwq/dev
+
+redis-host: www.jkjsf.net
+redis-password: eHek5Mwp2A7JlpKQGet7xg7cvhNbCwds
+
+qis-server: http://www.jkjsf.net
+hec-server: http://www.jkjsf.net/hec-web
+
+server:
+    port: 8080
+    contextPath: /hbcsq
+
+# 企业号ID
+corpId: wx415a8516a31a6ec4
+
+# 共享会话
+spring.session.store-type: none
+
+spring.datasource:
+    url: jdbc:h2:tcp://localhost/~/h2/hbcsit;MODE=Oracle
+    username: sa
+    password:

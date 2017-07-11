@@ -1,0 +1,173 @@
+普通坐席1 fuser_id= 00001 帮 FPERSON_ID="12345678" “卫绮琼” 下助餐订单 
+
+使用 \fxp\testcase\000\init.xml
+
+参数：
+  
+   1） fuser_id          00001          --  操作员id
+   2） fcircle_id        10001          --  登录的工作圈id
+   3） fteam_id          1000101        --  登录的团队id
+   4） fsubject_id       300001         --  配餐对象id
+   5） fmeal_date        2017-05-08     --  就餐日期
+   
+
+场景：
+
+   1、客户 “卫绮琼”（FPERSON_ID="12345678"）按发起求救呼叫。
+    
+   2、普通坐席1（平台用户id fuser_id= 00001 ）在坐席系统中受理求救呼叫。
+   
+   3、点击"创建服务单"，创建助餐单。
+   
+      select fsubject_id from nxft.nxft_subject t where t.fperson_id = 发起呼叫的客户id
+      
+      找到 对象id = 300001 
+   
+   4、系统默认列出今天、明天的菜谱供点餐
+   
+     4.1 选择厨房 工作圈厨房签约
+       select fkitchen_circle_id,fkitchen_team_id  from  nxft.d_circle_kitchen t where t.fcircle_id = 操作员登录的工作圈id
+   
+     4.2  2017-05-08  早餐   选择  FMEAL_ID="3020101"  FMEAL_NAME="早餐A套餐" 点击“确认”
+      
+     4.2  2017-05-08  午餐   选择  FMEAL_ID="3020112"  FMEAL_NAME="正餐B套餐" 点击“确认”
+     
+     注意：下订单时间控制参照 nxft.d_meal_type 相关时间控制参数
+  
+   5、 点击“去下单”，生成 助餐订单
+   
+       分单原则：对象id + 就餐日期 + 餐别 + 套餐id
+   
+ 
+   
+数据结果：
+
+  1、插助餐订单表  nxft.nxft_order (
+-- +-----------------------------+--------------+-----------+
+   forder_id                     10000100                   -- 订单ID  票据号生成
+   --
+   -- 对象信息
+   -- 
+   fsubject_id                   300001                     -- 对象id   =  nxft.nxft_subject.fsubject_id 
+   fsubject_name                 卫绮琼                     -- 姓名     =  nxft.nxft_subject.fsubject_name
+   fsex_id                       2                          -- 性别id   =  nxft.nxft_subject.fsex_id
+   fsex_name                     女                         -- 性别name =  nxft.nxft_subject.fsex_name  
+   fcontact_phone                13662487771                -- 联系电话 =  nxft.nxft_subject.fcontact_phone
+   fregion_id                    6580                       -- 行政区域ID =  nxft.nxft_subject.fregion_id
+   fregion_name                  广东省广州市番禺区市桥街西丽居委   -- 行政区域名称  =  nxft.nxft_subject.fregion_name
+   faddress                      民兴路73号801              -- 详细地址   =  nxft.nxft_subject.faddress
+   fsubject_type_id              01                         -- 对象类型id  =  nxft.nxft_subject.fsubject_type_id
+   fsubject_type_name            低保                       -- 对象类型名称  =  nxft.nxft_subject.fsubject_type_name
+   fsubject_desc                 空                         -- 对象备注      =  nxft.nxft_subject.fsubject_desc
+   flunch_box_no                 10023                      -- 饭盒编号      =  nxft.nxft_subject.flunch_box_no
+   --
+   -- 客户所属
+   --
+   fcircle_id                    10001                      -- 客户所属的工作圈id   =  nxft.nxft_subject.fcircle_id
+   --
+   -- 配餐信息
+   --
+   fdelive_type                  SITE                       -- 配送方式  助餐点 SITE  到户上门  HOME   =  nxft.nxft_subject.fdelive_type
+   fdelive_site_id               1000141                    -- 配送地点id                              =  nxft.nxft_subject.fdelive_site_id
+   fdelive_site_name             测试福来第一助餐点         -- 配送地点名称 当 fdelive_type = HOME 填 faddress   
+   fdelive_addr                  测试福来第一助餐点         -- 配送地址  当 fdelive_type = HOME 填 faddress  = SITE 填 fdelive_site_name
+   fdelive_fee                   0                          -- 配送费       当 fdelive_type = HOME 取 工作圈厨房签约 nxft.d_circle_kitchen.fdelive_fee
+   --
+   -- 厨房
+   --
+   fkitchen_circle_id            30201                       -- 厨房圈id
+   fkitchen_team_id              3020101                     -- 厨房teamid
+   --
+   -- 排班
+   --
+   fmeal_date                    2017-05-08                 -- 就餐日期    = nxft.meal_scheday.fmeal_date
+   fweek                         1                          -- 周几        = nxft.meal_scheday.fweek
+   fmeal_type_id                 1                          -- 餐别ID      = nxft.meal_scheday.fmeal_type_id
+   fmeal_type_name               早餐                       -- 餐别名称    = nxft.meal_scheday.fmeal_type_name
+   fmeal_id                      3020101                    -- 套餐id      = nxft.meal_scheday.fmeal_id
+   fmeal_code                    01                         -- 套餐CODE    = nxft.meal_scheday.fmeal_code
+   fmeal_name                    早餐A套餐                  -- 套餐名称    = nxft.meal_scheday.fmeal_name
+   fmeal_content                 包子、馒头、白粥           -- 套餐内容    = nxft.meal_scheday.fmeal_content
+   fmeal_price                   5                          -- 单价        = nxft.meal_scheday.fmeal_price
+   fschedule_desc                空                         -- 备注        = nxft.meal_scheday.fschedule_desc
+   --
+   -- 金额
+   --
+   fquantity                     1                          -- 数量      默认 = 1
+   fsum_total                    5                          -- 金额      = fmeal_price X fquantity + fdelive_fee (配送费)
+   fsum_payment                  1                          -- 个人自付金额 = fsum_total - fsum_receivable
+   fsum_receivable               4                          -- 应收金额  根据 配餐对象补贴标准设置 nxft.d_subject_assistance 计算，但不能大于 fsum_total 
+                                                            -- 参与补贴只能是数量1
+   --
+   -- 配送单
+   --
+   fdelive_note_id               空                         -- 配送单id   空，接单时填
+   --
+   --  新建信息
+   --
+  
+-- +-----------------------------+--------------+-----------+   
+   fcreate_time                  当前日期                   -- 创建时间
+   fcreate_user_id               00001                      -- 创建操作员id    = 操作员id
+   fcreate_user_name             普通坐席1                  -- 创建操作员姓名
+   fcreate_way                   坐席                       -- 订餐方式  坐席  助餐点
+   --
+   -- 环节信息
+   --
+   --
+   -- 订单状态  1、 已派单  2、 已接单   4、已配送     6、已取消   
+   --
+   --
+   flast_state                   已派单                     -- 最后状态，完成时ID
+   flast_time                    当前日期                   -- 最新完成时间
+   flast_user_id                 00001                      -- 最新完成操作员id
+   flast_nickname                普通坐席1                  -- 最新完成操作员name
+   flast_desc                    空                         -- 流程备注，如为退单，填退单原因。
+   --
+   -- 下一环节的信息，采用待办作为入口  ACCEPT  接单  DELIVE  配送  
+   --
+   fnext_node_id                 ACCEPT                     -- 下一环节 常量，和环节状态、备注同时更新
+   fnext_node_content            受理订餐(卫绮琼 测试福来第一助餐点)   -- 下一环节工作内容
+   
+                                 格式：助餐点：  "受理订餐" + "( + 助餐点名称 + ")" 
+                                       到户：    "受理订餐" + "(" + 对象姓名 + " " + 详细住址 + ")"
+   -- 
+   -- 工单完成信息
+   --
+   fis_complete                  N                          -- 是否已完成？  Y/N
+   fcomplete_state               空                         -- 完成状态  SUCCESS  成功  FAIL 失败（取消）
+   ffail_reason_name             空                         -- 失败原因名称  常量  客户取消
+   fcomplete_time                空                         -- 完成时间
+   fcomplete_user_id             空                         -- 完成操作员工号id
+   fcomplete_nickname            空                         -- 完成操作员姓名
+   fcomplete_desc                空                         -- 完成备注
+   
+   4、修改客户账户个账户余额  fxp.p_account
+  -- +-----------------------------+--------------+-----------+
+   --
+   -- 账户信息
+   --
+   faccount_id                                              -- 账户id
+   faccount_name                                            -- 账户名
+   fbalance_cash                                            -- 个人账户余额  fxp.p_account.fbalance_cash - nxft.nxft_order.fsum_payment
+   
+  5、插交易明细  fxp.p_account_list (
+-- +-----------------------------+--------------+-----------+
+   flist_id		                   32位UUID                   -- 交易流水号
+   --
+   -- 交易信息
+   --
+   faccount_id                                              -- 账户id
+   flist_type                    消费                       -- 交易类型id 常量  充值  提现   消费
+   flist_amount                 nxft.nxft_order.fsum_payment -- 交易金额(增加填正 减少填负)
+   flist_summary                番禺测试厨房服务团队餐费             -- 交易摘要   nxft.nxft_order.fkitchen_team_id 厨房名称 + 餐费
+   forder_id                    nxft.nxft_order.forder_id    -- 订单id
+   flist_desc                                               -- 备注 
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 创建者
+   --
+   fcreate_time                  当前时间                  -- 创建时间
+   fcreate_application_id        PCGZZ                     -- 应用id
+   fcreate_user_id               JOB                       -- 创建操作员id
+   fcreate_user_name             JOB                       -- 创建操作员姓名      

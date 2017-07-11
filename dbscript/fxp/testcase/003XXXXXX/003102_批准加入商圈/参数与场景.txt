@@ -1,0 +1,86 @@
+使用 000\init_user.xml
+
+ 张梅东（平台用户id fuser_id = 00002）接受   “黄生粮油店、何锦英电工申请加入商圈”申请，申请单号 FREQNOTE_ID="301111"  
+
+参数：
+  
+  1）平台用户id fuser_id = 00002        会话传入
+  2）申请单号 FREQNOTE_ID="301111"
+ 
+  
+场景：
+  
+  1、运营商 10008 广州福来 管理员 张梅东 00002 在“申请审核页面” 调出 FREQNOTE_ID="301111" 加入商圈申请单。
+  
+  2、点击“同意”，将申请单中的服务点加入 运营商 10008 商圈。
+  
+   
+结果：
+
+  1、插商圈表 fxp.p_business_circle
+  
+    第一条
+      监测到 fsupplier_id = 30101 and fsite_id = 3010101 已加入 foperator_id = 10008 商圈，不再重复加入。
+    
+    第二条
+     foperator_id                  10008                    -- 运营商id  = FXP.REQ_JOIN_BUSINESS_site.FOPERATOR_ID
+     fsupplier_id                  30101                    -- 服务商id  = FXP.REQ_JOIN_BUSINESS_site.fsupplier_id
+     fsite_id                      3010102                  -- 服务点id  = FXP.REQ_JOIN_BUSINESS_site.fsite_id
+     fcircle_desc                  空                       -- 备注 
+     --
+     -- 开通
+     --
+     fcreate_date                  当前时间                 -- 创建日期（录入时输入的日期） 
+     fcreate_user_id               00002                    -- 创建操作员id
+     fcreate_user_name             张梅东                   -- 创建操作员姓名
+     
+    第三条
+     foperator_id                  10008                    -- 运营商id  = FXP.REQ_JOIN_BUSINESS_site.FOPERATOR_ID
+     fsupplier_id                  30101                    -- 服务商id  = FXP.REQ_JOIN_BUSINESS_site.fsupplier_id
+     fsite_id                      3010103                  -- 服务点id  = FXP.REQ_JOIN_BUSINESS_site.fsite_id
+     fcircle_desc                  空                       -- 备注 
+     --
+     -- 开通
+     --
+     fcreate_date                  当前时间                 -- 创建日期（录入时输入的日期） 
+     fcreate_user_id               00002                    -- 创建操作员id
+     fcreate_user_name             张梅东                   -- 创建操作员姓名     
+  
+  
+  2、插加入商圈申请单表 fxp.req_join_business_circle 表，修改以下字段，其他字段不变。
+  
+   --
+   -- 环节信息
+   --
+   --
+   -- 申请单状态  1、 已新建  2 已接受  3、 已拒绝
+   --
+   --
+   flast_state                   已接受                     -- 最后状态，完成时ID
+   flast_time                    当前时间                   -- 最新完成时间
+   flast_user_id                 00002                      -- 最新完成操作员id
+   flast_nickname                张梅东                     -- 最新完成操作员name
+   flast_desc                    空                         -- 流程备注
+   --
+   -- 下一环节的信息，采用待办作为入口
+   --
+   fnext_node_id                 空                         -- 下一环节 常量，和环节状态、备注同时更新
+   fnext_node_content            空                         -- 下一环节工作内容
+   --
+   -- 完成信息
+   --
+   fis_complete                   Y                         -- 申请单是否已完成？  Y/N
+   fcomplete_state                SUCCESS                   -- 完成状态  SUCCESS  成功  FAIL 失败（取消）
+   fcomplete_time                 当前时间                  -- 完成时间
+   fcomplete_user_id              00002                     -- 完成工号id
+   fcomplete_nickname             张梅东                    -- 完成姓名
+   fcomplete_desc                 空                        -- 完成备注
+   
+   
+  3、插申请加入商圈服务点列表 fxp.req_join_business_site 表 不变
+  
+  
+  4、 插下一环节的部门待办 fxp.p_todo 清空
+
+  5、 下一环节的部门待办部门表  fxp.p_todo_dept   清空 
+ 

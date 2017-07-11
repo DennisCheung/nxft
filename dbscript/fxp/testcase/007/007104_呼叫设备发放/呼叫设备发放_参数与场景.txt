@@ -1,0 +1,137 @@
+使用 000\init.xml 初始化文件
+
+普通坐席1（平台用户id fuser_id= 00001 ）为客户 卫绮琼家庭 发放呼叫设备
+
+参数：
+   
+   1） fuser_id          00001          --  操作员id
+   1） fteam_id          1000101          --  工作组id
+   2） fnickname         普通坐席1       --  操作员姓名
+   3） ffamilyId         67890       --  家庭ID
+   4） fdevice_sn        02034002200   -- 设备编号
+   
+     
+场景：
+
+  1、普通坐席1（平台用户id fuser_id= 00001 ）打开福来工作圈，进入服务点主页
+      
+  2、选择“回收设备” 功能
+  
+  3、搜索(姓名、联系电话、身份证号)查找客户，找到客户"卫绮琼"(ffamily_id = 67890)
+  
+  4、扫一扫 设备编号 fdevice_sn = 86942602007514690340
+  
+  5、根据设备编号 找到 设备信息 
+     设备id fdevice_id = 02034002200   
+     设备类别 fdevice_type_id = CALL
+     设备类别名称  fdevice_type_name = 求救求助呼叫器
+     设备型号ID fdevice_model_id  =   00001001
+     设备型号名称  fdevice_model_name = 固定型呼叫器 
+     
+  6、点击保存
+  
+  7、设备类别 fdevice_type_id = CALL 调用 发放求救求助呼叫器服务
+  
+结果：
+  
+  1、 新增 家庭设备发放表  fxp.p_dev_issue_family
+  
+   1.1 CALL 求救求助呼叫器
+-- +-----------------------------+--------------+-----------+
+   fissue_id                     UUID   not null,   -- 发放ID
+   --
+   -- 家庭
+   --
+   ffamily_id                    67890   not null,   -- 家庭ID
+   --
+   -- 设备详情
+   --
+   fdevice_id                    02034002200          not null,   -- 设备id
+   fdevice_type_id               CALL                 not null,   -- 设备类型ID
+   fdevice_type_name             求救求助呼叫器        not null,   -- 设备类型名称
+   fcompany_id                   00001                not null,   -- 设备厂商_id
+   fcompany_name                 广州福来              not null,   -- 设备厂商_name
+   fdevice_model_id              00001001             not null,   -- 设备型号ID
+   fdevice_model_name            固定型呼叫器          not null,   -- 设备型号名称
+   fdevice_sn                    02034002200          not null,   -- 设备序列号
+   fdevice_uuid                  空,                              -- 设备内部ID
+   fproduction_date              空,                              -- 生产日期
+   fpurchase_date                空,                              -- 购买日期
+   fdevice_Desc                  空,                              -- 备注
+   --
+   -- 所属工作圈
+   --
+   fcircle_id                    10001,                           -- 工作圈id      
+   --
+   -- 发放
+   --
+   fissue_date                   当前时间             not null,   -- 发放时间
+   fissue_circle_id              10001                not null,   -- 发放工作圈id
+   fissue_team_id                1000101              not null,   -- 发放工作组id
+   fissue_team_name              测试呼叫中心          not null,   -- 发放工作组名称     
+   fissue_user_id                00001                not null,   -- 发放操作员id
+   fissue_nickname               普通坐席1            not null,   -- 发放操作员姓名
+   fissue_desc                   空,                              -- 发放备注 
+
+ 2、 新增 呼叫设备发放表  fxp.p_dev_issue_call
+
+-- +-----------------------------+--------------+-----------+
+    fissue_id                     fxp.p_dev_issue_family   not null,   -- 发放ID
+   --
+   -- 家庭
+   --
+   ffamily_id                    67890                     not null,   -- 家庭ID
+   --
+   -- 设备详情
+   --
+   fdevice_id                    02034002200               not null,   -- 设备id
+   fcompany_id                   00001                     not null,   -- 设备厂商_id
+   fcompany_name                 广州福来                   not null,   -- 设备厂商_name
+   fdevice_model_id              00001001                  not null,   -- 设备型号ID
+   fdevice_model_name            固定型呼叫器               not null,   -- 设备型号名称
+   fdevice_sn                    02034002200               not null,   -- 设备序列号
+   fproduction_date              date,                                 -- 生产日期
+   fpurchase_date                date,                                 -- 购买日期
+   fdevice_Desc                  varchar2,                             -- 备注
+   --
+   -- 所属工作圈
+   --
+   fcircle_id                    10001,                                -- 工作圈id   
+   --
+   -- 绑定电话
+   --
+   fbind_phone                   02034002200   not null,               -- 绑定的电话 
+   -- 
+   -- 发放 
+   --
+   fissue_date                   date                      not null,   -- 发放时间
+   fissue_state                  COMPLETE                  not null,   -- 发放状态  TEST 测试  COMPLETE 完成
+   fissue_circle_id              10001                     not null,   -- 发放工作圈id
+   fissue_team_id                1000101                   not null,   -- 发放工作组id
+   fissue_team_name              测试呼叫中心               not null,   -- 发放工作组名称     
+   fissue_user_id                00001                     not null,   -- 发放操作员id
+   fissue_nickname               普通坐席1                 not null,   -- 发放操作员姓名
+   fissue_desc                   空,                                   -- 发放备注 
+ 
+3、更新 设备表 FXP.P_DEVICE 使用标志
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 使用
+   --
+   fis_used                      Y                          -- 是否被使用
+   fused_type                    ISSUE                      -- 使用类型  ISSUE 发放  CANCEL 作废
+   fused_date                    当前时间                   -- 使用时间
+   fused_user_id                 00001                      -- 使用操作员id
+   fused_nickname                普通坐席1                  -- 使用操作员姓名
+   
+4、更新 呼叫设备 FXP.P_DEVICE_CALL 使用标志
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 使用
+   --
+   fis_used                      Y                          -- 是否被使用
+   fused_type                    ISSUE                      -- 使用类型  ISSUE 发放  CANCEL 作废
+   fused_date                    当前时间                   -- 使用时间
+   fused_user_id                 00001                      -- 使用操作员id
+   fused_nickname                普通坐席1                  -- 使用操作员姓名   
+ 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ui-router-styles>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../css/base.css">
+        <title>健康助餐服务系统--助餐点工作站</title>
+        <!--[if lt IE 9]>
+        <p style="text-align: center;font-size:30px;color:red;margin-top:100px;">你正在使用一个<strong>过时</strong>的浏览器。请<a class="link" href="http://browsehappy.com" target="_blank">升级你的浏览器</a>以查看暖心饭堂。</p>
+        <![endif]-->
+    </head>
+    <body ui-view>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        if(clientWidth<=768){
+                            docEl.style.fontSize = '40px';
+                        }else{
+                            docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+                        }
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <!-- 第三方框架 -->
+    <script src="../libs/angular/angular.js"></script>
+    <script src="../libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="../libs/angular/plugin.js"></script>
+    <script src="../libs/angular/angular-animate.js"></script>
+    <script src="../libs/angular/angular-cookies.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- 时间插件 -->
+    <script src="../libs/Jquery/jquery.jedate.min.js"></script>
+     <script src="../libs/highcharts.js"></script>
+    <!-- my js -->
+     <script src="../js/app/nxft-app.js"></script>
+    <script src="../js/config/nxft-router.js"></script>
+    <script src="../js/controller/nxft-controller.js"></script>
+    </body>
+</html>

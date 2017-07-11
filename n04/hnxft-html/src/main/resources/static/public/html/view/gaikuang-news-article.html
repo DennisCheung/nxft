@@ -1,0 +1,41 @@
+<!--<link rel="stylesheet" href="../../css/reponse.css">-->
+<!--<link rel="stylesheet" href="../../css/gaikuangNewsArticle.css"/>-->
+<div class="selectIndex">
+    <div class="select-left fl">
+        <ul class="menu">
+            <li ui-sref="gaikuang" class="active">
+                <i class="gaik"><img src="../images/n1-gai.png" alt=""/></i><span>概况</span>
+            </li>
+            <li ui-sref="useList">
+                <i class="dianc"><img src="../images/n2-dian.png" alt=""/></i><span>点餐</span>
+            </li>
+            <li ui-sref="selectIndex">
+                <i class="chax"><img src="../images/n3-cha.png" alt=""/></i><span>查询</span>
+            </li>
+            <li ui-sref="guidance" class="guidance">
+                <i class="zhid"><img src="../images/n4-zhi.png" alt=""/></i><div class="guidance">
+                <p>饮食</p>
+                <p>指导</p>
+            </div>
+            </li>
+            <li ui-sref="manage">
+                <i class="manage"><img src="../images/5-manage.png" alt=""/></i><span>管理</span>
+            </li>
+        </ul>
+    </div>
+    <div class="select-right">
+        <div class="system-ver"><span ng-bind="teamName"></span></div>
+        <div class="sel-module">
+            <!--关闭按钮-->
+            <span class="close" ui-sref="gaikuangNewsList"></span>
+            <div class="article-title">
+                <h1 ng-bind="title"></h1>
+                <p><span class="time" ng-bind="time"></span><span class="author" ng-bind="author"></span></p>
+            </div>
+            <div class="article-content">
+                <p ng-repeat="p in plist" ng-bind="p"></p>
+                <div class="img" ng-repeat=" pic in  pictures"><img ng-src="{{pic}}" alt=""/></div>
+            </div>
+        </div>
+    </div>
+</div>

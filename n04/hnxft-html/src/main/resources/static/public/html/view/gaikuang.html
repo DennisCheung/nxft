@@ -1,0 +1,140 @@
+<!--<link rel="stylesheet" href="../css/gaikuang.css"/>
+<!--切换弹框-->
+<div class="mask" ng-show="mask_password">
+    <div class="alert">
+        <h2>系统提示</h2>
+        <p>请输入管理员密码</p>
+        <div class="input">
+            <input type="password" ng-model="manage_password" id="manage_password" placeholder="请输入管理员密码..."/>
+        </div>
+        <div class="false-alert" ng-bind="manage_alert"></div>
+        <div class="btns">
+            <button ng-click="manage()">确定</button>&nbsp;&nbsp;
+            <button ng-click="mask_password=!mask_password;quit()">取消</button>
+        </div>
+    </div>
+</div>
+<div class="selectIndex">
+    <div class="select-left fl">
+        <ul class="menu">
+            <li class="active" ui-sref="gaikuang">
+                <i class="gaik"><img src="../images/n1-gai.png" alt=""/></i><span>概况</span>
+            </li>
+            <li ui-sref="useList">
+                <i class="dianc"><img src="../images/n2-dian.png" alt=""/></i><span>点餐</span>
+            </li>
+            <li ui-sref="selectIndex">
+                <i class="chax"><img src="../images/n3-cha.png" alt=""/></i><span>查询</span>
+            </li>
+            <li ui-sref="guidance">
+                <i class="zhid"><img src="../images/n4-zhi.png" alt=""/></i><div class="guidance">
+                <p>饮食</p>
+                <p>指导</p>
+            </div>
+            </li>
+            <li ui-sref="manage">
+                <i class="manage"><img src="../images/5-manage.png" alt=""/></i><span>管理</span>
+            </li>
+        </ul>
+    </div>
+    <div class="select-right">
+        <div class="system-ver">
+            <span ng-bind="company">
+            </span>
+            <span>&nbsp;-&nbsp;</span>
+            <span ng-bind="teamName"></span><a class="qiehuan" ng-click="mask_password=true;manage_password='';">切换</a>
+        </div>
+        <div class="sel-module">
+            <div class="top-layout">
+                <div class="picScroll-left">
+                    <div class="hd">
+                        <a class="next" id="next"><img src="../images/widget/right1.png" alt=""/></a>
+                        <ul></ul>
+                        <a class="prev" id="prev"><img src="../images/widget/left1.png" alt=""/></a>
+                        <span class="pageState"></span>
+                    </div>
+                    <div class="bd">
+                        <ul class="picList" id="picList">
+                            <li ui-sref="zhucan({id:1})">
+                                <div class="pic"><a><img src="../images/2-pic1.png" /></a></div>
+                                <div class="title"><a>南村镇敬老院 <br/> 配餐中心</a></div>
+                            </li>
+                            <li ui-sref="zhucan({id:2})">
+                                <div class="pic"><a><img src="../images/2-pic1.png" /></a></div>
+                                <div class="title"><a>南村社区 <br/>助餐点</a></div>
+                            </li>
+                            <li ui-sref="zhucan({id:3})">
+                                <div class="pic"><a><img src="../images/2-pic1.png" /></a></div>
+                                <div class="title"><a>永大社区 <br/>助餐点</a></div>
+                            </li>
+                            <li ui-sref="gaikuangNewsList">
+                                <div class="pic"><a><img src="../images/widget/zixun.png"/></a></div>
+                                <div class="title"><a>为老服务 <br/>资讯</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="carte">
+                <div class="nav">
+                    <div class="time">
+                        <p class="time-left">
+                            <img class="caipu" src="../images/caipu.png" alt="菜谱"/><span class="caipuTxt">菜谱</span>
+                            <img src="../images/time1.png"/>
+                            <span ng-bind="prevDate"></span>
+                            <span>至</span>
+                            <span ng-bind="nextDate"></span>
+                        </p>
+                        <p class="time-right">
+                            <button class="prev" ng-click="prevWeek()">&lt;&nbsp;前一周</button><button class="next" ng-click="nextWeek()">后一周&nbsp;&gt;</button>
+                        </p>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th class="comon" ng-repeat="time in list.weekTimes">
+                            <span ng-bind="time.date|date:'yyyy-MM-dd'"></span><br/>
+                            <span ng-bind="time.weekName"></span>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="first">早餐</td>
+                        <td class="comon"><span  ng-repeat="item in list.breakfast.mon" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.breakfast.tues" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.breakfast.wed" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.breakfast.thur" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.breakfast.fri" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.breakfast.sat" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.breakfast.sun" ng-bind="item"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="first">午餐</td>
+                        <td class="comon"><span  ng-repeat="item in list.lunch.mon" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.lunch.tues" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.lunch.wed" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.lunch.thur" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.lunch.fri" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.lunch.sat" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.lunch.sun" ng-bind="item"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="first">晚餐</td>
+                        <td class="comon"><span  ng-repeat="item in list.dinner.mon" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.dinner.tues" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.dinner.wed" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.dinner.thur" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.dinner.fri" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.dinner.sat" ng-bind="item"></span></td>
+                        <td class="comon"><span  ng-repeat="item in list.dinner.sun" ng-bind="item"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

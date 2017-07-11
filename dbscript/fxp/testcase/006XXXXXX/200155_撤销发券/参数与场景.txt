@@ -1,0 +1,62 @@
+吴艳艳（平台用户id fuser_id= 10001028 ）对 “2016年甘棠村基金助老服务（已发券&未核销） -- 60-69岁老人” 的发券活动进行撤销发券操作
+
+参数：
+  
+   1） fuser_id          10001028       --  操作员id
+   2） fnickname         吴艳艳         --  操作员姓名
+   3） forg_id           10001          --  登录的机构id
+   4） fsite_id          1000131        --  登录的服务点id
+   5） factivity_id      00123          --  活动id
+   
+场景：
+
+   前提：活动已发券 & 所有券未被核销
+   
+   1、吴艳艳（平台用户id fuser_id= 10001028 ）登录系统，在“我的主页”选择“发券管理”
+     进入“发券管理”界面
+   
+   2、在发券界面显示所有发券活动列表，在 “2016年甘棠村基金助老服务” （活动id factivity_id=00123  ） 一列选择 “活动主页”，进入活动主页面
+   
+   3、在当前页面点击 “撤销发券” 系统弹出 “2016年甘棠村基金助老服务_撤销发券” 窗口
+      
+   4、吴艳艳对 已发放总概况 及 群成员已发放券情况 进行核对确认后，
+      点击 “撤销发券”
+      
+   5、系统提示 “本操作将删除 2016年甘棠村基金助老服务活动 所有名单和已生成的券，确定提交后将不能恢复!”
+   
+      select count(*)
+      from fxp.p_coupon t
+      where t.factivity_id = :factivity_id and
+            t.fis_used = 'N'
+            
+      如果 数量 = 0 ，本次活动所有券未被核销，可撤销
+      如果 数量 > 0 ，本次活动的券有被核销，不可撤销
+
+   6、选择 “确定” 系统提示 “撤销发券成功！” 完成撤销发券操作
+   
+   7、刷新主页面列表
+      
+      1）是否已发券：否
+      2）发券日期：空
+      
+   8、清空发券人群个人账户中的券  
+   
+ 结果：
+ 
+  1、删除 本次活动所有未被核销的券
+      
+      delete from fxp.p_coupon t
+      where t.factivity_id = :factivity_id ;
+      
+  2、 更新 活动已发券标志 
+  
+      update  fxp.p_coupon_activity t  set
+           fis_issued  = 'N'  ,   -- 是否已发放
+           issue_date  = null ,   -- 发放时间
+           fissue_user_id  = null ,  -- 发放操作员id
+           fissue_nickname = null    -- 发放操作员姓名
+      where t.factivity_id = :factivity_id ;
+      
+     
+    
+      

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.wit.fxp.nxft</groupId>
+    <artifactId>nxft-parent</artifactId>
+    <version>1.0.39-SNAPSHOT</version>
+    <relativePath>../../parent</relativePath>
+  </parent>
+  <artifactId>nxft-web-it-services</artifactId>
+
+  <packaging>jar</packaging>
+
+  <dependencies>
+    <!-- hm -->
+    <dependency>
+      <groupId>com.wit.fxp.nxft</groupId>
+      <artifactId>nxft-common-api</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.wit.fxp.nxft</groupId>
+      <artifactId>nxft-common-impl</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.wit.fxp.nxft</groupId>
+      <artifactId>nxft-common-domain</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.wit.fxp.nxft</groupId>
+      <artifactId>nxft-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.wit.fxp.nxft</groupId>
+      <artifactId>nxft-test</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.wit.fxp.nxft</groupId>
+      <artifactId>nxft-web</artifactId>
+    </dependency>
+
+    <!-- fxp -->
+    <dependency>
+      <groupId>com.wit.fxp</groupId>
+      <artifactId>fxp-test</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.wit.fxp</groupId>
+      <artifactId>fxp-web-it-services</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.wit.fxp</groupId>
+      <artifactId>fxp-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- wit -->
+    <dependency>
+      <groupId>com.wit</groupId>
+      <artifactId>wit-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- spring boot -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-autoconfigure</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-core</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- springframework -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+    </dependency>
+
+    <!-- vaadin4spring -->
+    <dependency>
+      <groupId>org.vaadin.spring.extensions</groupId>
+      <artifactId>vaadin-spring-ext-boot</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- commons-logging -->
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </dependency>
+
+    <!-- unit test -->
+    <dependency>
+      <groupId>com.github.springtestdbunit</groupId>
+      <artifactId>spring-test-dbunit</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- javax -->
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>jsr250-api</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- slf4j -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+
+    <!-- unit test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>m2-snapshots</id>
+      <name>Benewit Maven2 Snapshot Repository</name>
+      <url>http://m2.benewit.com:8081/nexus/content/repositories/snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>interval:30</updatePolicy>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+    <repository>
+      <id>m2-releases</id>
+      <name>Benewit Maven2 Releases Repository</name>
+      <url>http://m2.benewit.com:8081/nexus/content/repositories/releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
+</project>

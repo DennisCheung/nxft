@@ -1,0 +1,37 @@
+使用 000\init_user.xml
+
+张小明（平台用户id fuser_id = 00001）想要把服务商30101   “东沙村助老服务”  下的服务点 退出商圈 10008PY “广州福来番禺助老服务商圈” 的商圈
+
+参数：
+  
+  1）平台用户id fuser_id = 00001        会话传入
+  2）商圈id     fbusiness_circle_id = 10008PY   会话传入
+  
+  3）服务点id集合,列表选择，会话传入   
+                 服务点ID     服务点名称
+                 3010101      黄生粮油店
+               
+
+  
+场景：
+  
+  1、在商圈 10008PY “广州福来番禺助老服务商圈” 的商圈主页选择 -- 退出商圈 
+   
+  2、从我作为店长的已加入该商圈的服务点列表中，勾选服务点“黄生粮油店” 退出商圈
+  
+  3、点击“完成” 系统提示“是否确定将选中服务点退出商圈”
+  
+  4、选择“确定” 把“黄生粮油店” 退出“广州福来番禺助老服务商圈” 的商圈
+     
+  
+  
+结果：
+
+   
+  1、更新商圈 fxp.p_site_bs_circle 表 删除服务点id为 fsite_id=30101 的记录
+  
+   delete * from fxp.p_site_bs_circle x
+     where x.fsite_id = :fsite_id and
+           x.fbusiness_circle_id = :fbusiness_circle_id
+   
+ 

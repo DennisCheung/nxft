@@ -1,0 +1,39 @@
+参数：
+  
+   1）服务点id   fsite_id = 3010801 
+
+     
+场景：
+  
+  1、查询服务点产品目录
+  
+  
+结果：
+   
+  1、根据服务点id查询服务点产品表fxp.p_site_product 
+
+        
+   fproduct_name                    -- 服务产品名称
+   fproduct_price                   -- 价格
+   fupdate_price                    -- 是否允许修改价格
+   fproduct_unit                    -- 单位
+   fuse_coupon                      -- 是否可用券？
+
+   查询语句：
+   
+   按 分类 + 名称排序
+   
+   select y.fproduct_name,                    -- 服务产品名称
+          y.fproduct_price,                   -- 价格
+          y.fupdate_price,                    -- 是否允许修改价格
+          y.fproduct_unit,                    -- 单位
+          y.fuse_coupon                       -- 是否可用券？
+    from fxp.p_site_product x
+   where x.fsite_id = :site_id and
+         x.fisavailable = 'Y' 
+         order by fproduct_subclass_id,fproduct_name ;
+   
+   
+   2、根据第一步查询结果计算服务商的产品个数
+   
+   

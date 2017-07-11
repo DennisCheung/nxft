@@ -1,0 +1,24 @@
+参数：
+  
+  1）平台用户id  fuser_id = 00001
+ 
+     
+场景：
+  
+  1、查询我加入的的服务点列表
+  
+  
+结果：
+
+  
+   1、按 fuser_id 查询我加入的服务点列表
+   
+      select
+          x.fsite_id,       -- 服务点ID 
+          x.fsite_name      -- 服务点名称       
+    from  fxp.p_site x,
+          fxp.p_site_user y        
+     where x.fsite_id = y.fsite_id  and
+           y.fuser_id = :fuser_id ;  
+   
+            

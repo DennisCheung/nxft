@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+    auto-import="false"
+    default-access="field">
+
+    <!-- 暖心饭堂对象短信日志 -->
+    <class name="com.wit.fxp.nxft.domain.model.subject.NxftSubjectSmsLog" table="NXFT_SUBJECT_SMS_LOG" schema="NXFT"
+            dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+
+        <!-- 单字段主键 -->
+        <id name="id" column="FSMS_ID" type="string" access="property">
+        </id>
+
+        <version name="version" type="integer" insert="true">
+            <column name="FVERSION" not-null="true" />
+        </version>
+
+<!--
+ | 以下请勿修改，下次生成后将被覆盖！！！
+ | BEGIN>>>@$^*!#%&1
+ |
+ | Created by Benewit Code Generator V1.0
+ | codegen/templates//java/java-enthbm.template
+ |-->
+
+
+        <!-- 通讯服务商如：云之讯、容联 协同通讯 -->
+        <property name="tspName" type="string">
+            <column name="FTSP_NAME" length="30" not-null="true" />
+        </property>
+
+
+        <!-- 监测对象ID -->
+        <property name="subjectId" type="string">
+            <column name="FSUBJECT_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 对象姓名 -->
+        <property name="subjectName" type="string">
+            <column name="FSUBJECT_NAME" length="50" not-null="true" />
+        </property>
+
+
+        <!-- 客户所属的工作圈id -->
+        <property name="circleId" type="string">
+            <column name="FCIRCLE_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 创建时间 -->
+        <property name="createTime" type="timestamp">
+            <column name="FCREATE_TIME" not-null="true" />
+        </property>
+
+
+        <!-- 短信内容 -->
+        <property name="smsContent" type="string">
+            <column name="FSMS_CONTENT" length="1000" not-null="true" />
+        </property>
+
+
+        <!-- 短信类型  TEXT  文字短信  VOICE  语音短信 -->
+        <property name="smsType" type="string">
+            <column name="FSMS_TYPE" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 业务说明,如 坐席订餐、助餐点订餐 -->
+        <property name="smsDesc" type="string">
+            <column name="FSMS_DESC" length="256" not-null="false" />
+        </property>
+
+
+        <!-- 客户电话号码 -->
+        <property name="toNumber" type="string">
+            <column name="FTO_NUMBER" length="20" not-null="true" />
+        </property>
+
+
+        <!-- 短信接收人姓名 -->
+        <property name="toName" type="string">
+            <column name="FTO_NAME" length="40" not-null="true" />
+        </property>
+
+
+        <!-- 与对象关系name，本人或对象联系人关系 -->
+        <property name="relationName" type="string">
+            <column name="FRELATION_NAME" length="30" not-null="false" />
+        </property>
+
+
+        <!-- 操作员圈id -->
+        <property name="userCircleId" type="string">
+            <column name="FUSER_CIRCLE_ID" length="32" not-null="false" />
+        </property>
+
+
+        <!-- 操作员工作组id -->
+        <property name="userTeamId" type="string">
+            <column name="FUSER_TEAM_ID" length="32" not-null="false" />
+        </property>
+
+
+        <!-- 操作员id -->
+        <property name="userUserId" type="string">
+            <column name="FUSER_USER_ID" length="32" not-null="true" />
+        </property>
+
+
+        <!-- 操作员姓名 -->
+        <property name="userNickname" type="string">
+            <column name="FUSER_NICKNAME" length="40" not-null="true" />
+        </property>
+
+
+        <!-- keys -->
+
+
+
+        <!-- relationship -->
+
+<!--
+ | 以上请勿修改，下次生成后将被覆盖！！！
+ | END<<<&%#!*^$@1
+ |-->
+    </class>
+
+</hibernate-mapping>

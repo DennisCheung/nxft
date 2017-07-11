@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset> 
+ 
+   <FXP.P_QYH_GUEST  FQYH_USER_ID="00000100"  FOPEN_ID="ABCDEFGH" FUSER_NAME="张小明" FSEX_ID="1" FSEX_NAME="男" FWEIXINID="[null]" FMOBILE="13662487771"  FEMAIL="[null]" />
+   
+   <FXP.P_QYH_USER/>
+
+</dataset>

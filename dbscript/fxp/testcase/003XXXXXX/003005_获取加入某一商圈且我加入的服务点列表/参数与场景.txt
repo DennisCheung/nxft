@@ -1,0 +1,28 @@
+查询加入某一商圈的服务点列表
+
+参数：
+  
+   1) 用户id  fuser_id
+   2）商圈id  fbusiness_circle_id = 10008PY
+ 
+     
+场景：
+  
+  1、 进入 大厅 --  我关注的商圈 -- 点击某一商圈
+   
+  2、  查询加入该商圈且我加入的服务点列表。
+  
+  
+结果：
+
+  1、查询加入该商圈的服务点列表
+  
+    select y.fsite_id, 
+           y.fsite_name
+    from fxp.p_site_bs_circle x,
+         fxp.p_site      y,
+         fxp.p_site_user z
+   where x.fsite_id = y.fsite_id  and
+         x.fsite_id = z.fsite_id  and
+         x.fbusiness_circle_id = :fbusiness_circle_id  and
+         z.fuser_id = :fuser_id ;

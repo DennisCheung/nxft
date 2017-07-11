@@ -1,0 +1,35 @@
+查询我关注的商圈列表
+
+参数：
+  
+  1）平台用户id fuser_id= 00001
+ 
+     
+场景：
+  
+  1、张小明（平台用户id fuser_id= 00001 ）
+     进入 大厅 --  福来工作圈
+   
+  2、查询平台的商圈列表。
+  
+  
+结果：
+
+  1、查询我关注的商圈列表
+  
+     select x.fbusiness_circle_id
+            x.fbusiness_circle_name,      -- 商圈名称          
+     from 
+          fxp.p_business_circle x
+          
+          
+  2、循环取每个商圈的logo       
+      
+   
+    select     flogo,       --  头像图片
+               flogo_type,  --  头像图片类型
+               flogo_size   -- 头像字节大小
+      from  fxp.p_bs_circle_logo x
+      where x.fbusiness_circle_id =  :fbusiness_circle_id ;第一步获取的商圈id
+      
+ 

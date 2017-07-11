@@ -1,0 +1,158 @@
+@charset "UTF-8";
+html {
+  height: 100%; }
+
+body {
+  height: 100%; }
+
+.mask {
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3); }
+  .mask .alert {
+    background: #fff;
+    position: absolute;
+    width: 370px;
+    min-width: 300px;
+    border: 1px solid #ccc;
+    top: 50%;
+    margin-top: -220px;
+    margin-left: -160px;
+    left: 50%;
+    border-radius: 5px; }
+    .mask .alert h2 {
+      text-align: center;
+      line-height: 60px;
+      font-size: 24px;
+      border-bottom: 1px solid #ccc; }
+    .mask .alert p {
+      text-align: center;
+      font-size: 18px;
+      line-height: 54px; }
+    .mask .alert .false-alert {
+      line-height: 40px;
+      color: red;
+      font-size: 20px;
+      text-align: center;
+      height: 40px; }
+    .mask .alert .input {
+      text-align: center;
+      line-height: 40px; }
+      .mask .alert .input input {
+        width: 300px;
+        height: 40px;
+        text-indent: 5px;
+        font-size: 14px; }
+    .mask .alert .btns {
+      line-height: 70px;
+      text-align: center; }
+      .mask .alert .btns button {
+        width: 100px;
+        height: 40px;
+        background: #ff7e00;
+        border: none;
+        font-size: 20px;
+        color: #fff; }
+
+.selectIndex {
+  overflow: hidden; }
+  .selectIndex .select-left {
+    width: 3rem; }
+    .selectIndex .select-left .menu {
+      width: 100%;
+      background: url("../images/3-bgnev.png") no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%; }
+      .selectIndex .select-left .menu li {
+        height: 2.16rem;
+        border-bottom: 1px solid #736E6B;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 0; }
+        .selectIndex .select-left .menu li i {
+          display: inline-block;
+          width: 38%;
+          height: 100%;
+          vertical-align: top;
+          padding-left: 0.31rem;
+          padding-top: 0.8rem; }
+          .selectIndex .select-left .menu li i img {
+            vertical-align: top;
+            height: auto;
+            width: 0.67rem; }
+        .selectIndex .select-left .menu li span {
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size: 0.48rem;
+          padding-top: 0.75rem; }
+        .selectIndex .select-left .menu li .guidance {
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size: 0.48rem;
+          padding-top: 0.43rem; }
+      .selectIndex .select-left .menu li.active i {
+        background: #ff7e00; }
+      .selectIndex .select-left .menu li.active span, .selectIndex .select-left .menu li.active .guidance {
+        color: #ff7e00;
+        background: #2a2d32; }
+  .selectIndex .select-right {
+    padding-left: 3.00rem;
+    /*系统版本*/ }
+    .selectIndex .select-right .system-ver {
+      width: 100%;
+      background: #ff7e00;
+      color: #fefefe;
+      font-size: 0.30rem;
+      text-align: right;
+      padding: 0.16rem; }
+      .selectIndex .select-right .system-ver img {
+        vertical-align: middle;
+        cursor: pointer;
+        margin-right: 20px; }
+    .selectIndex .select-right .sel-module .title {
+      font-size: 0.40rem;
+      color: #ff7e00;
+      text-align: left;
+      padding: 0.30rem;
+      margin-left: 0.3rem; }
+    .selectIndex .select-right .sel-module .feature li {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0.30rem;
+      font-size: 0.3rem;
+      margin-left: 0.6rem;
+      background: #ff7e00;
+      color: #fff;
+      border-radius: 0.1rem;
+      cursor: pointer;
+      width: 1.8rem;
+      text-align: center; }
+    .selectIndex .select-right .sel-module hr {
+      margin: 0.5rem 0.5rem 0 0.6rem;
+      border-bottom: 0; }
+    .selectIndex .select-right .sel-module .bottom-data {
+      padding-top: 0.6rem;
+      text-align: center; }
+      .selectIndex .select-right .sel-module .bottom-data .dingcqk {
+        display: inline-block; }
+      .selectIndex .select-right .sel-module .bottom-data .line {
+        width: 1px;
+        height: 3.39rem;
+        border-left: 1px solid #aaaaaa;
+        display: inline-block;
+        margin-left: 1.24rem; }
+      .selectIndex .select-right .sel-module .bottom-data .zhucdx {
+        margin-left: 0.61rem;
+        display: inline-block; }
+
+/*# sourceMappingURL=manage.css.map */

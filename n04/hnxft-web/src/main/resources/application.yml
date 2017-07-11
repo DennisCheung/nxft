@@ -1,0 +1,70 @@
+#
+# hbcsq配置模板
+#
+spring:
+    # http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-devtools-restart-exclude
+    devtools.restart.additional-exclude: images/**,VAADIN/**
+
+server:
+    port: 8080
+    contextPath: /hbcsq
+    tomcat:
+        basedir: target/tomcat
+        accesslog.enabled: true
+
+spring.datasource:
+    # 数据源
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/h2/hbcs;MODE=Oracle
+    username: sa
+    password:
+    tomcat:
+        test-while-idle: true
+        test-on-borrow: true
+        validation-query: select 1
+
+    # SPRING MVC (WebMvcProperties)，设定async请求的超时时间，以毫秒为单位
+    mvc.async.request-timeout: 120000
+
+# 会话
+spring.redis:
+    host: ${redis-host}
+    port: 6379
+    password: ${redis-password}
+
+spring.session.store-type: none
+
+# qic
+qic:
+    qis-server: ${qis-server}
+    corpId: ${corpId}
+    qic-id: hbcsq
+    enable-share: ${enable-share:false}
+
+# 事件中心
+hec.client:
+    serverUrl: ${hec-server}
+    camel-file-endpoint-uri: file://${fileroot}/to-hec-data
+
+hwq:
+    # 各部门ID号配置
+    # 游客部门
+    roster.department.guest: 10016
+
+    # 散客
+    roster.department.individual: 10017
+
+    # 服务商
+    roster.department.supplier: 10018
+
+    # 老人回家-监控台-下单回调hbcs地址
+    map.hbcsurl: http://www.jkjsf.net/hbcs-web
+
+    # 百度地图api
+    baidu.api: http://api.map.baidu.com/api?v=2.0&ak=GrcPYWDtOCTQv2NZnnsURike
+
+    # 老人回家-监控台-下单-查询助老员的距离配置，距离为坐标增量,(如0.02为方圆两公里)
+    map.userdis: 0.02
+
+    # 发送微信消息的周期配置
+    message.sendmessage.cron: '*/60 * * * * *'

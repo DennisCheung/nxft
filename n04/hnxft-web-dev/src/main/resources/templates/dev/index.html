@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>福来平台-微信企业号端（内测）</title>
+</head>
+<body>
+<h1>福来平台-微信企业号客户端开发入口</h1>
+
+<p/>
+欢迎来到福来平台-微信企业号客户端！开始操作前请先建立本地开发环境。
+
+<p/>
+<font color='red'><span th:text="${hint}" /></font>
+
+<h3>一、模拟企业小助手菜单</h3>
+<p/>
+<table>
+  <tr>
+    <td>
+      <a th:href="@{__${qisRootUrl}__/qis/wx/menu(qic_id=hbcsq, qic_path='/public/注册', code=guest__${developer.code}__, state=ABC)}">非成员注册</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a th:href="@{__${qisRootUrl}__/qis/wx/menu(qic_id=hbcsq, qic_path='/public/注册', code=${developer.code}, state=ABC)}">成员注册</a>
+    </td>
+  </tr>
+</table>
+
+
+<h3>二、模拟大厅菜单</h3>
+<p/>
+<table>
+  <tr>
+    <td>
+      <a th:href="@{__${qisRootUrl}__/qis/wx/menu(qic_id=hbcsq, qic_path='/hall/开通服务', code=${developer.code}, state=ABC)}">开通服务</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <!--<a th:href="@{__${qisRootUrl}__/qis/wx/hall/menu(clientUri='/public/tehempsession/index?svcnoteId=00136', code=${developer.code}, state=ABC)}">我</a>-->
+       <a th:href="@{__${qisRootUrl}__/qis/wx/menu(qic_id=hbcsq, qic_path='/hall/new/我', code=${developer.code}, state=ABC)}">我</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a th:href="@{__${qisRootUrl}__/qis/wx/menu(qic_id=hbcsq, qic_path='/public/tehempsession/index?svcnoteId=00136', code=${developer.code}, state=ABC)}">查找服务单</a>
+    </td>
+  </tr>
+</table>
+
+<h3>建立本地开发环境</h3>
+本地开发也需要能上网，能访问到云服务器。我们已配置好了云服务器，你只需在本地操作：
+<ul>
+<li>启动端口转发：
+<code>ssh -v -R <span th:text="@{__${proxyPort}__:localhost:__${serverPort}__ dev@__${qisHost}__}" />
+</code>
+</li>
+
+<li>
+用户绑定。你可进入<a th:href="@{__${qisRootUrl}__/qis/console?returnBackUrl=__${#httpServletRequest.requestURL}__}" th:text="@{QIS控制台}"></a>设置用户绑定。
+<p/>
+当前绑定情况：
+<span th:text="（无）" th:if="${#arrays.isEmpty(userPortBindings)}" />
+
+<table>
+  <tr th:each="binding : ${userPortBindings}">
+    <td th:text="__${binding.userId.userId}__+'('+__${binding.port}__+')'">8091</td>
+    <td><a th:href="@{__${qisRootUrl}__/qis/console/unbind-user-to-port/__${binding.userId.userId}__/}">解除绑定</a></td>
+  </tr>
+</table>
+</li>
+</ul>
+
+</body>
+</html>

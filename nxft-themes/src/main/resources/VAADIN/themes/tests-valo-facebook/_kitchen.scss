@@ -1,0 +1,2065 @@
+// Global variable overrides. Must be declared before importing Valo.
+// Defines the plaintext font size, weight and family. Font size affects general component sizing.
+//$v-font-size: 16px;
+//$v-font-weight: 300;
+//$v-font-family: "Open Sans", sans-serif;
+// Defines the border used by all components.
+//$v-border: 1px solid (v-shade 0.7);
+//$v-border-radius: 4px;
+// Affects the color of some component elements, e.g Button, Panel title, etc
+//$v-background-color: hsl(210, 0%, 98%);
+// Affects the color of content areas, e.g  Panel and Window content, TextField input etc
+//$v-app-background-color: $v-background-color;
+// Affects the visual appearance of all components
+//$v-gradient: v-linear 8%;
+//$v-bevel-depth: 30%;
+//$v-shadow-opacity: 5%;
+// Defines colors for indicating status (focus, success, failure)
+//$v-focus-color: valo-focus-color(); // Calculates a suitable color automatically
+//$v-friendly-color: #2c9720;
+//$v-error-indicator-color: #ed473b;
+// For more information, see: https://vaadin.com/book/-/page/themes.valo.html
+// Example variants can be copy/pasted from https://vaadin.com/wiki/-/wiki/Main/Valo+Examples
+@import "../valo/valo.scss";
+@mixin kitchen {
+    @include valo;
+    //公共控件样式
+
+    .wradio .v-select-option.v-radiobutton {
+        display: inline-block;
+    }
+    .wradio .v-select-option.v-checkbox {
+        display: inline-block;
+    }
+
+    .v-slot-confirmbtn {
+        .v-button {
+            background: none;
+            box-shadow: none;
+            border: none;
+            color: #5F73AF;
+        }
+        .v-button::after {
+            background: none;
+            box-shadow: none;
+            border: none;
+        }
+        .v-button:focus {
+            text-decoration: underline;
+        }
+        .v-button:hover {
+            text-decoration: underline;
+        }
+    }
+    .v-slot-cancelbtn {
+        .v-button {
+            font-weight: bold;
+            background: none;
+            box-shadow: none;
+            border: none;
+            color: #5F73AF;
+        }
+        .v-button::after {
+            background: none;
+            box-shadow: none;
+            border: none;
+            transition: none;
+        }
+        .v-button:focus {
+            text-decoration: underline;
+        }
+        .v-button:hover {
+            text-decoration: underline;
+        }
+    }
+    .v-slot-selectbtn {
+        .v-button {
+            background: noe;
+            font-weight: bold;
+        }
+    }
+    .v-tree-node:hover {
+        background: #3B5A98;
+        color: #FFFFFF;
+    }
+    .lbrightstyle {
+        color: #D5912B;
+        font-size: 12px;
+    }
+    .lbleftstyle {
+        font-size: 12px;
+        font-weight: bold;
+        margin-left: 10px;
+        margin-top: 1px;
+    }
+    .contentLabel {
+        color: #D9912B;
+        font-weight: normal;
+        padding: 0px 3px;
+    }
+    .alignright {
+        text-align: right;
+    }
+    .contentLabel-blue {
+        color: #3B8DCD;
+        font-weight: normal;
+        padding: 0px 3px;
+    }
+    .lineheight30 {
+        line-height: 30px;
+    }
+    .btn-1 {
+        .v-button {
+            line-height: 30px;
+            border-radius: 5px;
+            color: #422d07;
+            background: #f7f1c7;
+            border: none;
+            font-family: "微软雅黑";
+            font-size: 16px;
+            margin: 2px 3px;
+        }
+        .v-button:hover {
+            background-color: #81511c;
+            color: #FFFFFF;
+        }
+    }
+    .btn-2 {
+        .v-button {
+            border-radius: 0px;
+            background: none;
+            margin: 2px 5px;
+        }
+    }
+    .btnmargin {
+        .v-button {
+            margin: 2px 5px;
+        }
+    }
+    .selectBtn {
+        color: #3B73AF !important;
+        text-decoration: underline;
+        background: none;
+    }
+    .v-window-header {
+        background: #FFE7BA;
+        color: black;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .smallbutton {
+        height: 20px;
+        background: #FFFFFF;
+        line-height: 20px;
+        border-radius: 0px;
+    }
+    .smallbutton:hover {
+        background-color: #81511c;
+        color: #FFFFFF;
+    }
+    .table-1 {
+        .v-table-header {
+            background: #ff7e00;
+            //font-weight:900;
+            color: white;
+            border: none;
+            font-size: 18px;
+        }
+        .v-table-footer {
+            background: #FFFFFF;
+            font-weight: 900;
+            border: none;
+            td {
+                border: none;
+            }
+        }
+        .v-table-cell-content {
+            border: none;
+        }
+    }
+    .table-2 {
+        .v-table-header {
+            background: #FFFFFF;
+            font-weight: 900;
+            color: #3B73AF;
+            border: none;
+        }
+        .v-table-footer {
+            background: #FFFFFF;
+            font-weight: 900;
+            color: #3B73AF;
+            border: none;
+            td {
+                border: none;
+            }
+        }
+        .v-table-cell-content {
+            border: none;
+        }
+    }
+    .title-1 {
+        color: #333333;
+        font-size: 14px;
+        // font-weight:900;
+    }
+    .hmo-title1 {
+        color: #666666;
+        line-height: 30px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .layoutclick {
+        cursor: pointer;
+    }
+    .textfield-1 {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    .textfield-1:focus {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+    //主界面样式
+    .scmainstyle {
+        text-align: center;
+        margin: 0 auto;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        .chart1{margin-right:30px; }
+        .chart2{margin-right:30px; }
+    }
+
+    .scmainstyle .v-tabsheet-content {
+        text-align: center;
+        //border:1px solid #E6E6E6;
+    }
+    .scmainstyle .v-tabsheet-tabitem-selected {
+        background: #fea249;
+        overflow:hidden;
+         height: 52px;
+        .v-caption {
+            height: 52px;
+            overflow:hidden;
+            line-height: 52px;
+        }
+        .v-captiontext{
+        color: #fff !important;
+        font-size:18px;
+        }
+    }
+   .scmainstyle .v-tabsheet-tabitemcell-first{
+      margin-left:40px;
+
+       .v-captiontext{
+        color:#333;
+        font-size:18px;
+        }
+   }
+    .scmainstyle .v-tabsheet-tabitemcell .v-caption {
+        height: 52px;
+        line-height: 52px;
+        color: #333;
+         overflow:hidden;
+    }
+    .v-tabsheet-tabitemcell:first-child .v-caption {
+        height: 52px;
+        line-height: 52px;
+        color: #333;
+        overflow:hidden;
+    }
+    .scmainstyle .v-tabsheet-tabitemcell {
+        text-align: center;
+
+    }
+    .v-tabsheet-tabcontainer {
+        background: #fce7d2;
+        border-bottom: 1px solid #ecd2b7;
+        height: 51px;
+        margin-bottom: 10px;
+        color: #333333;
+        line-height: 52px;
+        overflow:hidden;
+    }
+    .v-captiontext {
+        margin-top: 10px;
+        color:#333333;
+    }
+    /*topnav*/
+    .scmainstyle .v-tabsheet-tabitem {
+        //   border:1px solid #A2A2A2;
+        //   margin-left:1px;
+        //   height:30px;
+        //   margin-top:2px;
+        //   margin-bottom:5px;
+        line-height: 52px;
+        padding-left: 15px;
+        padding-right: 15px;
+        height: 51px;
+        border-bottom:1px solid red;
+
+         .v-captiontext{
+        color:#333;
+        font-size:18px;
+        }
+
+    }
+    //修改密码
+    .changepasswordstyle {
+        width: 400px;
+        height: 300px;
+        background: #FFFAF0;
+        text-align: center;
+        padding-left: 20px;
+    }
+    .noticeview-main {
+        margin-bottom:10px;
+        overflow:hidden;
+        background: #fff;
+        .v-textarea {
+            color: #333333;
+            font-size: 14px;
+            //padding:2px;
+            background: #fff;
+            height:185px;
+            overflow:hidden;
+
+        }
+        .contentvly {
+            color: #333333;
+            font-size: 14px;
+            background: #fff;
+            border: 1px solid #f1c6ae;
+            height:163px;
+            overflow:hidden;
+            border-radius:3px;
+            margin-top:10px;
+            margin-right:40px;
+
+        }
+        .content {
+            padding-left:2px;
+            overflow-y:auto;
+        }
+        .tipLabel {
+            font-weight:bold;
+            line-height:30px;
+            margin-left:15px;
+            background: url(image/notic-icon.png) no-repeat left center;
+            padding-left:20px;
+            margin-top:5px;
+
+        }
+        .noticelb{
+         background: url(image/title-icon.png) no-repeat left 5px;
+         padding-left:15px;
+         margin-top:5px;
+         margin-left:35px;
+         //width:450px !important;
+        }
+       .title-1{
+       text-algin:center !important;
+       line-height:30px;
+       }
+    }
+    //工作提示样式
+    .WorkTipsView {
+        padding: 5px 10px 10px 10px;
+        .charthly{
+        border:1px solid #d2d2d2;
+        overflow:hidden;
+        }
+        .v-button {
+            background: none;
+            border: none;
+            color: #C89426;
+        }
+        .v-slot-tipTitle{
+         background: url(image/title-dot.png) no-repeat left center;
+            padding-left: 17px;
+            margin-bottom: 10px;
+        }
+        .tipTitle{
+        font-size:18px;
+        line-height:30px;
+        font-weight:normal;
+        }
+        .titlehor {
+            .v-button {
+                width: 30px;
+                height: 30px;
+                margin-left: 30px;
+                padding: 0;
+                background: none;
+                border: none;
+            }
+        }
+        .contenthor {
+            .v-button {
+                height: 25px;
+                line-height: 25px;
+                border-radius: 0px;
+            }
+        }
+        .v-gridlayout-slot {
+            text-align: center;
+            font-size: 14px;
+            height: 25px;
+            line-height: 25px;
+        }
+    }
+    //常用功能区样式
+    .shortcutmenuview {
+        margin-top: 20px;
+        color: #333333;
+        font-size: 18px;
+        // font-weight:900;
+        padding: 5px 10px 10px 10px;
+        .v-button {
+            width: 160px;
+            height: 68px;
+            line-height: 68px;
+            border-radius: 3px;
+            color: #626161;
+            background:#ff7e00;
+            border: none;
+            font-family: "微软雅黑";
+            font-size: 16px;
+            margin: 10px 10px 0 0;
+            color:#fff;
+            font-size:20px;
+        }
+        .v-button:hover {
+            background-color:#ff5a00;
+            color: #FFFFFF;
+        }
+        .v-slot-shortcuttitle {
+            /*标题*/
+            background: url(image/title-dot.png) no-repeat left center;
+            padding-left: 17px;
+            margin-bottom: 10px;
+
+        }
+        .shortcuttitle{
+         line-height:30px;
+         font-size:18px;
+         font-weight:normal;
+        }
+
+    }
+    // bannar栏样式
+    .sctoolbarview {
+
+        background: #fff;
+        margin-bottom: 20px;
+        .rcrightwarp{
+        margin-right:40px;
+        }
+        .logoutButtonstyle {
+            padding-left:28px;
+            border:1px solid #ff7e00 !important;
+            line-height:40px;
+            color: #333;
+            height:40px;
+            // background:#f7f1c7;
+            border: none;
+            font-family: "微软雅黑";
+            font-size: 14px;
+            // margin:10px 0 0 60px;
+            margin-left: 20px;
+            margin-top: 20px;
+            background:white url(ico/log.png) no-repeat 8px center;
+        }
+        .logoutButtonstyle:hover {
+            color: #ff7e00;
+            font-size: 14px;
+            color:#fff;
+            background: #ff7e00 url(ico/log.png) no-repeat 8px center !important;
+        }
+        .centerleftlayout {
+            .v-image {
+                margin: 20px 0 0 20px;
+            }
+        }
+        .centercenterlayout {
+            color: #575757;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: "微软雅黑";
+            margin-top: 20px;
+            margin-left: -50px;
+        }
+        .v-menubar {
+            width: 100px;
+            text-algin:center;
+            height: 40px;
+            line-height:40px;
+             border:1px solid #ff7e00 !important;
+            color: #333333;
+            //background:#f7f1c7;
+            background: white;
+            border: none;
+            font-family: "微软雅黑";
+            font-size: 14px;
+            //margin:10px 0 0 0;
+            margin-top: 20px;
+            margin-left: 100px;
+        }
+        .v-menubar-menuitem{
+        width:100px;
+        }
+        .v-menubar:hover {
+            background-color:#ff7e00 !important;
+            color: #fff;
+
+        }
+       .v-menubar-popup .v-menubar-menuitem-selected {
+      background-color: #ff7e00 !important;
+      background-image: none !important;
+      color: #eceff4;
+      text-shadow:none !important;
+    }
+        .v-menubar > .v-menubar-menuitem-selected{
+         background-color:#ff7e00 !important;
+          background-image:none !important;
+          border:1px solid #ff7e00 !important;
+          box-shadow:none !important;
+        }
+        .v-menubar:active {
+            //background-color:#81511c;
+            color: #ff7e00;
+        }
+        .v-label{
+          font-size:20px;
+          text-align:left;
+        }
+    }
+    .usermainviewimpl {
+        .mainvsp {
+            border-bottom: 1px solid #d9d7d7;
+        }
+        .bottominfo {
+            padding-left: 10px;
+            width:100%;
+            background:#eaeaea;
+            padding-top:10px;
+            height:43px;
+        }
+        .mainvspbarmenustytyly {
+            margin-left:15px;
+        }
+        .lbrightstyle{
+        color:#ff7e00;
+        }
+        .mainvspbarmenustytyly{
+         height:30px;
+         overflow:hidden;
+        }
+    }
+    // 管理页面分页控件样式
+    .pageComponent {
+        .topLayout {}
+        .bottomLayout {
+            padding-right: 25px;
+            margin-right: 15px;
+            //font-weight:bold;
+            font-size: 14px;
+            color: #979797;
+            .v-button {
+                height: 25px;
+                line-height: 25px;
+                padding-left: 10px;
+                padding-right: 10px;
+                font-family: "微软雅黑";
+                font-size: 14px;
+                background: none;
+                color: #979797;
+                //font-weight:bold;
+                margin-left: 6px;
+                margin-bottom: 15px;
+                border: 1px solid #e5e5e5;
+            }
+            .v-button:hover {
+                background: #ff7e00;
+                color: #fff;
+                border: 1px solid #fff;
+            }
+            .v-label-undef-w {
+                margin-right: 6px;
+                margin-left: 6px;
+            }
+        }
+    }
+    .textfieldborderless {
+        .v-textfield {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 2px;
+            box-shadow: none;
+        }
+        .v-textfield:focus {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            box-shadow: none;
+        }
+    }
+    .v-slot-borderlessbtn {
+        .v-button {
+            background: none;
+            box-shadow: none;
+            border: none;
+            color: #5F73AF;
+            font-weight: bold;
+            font-size: 10px;
+            transition: font-size 2s;
+            -moz-transition: font-size 2s;
+            /* Firefox 4 */
+            -webkit-transition: font-size 2s;
+            /* Safari and Chrome */
+            -o-transition: font-size 2s;
+            /* Opera */
+        }
+        .v-button::after {
+            font-size: 16px;
+            background: none;
+            box-shadow: none;
+            border: none;
+        }
+        .v-button:hover {
+            font-size: 14px;
+        }
+    }
+    .bigbluefont {
+        color: #5F73AF;
+        font-weight: 800;
+        font-size: 24px;
+    }
+    /*菜谱管理*/
+    .foodmenuview {
+        .tophly {width:96%; margin-bottom:10px; border-bottom:1px solid #ecd2b7;}
+        .bottomvly {}
+        .v-slot-tophly{
+            text-align:center;
+        }
+        .publishFoodMenuBtn {
+            /*已发布菜谱*/
+            margin-top: 10px;
+        }
+        .leftvly {
+            /*新菜谱外层*/
+        }
+        .v-slot-topmainHly{
+            text-align:center;
+        }
+        .topmainHly {
+            width:96%;
+
+            //margin-left: 15px;
+        }
+        .foodName {
+            margin-right: 15px;
+            margin-left: 5px;
+        }
+        /*菜谱名称*/
+        .searchBtn {
+            /*查询*/
+            margin-left: 25px;
+            background: #b4895c;
+            color: white;
+            border: none;
+        }
+        .resetBtn {
+            /*重置*/
+            margin-left: 5px;
+            background: #b4895c;
+            color: white;
+            border: none;
+        }
+        .printOrderBtn {
+            /*打印订单*/
+            margin-left: 10px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            //width:160px;
+            background: none;
+        }
+        .noPublished{
+            color:#e8252d;
+        }
+        .published{
+            color:#333;
+        }
+        .table {
+            /*表格*/
+            margin-top: 10px;
+            margin-bottom: 10px;
+            .v-button {
+                border: 1px solid #ff7e00;
+                background: white;
+                color: #ff7e00;
+                margin-right: 10px;
+            }
+            .v-table-header {
+                background: #ff7e00;
+            }
+            .v-table-row-odd {
+                background: #fdefe2;
+            }
+            .v-selected{
+                background:#eb9b4c !important;
+                color:white !important;
+            }
+            .v-table-focus{
+                outline:1px solid #eb9b4c !important;
+            }
+        }
+        .rightvly {
+            /*已发布菜谱外层*/
+        }
+        .v-slot-publishTopmainHly{
+            text-align:center;
+        }
+        .publishTopmainHly {
+            /*菜谱导航*/
+            //margin-left: 15px;
+            width:96%;
+        }
+        .addMenuBtn {
+            margin-left: 10px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            //width:160px;
+            background: none;
+        }
+        .foodMenuBtn {
+            width: 78px;
+            height: 30px;
+            line-height: 30px;
+            background: #f9d2a9;
+            border-top-right-radius:0;
+            border-bottom-right-radius:0;
+            border-top-left-radius:5px;
+            border-bottom-left-radius:5px;
+            text-align: center;
+            font-size: 14px;
+            color: #7f5121;
+            border: none;
+            margin:10px 0 10px 0;
+        }
+        .foodMenuBtn:hover {
+            background: #ff7e00;
+            color: white;
+        }
+        .foodMenuBtn.selected {
+            background: #ff7e00;
+            color: white;
+        }
+        .publishFoodMenuBtn {
+            width: 78px;
+            height: 30px;
+            line-height: 30px;
+            background: #f9d2a9;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-left-radius:0;
+            border-bottom-left-radius:0;
+            text-align: center;
+            font-size: 14px;
+            color: #7f5121;
+            border: none;
+        }
+        .publishFoodMenuBtn:hover {
+            background: #ff7e00;
+            color: white;
+        }
+        .publishFoodMenuBtn.selected {
+            background: #ff7e00;
+            color: white;
+        }
+        .addMealSetBtn {
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            //width:160px;
+            background: none;
+        }
+        .v-datefield-day {
+            margin-right: 10px;
+            margin-left: 10px;
+            .v-textfield {
+                border: 1px solid #ecd2b7;
+            }
+        }
+    }
+    /*新增套餐*/
+    .AddMealSetView {
+
+        .titlehly {
+            width: 100%;
+            text-align: center;
+            line-height: 45px;
+            border-bottom: 1px solid #f0f0f0;
+            .title {
+                text-align: center;
+                padding-top:10px;
+            }
+        }
+        .formvly {
+            margin-top: 30px;
+            margin-left: 46px;
+        }
+        .mealSetNo {
+            /*订单编号*/
+            display: inline-block;
+            width: 290px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .mealSetName {
+            /*订单时间*/
+            display: inline-block;
+            width: 290px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .mealSetContent {
+            /*类型*/
+            display: inline-block;
+            width: 290px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .price {
+            /*查询*/
+            display: inline-block;
+            width: 290px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .pungent {
+            /*查询*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+            .v-select-select {
+                border: 1px solid #e5e5e5;
+                background: white;
+            }
+        }
+        .mealType {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+            .v-select-select {
+                border: 1px solid #e5e5e5;
+                background: white;
+            }
+        }
+        .mealSetDesc {
+            /*查询*/
+            display: inline-block;
+            width: 290px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .cancelBtn {
+           // margin-left: 137px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            height: 25px;
+            line-height: 25px;
+            border: 1px solid #999;
+            text-align: center;
+            line-height: 25px;
+            color: #999;
+            background: white;
+            margin-right: 10px;
+        }
+        .confirmBtn {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            line-height: 25px;
+            height: 25px;
+            border: 1px solid #ff7e00;
+            text-align: center;
+            line-height: 25px;
+            color: #ff7e00;
+            background: white;
+        }
+        .btnhly {
+            width:100%;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .wradio{margin-left:6px;}
+    }
+    /*新增菜谱*/
+    .AddFoodMenuView {
+
+        .titlehly {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        .title {
+            line-height: 55px;
+            color: #b0b0b0;
+            display: block;
+        }
+        .timehly {
+            width: 100%;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            .v-datefield-day {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+        .component0 {
+            background: #e5e5e5;
+            color: #333333;
+            text-align: center;
+            height: 100%;
+        }
+        .weekTitle {
+            padding-left: 36px;
+            background: url(image/foodmenu-time.png) no-repeat left center;
+            margin-left: 10px;
+        }
+        .weekTitleWeekName {
+            margin-top: -10px;
+        }
+        .weekTitleTimeName {
+            margin-top: 10px;
+        }
+        .weekGrid .weekcontentvly:hover {
+            background: #fff6ef;
+            height: 100%;
+        }
+        .foodtype {
+            width: 50px;
+            background: #ffe9d2;
+            color: #b78c62;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-weight: normal;
+        }
+        .closeBtn {
+            border-radius: 3px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            text-align: center;
+            width: 108px;
+            height: 28px;
+            line-height: 28px;
+            background: white;
+            margin-right:5px;
+        }
+        .confirmBtn {
+            border-radius: 3px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            text-align: center;
+            width: 108px;
+            height: 28px;
+            line-height: 28px;
+            background: white;
+            margin-left:5px;
+        }
+        .btnhly {
+            margin: 10px auto;
+            padding-bottom: 10px;
+        }
+        .menuSetvly div{
+            height:24px;
+            line-height:24px;
+            text-indent:10px;
+        }
+    }
+    /*挑选套餐*/
+    .SelectFoodMenuView {
+        .titlehly {
+            line-height: 50px;
+            color: #333;
+            text-align: center;
+        }
+        .title {
+            text-align: center;
+            font-size: 16px;
+        }
+        .searchhly {
+            line-height: 50px;
+            color: #333;
+            font-size: 16px;
+        }
+        .searchBtn {
+            border-radius: 3px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            text-align: center;
+            width: 58px;
+            height: 28px;
+            line-height: 28px;
+            background: white;
+        }
+        .searchTxt {
+            display: inline-block;
+            width: 290px;
+            height: 28px;
+            border: 1px solid #e5e5e5;
+            margin-right: 6px;
+        }
+        .cancelBtn {
+            border-radius: 3px;
+            border: 1px solid #999;
+            color: #999;
+            text-align: center;
+            width: 108px;
+            height: 28px;
+            line-height: 28px;
+            background: white;
+            margin-right: 10px;
+        }
+        .confirmBtn {
+            border-radius: 3px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            text-align: center;
+            width: 108px;
+            height: 28px;
+            line-height: 28px;
+            background: white;
+        }
+        .btnhly {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .table {
+            .v-table-row-odd {
+                background: #fdefe2;
+            }
+         .v-selected{
+                background:#eb9b4c !important;
+                color:white !important;
+            }
+            .v-table-focus{
+                outline:1px solid #eb9b4c !important;
+            }
+        }
+        .tablevly {}
+    }
+    /*查看套餐*/
+    .ViewMealSetView {
+        color: #333;
+        .title {
+            width: 100%;
+            text-align: center;
+            line-height: 45px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .formvly {
+            margin-top: 30px;
+            margin-left: 46px;
+        }
+        .mealSetNo {
+            /*订单编号*/
+            display: inline-block;
+            width: 290px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .mealSetName {
+            /*订单时间*/
+            display: inline-block;
+            width: 290px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .mealSetContent {
+            /*类型*/
+            display: inline-block;
+            width: 290px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .price {
+            /*查询*/
+            display: inline-block;
+            width: 290px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .pungent {
+            /*查询*/
+            display: inline-block;
+            width: 290px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .mealSetDesc {
+            /*查询*/
+            display: inline-block;
+            height: 25px;
+            width: 290px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+        .closeBtn {
+          //  margin-left: 172px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            height: 25px;
+            border: 1px solid #ff7e00;
+            text-align: center;
+            line-height: 25px;
+            color: #ff7e00;
+            background: white;
+            margin-right: 10px;
+        }
+        .btnhly {
+            width:100%;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .v-textarea{
+            width:290px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+    }
+    //配餐管理
+    .compountfoodview {
+        .preDateBtn {
+            margin-right: 10px;
+            color: #fff;
+            background: #b4895c;
+            border: none;
+        }
+        .nextDateBtn {
+            margin-right: 10px;
+            color: #fff;
+            background: #b4895c;
+            border: none;
+        }
+        .stateSelect {
+            .v-select-select {
+                border: 1px solid #ecd2b7;
+                background: white;
+            }
+        }
+        .mealTypeSelect {
+            margin-right:10px;
+            .v-select-select {
+                border: 1px solid #ecd2b7;
+                background: white;
+            }
+        }
+        .batchDeliveBtn {
+            margin-left: 10px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            background: #fff;
+        }
+        .batchPrintBtn {
+            margin-left: 10px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            background: #fff;
+        }
+        .v-slot-topmainHly{
+            text-align:center;
+        }
+        .topmainHly {
+            width:96%;
+            //margin-left: 15px;
+        }
+        .tophly {
+
+        }
+        .bottomvly {
+            //margin-top:20px;
+            //border-top:2px solid goldenrod;
+        }
+        .foodMenuBtn {
+            /*新菜谱*/
+            margin: 10px 10px 10px 15px;
+        }
+        .publishFoodMenuBtn {
+            /*已发布菜谱*/
+            margin-top: 10px;
+        }
+        .leftvly {
+            /*新菜谱外层*/
+        }
+        .foodName {
+            margin-right: 15px;
+            margin-left: 5px;
+        }
+        /*菜谱名称*/
+        .searchBtn {
+            /*查询*/
+            margin-left: 10px;
+            background: #b4895c;
+            color: white;
+            border: none;
+        }
+        .resetBtn {
+            /*重置*/
+            margin-left: 5px;
+            background: #b4895c;
+            color: white;
+            border: none;
+        }
+        .printOrderBtn {
+            /*打印订单*/
+            margin-left: 10px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            /*width:160px;*/
+            background: none;
+        }
+        .table {
+            /*表格*/
+            margin-top: 10px;
+            margin-bottom: 10px;
+            .v-button {
+                border: 1px solid #ff7e00;
+                color: #ff7e00;
+                background: none;
+                margin-right: 10px;
+            }
+            .v-table-header {
+                background: #ff7e00;
+            }
+            .v-table-row-odd {
+                background: #fdefe2;
+            }
+             .v-selected{
+                background:#eb9b4c !important;
+                color:white !important;
+            }
+            .v-table-focus{
+                outline:1px solid #eb9b4c !important;
+            }
+        }
+        .rightvly {
+            /*已发布菜谱外层*/
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .publishTopmainHly {
+            /*菜谱导航*/
+            margin-left: 15px;
+        }
+        .waitFoodType {
+            /*餐别*/
+            margin-right: 10px;
+        }
+        .waitDeliverWay {
+            /*配送方式*/
+            margin-right: 10px;
+        }
+        .foodMenuBtn {
+            width: 78px;
+            height: 30px;
+            background: #f9d2a9;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+            color: #7f5121;
+            border: none;
+        }
+        .foodMenuBtn:hover {
+            background: #ff7e00;
+            color: white;
+        }
+        .publishFoodMenuBtn {
+            width: 78px;
+            height: 30px;
+            background: #f9d2a9;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 14px;
+            color: #7f5121;
+            border: none;
+        }
+        .publishFoodMenuBtn:hover {
+            background: #ff7e00;
+            color: white;
+        }
+        .v-datefield-day {
+            margin-right: 10px;
+            .v-textfield {
+                border: 1px solid #ecd2b7;
+            }
+        }
+      /*手动生成配餐单*/
+     .handCreateCompoundBtn{
+            margin-left: 10px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            background: #fff;
+     }
+    }
+    /*查看配餐*/
+    .ViewCompountFoodView {
+        width: 100%;
+        // background:red;
+        .week {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .mealName {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .quanlity {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .deliveWay {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .orderCreateTime {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .subjectName {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .mealTime {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .mealContent {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .state {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .orderCreateName {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .deliveSiteName {
+            display: inline-block;
+            width: 410px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .scheduleDesc {
+            display: inline-block;
+            width: 410px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .titlehly {
+            line-height: 45px;
+            width: 100%;
+            color: #999;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .title {
+            text-align: center;
+            line-height:45px;
+        }
+        .middlevly {
+            margin-left: 25px;
+            margin-top: 20px;
+        }
+        .orderNo {
+            /*订单编号*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .orderTime {
+            /*订单时间*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .foodType {
+            /*类型*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .mealSet {
+            /*查询*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .mealType {
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .subjectName {
+            /*查询*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .subjectNum {
+            /*查询*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .foodClass {
+            /*菜系*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .pungent {
+            /*辣*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .contactPhone {
+            /*联系电话*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .deliverWay {
+            /*配送方式*/
+            display: inline-block;
+            width: 150px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .address {
+            /*地址*/
+            display: inline-block;
+            width: 412px;
+            height: 25px;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 15px;
+        }
+        .closeBtn {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            height: 25px;
+            border: 1px solid #ff7e00;
+            text-align: center;
+            line-height: 25px;
+            color: #ff7e00;
+            background: white;
+        }
+        .leftvly {
+            /*左边*/
+        }
+        .rightvly {
+            /*右边*/
+        }
+        .contenthly {}
+        .layoutUtilsTitle {
+            /*文字*/
+            margin-right: 10px;
+        }
+    }
+    //订单管理
+    .foodorderview {
+        .v-slot-tophly{
+            text-align:center;
+        }
+        .tophly {
+            width:96%;
+            margin-top: 10px;
+            //padding-left: 15px;
+            //  border-top:2px solid brown;
+        }
+        .queryType {
+            /*查询方式*/
+            margin-right: 10px;
+            .v-select-select {
+                border: 1px solid #ecd2b7;
+                background: white;
+            }
+        }
+        .subjectName {
+            margin-right: 10px;
+            border: 1px solid #ecd2b7;
+        }
+        .searchBtn {
+            /*查询*/
+            margin-left: 15px;
+            background: #b4895c;
+            color: white;
+            border: none;
+        }
+        .resetBtn {
+            /*重置*/
+            margin-left: 5px;
+            background: #b4895c;
+            color: white;
+            border: none;
+        }
+        .printOrderBtn {
+            /*打印订单*/
+            margin-left: 10px;
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            /*width:160px;*/
+            background: none;
+        }
+        .table {
+            /*表格*/
+            margin-top: 10px;
+            margin-bottom: 10px;
+            .v-button {
+                border: 1px solid #ff7e00;
+                background: #fff;
+                color: #ff7e00;
+            }
+            .v-table-header {
+                background: #ff7e00;
+            }
+            .v-table-row-odd {
+                background: #fdefe2;
+            }
+             .v-selected{
+                background:#eb9b4c !important;
+                color:white !important;
+            }
+            .v-table-focus{
+                outline:1px solid #eb9b4c !important;
+            }
+        }
+        .queryhly {
+        .v-select-select{
+        background:#fff;
+        margin-right:10px;
+        border:1px solid #ecd2b7;
+        }
+
+        }
+        .orderCreatehly {}
+        .mealTimehly {}
+        .subjectNamehly {}
+        .waitFoodType {
+            /*餐别*/
+            margin-right: 10px;
+        }
+        .waitDeliverWay {
+            /*配送方式*/
+            margin-right: 10px;
+        }
+        .foodName {
+            margin-right: 15px;
+            margin-left: 5px;
+        }
+        /*菜谱名称*/
+        .v-datefield-day {
+            margin-right: 10px;
+            margin-left: 10px;
+            .v-textfield {
+                border: 1px solid #ecd2b7;
+            }
+        }
+    }
+    /*打印订单*/
+    .printfoodorderview {
+        // margin-left:30px;
+        margin-top: 35px;
+        .title {
+            /*分类*/
+            background: url(image/title-dot.png) no-repeat left center;
+            padding-left: 17px;
+            margin-left: 30px;
+            color: #333333;
+            font-size: 18px;
+        }
+        .titleDot {}
+        .rightvly {}
+        .rightContenthly {}
+        .contenthsp {
+            margin-top: 25px;
+        }
+        .bottomvly {
+            padding: 30px;
+            border: 1px solid #f7c89f;
+        }
+        .todayBtn {
+            border-radius: 0;
+            background: #fff7f0;
+            width: 175px;
+            height: 54px;
+            border: none;
+            border-bottom: 1px solid #ff7e00;
+            color: #ff7e00;
+        }
+        .tomorrowBtn {
+            border-radius: 0;
+            background: #d2d2d2;
+            width: 175px;
+            height: 54px;
+            border: none;
+            color: white;
+        }
+        .fBreakfastvly {
+            width: 320px;
+            margin-right: 25px;
+        }
+        .fBreakfastTitle {
+            width: 140px;
+            height: 35px;
+            border: 1px solid #ff7e00;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            line-height: 35px;
+            text-align: center;
+            border-bottom: none;
+            background: #fff7f0;
+        }
+        .fBreakfastCheckbox {
+            margin-left: 15px;
+            margin-top: 15px;
+            margin-bottom: 80px;
+        }
+        .checkcontentvly {
+            width: 320px;
+            border: 1px solid #ff7e00;
+            border-bottom-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        .titlehly {
+            color: #ff7e00;
+        }
+        .bhly {
+            width: 90%;
+            margin-bottom: 25px;
+            margin-left: 15px;
+        }
+        .bNumhly {
+            margin-left: 150px;
+            color: #333333;
+        }
+        .fBreakfastAll {
+            color: #333333;
+        }
+        .printBtn {
+            border: 1px solid #ff7e00;
+            height: 30px;
+            width: 110px;
+            line-height: 30px;
+            color: #ff7e00;
+            text-align: center;
+            background: white;
+            margin-top: 50px;
+        }
+        .sBreakfastNum {
+            color: #ff7e00;
+        }
+    }
+    .AddFoodMenuView {
+        .weekgrid {
+            border: 1px solid #A6A9AE;
+            border-right: none;
+            .v-gridlayout-slot {
+                border: 1px solid #A6A9AE;
+                border-bottom: none;
+                border-left: none;
+                text-align: center;
+                font-size: 12px;
+                height: 34px;
+                line-height: 34px;
+                .v-textfield {
+                    width: 60px;
+                    margin: 2px 0px;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: 1px solid #707070;
+                    border-radius: 2px;
+                    box-shadow: none;
+                }
+                .v-textfield:focus {
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    box-shadow: none;
+                }
+                .v-label {
+                    font-size: 14px;
+                }
+            }
+        }
+        .weekcontentvly:hover {
+            .weekadd {
+                visibility: visible
+            }
+            .weekview {
+                visibility: visible
+            }
+        }
+        .weekcontentvly {
+            .weekadd {
+                visibility: hidden;
+                border: none;
+                margin-top: 10px;
+                margin-left: 67px;
+                background: transparent url(image/foodmenu-icon.png) no-repeat left center;
+            }
+            .weekview {
+                visibility: hidden;
+                border: none;
+                width:31px;
+                height:31px;
+                margin-top: 10px;
+                margin-left: 70px;
+                background: transparent url(image/foodmenu-icon1.png) no-repeat left center;
+            }
+        }
+        .menuSetvly {
+            max-height: 70px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+    }
+    /*订单汇总*/
+    .OrderCollectView {
+        margin-top: 20px;
+        padding-left: 20px;
+        .topvly {
+            //background:olive;
+        }
+        .bottomvly {
+            text-align: center;
+            margin-top: 30px;
+            padding-bottom: 20px;
+            width:900px !important;
+            margin-left:213px;
+        }
+        .printOrderBtn {
+            //border:1px solid #ff7e00;
+            color: white;
+            background: #ff7e00;
+            border: none;
+            //margin-left:122px;
+        }
+        .dayGrid {
+            //background:blueviolet;
+            margin-left: 213px;
+        }
+        .GridLayout {
+        }
+        .day1Breakfastvly {
+            border: 1px solid #ff7e00;
+            border-radius: 10px;
+            overflow:hidden;
+            margin-bottom:30px;
+
+        }
+        .day1BreakfastTitlehly {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            border-bottom: 1px solid #ff7e00;
+            background: #fff7f0;
+            color: #ff7d03;
+            text-align: center;
+            font-size:16px;
+        }
+        .day1BreakfastTitle {
+            padding: 10px;
+        }
+        .day1BreakfastContentvly {
+            line-height: 30px;
+            padding: 10px;
+            color: #333;
+            min-height:30px;
+            overflow-y:auto;
+        }
+        .dayTitle {
+            margin-top: 10px;
+            line-height: 30px;
+            background: url(image/title-dot.png) no-repeat left center;
+            padding-left: 17px;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align:left;
+        }
+        .warntiplabel {
+          color:#999;
+          margin-left:10px;
+          font-weight:normal;
+        }
+    }
+    /*主页*/
+    .usermainviewimpl {
+        .bottominfo {
+        }
+    }
+    /*配送确认*/
+    .NxftConfirmWindow {
+        // padding:30px;
+        .titleLabel {
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 6px;
+        }
+        .contentLabel {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .cancelBtn {
+            border: 1px solid #999;
+            color: #999;
+            background: white;
+            margin-right:10px;
+        }
+        .confirmBtn {
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            background: white;
+
+        }
+        .mainvly {}
+        .titlehly {
+            line-height: 30px;
+            padding-top: 10px;
+        }
+        .contentvly {
+            line-height: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .btnhly {
+
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+    //打印预览
+    .printOrderCollectView {
+        .tophly{
+           margin-top:10px;
+           margin-bottom:10px;
+           text-align:center;
+        }
+        .bottomvly{
+        }
+        .v-slot-tophly{
+           padding-bottom:5px;
+           margin-top:5px;
+           text-align:center;}
+        .btnhly{
+            margin-top:10px;
+           margin-bottom:10px;
+        }
+        .end{
+            margin-right:10px;
+            margin-left:10px;
+            .v-datefield-textfield{
+               border: 1px solid #ecd2b7;
+            }
+        }
+        .begin{
+            margin-right:10px;
+            .v-datefield-textfield{
+                border: 1px solid #ecd2b7;
+            }
+        }
+        .select{
+
+            margin-right:10px;
+
+          .v-select-select{
+               border: 1px solid #ecd2b7;
+              background:white;
+               height:30px;
+          }
+        }
+        .searchBtn{
+            height:30px;
+            border:none;
+            background:#b4895c;
+            margin-right:10px;
+            color:white;
+        }
+        .printView{
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .titlehly{
+           text-align:center;
+           line-height:30px;
+        }
+        .title{
+            padding-bottom:10px;
+           margin-top:10px;
+           text-align:center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .closeWindowBtn{
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            background: white;
+        }
+    }
+    .HandCreateCompoundWindow {
+        // padding:30px;
+        .titleLabel {
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 6px;
+        }
+        .contentLabel {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .cancelBtn {
+            border: 1px solid #999;
+            color: #999;
+            background: white;
+            margin-right:10px;
+        }
+        .confirmBtn {
+            border: 1px solid #ff7e00;
+            color: #ff7e00;
+            background: white;
+        }
+        .mainvly {}
+        .titlehly {
+            line-height: 30px;
+            padding-top: 10px;
+             margin-bottom:20px;
+        }
+        .contentvly {
+            line-height: 30px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .btnhly {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+         .wdateField{
+           width:180px;
+           margin-bottom:20px;
+           border:1px solid #e5e5e5;
+        }
+        .wmealTypeSelect{
+          .v-select-select{
+           width:180px;
+           background:white;
+           border:1px solid #e5e5e5;
+          }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+场景：坐席新建家庭，输入资料如下：
+   代理人姓名      卫小明
+   代理人手机      13662487771
+   家庭电话：      02087777712
+   
+   行政区域ID：    6580       （只有最底层地址的编码，不含上级编码）
+   行政区域名称：  广东省广州市番禺区市桥街西丽居委    （包含完整的行政区域名称 省+市+区+街+居委名称）
+   详细地址：      民兴路73号801
+   居住情况：      孤寡,有保姆   选择代码： 01  04
+   家庭备注：      此家庭很注意卫生
+   
+   
+   坐席登录服务商id = 10001
+   
+   从 fxp.p_call_center 呼叫中心登记表中 找到 机构所属的呼叫中心
+   
+     select t.fcall_center_id,
+            t.fcall_center_name 
+      from fxp.p_call_center t 
+      where t.forg_id = '10001' ;
+   
+           选择呼叫中心id = 1000101
+           
+ 
+结果：
+
+ 1、插家庭表 FXP.P_FAMILY 一条记录           
+-- +-----------------------------+--------------+-----------+
+   ffamily_id                    32位uuid                   -- 家庭id
+   ffamily_code                  00000100                   -- 家庭编号  票据号产生 BILL_TYPE_ID= FAMILY_CODE
+   ffamily_member                空                         -- 家庭成员  先建家庭，暂无家庭成员姓名
+   -- 
+   -- 代理人
+   --
+   fagent_name                   卫小明                     -- 代理人姓名
+   fagent_mobile                 13662487771                -- 代理人手机
+   fagent_user_id                空                         -- 代理人user_id   
+   --
+   -- 所属运营商
+   --
+   foperator_id                  10001                      -- 运营商id
+   fcall_center_id               1000101                    -- 呼叫中心id
+   
+ 
+    
+   
+   -- 
+   -- 联系方式
+   --
+   ffamily_Phone                 02087777712                -- 家庭电话
+   fregion_id                    6580                       -- 行政区域ID（其中包含省、市、区、街道、社区的各级编码），（只有最底层地址的编码，不含上级编码）
+   fregion_name                  广东省广州市番禺区市桥街西丽居委         -- 行政区域名称（包含完整的行政区域名称，如：广东省广州市番禺区)
+   faddress                      民兴路73号801              -- 详细地址（街道之后的详细地址）
+   fmap_addr                     空                         -- 地图地址
+   flatitude                     空                         -- 纬度值
+   flongitude                    空                         -- 经度值
+   --
+   -- 家庭情况
+   --
+   fliving_condi_name            孤寡,有保姆                -- 居住情况，多选，用逗号分隔
+   ffamily_desc                  此家庭很注意卫生           -- 家庭备注  
+   
+   
+ 2、插家庭居住情况表 fxp.p_family_living_condi
+ 
+ 第一条 
+-- +-----------------------------+--------------+-----------+ 
+   fpk_id                        32位uuid                   -- 主键id
+   fliving_condi_id              01                         -- 居住情况ID
+   fliving_condi_name            孤寡                       -- 居住情况名称
+   --
+   ffamily_id                    = FXP.P_FAMILY.ffamily_id  -- 家庭id
+   fordernum                     1                          -- 排序号
+   fliving_condi_desc            空                         -- 备注          
+   
+   
+ 第二条 
+-- +-----------------------------+--------------+-----------+ 
+   fpk_id                        32位uuid                   -- 主键id
+   fliving_condi_id              04                         -- 居住情况ID
+   fliving_condi_name            有保姆                     -- 居住情况名称
+   --
+   ffamily_id                    = FXP.P_FAMILY.ffamily_id  -- 家庭id
+   fordernum                     1                          -- 排序号
+   fliving_condi_desc            空                         -- 备注   

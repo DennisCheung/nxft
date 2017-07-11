@@ -1,0 +1,10 @@
+# 共享会话
+spring.session.store-type: redis
+
+enable-share: true
+
+# 数据源
+spring.datasource:
+    url: jdbc:h2:tcp://www.jkjsf.net/~/h2/hbcs;MODE=Oracle
+    username: sa
+    password:

@@ -1,0 +1,34 @@
+参数：
+  
+  1) 商圈id = 10008PY
+ 
+ 
+     
+场景：
+  
+ 1、根据商圈id，查询到该商圈详情
+  
+  
+结果：
+
+  1、查询商圈基本情况 (循环取服务点的名称）
+  
+   select
+      fbusiness_circle_id,            -- 商圈id
+      fbusiness_circle_name,          -- 商圈名称
+      fbusiness_circle_info           -- 商圈简介
+   from fbusiness_circle_id = :fbusiness_circle_id ; 
+  
+ 
+  select
+    x.fbusiness_circle_info,         -- 商圈简介
+    y.fsite_name                     -- 服务点名称
+  from 
+    fxp.p_business_circle x,
+    fxp.p_site y,
+    fxp.p_site_bs_circle z,    
+  where 
+    x.fbusiness_circle_id = :fbusiness_circle_id ; 
+    x.fbusiness_circle_id = z.fbusiness_circle_id
+    z.fsite_id = y.fsite_id 
+   

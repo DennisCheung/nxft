@@ -1,0 +1,134 @@
+@charset "utf-8";
+body{
+  font-family: "Microsoft YaHei";
+  overflow: hidden;
+}
+.selectIndex{
+  overflow: hidden;
+  .select-left{
+    width:3rem;
+    .menu{
+      width: 100%;
+      background: url("../images/3-bgnev.png");
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%;
+      li{
+        height: 2.16rem;
+        border-bottom:1px solid #736E6B;
+        color:#ffffff;
+        cursor:pointer;
+        font-size: 0;
+        i{
+          display: inline-block;
+          width: 38%;
+          height: 100%;
+          vertical-align: top;
+          padding-left:0.31rem;
+          padding-top: 0.8rem;
+          img{
+            vertical-align: top;
+            height: auto;
+            width: 0.67rem;
+          }
+        }
+        span{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.75rem;
+        }
+        .guidance{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.43rem;
+        }
+      }
+      li.active{
+        i{
+          background: #ff7e00;
+        }
+        span,.guidance{
+          color:#ff7e00;
+          background:#2a2d32;
+        }
+      }
+    }
+  }
+  .select-right{
+    padding-left:3rem;
+    .system-ver{
+      width: 100%;
+      background: #ff7e00;
+      color: #fefefe;
+      font-size: 0.30rem;
+      text-align: right;
+      padding: 0.16rem;
+    }
+    .sel-module{
+        position: relative;
+      /*关闭按钮*/
+      .close{
+        display: inline-block;
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        right:0;
+        width: 0.78rem;
+        height: 0.78rem;
+        background: url("../images/off.png") no-repeat center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        background-color: #c1c0c0;
+        text-align: center;
+        line-height: 0.78rem;
+      }
+      /*文章标题部分*/
+      .article-title{
+        padding-top: 0.42rem;
+        padding-left: 0.79rem;
+        padding-bottom: 0.29rem;
+        border-bottom: 1px solid #dcdcdc;
+        h1{
+          font-size: 0.48rem;
+          color:#000000;
+        }
+        p{
+          font-size: 0.30rem;
+          margin-top: 0.31rem;
+          .time{
+            color:#999999;
+          }
+          .author{
+            color:#ff7e00;
+            margin-left: 0.16rem;
+          }
+        }
+      }
+      /*文章内容*/
+      .article-content{
+        overflow-y: scroll;
+        height: 8.40rem;
+        padding: 0.50rem 0.78rem 1rem 0.79rem;
+        font-size: 0.30rem;
+        color:#333333;
+        line-height: 0.48rem;
+        text-indent:2em;
+        text-align: justify;
+        .img{
+          text-indent:0;
+          img{
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

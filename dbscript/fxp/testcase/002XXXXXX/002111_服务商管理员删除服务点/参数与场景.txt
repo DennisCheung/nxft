@@ -1,0 +1,33 @@
+使用 000\init_user.xml
+
+东东士多店（ 30108）的老板张小明（fuser_id = 00001）  要删除服务点 东东甘棠士多店（ 3010801）
+
+参数：
+  
+  1）平台用户id fuser_id          = 会话传入   00001
+  2）服务产品id fsite_id          = 会话传入   3010801
+  
+     
+场景：
+  
+  1、张小明（平台用户id fuser_id= 00001 ）
+     进入 大厅 --  福来工作圈 -- 我的 -- 管理服务点 --东东甘棠士多店
+     
+  2、在服务点主页选择“ 删除服务点 ”
+  
+  3、系统提示“是否确定删除该服务点”
+  
+  4、选择“确定”完成服务点删除
+  
+结果：
+
+  1、更新服务点 fxp.p_site 表  fsite_id=3010801 的服务点
+  
+   update fxp.p_site set 
+        fis_cancel = 'Y',
+        fcancel_date     =   当前时间        -- 注销机器时间
+        fcancel_user_id  =   00001           -- 注销操作员id   
+        fcancel_user_name =  张小明          -- 注销操作员姓名
+     where x.fsite_id = :fsite_id
+     
+ 

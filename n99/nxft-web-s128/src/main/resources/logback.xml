@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) [%X{username}-%X{times}] %green(%logger{0}) - %msg%n</Pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${user.home}/logs/nxft-web.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- 每日、每25MB归档 -->
+      <fileNamePattern>${user.home}/logs/nxft-web.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+        <maxFileSize>25MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+
+      <!-- 保留30天历史日志 -->
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+
+    <encoder>
+      <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{username}-%X{times}] %logger{0} - %msg%n</Pattern>
+    </encoder>
+  </appender>
+
+  <logger name="com.wit.fxp" level="debug"/>
+  <logger name="com.benewit.orm.hibernate.hql" level="debug"/>
+  <logger name="org.hibernate.SQL" level="debug"/>
+
+  <root level="info">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+  </root>
+</configuration>

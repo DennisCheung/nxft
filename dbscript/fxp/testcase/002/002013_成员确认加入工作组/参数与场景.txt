@@ -1,0 +1,40 @@
+使用 000\init_user.xml
+
+参数：普通坐席2（fuser_id = 00002）接受邀请，确认加入   1000101  “番禺坐席工作站” 工作组
+
+      
+  1、参数：
+     1）被邀请平台用户id fuser_id = 00002
+     
+     2）邀请id  finvite_id= 12346536565 
+            
+ 
+场景：
+
+  1、从我的消息 fxp.p_todo 查找到 邀请信息
+  
+     select * from fxp.p_todo t where t.fis_grabbed = 'Y' and t.fgrab_user_id = 登录的user_id
+  
+  2、普通坐席2（fuser_id = 00002）接受邀请，确认加入   1000101  “番禺坐席工作站” 工作组
+
+结果：
+
+1、插 工作组成员表 fxp.p_team_member
+-- +-----------------------------+--------------+-----------+
+   fmember_id                    32位UUID                   -- 成员id
+   fteam_id                      1000101                    -- 工作组id
+   fuser_id                      00002                      -- 用户id
+   fcircle_id                    10001                      -- 工作圈id
+   fmember_desc                  空                         -- 备注 
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 创建者
+   --
+   fcreate_time                  当前时间                  -- 创建时间 
+   fcreate_user_id               00001                     -- 创建操作员id  = fxp.invite_join_team.fcreate_user_id
+   fcreate_user_name             张小明                    -- 创建操作员姓名 = fxp.invite_join_team.fcreate_user_name
+
+2、 按 finvite_id= 12346536565  删除 fxp.invite_join_team 记录
+
+3、 删除 对应的待办消息  fxp.p_todo 
+

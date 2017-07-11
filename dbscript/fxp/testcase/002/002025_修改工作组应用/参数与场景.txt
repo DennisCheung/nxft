@@ -1,0 +1,48 @@
+使用 000\init_user.xml
+
+参数：张小明（fuser_id = 00001）修改工作圈名称
+
+      
+    1、参数：
+     1）平台用户id fuser_id = 00001
+	 2) 工作组id fteam_id = 1000101
+	 3) 应用id fapplication_id = SF
+     
+       select fboss_id from fxp.p_boss t where t.fadmin_user_id = :本操作员id ;
+
+   前置条件：
+  
+   1、登录的用户id fuser_id = 00001 是 BOSS 的管理员
+   
+   2、用户张小明已经新建了工作组 番禺坐席工作站
+
+场景：
+  1、张小明是 BOSS 的管理员
+     
+     在工作圈点击进入管理后台，点击工作圈详情，点击工作组列表，进入工作组修改工作组应用
+     
+     2）工作组应用    CC 修改为 SF
+     
+       
+  2、点击“保存”， 实现工作组修改应用功能
+
+结果：
+
+  1、更新 工作表 fxp.p_team
+-- +-----------------------------+--------------+-----------+
+   fteam_id                      000100                     -- 工作组id  票据号生成 FBILL_TYPE_ID = TEAM_ID -- 不变
+   fteam_name                    广州坐席工作站             -- 工作组名称 不变
+   fapplication_id               CC                         -- 应用id -- 修改为 SF  fcircle_id                    10001                      -- 工作圈id -- 不变
+   fisavailable                  Y                          -- 是否可用？ -- 不变
+   fteam_desc                    空                         -- 备注  -- 不变
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 创建者
+   --
+   fcreate_time                  当前时间                  -- 创建时间  -- 不变
+   fcreate_user_id               00001                     -- 创建操作员id -- 不变
+   fcreate_user_name             张小明                    -- 创建操作员姓名   -- 不变
+   
+   2、工作组成员表
+   
+   插工作组成员表 fxp.p_team_member -- 不变

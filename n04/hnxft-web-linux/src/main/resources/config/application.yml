@@ -1,0 +1,30 @@
+#
+# 生产环境的配置文件
+#
+# 由于本文件放在config目录下，因此将覆盖hbcsq-web里的设置
+#
+
+spring.profiles.active: dev
+
+spring.resources.cache-period: 1
+
+# 文件根目录
+fileroot: /hnxft/dev
+
+server:
+    port: 8353
+    contextPath: /hnxft
+
+# 共享会话
+spring.session.store-type: none
+
+# 数据源
+spring.datasource:
+    url: jdbc:h2:tcp://localhost/~/h2/nxft;MODE=Oracle
+    username: sa
+    password:
+
+#邮件路径
+fxp.mailPath: file:///D:/end
+
+pic.client.serverUrl: http://www.jkjsf.net/pic

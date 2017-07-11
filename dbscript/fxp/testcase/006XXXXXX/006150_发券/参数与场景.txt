@@ -1,0 +1,98 @@
+吴艳艳（平台用户id fuser_id= 10001028 ）对 “2016年甘棠村基金助老服务（未发券） -- 60-69岁老人” 的发券活动进行发券操作
+
+参数：
+   
+   1） fuser_id          10001028       --  操作员id
+   2） fnickname         吴艳艳         --  操作员姓名
+   3） forg_id           10001          --  登录的机构id
+   4） fsite_id          1000131        --  登录的服务点id
+   5） factivity_id      00123          --  活动id
+   
+场景：
+
+   前提：活动对应的所有名单人员与券明细不为空
+   
+   1、吴艳艳（平台用户id fuser_id= 10001028 ）登录系统，在“我的主页”选择“发券管理”
+     进入“发券管理”界面
+   
+   2、在发券界面显示所有发券活动列表，在 “2016年甘棠村基金助老服务” （活动id factivity_id=00123  ） 一列选择 “活动主页”，进入活动主页面
+   
+   3、在活动主页点击 “发券” 系统弹出 “2016年甘棠村基金助老服务_发券” 窗口
+      
+   4、吴艳艳对 待发放总概况 进行核对确认后，
+      点击 “发放券”
+      
+   5、系统提示 “操作前请仔细核对名单与券明细!本操作将为 “60-69岁老人” 名单所有成员生成券明细，确定提交后将只能按名单撤消券!”
+   
+   6、选择 “确定” 系统提示 “发券成功！” 完成发券操作
+   
+   7、刷新发券管理主页面列表
+      1）是否已发券：是
+      2）发券日期：当前时间
+      
+   8、把券发放到个人账户
+   
+结果：
+ 1、插账户券表 fxp.p_coupon
+    按名单发券类型表 券数量 fxp.p_crowds_coupon.famount 循环插 账户券表 fxp.p_coupon
+    
+    每一种券发券数量 = fxp.p_crowds_coupon.famount X 活动名单明细表人数
+
+-- +-----------------------------+--------------+-----------+
+   fcoupon_id                    32位UUID                   -- 券id
+   fcoupon_no                    票据号生成                 -- 券编号 票据号产生 BILL_TYPE_ID= COUPON_NO 
+   --
+   -- 券类型
+   --
+   fcoupon_type_id               = fxp.p_crowds_coupon.fcoupon_type_id     -- 券类型id
+   fcoupon_type_name             = fxp.p_crowds_coupon.fcoupon_type_name   -- 券类型名称
+   fcoupon_money                 = fxp.p_crowds_coupon.fcoupon_money       -- 券面额
+   fcoupon_unit                  = fxp.p_crowds_coupon.fcoupon_unit        -- 单位
+   fcoupon_desc                  = fxp.p_crowds_coupon.fcoupon_desc        -- 券的说明
+   --
+   -- 发行
+   --
+   fissue_id                     = fxp.p_crowds_list.fissue_id             -- 发放id
+   fduetime_begin                = fxp.p_crowds_list.fperiod_begin         -- 有效期起日
+   fduetime_end                  = fxp.p_crowds_list.fperiod_end           -- 有效期止日
+   fissue_desc                   = fxp.p_crowds_list.fissue_desc           -- 发券备注
+   --
+   -- 人群
+   --
+   fcrowds_id                    = fxp.p_crowds_coupon.fcrowds_id         -- 名单id   
+   --
+   -- 所属活动
+   --
+   factivity_id                  = fxp.p_crowds_coupon.factivity_id       -- 活动id
+   --
+   -- 所属运营商
+   --   
+   foperator_id                  = fxp.p_crowds_coupon.foperator_id       -- 运营商id   
+   --
+   -- 账户
+   --
+   faccount_id                   = fxp.p_crowds_list.faccount_id          -- 账户id   
+   --
+   -- 创建
+   --
+   fcreate_date                  当前时间                                -- 创建时间  
+   fcreate_user_id               10001028                                -- 创建操作员id
+   fcreate_nickname              吴艳艳                                  -- 创建操作员姓名
+   --
+   -- 核销
+   --
+   fis_used                      N                          -- 是否被核销
+   fused_date                    空                         -- 核销时间
+   fused_svcnote_id              空                         -- 服务单id
+   fused_supplier_id             空                         -- 核销服务商id
+   fused_site_id                 空                         -- 核销服务点id
+   fused_user_id                 空                         -- 核销操作员id
+   fused_nickname                空                         -- 核销操作员姓名 
+      
+2、更新 发券活动表 fxp.p_coupon_activity
+-- +-----------------------------+--------------+-----------+
+   fis_issued                    Y                          -- 是否已发放
+   fissue_date                   当前时间                   -- 发放时间
+   fissue_user_id                10001028                   -- 发放操作员id
+   fissue_nickname               吴艳艳                     -- 发放操作员姓名
+   

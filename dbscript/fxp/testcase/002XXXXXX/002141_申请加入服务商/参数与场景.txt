@@ -1,0 +1,97 @@
+使用 000\init_user.xml
+
+张梅东（平台用户id fuser_id = 00002）申请加入服务商30101   “东沙村助老服务”  
+
+参数：
+  
+  1）平台用户id  fuser_id = 00002        会话传入
+  2）服务商id    fsupplier_id = 30101   扫描二维码或搜索，会话传入
+  
+   
+场景：
+  
+  1、在大厅选择“服务商服务 --  加入服务商 
+  
+  2、 扫描服务商的二维码，扫描成功，获取服务商ID 30101 ,获取服务商信息 “东沙村助老服务”
+   
+  3、点击“申请加入” 填写申请验证：张梅东申请加入东沙村助老服务   等待服务商管理员审核。
+     
+  
+  
+结果：
+
+   1、插加入服务商申请单表 fxp.req_join_supplier 表
+   
+   freqnote_id                   32位UUID                   -- 申请单id
+   --
+   -- 申请单信息
+   --
+   fsupplier_id                  30101                      -- 服务商id
+   fuser_id                      00002                      -- 用户id
+   fuser_name                    张梅东                     -- 用户name
+   freq_desc                     张梅东申请加入东沙村助老服务     -- 申请备注
+   --
+   -- 创建者信息
+   --
+   fcreate_time                  当前时间                   -- 创建时间
+   fcreate_user_id               00002                      -- 创建工号id
+   fcreate_nickname              张梅东                     -- 创建姓名
+   --
+   -- 环节信息
+   --
+   --
+   -- 申请单状态  1、 已新建  2 已接受  3、 已拒绝
+   --
+   --
+   flast_state                   已新建                     -- 最后状态，完成时ID
+   flast_time                    当前时间                   -- 最新完成时间
+   flast_user_id                 00002                      -- 最新完成操作员id
+   flast_nickname                张梅东                     -- 最新完成操作员name
+   flast_desc                    空                         -- 流程备注
+   --
+   -- 下一环节的信息，采用待办作为入口
+   --
+   fnext_node_id                 ACCEPT                     -- 下一环节 常量，和环节状态、备注同时更新
+   fnext_node_content            张梅东申请加入东沙村助老服务   -- 下一环节工作内容
+   --
+   -- 完成信息
+   --
+   fis_complete                   N                         -- 申请单是否已完成？  Y/N
+   fcomplete_state                空                        -- 完成状态  SUCCESS  成功  FAIL 失败（取消）
+   fcomplete_time                 空                        -- 完成时间
+   fcomplete_user_id              空                        -- 完成工号id
+   fcomplete_nickname             空                        -- 完成姓名
+   fcomplete_desc                 空                        -- 完成备注
+
+  
+ 2、 插下一环节的部门待办 fxp.p_todo
+
+   ftodo_id                      生成32UUID                 -- 待办id
+   --
+   -- 任务单据引用
+   --
+   fnote_type_id                 REQ_JOIN_SUPPLIER          -- 单据类型ID    表头代名词
+   fnote_id                      =fxp.req_join_supplier.freqnote_id     -- 任务要处理的单据主键,复合主键用逗号分隔
+   --
+   -- 任务说明
+   --
+   ftodo_content                 张梅东申请加入东沙村助老服务     -- 任务内容   = fxp.req_join_supplier.fnext_node_content
+   ftodo_remark                  空                         -- 任务备注
+   fcreate_time                  当前时间                   -- 创建时间
+   fnode_id                      ACCEPT                     -- 环节ID
+   fnote_tag                     DEFAULT                    -- 单据tag 如无意义时填 'DEFAULT'
+   ficon_file                    受.png                     -- 图标文件名，如 abc.jpg  所有图标路径相同，由程序统一配置
+   fblock_no                     2                          -- 区号
+   fordernum                     1                          -- 排序号
+   --
+   -- 抢单
+   --
+   fis_grabbed                   Y                          -- 是否被抢单？  Y/N
+   fgrab_time                    当前时间                   -- 抢单时间
+   fgrab_org_id                  30101                      -- 抢单机构id  = fxp.req_join_supplier.fsupplier_id
+   fgrab_dept_id                 空                         -- 抢单部门id
+   fgrab_user_id                 00001                      -- 抢单操作员id = 运营商对应的 fxp.p_org.fadmin_user_id
+   fgrab_user_name               张小明                     -- 抢单操作员姓名   运营商管理员name
+
+ 4、 不插下一环节的部门待办部门表  fxp.p_todo_dept   
+ 

@@ -1,0 +1,10 @@
+.settings/
+.checkstyle
+.classpath
+.factorypath
+.project
+target/
+*.oob
+.pmd
+.tern-project
+.idea

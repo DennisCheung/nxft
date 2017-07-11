@@ -1,0 +1,83 @@
+客户经理1（fuser_id= 00041 ） 将老人餐按配送单交给骑士配送，点击“配送”，完成配送单及相应的订单
+
+
+参数：
+  
+   1） fuser_id           00041            --  操作员id
+   2） fdelive_note_id    40001            --  配送单号 
+ 
+
+场景：
+
+   1、打开配餐系统-- 配餐管理，查询出“未配送” 的配送单。
+   
+   2、选择配送单号 = 40001 ， 点击“配送”
+ 
+   3、修改配送单的状态，并同步修改该配送单下的订餐单状态。
+   
+数据结果：
+
+  1、更新配送单 nxft.delive_note 状态
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 环节信息
+   --
+   --
+   -- 订单状态  1、 已接单     2、已配送   3、已送达
+   --
+   --
+   flast_state                   已配送                     -- 最后状态，完成时ID
+   flast_time                    当前时间                   -- 最新完成时间
+   flast_user_id                 00041                      -- 最新完成操作员id
+   flast_nickname                客户经理1                  -- 最新完成操作员name
+   flast_desc                    空                         -- 流程备注，如为退单，填退单原因。
+   --
+   -- 下一环节的信息，采用待办作为入口  DELIVE  配送   ARRIVE  送达
+   --
+   fnext_node_id                 ARRIVE                         -- 下一环节 常量，和环节状态、备注同时更新
+   fnext_node_content            送达订餐(测试福来第一助餐点)   -- 下一环节工作内容
+   --
+   -- 工单完成信息
+   --
+   fis_complete                  N                          -- 是否已完成？  Y/N
+   fcomplete_state               空                         -- 完成状态  SUCCESS  成功  FAIL 失败（取消）
+   ffail_reason_name             空                         -- 失败原因名称  常量  客户取消、改派
+   fcomplete_time                空                         -- 完成时间
+   fcomplete_user_id             空                         -- 完成操作员工号id
+   fcomplete_nickname            空                         -- 完成操作员姓名
+   fcomplete_desc                空           ,             -- 完成备注   
+
+  2、更新订单表  nxft.nxft_order 状态
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 环节信息
+   --
+   --
+   -- 订单状态  1、 已派单  2、 已接单   4、已配送  5、已发放   6、已取消   
+   --
+   --
+   flast_state                   已配送                     -- 最后状态，完成时ID
+   flast_time                    当前日期                   -- 最新完成时间
+   flast_user_id                 00041                      -- 最新完成操作员id
+   flast_nickname                客户经理1                  -- 最新完成操作员name
+   flast_desc                    空                         -- 流程备注，如为退单，填退单原因。
+   --
+   -- 下一环节的信息，采用待办作为入口  ACCEPT  接单  DELIVE  配送  GIVE 发放
+   --
+   fnext_node_id                 GIVE                        -- 下一环节 常量，和环节状态、备注同时更新
+   fnext_node_content            空
+ 
+                               格式：助餐点：    "发放订餐" + "(  + 对象姓名 +  助餐点名称 + ")" 
+                                       到户：    "发放订餐" + "(" + 对象姓名 + " " + 详细住址 + ")"
+ 
+   --
+   -- 配送单完成信息
+   --
+   fis_complete                  N                          -- 是否已完成？  Y/N
+   fcomplete_state               空                         -- 完成状态  SUCCESS  成功  FAIL 失败（取消）
+   ffail_reason_name             空                         -- 失败原因名称  常量  客户取消、改派
+   fcomplete_time                空                         -- 完成时间
+   fcomplete_user_id             空                         -- 完成操作员工号id
+   fcomplete_nickname            空                         -- 完成操作员姓名
+   fcomplete_desc                空           ,             -- 完成备注    
+ 

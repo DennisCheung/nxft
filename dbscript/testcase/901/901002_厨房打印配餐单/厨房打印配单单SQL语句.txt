@@ -1,0 +1,38 @@
+打印订配餐单：
+
+  入参：
+   as_delive_note_id        -- 配送单id
+
+1、单头语句：
+   
+   select 
+     x.fdelive_note_id,        -- 配送单ID
+     x.fmeal_date,             -- 就餐日期
+     x.fweek,                  -- 周几
+     x.fmeal_type_name,        -- 餐别名称
+     x.fquantity,              -- 总计
+     x.fquantity_desc,         -- 数量描述
+     x.fdelive_type,           -- 配送方式  助餐点 SITE  到户上门  HOME
+     x.fdelive_site_name,      -- 配送地点名称
+     x.fdelive_addr            -- 配送地址
+   from  nxft.delive_note x
+   where x.fdelive_note_id = :as_delive_note_id ;
+
+2、明细语句：
+
+   select
+     x.fsubject_name,            -- 姓名
+     x.fsex_name,                -- 性别name
+     x.fmeal_code,               -- 套餐CODE
+     x.fmeal_name,               -- 套餐名称
+     y.fmeal_content,            -- 套餐内容
+     x.fquantity,                -- 数量
+     x.fcontact_phone            -- 联系电话   
+     from nxft.nxft_order x,
+          nxft.meal_set   y
+   where  x.fmeal_id = y.fmeal_id  
+    and   x.fdelive_note_id = :as_delive_note_id 
+    order by x.fmeal_code, 
+             x.fsubject_name ;
+
+  

@@ -1,0 +1,102 @@
+html {
+  height: 100%; }
+
+body {
+  font-family: "Microsoft YaHei";
+  height: 100%;
+  background: url("../images/1-bg.png") no-repeat fixed center center;
+  background-size: cover; }
+
+.login-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative; }
+  .login-box .login {
+    width: 8.80rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -4.04rem;
+    margin-left: -4.40rem;
+    border-radius: 20px;
+    border: 1px solid #66bfbfbf;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.4); }
+    .login-box .login .box {
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #e6bfbfbf;
+      padding-left: 0.50rem;
+      padding-right: 0.50rem; }
+      .login-box .login .box .box-inner .login-box {
+        padding-top: 0.44rem; }
+        .login-box .login .box .box-inner .login-box .title {
+          font-size: 0.60rem;
+          color: #ff7e00;
+          text-align: center;
+          margin-bottom: 0.58rem; }
+        .login-box .login .box .box-inner .login-box .user {
+          margin: 0.30rem 0;
+          text-align: center;
+          font-size: 0; }
+          .login-box .login .box .box-inner .login-box .user .u-img {
+            border: 1px solid #faa858;
+            display: inline-block;
+            width: 0.96rem;
+            height: 1.08rem;
+            border-radius: 0.30rem 0 0 0.30rem;
+            background: url("../images/manage-user.png") no-repeat center center;
+            background-color: #fce8d5;
+            background-size: 0.48rem 0.46rem;
+            border-right: none;
+            vertical-align: middle; }
+          .login-box .login .box .box-inner .login-box .user .password {
+            background-image: url("../images/manage-password.png"); }
+          .login-box .login .box .box-inner .login-box .user .u-info {
+            font-size: 0.36rem;
+            color: #b4b2b2;
+            width: 6rem;
+            height: 1.08rem;
+            border-radius: 0 0.30rem 0.30rem 0;
+            border: 1px solid #faa858;
+            vertical-align: middle;
+            text-indent: 0.25rem; }
+          .login-box .login .box .box-inner .login-box .user .u-info:focus {
+            box-shadow: 5px 1px 29px 7px #fbe9d9; }
+        .login-box .login .box .box-inner .login-box .remember {
+          width: 6.96rem;
+          text-align: right;
+          margin: 0 auto; }
+          .login-box .login .box .box-inner .login-box .remember .u-img {
+            display: inline;
+            cursor: pointer; }
+            .login-box .login .box .box-inner .login-box .remember .u-img img {
+              vertical-align: bottom;
+              width: 0.40rem;
+              height: auto; }
+          .login-box .login .box .box-inner .login-box .remember .txt {
+            font-size: 0.36rem;
+            color: #333333;
+            cursor: pointer; }
+        .login-box .login .box .box-inner .login-box .login-in {
+          text-align: center;
+          margin-bottom: 0.48rem;
+          margin-top: 0.2rem; }
+          .login-box .login .box .box-inner .login-box .login-in .btn {
+            width: 6.95rem;
+            height: 1.08rem;
+            border-radius: 0.50rem;
+            border: 1px solid #ffffff;
+            background: #ff7e00;
+            color: #ffffff;
+            text-align: center;
+            font-size: 0.40rem;
+            cursor: pointer; }
+        .login-box .login .box .box-inner .login-box .login-alert {
+          margin-top: 0.35rem;
+          font-size: 0.30rem;
+          color: #ee4040;
+          text-align: center; }
+
+/*# sourceMappingURL=login.css.map */

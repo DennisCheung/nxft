@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+    auto-import="false"
+    default-access="field">
+
+    <!-- 配餐订单 -->
+    <class name="com.wit.fxp.nxft.domain.model.order.NxftOrder" table="NXFT_ORDER" schema="NXFT"
+            dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+
+        <!-- 单字段主键 -->
+        <id name="id" column="FORDER_ID" type="string" access="property">
+        </id>
+
+        <version name="version" type="integer" insert="true">
+            <column name="FVERSION" not-null="true" />
+        </version>
+
+<!--
+ | 以下请勿修改，下次生成后将被覆盖！！！
+ | BEGIN>>>@$^*!#%&1
+ |
+ | Created by Benewit Code Generator V1.0
+ | codegen/templates//java/java-enthbm.template
+ |-->
+
+        <component name="logInfo">
+            <property name="logcby" type="string">
+                <column name="FLOGCBY" length="32" not-null="true" />
+            </property>
+            <property name="logcdate" type="timestamp">
+                <column name="FLOGCDATE" not-null="true" />
+            </property>
+            <property name="logluby" type="string">
+                <column name="FLOGLUBY" length="32" not-null="true" />
+            </property>
+            <property name="logludate" type="timestamp">
+                <column name="FLOGLUDATE" not-null="true" />
+            </property>
+            <property name="loglaby" type="string">
+                <column name="FLOGLABY" length="32" not-null="true" />
+            </property>
+            <property name="logladate" type="timestamp">
+                <column name="FLOGLADATE" not-null="true" />
+            </property>
+        </component>
+
+
+        <!-- 配送单id -->
+        <property name="deliveNoteId" type="string">
+            <column name="FDELIVE_NOTE_ID" length="32" not-null="false" />
+        </property>
+
+
+        <!-- 对象信息 -->
+        <component name="subjectInfo" class="com.wit.fxp.nxft.domain.model.order.NxftOrder$SubjectInfo">
+            <property name="subjectId" type="string">
+                <column name="FSUBJECT_ID" length="32" not-null="true" />
+            </property>
+            <property name="subjectName" type="string">
+                <column name="FSUBJECT_NAME" length="80" not-null="true" />
+            </property>
+            <property name="sexId" type="string">
+                <column name="FSEX_ID" length="32" not-null="true" />
+            </property>
+            <property name="sexName" type="string">
+                <column name="FSEX_NAME" length="30" not-null="true" />
+            </property>
+            <property name="contactPhone" type="string">
+                <column name="FCONTACT_PHONE" length="30" not-null="true" />
+            </property>
+            <property name="regionId" type="string">
+                <column name="FREGION_ID" length="32" not-null="true" />
+            </property>
+            <property name="regionName" type="string">
+                <column name="FREGION_NAME" length="80" not-null="true" />
+            </property>
+            <property name="address" type="string">
+                <column name="FADDRESS" length="200" not-null="false" />
+            </property>
+            <property name="subjectTypeId" type="string">
+                <column name="FSUBJECT_TYPE_ID" length="32" not-null="true" />
+            </property>
+            <property name="subjectTypeName" type="string">
+                <column name="FSUBJECT_TYPE_NAME" length="30" not-null="true" />
+            </property>
+            <property name="subjectDesc" type="string">
+                <column name="FSUBJECT_DESC" length="256" not-null="false" />
+            </property>
+            <property name="circleId" type="string">
+                <column name="FCIRCLE_ID" length="32" not-null="true" />
+            </property>
+            <property name="deliveType" type="string">
+                <column name="FDELIVE_TYPE" length="30" not-null="true" />
+            </property>
+            <property name="deliveSiteId" type="string">
+                <column name="FDELIVE_SITE_ID" length="32" not-null="true" />
+            </property>
+            <property name="deliveSiteName" type="string">
+                <column name="FDELIVE_SITE_NAME" length="40" not-null="true" />
+            </property>
+            <property name="deliveAddr" type="string">
+                <column name="FDELIVE_ADDR" length="100" not-null="true" />
+            </property>
+            <property name="lunchBoxNo" type="string">
+                <column name="FLUNCH_BOX_NO" length="20" not-null="false" />
+            </property>
+        </component>
+
+
+        <!-- 菜谱信息 -->
+        <component name="mealInfo" class="com.wit.fxp.nxft.domain.model.order.NxftOrder$MealInfo">
+            <property name="kitchenCircleId" type="string">
+                <column name="FKITCHEN_CIRCLE_ID" length="32" not-null="true" />
+            </property>
+            <property name="kitchenTeamId" type="string">
+                <column name="FKITCHEN_TEAM_ID" length="32" not-null="true" />
+            </property>
+            <property name="mealDate" type="timestamp">
+                <column name="FMEAL_DATE" not-null="true" />
+            </property>
+            <property name="week" type="integer">
+                <column name="FWEEK" not-null="true" />
+            </property>
+            <property name="mealTypeId" type="string">
+                <column name="FMEAL_TYPE_ID" length="32" not-null="true" />
+            </property>
+            <property name="mealTypeName" type="string">
+                <column name="FMEAL_TYPE_NAME" length="40" not-null="true" />
+            </property>
+            <property name="mealId" type="string">
+                <column name="FMEAL_ID" length="32" not-null="true" />
+            </property>
+            <property name="mealCode" type="string">
+                <column name="FMEAL_CODE" length="30" not-null="true" />
+            </property>
+            <property name="mealName" type="string">
+                <column name="FMEAL_NAME" length="40" not-null="true" />
+            </property>
+            <property name="mealPrice" type="double">
+                <column name="FMEAL_PRICE" not-null="true" />
+            </property>
+            <property name="scheduleDesc" type="string">
+                <column name="FSCHEDULE_DESC" length="256" not-null="false" />
+            </property>
+            <property name="mealContent" type="string">
+                <column name="FMEAL_CONTENT" length="60" not-null="false" />
+            </property>
+        </component>
+
+
+        <!-- 结算信息 -->
+        <component name="settleInfo" class="com.wit.fxp.nxft.domain.model.order.NxftOrder$SettleInfo">
+            <property name="quantity" type="integer">
+                <column name="FQUANTITY" not-null="true" />
+            </property>
+            <property name="deliveFee" type="double">
+                <column name="FDELIVE_FEE" not-null="true" />
+            </property>
+            <property name="sumTotal" type="double">
+                <column name="FSUM_TOTAL" not-null="true" />
+            </property>
+            <property name="sumPayment" type="double">
+                <column name="FSUM_PAYMENT" not-null="true" />
+            </property>
+            <property name="sumReceivable" type="double">
+                <column name="FSUM_RECEIVABLE" not-null="true" />
+            </property>
+        </component>
+
+
+        <!-- 创建信息 -->
+        <component name="createInfo" class="com.wit.fxp.nxft.domain.model.order.NxftOrder$CreateInfo">
+            <property name="createTime" type="timestamp">
+                <column name="FCREATE_TIME" not-null="true" />
+            </property>
+            <property name="createUserId" type="string">
+                <column name="FCREATE_USER_ID" length="32" not-null="true" />
+            </property>
+            <property name="createUserName" type="string">
+                <column name="FCREATE_USER_NAME" length="50" not-null="true" />
+            </property>
+            <property name="createWay" type="string">
+                <column name="FCREATE_WAY" length="20" not-null="true" />
+            </property>
+        </component>
+
+
+        <!-- 上次状态 -->
+        <component name="lastState" class="com.wit.fxp.nxft.domain.model.order.NxftOrder$LastState">
+            <property name="lastState" type="string">
+                <column name="FLAST_STATE" length="30" not-null="true" />
+            </property>
+            <property name="lastTime" type="timestamp">
+                <column name="FLAST_TIME" not-null="true" />
+            </property>
+            <property name="lastUserId" type="string">
+                <column name="FLAST_USER_ID" length="32" not-null="true" />
+            </property>
+            <property name="lastNickname" type="string">
+                <column name="FLAST_NICKNAME" length="40" not-null="true" />
+            </property>
+            <property name="lastDesc" type="string">
+                <column name="FLAST_DESC" length="256" not-null="false" />
+            </property>
+        </component>
+
+
+        <!-- 下一环节 -->
+        <component name="nextNode" class="com.wit.fxp.nxft.domain.model.order.NxftOrder$NextNode">
+            <property name="nextNodeId" type="string">
+                <column name="FNEXT_NODE_ID" length="30" not-null="false" />
+            </property>
+            <property name="nextNodeContent" type="string">
+                <column name="FNEXT_NODE_CONTENT" length="300" not-null="false" />
+            </property>
+        </component>
+
+
+        <!-- 完成信息 -->
+        <component name="completeInfo" class="com.wit.fxp.nxft.domain.model.order.NxftOrder$CompleteInfo">
+            <property name="isComplete" type="yes_no">
+                <column name="FIS_COMPLETE" not-null="true" />
+            </property>
+            <property name="completeState" type="string">
+                <column name="FCOMPLETE_STATE" length="30" not-null="false" />
+            </property>
+            <property name="failReasonName" type="string">
+                <column name="FFAIL_REASON_NAME" length="50" not-null="false" />
+            </property>
+            <property name="completeTime" type="timestamp">
+                <column name="FCOMPLETE_TIME" not-null="false" />
+            </property>
+            <property name="completeUserId" type="string">
+                <column name="FCOMPLETE_USER_ID" length="32" not-null="false" />
+            </property>
+            <property name="completeNickname" type="string">
+                <column name="FCOMPLETE_NICKNAME" length="30" not-null="false" />
+            </property>
+            <property name="completeDesc" type="string">
+                <column name="FCOMPLETE_DESC" length="256" not-null="false" />
+            </property>
+        </component>
+
+
+        <!-- keys -->
+
+
+
+        <!-- relationship -->
+
+<!--
+ | 以上请勿修改，下次生成后将被覆盖！！！
+ | END<<<&%#!*^$@1
+ |-->
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,160 @@
+@charset "utf-8";
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    background: transparent;
+    color: black;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+body, button, input, select, textarea {
+    font: 12px "Microsoft YaHei";
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: 500;
+}
+ol, ul {
+    list-style: none;
+}
+input, select, textarea {
+    font-size: 100%;
+    outline: none;
+    text-indent: 5px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+th {
+    text-align: inherit;
+}
+caption, th {
+    text-align: left;
+}
+fieldset, img {
+    border: 0;
+}
+img{
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+optgroup {
+    font-weight: bold;
+}
+button, [type="button"], [type="reset"], [type="submit"] {
+    cursor: pointer;
+}
+audio, canvas, progress, video {
+    display: inline-block;
+}
+progress {
+    vertical-align: baseline;
+}
+mark {
+    background-color: #ff0;
+    color: #000
+}
+iframe {
+    display: block;
+}
+abbr, acronym {
+    border-bottom: none;
+    text-decoration: underline;
+}
+del {
+    text-decoration: line-through;
+}
+address, caption, cite, code, dfn, em, th, var {
+    font-style: normal;
+    font-weight: 500;
+}
+q:before, q:after {
+    content: ''
+}
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+a:hover {
+    text-decoration: underline;
+}
+ins, a {
+    text-decoration: none;
+}
+a {
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+    -moz-tap-highlight-color: rgba(255, 0, 0, 0);
+    -ms-tap-highlight-color: rgba(255, 0, 0, 0);
+    tap-highlight-color: rgba(255, 0, 0, 0);
+    -webkit-touch-callout: none;
+    touch-callout: none;
+}
+a:focus, *:focus {
+    outline: 0;
+}
+a:active, a:hover {
+    outline-width: 0;
+}
+code, kbd, pre, samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+.clearfix:after {
+    display: block;
+    content: "";
+    visibility: hidden;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+
+}
+.clearfix {
+    zoom: 1;
+}
+.clear {
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+}
+.hide {
+    display: none;
+}
+.block {
+    display: block;
+}
+.fl,.fr {
+    display: inline;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+*{
+    box-sizing: border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* chrome、safari */
+    -ms-box-sizing:border-box; /* ie */
+}
+

@@ -1,0 +1,76 @@
+吴艳艳（平台用户id fuser_id= 10001028 ）为 “2016年甘棠村基金助老服务（未发券）-- 60-69岁老人” 的发券活动添加成员
+
+参数：
+   
+   1） fuser_id          10001028       --  操作员id
+   2） fnickname         吴艳艳         --  操作员姓名
+   3） forg_id           10001          --  登录的机构id
+   4） fsite_id          1000131        --  登录的服务点id
+   5） factivity_id      00123          --  活动id
+   6） fcrowds_id        30001          --  名单id
+   7） fperson_id        12345677       --  客户id
+   
+   
+场景：
+
+  1、吴艳艳（平台用户id fuser_id= 00001 ）登录系统，在 “我的主页” 选择 “发券管理”
+     进入“发券管理”界面
+     
+  2、在发券界面显示所有发券活动列表，在 “2016年甘棠村基金助老服务” 一列选择 “活动主页”，进入活动主页面
+  
+  3、在活动主页选择 “60-69岁老人” 的记录 点击 “名单明细” 系统弹出 “名单_编辑名单成员” 窗口
+  
+  4、弹出框显示驿站所有对象列表，在当前界面选择 “张大爷” （客户id fperson_id = 12345677  ） 点击 “添加”，已选人员列表中增加 “张大爷”的记录
+     
+    分支：吴艳艳按 “60-69”岁的条件查询获得符合条件的驿站对象列表，
+          选择 “全部添加” 所有符合条件对象均添加到已选人员列表
+          
+结果：
+
+  根据客户id fperson_id，查找客户信息及账户信息 
+  
+   select 
+     fperson_id  ,   -- 客户ID
+     fperson_no  ,   -- 客户编号
+     fperson_name ,  -- 客户姓名
+     fsex_name ,     -- 性别中文
+     fbirth_date ,   -- 出生日期, 年龄通过出生日期计算出来
+     fperson_mobile, -- 客户手机
+     fid_no          -- 证件编号（身份证）
+   from fxp.p_person where t.fperson_id = :dis.dis_subject.fperson_id ;
+   
+   select faccount_id
+   from fxp.p_account_person where t.fperson_id = :dis.dis_subject.fperson_id ;
+  
+
+  1、插 活动名单明细表 fxp.p_crowds_list
+-- +-----------------------------+--------------+-----------+
+   fcrowds_id                    30001                      -- 名单id  = fxp.p_activity_crowds.fcrowds_id
+   --
+   -- 账户信息
+   --
+   fperson_id                    12345677                   -- 客户ID
+   fperson_NO                    101                        -- 客户编号
+   fperson_name                  张大爷                     -- 客户姓名
+   fsex_name                     男                         -- 性别中文
+   fbirth_date                   1953-04-01                 -- 出生日期, 年龄通过出生日期计算出来
+   fperson_mobile                13712952020                -- 客户手机
+   fid_no                        440101195304014114         -- 证件编号（身份证）
+   --
+   -- 账号
+   --
+   faccount_id                   12345677                   -- 账户id
+   --
+   -- 活动
+   --  
+   factivity_id                  00123                      -- 活动id
+   --
+   -- 所属运营商
+   --
+   foperator_id                  10001                      -- 运营商id
+   flist_desc                    空                         -- 备注
+   --
+   -- 创建
+   --
+   fcreate_date                  当前时间                   -- 创建时间  
+    

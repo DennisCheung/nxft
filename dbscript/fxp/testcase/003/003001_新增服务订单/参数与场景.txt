@@ -1,0 +1,84 @@
+使用 000\init.xml
+
+描述：杨健（fuser_id = 00001 fcircle_od = 30111  fteam_id = 30111KTB  ）使用开通吧  购买服务
+      
+  1、参数：
+      
+      fcircle_od = 30111
+      fteam_id = 30111KTB
+      fuser_id = 00001 
+ 
+场景：
+  1、杨健（fuser_id = 00001 fcircle_od = 30111  fteam_id = 30111KTB  ）使用开通吧
+  
+  2、使用购买服务功能，在购买服务界面 
+           
+     1) 列出福来平台所有已上架的商品列表
+        
+        select 
+          x.fgoods_id,      -- 商品id
+          x.fgoods_name,    -- 商品名称
+          x.fgoods_info,    -- 商品详细信息
+          x.fgoods_price,   -- 商品单价
+          x.fgoods_unit,    -- 单位
+          --
+          -- 所属圈
+          --
+          x.fcircle_id,     -- 所属工作圈id（上架者）
+          y.fcircle_name    -- 圈的名称
+        from fxp.p_goods x,
+             fxp.p_circle y
+        where x.fcircle_id = y.fcircle_id and
+              x.fis_cancel = 'N' ;
+              
+      2）选择 FGOODS_ID= "00001"  FGOODS_NAME="测试居家养老服务400元"
+     
+      3）输入商品数量     100
+     
+      4）列出商品的构成
+         
+         select
+           x.fproduct_id,    -- 服务目录ID
+           x.fpercent,       -- 所占百分比
+           x.ffloating,      -- 浮动百分比 
+           y.fproduct_name   -- 服务目录名称
+         from fxp.p_goods_compose x,
+              fxp.p_product y
+        where x.fgoods_id = :fgoods_id  and
+              x.fproduct_id = y.fproduct_id ;
+       
+  3、点击“保存”， 完成新增订单
+
+结果：
+  
+  1、插订单表 fxp.p_order
+-- +-----------------------------+--------------+-----------+
+   forder_id                     32位UUID                   -- 订单ID
+   --
+   -- 商品信息
+   --
+   fgoods_id                     00001                      -- 商品id     = fxp.p_goods.fgoods_id
+   fgoods_name                   测试居家养老服务400元      -- 商品名称   = fxp.p_goods.fgoods_name
+   fgoods_price                  400                        -- 商品单价   = fxp.p_goods.fgoods_price
+   fgoods_unit                   份                         -- 单位       = fxp.p_goods.fgoods_unit
+   --
+   -- 金额
+   --
+   fquantity                     100                        -- 数量
+   fquantity_activate            0                          -- 已激活的数量    默认=0
+   fsum_total                    40000                      -- 金额        = 单价x数量
+   -- 
+   -- 卖方信息
+   --
+   fsell_circle_id               10001                      -- 卖方工作圈id   = fxp.p_goods.fcircle_id
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 购买信息
+   --
+   fbuy_time                     当前时间                   -- 购买时间
+   fbuy_circle_id                30111                      -- 购买工作圈id    登录的操作员信息
+   fbuy_team_id                  30111KTB                   -- 购买工作组id 
+   fbuy_user_id                  00001                      -- 购买操作员id
+   fbuy_user_name                普通坐席1                  -- 购买操作员姓名  
+
+

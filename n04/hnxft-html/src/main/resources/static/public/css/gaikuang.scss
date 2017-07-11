@@ -1,0 +1,367 @@
+@charset "utf-8";
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+}
+.mask{
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
+  .alert{
+    background: #fff;
+    position: absolute;
+    width: 370px;
+    min-width: 300px;
+    border: 1px solid #ccc;
+    top: 50%;
+    margin-top: -220px;
+    margin-left: -160px;
+    left: 50%;
+    border-radius: 5px;
+    h2{
+      text-align: center;
+      line-height: 60px;
+      font-size: 24px;
+      border-bottom: 1px solid #ccc;
+    }
+    p{
+      text-align: center;
+      font-size: 18px;
+      line-height: 54px;
+    }
+    .false-alert{
+      line-height: 40px;
+      color: red;
+      font-size: 20px;
+      text-align: center;
+      height: 40px;
+    }
+    .input{
+      text-align: center;
+      line-height: 40px;
+      input{
+        width: 300px;
+        height: 40px;
+        text-indent: 5px;
+        font-size: 14px;
+      }
+    }
+    .btns{
+      line-height: 70px;
+      text-align: center;
+      button{
+        width: 100px;
+        height: 40px;
+        background: #ff7e00;
+        border: none;
+        font-size: 20px;
+        color: #fff;
+      }
+    }
+  }
+}
+.selectIndex{
+  overflow: hidden;
+  .select-left{
+    width:3rem;
+    .menu{
+      width: 100%;
+      background: url("../images/3-bgnev.png") no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%;
+      li{
+        height: 2.16rem;
+        border-bottom:1px solid #736E6B;
+        color:#ffffff;
+        cursor:pointer;
+        font-size: 0;
+        i{
+          display: inline-block;
+          *diplay:inline;
+          zoom:1;
+          width: 38%;
+          height: 100%;
+          vertical-align: top;
+          padding-left:0.31rem;
+          padding-top: 0.80rem;
+          img{
+            vertical-align: top;
+            height: auto;
+            width: 0.67rem;
+          }
+        }
+        span{
+          display: inline-block;
+          *diplay:inline;
+          zoom:1;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.75rem;
+        }
+        .guidance{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.43rem;
+        }
+      }
+      li.active{
+        i{
+          background: #ff7e00;
+        }
+        span,.guidance{
+          color:#ff7e00;
+          background:#2a2d32;
+        }
+      }
+    }
+  }
+  .select-right{
+    padding-left:3.00rem;
+    /*系统版本*/
+    .system-ver{
+      *{
+        vertical-align: middle;
+      }
+      width: 100%;
+      background: #ff7e00;
+      color: #fefefe;
+      text-align: right;
+      font-size: 0;
+      //padding: 0.16rem;
+      height: 0.62rem;
+      line-height: 0.62rem;
+      span{
+        font-size: 0.30rem;
+      }
+      .qiehuan{
+        display: inline-block;
+        font-size: 0.24rem;
+        color: #ff7e00;
+        cursor: pointer;
+        width: 1.5rem;
+        padding-left: 0.40rem;
+        margin-left: 0.15rem;
+        height: 100%;
+        background: url(../images/change.png) no-repeat 0.25rem center;
+        text-align: center;
+        background-color: #ffdbb7;
+        background-size: 0.28rem 0.27rem;
+      }
+    }
+    .sel-module{
+      .top-layout{
+        background: #fbf2e9;
+        /* 本例子css */
+        .picScroll-left{
+          overflow:hidden;
+          position:relative;
+          border:1px solid #ccc;
+           .hd{
+             background:#f4f4f4;
+             padding:0 0.1rem;
+             position: relative;
+             .prev,.next{
+               display:block;
+               width:0.53rem;
+               height:0.94rem;
+               margin-right:0.05rem;
+               margin-top:0.1rem;
+               overflow:hidden;
+               cursor:pointer;
+               position: absolute;
+               top: 1rem;
+               z-index: 999;
+             }
+             .prev{
+               left: 0.20rem;
+             }
+             .next{
+               left: 15.38rem;
+             }
+             .prevStop{
+               background-position:-0.60rem 0;
+             }
+             .nextStop{
+               background-position:-0.60rem -0.50rem;
+             }
+              ul{
+                float:right;
+                overflow:hidden;
+                zoom:1;
+                margin-top:0.1rem;
+                li{
+                  float:left;
+                  width:0.09rem;
+                  height:0.09rem;
+                  overflow:hidden;
+                  margin-right:0.05rem;
+                  text-indent:-999px;
+                  cursor:pointer;
+                  background:url("images/icoCircle.gif") 0 -0.09rem no-repeat;
+                }
+                li.on{
+                  background-position:0 0;
+                }
+              }
+           }
+          .bd{
+            margin: 0.42rem auto;
+            width: 14.67rem;
+            overflow: hidden;
+             ul{
+               overflow:hidden;
+               zoom:1;
+               width: 19.66rem;
+               position: relative;
+               left: 0;
+               top: 0;
+               li{
+                 margin:0 0.36rem;
+                 float:left;
+                 _display:inline;
+                 overflow:hidden;
+                 text-align:center;
+                 position:relative;
+                 .pic{
+                   text-align:center;
+                   cursor:pointer;
+                   img{
+                     width:4.17rem;
+                     height:2.59rem;
+                     display:block;
+                   }
+                   a:hover img{
+                     border-color:#999;
+                   }
+                 }
+                 .title{
+                   cursor: pointer;
+                   font-size: 0.48rem;
+                   position: absolute;
+                   top: 0;
+                   left: 0;
+                   color: #fff;
+                   background: rgba(0,0,0,.4);
+                   height: 100%;
+                   width: 100%;
+                   padding-top: 0.7rem;
+                   padding-left: 0.26rem;
+                   padding-right: 0.2rem;
+                   border-radius: 5px;
+                   a{
+                     text-decoration: none;
+                   }
+                 }
+               }
+             }
+          }
+        }
+      }
+      .carte{
+        padding: 10px 20px 0 20px;
+        font-size: 0.26rem;
+        height: 6.46rem;
+        overflow-y: auto;
+        .nav{
+          color:#ff7e00;
+          margin: 0.3rem 0;
+          *{
+            vertical-align: middle;
+          }
+          button{
+            margin: 0 1px;
+            font-size: 0.26rem;
+            color: #fff;
+            background: #ff7e00;
+            padding: 0 5px;
+            border: none;
+          }
+
+          .time{
+            overflow: hidden;
+            zoom:1;
+            .time-left{
+              color:#333;
+              font-size: 20px;
+              display: inline-block;
+              .caipu{
+                margin-right:10px;
+              }
+              .caipuTxt{
+                margin-right: 8px;
+                height: 0.28rem;
+                width: auto;
+              }
+            }
+            .time-right{
+              display: inline-block;
+              float: right;
+              button{
+                height: 40px;
+                width: 100px;
+                font-size: 18px;
+                color:#fff;
+                background: #ff7e00;
+                border:none;
+              }
+              .prev{
+                border-radius: 10px 0 0 10px;
+                margin-right: 2px;
+              }
+              .next{
+                border-radius: 0 10px 10px 0;
+              }
+              button.active{
+                background: #fd922a;
+              }
+            }
+          }
+        }
+
+        table{
+          border-collapse: collapse;
+          width: 100%;
+          margin: 0 auto;
+          td,th{
+            border: 1px solid #d2d2d2;
+            text-align: center;
+          }
+          thead{
+            font-size: 0.23rem;
+            color:#ff7e00;
+            background: #fff3e8;
+            .comon{
+              width:13.7%;
+              height: 0.8rem;
+            }
+          }
+          tbody{
+            font-size:0.23rem;
+            color:#333333;
+            .comon{
+              width:13.7%;
+              height: 1.3rem;
+            }
+            .first{
+              background: #fff3e8;
+              color:#ff7e00;
+            }
+          }
+        }
+      }
+    }
+  }
+}

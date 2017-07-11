@@ -1,0 +1,119 @@
+使用 000\init_user.xml
+
+参数：张小明（fuser_id = 00001）创建第一个服务点并自动创建同名服务商
+
+
+  1、配置环境常量：
+    [QYH_SUPPLIER_DEPT]  企业号通讯录部门 服务商部门
+    [QYH_VISTOR_DEPT]    企业号通讯录部门 游客部门
+    [QYH_UNORG_DEPT]     企业号通讯录部门 散客部门
+      
+  1、参数：
+     1）平台用户id fuser_id = 00001
+     2）商家名称    东东士多店
+     3）商家联系手机   13822290370
+     
+  
+
+场景：
+  1、张小明已通过微信验证成为  系统散客，通过我的--管理服务点 选择新建服务点 
+     
+     在创建服务商界面输入
+     
+     1）商家名称    东东士多店
+     2）商家联系手机   13822290370
+     
+       
+  2、点击“完成”， 实现服务点注册
+
+结果：
+
+
+  1、插机构表 fxp.p_org
+
+    forg_id                       生成32位uuid               -- 机构id
+    forg_name                     东东士多店                 -- 机构名称     界面输入
+    forg_digital_number           100                        -- 机构数字编号  票据号生成 FBILL_TYPE_ID = ORG_DIGITAL_NUMBER
+    fadmin_user_id                00001                      -- 机构主管理员用户   张小明fxp.p_user.fuser_id
+    forg_desc                     空                         -- 备注
+  
+
+  2、插服务商表 fxp.p_supplier
+
+   fsupplier_id                  = fxp.p_org.forg_id        -- 商户id
+   fsupplier_name                东东士多店                 -- 商户名称  = fxp.p_org.forg_name
+   fsupplier_info                空                         -- 商户简介
+   faddress                      空                         -- 详细地址
+   fcontact_person               张小明                     -- 联系人姓名   = 登录的操作员姓名
+   fcontact_mobile               13662487771                -- 联系人手机   = 通讯录用户验证的手机号
+   fsupplier_desc                空                         -- 商户备注    
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 开通
+   --
+   fcreate_date                   当前时间                   -- 创建日期（录入时输入的日期） 
+   fcreate_user_id                00001                      -- 建档操作员id    登录的操作员ID
+   fcreate_user_name              张小明                     -- 建档操作员姓名  登录的操作员姓名
+   --
+   -- 注销
+   --
+   fis_cancel                    N                          -- 是否被注销
+   fcancel_reason                空                         -- 注销原因
+   fcancel_date                  空                         -- 注销机器时间
+   fcancel_user_id               空                         -- 注销操作员id   
+   fcancel_user_name             空                         -- 注销操作员姓名 
+   
+  3、创建第一个服务场所  fxp.p_site 表
+
+      fsite_id                 32位uuid生成                 -- 经营场所id
+      fsite_name               东东士多店                   -- 经营场所名称  = fxp.p_org.forg_name
+      fsite_info               空                           -- 场所简介      
+      forg_id                  = fxp.p_org.forg_id          -- 所属的机构id
+      fservice_scope_desc      空                           -- 服务范围     
+      faddress                 空                           -- 详细地址      
+      fadmin_user_id           00001                        -- 场所负责人id  操作员本人即店长
+      fcontact_mobile          13822290370                  -- 联系手机   界面输入
+      fsite_desc               空                           -- 场所备注   
+
+  
+  4、插服务点用户表  fxp.p_site_user 表
+   
+     fsite_id                    fxp.p_site.fsite_id        -- 服务点id
+     fuser_id                    00001                      -- 用户id    = fxp.p_site.fadmin_user_id 
+     fcreate_date                当前日期                   -- 创建日期（录入时输入的日期） 
+     fcreate_user_id             00001                      -- 创建操作员id
+     fcreate_user_name           张小明                     -- 创建操作员姓名
+
+  5、在微信企业号用户表 fxp.p_qyh_user 找到系统fqyh_user_id  = '234567'
+  
+     select fqyh_user_id  from fxp.p_qyh_user where fuser_id = '00001' ; 
+     
+     找到的 fqyh_user_id=234567
+
+
+  6、根据 fqyh_user_id，修改微信企业号用户表，fxp.p_qyh_user，根据
+  
+                                  原值        新值
+    fuser_type                    UNORG       EMP                        -- 用户类型 常量    UNORG  散客  EMP 职工
+ 
+ 
+  
+  7、插企业号用户机构表 fxp.p_qyh_user_org
+  
+    fqyh_user_id                  234567                     -- 微信企业号user id
+    forg_id                       = fxp.p_org.forg_id        -- 机构ID     
+  
+  
+  8、调用微信企业号管理通讯录--管理部门--创建部门 接口，在企业号通讯录中增加部门
+  
+    name:       东东士多店       -- fxp.p_org.forg_name
+    parentid:   [QYH_SUPPLIER_DEPT]   -- 常量  企业号通讯录部门 服务商部门
+    order:      空               -- 在父部门中的次序值。order值小的排序靠前。
+    id:         100              -- fxp.p_org.forg_digital_number
+     
+  
+  9、调用微信企业号管理通讯录--更新成员 接口，更新企业号通讯录部门信息
+ 
+    userid：           =fxp.p_qyh_user.fqyh_user_id 
+    department         [=100 =fxp.p_org.forg_digital_number ]
+   

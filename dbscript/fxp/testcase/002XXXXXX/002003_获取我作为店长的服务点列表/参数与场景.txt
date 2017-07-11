@@ -1,0 +1,25 @@
+参数：
+  
+  1）平台用户id fuser_id= 00001
+ 
+     
+场景：
+  
+    
+  1、获取本人(作为店长)服务点列表
+  
+  
+结果：
+
+ 
+  1、查询本人作为店长加入的运营商列表
+  
+     select 
+        x.fsite_id,                 -- 服务点id
+        x.fsite_name                -- 服务点名称
+     from fxp.p_site x
+     where x.fadmin_user_id = :fuser_id and
+           x.fis_cancel = 'N';
+           
+           
+ 

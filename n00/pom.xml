@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.wit.fxp.nxft</groupId>
+    <artifactId>nxft-parent</artifactId>
+    <version>1.0.39-SNAPSHOT</version>
+    <relativePath>../parent</relativePath>
+  </parent>
+  <artifactId>n00</artifactId>
+
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>nxft-core</module>
+    <module>nxft-test</module>
+    <module>nxft-common-domain</module>
+    <module>nxft-common-api</module>
+    <module>nxft-common-impl</module>
+    <module>nxft-common-ui</module>
+    <module>nxft-web</module>
+    <module>nxft-web-it-services</module>
+  </modules>
+</project>

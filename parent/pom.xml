@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.wit.fxp.nxft</groupId>
+    <artifactId>nxft</artifactId>
+    <version>1.0.39-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>nxft-parent</artifactId>
+
+  <packaging>pom</packaging>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- 修改本节时请同时修改<profiles>里的hm-server-projects和hm-vaadin-projects。 -->
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-core</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-test</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-themes</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-common-domain</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-common-api</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-common-impl</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-common-ui</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-web</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-web-it-services02</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-web-it-services</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-meal-api</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-meal-impl</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-meal-ui</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-kitchen-api</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-kitchen-impl</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.wit.fxp.nxft</groupId>
+        <artifactId>nxft-kitchen-ui</artifactId>
+        <version>1.0.39-SNAPSHOT</version>
+      </dependency>
+
+      <dependency>
+            <groupId>com.wit.fxp.nxft</groupId>
+            <artifactId>hnxft-api</artifactId>
+            <version>1.0.39-SNAPSHOT</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.wit.fxp.nxft</groupId>
+            <artifactId>hnxft-core</artifactId>
+            <version>1.0.39-SNAPSHOT</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.wit.fxp.nxft</groupId>
+            <artifactId>hnxft-application</artifactId>
+            <version>1.0.39-SNAPSHOT</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.wit.fxp.nxft</groupId>
+            <artifactId>hnxft-front</artifactId>
+            <version>1.0.39-SNAPSHOT</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.wit.fxp.nxft</groupId>
+            <artifactId>hnxft-html</artifactId>
+            <version>1.0.39-SNAPSHOT</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.wit.fxp.nxft</groupId>
+            <artifactId>hnxft-web</artifactId>
+            <version>1.0.39-SNAPSHOT</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.wit.fxp.nxft</groupId>
+            <artifactId>hnxft-web-linux</artifactId>
+            <version>1.0.39-SNAPSHOT</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.wit.fxp.nxft</groupId>
+            <artifactId>hnxft-web-dev</artifactId>
+            <version>1.0.39-SNAPSHOT</version>
+          </dependency>
+
+          <dependency>
+            <groupId>com.wit.fxp.nxft</groupId>
+            <artifactId>hnxft-it-htmldb</artifactId>
+            <version>1.0.39-SNAPSHOT</version>
+          </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <profiles>
+    <!-- 服务端顶级工程 -->
+    <profile>
+      <id>nxft-server-projects</id>
+      <activation>
+        <file>
+          <exists>本工程含所有服务端顶级工程</exists>
+        </file>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.wit.fxp.nxft</groupId>
+          <artifactId>nxft-common-impl</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>com.wit.fxp.nxft</groupId>
+          <artifactId>nxft-meal-impl</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>com.wit.fxp.nxft</groupId>
+          <artifactId>nxft-kitchen-impl</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>com.wit.fxp.nxft</groupId>
+          <artifactId>nxft-web</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+
+      </dependencies>
+    </profile>
+
+    <!-- Vaadin客户端顶级工程 -->
+    <profile>
+      <id>nxft-vaadin-projects</id>
+      <activation>
+        <file>
+          <exists>本工程含所有Vaadin客户端顶级工程</exists>
+        </file>
+      </activation>
+      <dependencies>
+        <!-- themes -->
+        <dependency>
+          <groupId>com.wit.fxp.nxft</groupId>
+          <artifactId>nxft-themes</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+
+        <!-- common-ui -->
+        <dependency>
+          <groupId>com.wit.fxp.nxft</groupId>
+          <artifactId>nxft-common-ui</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>com.wit.fxp.nxft</groupId>
+          <artifactId>nxft-meal-ui</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>com.wit.fxp.nxft</groupId>
+          <artifactId>nxft-kitchen-ui</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+
+  </profiles>
+</project>

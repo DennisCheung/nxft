@@ -1,0 +1,169 @@
+@charset "utf-8";
+.selectIndex{
+  overflow: hidden;
+  .select-left{
+    width:3rem;
+    .menu{
+      width: 100%;
+      background: url("../images/3-bgnev.png") no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%;
+      li{
+        height: 2.16rem;
+        border-bottom:1px solid #736E6B;
+        color:#ffffff;
+        cursor:pointer;
+        font-size: 0;
+        i{
+          display: inline-block;
+          width: 38%;
+          height: 100%;
+          vertical-align: top;
+          padding-left:0.31rem;
+          padding-top: 0.8rem;
+          img{
+            vertical-align: top;
+            height: auto;
+            width: 0.67rem;
+          }
+        }
+        span{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.75rem;
+        }
+        .guidance{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.43rem;
+        }
+      }
+      li.active{
+        i{
+          background: #ff7e00;
+        }
+        span,.guidance{
+          color:#ff7e00;
+          background:#2a2d32;
+        }
+      }
+    }
+  }
+  .select-right{
+    padding-left:3.00rem;
+    /*顶部*/
+    .system-ver{
+      height: 0.64rem;
+      width: 100%;
+      background: #ff7e00;
+      color:#fefefe;
+      font-size: 0.30rem;
+      padding-top: 0.13rem;
+      text-align: left;
+      padding-left: 0.3rem;
+      .close{
+        float: right;
+        margin-right: 20px;
+        cursor: pointer;
+        img{
+          width: 0.41rem;
+        }
+      }
+    }
+
+    .sel-module{
+      input{
+        cursor: pointer;
+      }
+      /*条件查询*/
+      .condition{
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px;
+        .comon{
+          margin-left: 30px;
+        }
+        input{
+          color: #333;
+          width: 200px;
+          height: 38px;
+          text-align: center;
+          border-radius: 6px;
+          border: 1px solid #D2D2D2;
+        }
+        select{
+          width: 150px;
+          padding-left: 40px;
+          border-radius: 5px;
+          color: #333333;
+          height: 38px;
+        }
+        button{
+          padding: 6px 30px;
+          border: none;
+          border-radius: 18px;
+          background: rgba(255, 126, 0, 0.47);
+          color: #333333;
+          font-size: 23px;
+        }
+      }
+      /*表格数据*/
+      .content{
+        input{
+          vertical-align: middle;
+          cursor: pointer;
+          width: 20px;
+          height: 20px;
+        }
+        padding-top: 0.26rem;
+        position: relative;
+        height: 9rem;
+        overflow-y: auto;
+        .data{
+          border-collapse: collapse;
+          width: 95.743368%;
+          margin: 0 auto;
+          label{
+            cursor: pointer;
+          }
+          td,th{
+            border: 1px solid #d2d2d2;
+            text-align: center;
+          }
+          thead{
+            font-size: 0.30rem;
+            color:#ff7e00;
+            background: #fff3e8;
+            line-height: 0.6rem;
+          }
+          tbody{
+            font-size:0.30rem;
+            color:#333333;
+            line-height: 2.36;
+            td{
+              button{
+                width: 120px;
+                height: 40px;
+                background: #ff7e00;
+                border: none;
+                font-size: 20px;
+                color: #fff;
+              }
+              .active{
+                background: #ccc;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

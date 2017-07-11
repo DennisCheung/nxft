@@ -1,0 +1,50 @@
+<!--<link rel="stylesheet" href="../../css/selectIndex.css"/>-->
+<!--个人明细弹框-->
+    <div class="mask" ng-show="grmx">
+        <div class="alert">
+            <h2>系统提示</h2>
+            <p>请输入全位手机号/固话</p>
+            <div class="input">
+                <input type="tel" ng-model="phNumber" placeholder="请输入手机号/固话..." required/>
+            </div>
+            <div class="false-alert" ng-bind="alText">
+                <!-- 提示-->
+            </div>
+            <div class="btns">
+                <button ng-click="sure()">确定</button>&nbsp;&nbsp;
+                <button ng-click="grmx=false;">取消</button>
+            </div>
+        </div>
+    </div>
+<div class="selectIndex">
+    <div class="select-left fl">
+        <ul class="menu">
+            <li ui-sref="gaikuang">
+                <i class="gaik"><img src="../images/n1-gai.png" alt=""/></i><span>概况</span>
+            </li>
+            <li ui-sref="useList">
+                <i class="dianc"><img src="../images/n2-dian.png" alt=""/></i><span>点餐</span>
+            </li>
+            <li ui-sref="selectIndex" class="active">
+                <i class="chax"><img src="../images/n3-cha.png" alt=""/></i><span>查询</span>
+            </li>
+            <li ui-sref="guidance" class="guidance">
+                <i class="zhid"><img src="../images/n4-zhi.png" alt=""/></i><div class="guidance">
+                <p>饮食</p>
+                <p>指导</p>
+            </div>
+            </li>
+            <li ui-sref="manage">
+                <i class="manage"><img src="../images/5-manage.png" alt=""/></i><span>管理</span>
+            </li>
+        </ul>
+    </div>
+    <div class="select-right">
+        <div class="system-ver"><span ng-bind="teamName"></span></div>
+        <div class="sel-module">
+            <div class="grmx" ng-click="grmx=true;alText='';phNumber='';">
+                <span>个人明细</span>
+            </div>
+        </div>
+    </div>
+</div>

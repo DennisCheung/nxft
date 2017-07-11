@@ -1,0 +1,116 @@
+使用 000\init.xml 初始化文件
+
+普通坐席1（平台用户id fuser_id= 00001 ）为客户 卫绮琼 回收定位设备
+
+参数：
+   
+   1） fuser_id          00001          --  操作员id
+   2） fnickname         普通坐席1      --  操作员姓名
+   3） fperson_id        12345678       --  客户ID
+   4） fdevice_sn        86942602007514690340      --  手环编号
+   
+     
+场景：
+
+  1、普通坐席1（平台用户id fuser_id= 00001 ）打开福来工作圈，进入服务点主页
+      
+  2、选择“回收设备” 功能
+  
+  3、搜索(姓名、联系电话、身份证号)查找客户，找到客户"卫绮琼"(fperson_id = 12345678)
+  
+  4、扫一扫 设备编号 fdevice_sn = 86942602007514690340
+  
+  5、根据设备编号 找到 设备信息 
+     设备id fdevice_id = 0000135   
+     设备类别 fdevice_type_id = TEH
+     设备类别名称  fdevice_type_name = 定位手表
+     设备型号ID fdevice_model_id  =   00003001
+     设备型号名称  fdevice_model_name = S1定位手表  
+     
+  6、点击保存，保存前需校验“扫一扫” 获取的设备编号 所对应的fperson_id 和 所选的客户id 是否一致，如不一致，不能保存。
+  
+  7、设备类别 fdevice_type_id = TEH 调用 回收手环设备服务
+  
+结果：
+  
+  1、 新增 客户设备回收表  fxp.p_dev_recycle_person  
+      将 客户设备发放表  fxp.p_dev_issue_person 记录拷贝
+  
+-- +-----------------------------+--------------+-----------+
+   frecycle_id                   UUID                       -- 回收ID
+   --
+   -- 用户
+   --
+   fperson_id                    12345678                   -- 客户ID   = fxp.p_dev_issue_person.fperson_id
+   fperson_name                  卫绮琼                     -- 客户姓名 = fxp.p_dev_issue_person.
+   --
+   -- 设备详情  = 设备入库表 fxp.p_device
+   --
+   fdevice_id                    0000135                    -- 设备id      = fxp.p_dev_issue_person.
+   fdevice_type_id               TEH                        -- 设备类型ID  = fxp.p_dev_issue_person.
+   fdevice_type_name             定位手表                   -- 设备类型名称 = fxp.p_dev_issue_person.
+   fcompany_id                   00003                      -- 设备厂商_id  = fxp.p_dev_issue_person.
+   fcompany_name                 广州柏颐                   -- 设备厂商_name = fxp.p_dev_issue_person.
+   fdevice_model_id              00003001                   -- 设备型号ID   = fxp.p_dev_issue_person.
+   fdevice_model_name            S1定位手表                 -- 设备型号名称  = fxp.p_dev_issue_person.
+   fmax_user                     1                          -- 设备最大用户数，默认为1 = fxp.p_dev_issue_person.   
+   fdevice_sn                    86942602007514690340       -- 设备序列号  = fxp.p_dev_issue_person.
+   fdevice_uuid                  868219000364254            -- 设备内部ID  = fxp.p_dev_issue_person.
+   fproduction_date              空                         -- 生产日期    = fxp.p_dev_issue_person.
+   fpurchase_date                空                         -- 购买日期    = fxp.p_dev_issue_person.
+   fuser_no                      1                          -- 用户编号    = fxp.p_dev_issue_person.
+   fdevice_Desc                  空                         -- 备注        = fxp.p_dev_issue_person.
+   --
+   -- 所属运营商
+   -- 
+   FCIRCLE_ID                  10001                      -- 运营商id    = fxp.p_dev_issue_person.  
+   --
+   -- 发放
+   --
+   fissue_date                   当前时间                   -- 发放时间    = fxp.p_dev_issue_person.
+   fissue_CIRCLE_ID                 10001                      -- 发放机构id  = fxp.p_dev_issue_person.
+   fissue_TEAM_ID                1000101                    -- 发放部门id  = fxp.p_dev_issue_person.
+   fissue_TEAM_NAME              测试呼叫中心               -- 发放部门名称   = fxp.p_dev_issue_person.   
+   fissue_user_id                00001                      -- 发放操作员id   = fxp.p_dev_issue_person.
+   fissue_nickname               普通坐席1                  -- 发放操作员姓名  = fxp.p_dev_issue_person.
+   fissue_desc                   空                         -- 发放备注        = fxp.p_dev_issue_person.
+   --
+   -- 回收
+   --
+   frecycle_date                 当前时间                   -- 回收时间
+   frecycle_CIRCLE_ID               10001                      -- 回收机构id
+   frecycle_TEAM_ID              1000101                    -- 回收部门id
+   frecycle_user_id              00001                      -- 回收操作员id
+   frecycle_nickname             普通坐席1                  -- 回收操作员姓名
+   frecycle_desc                 空                         -- 回收备注
+
+ 2、 删除 客户设备发放表  fxp.p_dev_issue_person  相应记录
+ 
+     delete from fxp.p_dev_issue_person where fdevice_id = :fdevice_id ;
+
+ 3、 删除 手环设备发放表  fxp.p_dev_issue_teh  相应记录
+
+     delete from fxp.p_dev_issue_teh where fdevice_id = :fdevice_id ;
+ 
+4、更新 设备表 FXP.P_DEVICE 使用标志   
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 使用
+   --
+   fis_used                      N                          -- 是否被使用
+   fused_type                    空                         -- 使用类型  ISSUE 发放  CANCEL 作废
+   fused_date                    空                         -- 使用时间
+   fused_user_id                 空                         -- 使用操作员id
+   fused_nickname                空                         -- 使用操作员姓名  
+   
+4、更新 手环设备 FXP.P_DEVICE_teh 使用标志   
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 使用
+   --
+   fis_used                      N                          -- 是否被使用
+   fused_type                    空                         -- 使用类型  ISSUE 发放  CANCEL 作废
+   fused_date                    空                         -- 使用时间
+   fused_user_id                 空                         -- 使用操作员id
+   fused_nickname                空                         -- 使用操作员姓名 
+ 

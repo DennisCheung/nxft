@@ -1,0 +1,48 @@
+@charset "UTF-8";
+body {
+  font-family: "Microsoft YaHei"; }
+
+.login-zcd {
+  /*系统版本*/ }
+  .login-zcd .zcd {
+    height: 0.64rem;
+    line-height: 0.64rem;
+    background: #ff7e00;
+    color: #fefefe;
+    font-size: 0.3rem;
+    text-align: right; }
+    .login-zcd .zcd span {
+      margin-right: 0.6rem; }
+  .login-zcd .sel-module {
+    text-align: center;
+    color: #333333;
+    font-size: 0.72rem; }
+    .login-zcd .sel-module .word {
+      line-height: 1.75rem;
+      font-size: 0.60rem;
+      color: #333333; }
+      .login-zcd .sel-module .word span {
+        margin-left: -8.05rem; }
+    .login-zcd .sel-module .ydzcd, .login-zcd .sel-module .grmx {
+      display: inline-block;
+      vertical-align: top;
+      width: 5.16rem;
+      height: 6.81rem;
+      margin-left: 0.25rem;
+      cursor: pointer; }
+      .login-zcd .sel-module .ydzcd span, .login-zcd .sel-module .grmx span {
+        margin-top: 1.40rem;
+        padding: 0 0.69rem;
+        display: block;
+        width: 100%; }
+    .login-zcd .sel-module .ydzcd {
+      background: url("../images/12-Z.png") no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%; }
+    .login-zcd .sel-module .grmx {
+      background: url("../images/11-P.png") no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%;
+      margin-left: 1.77rem; }
+
+/*# sourceMappingURL=loginZcd.css.map */

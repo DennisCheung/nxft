@@ -1,0 +1,123 @@
+使用 000\init_user.xml
+
+张小明（平台用户id fuser_id = 00001）想要把服务商30101   “东沙村助老服务”  下的服务点 加入商圈 10008PY “广州福来番禺助老服务商圈” 的商圈
+
+参数：
+  
+  1）平台用户id fuser_id = 00001        会话传入
+  2）商圈id     fbusiness_circle_id = 10008PY   扫描二维码，会话传入
+  
+  
+  3）服务点id集合,列表选择，会话传入   
+                 服务点ID     服务点名称
+                 3010101      黄生粮油店
+                 3010102      何锦英电工
+
+  
+场景：
+  
+  1、在大厅选择“服务商服务 --  加入商圈 
+  
+  2、 扫描商圈的二维码，扫描成功，获取商圈ID 10008PY  页面显示商圈名称“广州福来番禺助老服务商圈”的信息
+   
+  3、从我作为店长的服务点列表中，勾选服务点“黄生粮油店”，“何锦英电工”  加入商圈页面
+  
+  4、点击“申请加入” 填写申请验证：黄生粮油店、何锦英电工申请加入商圈   等待运营商审核。
+     
+  
+  
+结果：
+
+   
+  1、插加入商圈申请单表 fxp.req_join_business_circle 表
+  
+   freqnote_id                   32位UUID          -- 申请单id
+   --
+   -- 申请单信息
+   --
+   fbusiness_circle_id           10008PY                   -- 商圈id
+   foperator_id                  10008                     -- 运营商id    商圈所在的运营商id         
+   freq_site_desc                黄生粮油店、何锦英电工    -- 申请加入的服务点名称
+   freq_desc                     黄生粮油店、何锦英电工申请加入商圈        -- 申请备注
+   --
+   -- 创建者信息
+   --
+   fcreate_time                  当前时间          -- 创建时间
+   fcreate_user_id               00001             -- 创建工号id
+   fcreate_nickname              张小明            -- 创建姓名
+   --
+   -- 环节信息
+   --
+   --
+   -- 申请单状态  1、 已新建  2 已接受  3、 已拒绝
+   --
+   --
+   flast_state                   已新建                     -- 最后状态，完成时ID
+   flast_time                    当前时间                   -- 最新完成时间
+   flast_user_id                 00001                      -- 最新完成操作员id
+   flast_nickname                张小明                     -- 最新完成操作员name
+   flast_desc                    空                         -- 流程备注
+   --
+   -- 下一环节的信息，采用待办作为入口
+   --
+   fnext_node_id                 ACCEPT                     -- 下一环节 常量，和环节状态、备注同时更新
+   fnext_node_content            黄生粮油店、何锦英电工申请加入商圈广州福来番禺助老服务商圈            -- 下一环节工作内容
+   --
+   -- 完成信息
+   --
+   fis_complete                   N                         -- 申请单是否已完成？  Y/N
+   
+   
+  2、插申请加入商圈服务点列表 fxp.req_join_business_site 表
+  
+   第一条
+   freqnote_id                   =fxp.req_join_business_circle.freqnote_id         -- 申请单id
+   --
+   -- 申请单信息
+   --
+   fbusiness_circle_id           10008PY           -- 商圈id
+   foperator_id                  10008             -- 运营商id
+   fsupplier_id                  30101             -- 服务商id
+   fsite_id                      3010101           -- 服务点id
+  
+    第二条
+   freqnote_id                   =fxp.req_join_business_circle.freqnote_id         -- 申请单id
+   --
+   -- 申请单信息
+   --
+   fbusiness_circle_id           10008PY           -- 商圈id
+   foperator_id                  10008             -- 运营商id
+   fsupplier_id                  30101             -- 服务商id
+   fsite_id                      3010102           -- 服务点id 
+  
+ 3、 插下一环节的部门待办 fxp.p_todo
+
+   ftodo_id                      生成32UUID                 -- 待办id
+   --
+   -- 任务单据引用
+   --
+   fnote_type_id                 REQ_JOIN_BUSINESS_CIRCLE   -- 单据类型ID    表头代名词
+   fnote_id                      =fxp.req_join_business_circle.freqnote_id     -- 任务要处理的单据主键,复合主键用逗号分隔
+   --
+   -- 任务说明
+   --
+   ftodo_content                 黄生粮油店、何锦英电工申请加入商圈广州福来番禺助老服务商圈        -- 任务内容   = fxp.req_join_business_circle.fnext_node_content
+   ftodo_remark                  空                         -- 任务备注
+   fcreate_time                  当前时间                   -- 创建时间
+   fnode_id                      ACCEPT                     -- 环节ID
+   fnote_tag                     DEFAULT                    -- 单据tag 如无意义时填 'DEFAULT'
+   ficon_file                    受.png                     -- 图标文件名，如 abc.jpg  所有图标路径相同，由程序统一配置
+   fblock_no                     2                          -- 区号
+   fordernum                     1                          -- 排序号
+   --
+   -- 抢单
+   --
+   fis_grabbed                   Y                          -- 是否被抢单？  Y/N
+   fgrab_time                    当前时间                   -- 抢单时间
+   fgrab_org_id                  10008                      -- 抢单机构id  = fxp.req_join_business_circle.foperator_id
+   fgrab_dept_id                 空                         -- 抢单部门id
+   fgrab_user_id                 00002                      -- 抢单操作员id = 运营商对应的 fxp.p_org.fadmin_user_id
+   fgrab_user_name               张梅东                     -- 抢单操作员姓名   运营商管理员name
+
+ 4、 不插下一环节的部门待办部门表  fxp.p_todo_dept   
+ 

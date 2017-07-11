@@ -1,0 +1,42 @@
+打印订单汇总：
+
+入参：
+   as_kitchen_circle_id      -- 厨房的工作圈id
+   as_kitchen_team_id        -- 厨房的工作组id
+   adt_begin_time            -- 查询开始时间     例如 2016-04-01
+   adt_end_time              -- 查询结束时间     例如 2016-04-10
+   as_meal_type_id           -- 餐别Id
+   
+select x.fmeal_date,       -- 就餐日期
+       x.fweek,            -- 星期     
+       x.fmeal_type_id,    -- 餐别ID
+       x.fmeal_type_name,  -- 餐别名称
+       y.fmeal_id,         -- 套餐id
+       y.fmeal_code,       -- 套餐 CODE
+       y.fmeal_name,       -- 套餐 名称
+       y.fmeal_content,    -- 套餐 内容     
+       x.fmeal_price,      -- 单价
+       sum(x.fquantity),   -- 份数
+       sum(x.fsum_total)   -- 总价
+    from nxft.nxft_order x,
+         nxft.meal_set   y 
+    where x.fmeal_id = y.fmeal_id
+	    and x.fkitchen_cirlce_id = :as_kitchen_circle_id
+		and x.fkitchen_team_id = :as_kitchen_team_id
+	    and x.fmeal_date >=  :adt_begin_time
+	    and x.fmeal_date <=  :adt_end_time
+	    and x.fmeal_type_id = :as_meal_type_id    
+   group by
+       x.fmeal_date,       
+       x.fweek,               
+       x.fmeal_type_id,   
+       x.fmeal_type_name,  
+       y.fmeal_id,         
+       y.fmeal_code,       
+       y.fmeal_name,       
+       y.fmeal_content,        
+       x.fmeal_price      
+    order by  
+       x.fmeal_date, --就餐日期
+       x.fmeal_type_id, --餐别ID
+       y.fmeal_code ;   

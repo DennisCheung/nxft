@@ -1,0 +1,32 @@
+参数：
+  
+  1）服务商id   fsupplier_id= 30001 
+ 
+     
+场景：
+  
+  1、查询某一服务商详情
+  
+  
+结果：
+
+   1、查询服务商祥情
+   
+    select
+        fsupplier_name,   -- 服务商名称
+        fsupplier_info    -- 服务商简介
+    from fxp.p_supplier
+    where fsupplier_id = :supplier_id ;  
+    
+   2、取服务商logo
+      
+       select     flogo,       --  头像图片
+                  flogo_type,  --  头像图片类型
+                  flogo_size   -- 头像字节大小
+      from  fxp.p_org_logo x
+      where x.forg_id =  :supplier_id ;
+  
+               
+  
+ 
+ 

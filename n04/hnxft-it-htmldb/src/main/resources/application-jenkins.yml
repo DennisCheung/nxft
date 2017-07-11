@@ -1,0 +1,10 @@
+#
+# 本地集成测试环境的配置文件。
+#
+# 由于本文件放在config目录下，因此将覆盖hbcsq-web的设置
+#
+
+spring.datasource:
+    url: jdbc:h2:tcp://jenkins.benewit.com/~/h2/hbcsq;MODE=Oracle
+    username: sa
+    password:

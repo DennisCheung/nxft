@@ -1,0 +1,35 @@
+<!--
+    <link rel="stylesheet" href="../css/grmsList.css"/>
+    <title></title>-->
+<div class="mask" id="mask">
+    <div class="alert">
+        <h2>系统提示</h2>
+        <p>请输入客户手机号码后四位数字</p>
+        <div class="input">
+            <input type="text" id="input"/>
+        </div>
+        <div class="false-alert" id="false-alert">您输入的手机号有错</div>
+        <div class="btns">
+            <button id="queding">确定</button>
+            <button id="quxiao">取消</button>
+        </div>
+    </div>
+</div>
+<table class="use-list">
+    <thead class="head">
+    <tr>
+        <th>姓名</th>
+        <th>余额（元）</th>
+        <th>最近十天消费数量</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody class="body">
+    <tr>
+        <td>王林森</td>
+        <td>100.00</td>
+        <td>0</td>
+        <td><button ng-click="ensure(obj)">查看明细</button></td>
+    </tr>
+    </tbody>
+</table>

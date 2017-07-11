@@ -1,0 +1,82 @@
+<!--<link rel="stylesheet" href="../../css/selectZcd.css"/>-->
+<!--<title>查询-选择助餐点</title>-->
+<div class="selectIndex">
+    <div class="select-left fl">
+        <ul class="menu">
+            <li ui-sref="gaikuang">
+                <i class="gaik"><img src="../images/n1-gai.png" alt=""/></i><span>概况</span>
+            </li>
+            <li ui-sref="useList">
+                <i class="dianc"><img src="../images/n2-dian.png" alt=""/></i><span>点餐</span>
+            </li>
+            <li ui-sref="selectIndex">
+                <i class="chax"><img src="../images/n3-cha.png" alt=""/></i><span>查询</span>
+            </li>
+            <li ui-sref="guidance">
+                <i class="zhid"><img src="../images/n4-zhi.png" alt=""/></i><div class="guidance">
+                <p>饮食</p>
+                <p>指导</p>
+            </div>
+            </li>
+            <li ui-sref="manage" class="active">
+                <i class="manage"><img src="../images/5-manage.png" alt=""/></i><span>管理</span>
+            </li>
+        </ul>
+    </div>
+    <div class="select-right">
+        <div class="condition">
+            <ul>
+                <li class="calendar">
+                    <i><img src="../images/4-time1.png" alt=""/></i>
+                    <input id="selectTime" value readonly class="span">
+                </li>
+                <li class="food">
+                    <i><img src="../images/13-food.png" alt=""/></i>
+                    <button type="text" ng-repeat="data in item" ng-bind="data.mealTypeName" ng-class="{active:isTrue(data.mealTypeName)}" ng-click="saveMeal(data)"></button>
+                </li>
+                <li class="sea">
+                    <button class="search" ng-click="search()">查询</button>
+                </li>
+            </ul>
+            <span class="closed" ng-click="closed()"><img src="../images/off.png" alt=""/></span>
+        </div>
+        <div class="content">
+            <table class="data">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>就餐日期</th>
+                    <th>餐别</th>
+                    <th>姓名</th>
+                    <th>联系电话</th>
+                    <th>套餐</th>
+                    <th>份数</th>
+                    <th>状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in HnxftOrderModel">
+                    <td ng-bind="$index + 1"></td>
+                    <td>
+                        <span ng-bind="item.mealInfo.mealDate | date:'yyyy-MM-dd'"></span>
+                        <span ng-bind="
+                    item.mealInfo.week==1?'星期一':
+                    item.mealInfo.week==2?'星期二':
+                    item.mealInfo.week==3?'星期三':
+                    item.mealInfo.week==4?'星期四':
+                    item.mealInfo.week==5?'星期五':
+                    item.mealInfo.week==6?'星期六':
+                    '星期天'"></span>
+                    </td>
+                    <td ng-bind="item.mealInfo.mealTypeName"></td>
+                    <td ng-bind="item.subjectInfo.subjectName"></td>
+                    <td ng-bind="item.personMobile"></td>
+                    <td ng-bind="item.mealContext"></td>
+                    <td ng-bind="item.settleInfo.quantity"></td>
+                    <td ng-bind="item.lastState.lastState"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

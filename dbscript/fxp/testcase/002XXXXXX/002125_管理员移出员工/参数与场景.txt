@@ -1,0 +1,28 @@
+使用 000\init_user.xml
+
+参数：
+    东东甘棠士多店 店长张小明（平台用户id fuser_id = 00002）移出员工张梅东 （平台用户id fuser_id = 00002）
+      
+  1、参数：
+  
+     1）平台用户id fuser_id       = 会话传入   00001，00002
+     2）服务点ID fsite_id         = 会话传入   3010801
+
+
+场景：
+  
+  1、张小明在服务点成员列表中选择 “张梅东（平台用户id fuser_id = 00002）” 移出服务点
+     
+  
+  2、系统提示是否确定移出该成员，点击“确定”， 将张梅东移出东东甘棠士多店
+
+结果：
+
+  
+   1、更新服务点用户表  fxp.p_site_user 表 删除fuser_id = 00002 的记录
+   
+     delete * from fxp.p_site_user x
+     where x.fsite_id = :fsite_id and
+           x.fuser_id = :fuser_id
+     
+   

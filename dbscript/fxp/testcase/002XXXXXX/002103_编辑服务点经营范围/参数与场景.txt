@@ -1,0 +1,64 @@
+使用 000\init_user.xml
+
+张小明fuser_id = 00001  对他创建的服务点东东甘棠士多店 fsite_id 3010801 编辑经营范围
+
+参数：
+  
+  1）平台用户id fuser_id          = 会话传入   00001
+  2）服务点id fsite_id            = 会话传入   3010801
+  
+场景：
+
+    1、张小明（平台用户id fuser_id= 00001 ）
+     进入 大厅 --  福来工作圈 -- 我的 -- 管理服务点  选择东东甘棠士多店
+     
+    2、对服务点的 经营范围进行编辑  
+     经营范围      康复保健（健康监测），商品采购（粮油副食、日常生活用品）
+       
+     服务产品大类id         服务产品大类名称       服务产品子分类id      服务产品子分类名称
+        04                    康复保健                0404                健康监测
+        06                    商品采购                0601                粮油副食
+        06                    商品采购                0605                日常生活用品
+      
+     经营范围文字描述格式：
+        1、集合先按 服务产品子分类id 排序
+        2、 服务产品大类名称1（服务产品子分类名称1，服务产品子分类名称2），服务产品大类名称2（服务产品子分类名称3，服务产品子分类名称4）               
+    
+   3、选择“完成” 保存经营范围的修改
+   
+结果：
+
+  1、更新服务点 fxp.p_site 表      服务范围fservice_scope_desc  其他不变
+  
+      fservice_scope_desc      康复保健（健康监测），商品采购（粮油副食、日常生活用品）           -- 服务范围       会话传入
+
+  2、插服务点经营范围表  fxp.p_site_scope 表
+     
+
+     第一条记录
+     fsupplier_id                  30108                    -- 所属的服务商id
+     fsite_id                      fxp.p_site.fsite_id      -- 服务点id
+     fproduct_subclass_id          0404                     -- 服务产品子分类ID
+     fproduct_class_id             04                       -- 服务产品大类ID
+     
+     flogcby                       张小明                   -- 创建者
+     flogcdate                     当前时间                 -- 创建时间
+
+
+     第二条记录
+     fsupplier_id                  30108                    -- 所属的服务商id
+     fsite_id                      fxp.p_site.fsite_id      -- 服务点id
+     fproduct_subclass_id          0601                     -- 服务产品子分类ID
+     fproduct_class_id             06                       -- 服务产品大类ID
+     
+     flogcby                       张小明                   -- 创建者
+     flogcdate                     当前时间                 -- 创建时间
+
+     第三条记录
+     fsupplier_id                  30108                    -- 所属的服务商id
+     fsite_id                      fxp.p_site.fsite_id      -- 服务点id
+     fproduct_subclass_id          0605                     -- 服务产品子分类ID
+     fproduct_class_id             06                       -- 服务产品大类ID
+     
+     flogcby                       张小明                   -- 创建者
+     flogcdate                     当前时间                 -- 创建时间

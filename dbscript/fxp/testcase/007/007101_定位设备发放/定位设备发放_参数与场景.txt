@@ -1,0 +1,138 @@
+使用 000\init.xml 初始化文件
+
+普通坐席1（平台用户id fuser_id= 00001 ）为客户 卫绮琼 发放定位设备
+
+参数：
+   
+   1） fuser_id          00001          --  操作员id
+   2） fnickname         普通坐席1      --  操作员姓名
+   3） fperson_id        12345678       --  客户ID
+   4） fdevice_sn        86942602007514690340   -- 设备编号
+   
+     
+场景：
+
+  1、普通坐席1（平台用户id fuser_id= 00001 ）打开福来工作圈，进入服务点主页
+      
+  2、选择“回收设备” 功能
+  
+  3、搜索(姓名、联系电话、身份证号)查找客户，找到客户"卫绮琼"(fperson_id = 12345678)
+  
+  4、扫一扫 设备编号 fdevice_sn = 86942602007514690340
+  
+  5、根据设备编号 找到 设备信息 
+     设备id fdevice_id = 0000135   
+     设备类别 fdevice_type_id = TEH
+     设备类别名称  fdevice_type_name = 定位手表
+     设备型号ID fdevice_model_id  =   00003001
+     设备型号名称  fdevice_model_name = S1定位手表 
+     
+  6、点击保存
+  
+  7、设备类别 fdevice_type_id = TEH 调用 发放定位设备服务
+  
+结果：
+  
+  1、 新增 客户设备发放表  fxp.p_dev_issue_person
+  
+   1.1 TEH 老人回家
+-- +-----------------------------+--------------+-----------+
+   fissue_id                     UUID                       -- 发放ID
+   --
+   -- 用户
+   --
+   fperson_id                    12345678                   -- 客户ID
+   fperson_name                  卫绮琼                     -- 客户姓名
+   --
+   -- 设备详情  = = 设备入库表 fxp.p_device
+   --
+   fdevice_id                    0000135                    -- 设备id
+   fdevice_type_id               TEH                        -- 设备类型ID
+   fdevice_type_name             定位手表                   -- 设备类型名称
+   fcompany_id                   00003                      -- 设备厂商_id
+   fcompany_name                 广州柏颐                   -- 设备厂商_name
+   fdevice_model_id              00003001                   -- 设备型号ID
+   fdevice_model_name            S1定位手表                 -- 设备型号名称
+   fmax_user                     1                          -- 设备最大用户数，默认为1   
+   fdevice_sn                   86942602007514690340        -- 设备序列号
+   fdevice_uuid                  868219000364254            -- 设备内部ID
+   fproduction_date              空                         -- 生产日期
+   fpurchase_date                空                         -- 购买日期
+   fuser_no                      1                          -- 用户编号
+   fdevice_Desc                  空                         -- 备注
+   --
+   -- 所属运营商
+   --
+   FCIRCLE_ID                  10001                      -- 运营商id      
+   --
+   -- 发放
+   --
+   fissue_date                   当前时间                   -- 发放时间
+   fissue_CIRCLE_ID                 10001                      -- 发放机构id
+   fissue_TEAM_ID                1000101                    -- 发放部门id
+   fissue_TEAM_NAME              测试呼叫中心               -- 发放部门名称     
+   fissue_user_id                00001                      -- 发放操作员id
+   fissue_nickname               普通坐席1                  -- 发放操作员姓名
+   fissue_desc                   空                         -- 发放备注
+
+ 2、 新增 定位设备发放表  fxp.p_dev_issue_teh
+
+-- +-----------------------------+--------------+-----------+
+   fissue_id                     = fxp.p_dev_issue_person.fissue_id     -- 发放ID
+   --
+   -- 用户
+   --
+   fperson_id                    12345678                   -- 客户ID
+   fperson_name                  卫绮琼                     -- 客户姓名
+   --
+   -- 设备详情  = 定位设备入库表 fxp.p_device_teh
+   --
+   fdevice_id                    0000135                    -- 设备id
+   fcompany_id                   00003                      -- 设备厂商_id
+   fcompany_name                 广州柏颐                   -- 设备厂商_name
+   fdevice_model_id              00003001                   -- 设备型号ID
+   fdevice_model_name            S1定位手表                 -- 设备型号名称
+   
+   fdevice_sn                    86942602007514690340       -- 设备序列号
+   fdevice_imei                  868219000364254            -- 设备内部ID，广州柏颐除验证设备接口外的其它接口，用这个作为设备ID参数。
+   fdevice_sim                   空                         -- 设备的 SIM 码    
+   fproduction_date              空                         -- 生产日期
+   fpurchase_date                空                         -- 购买日期
+   fdevice_Desc                  空                         -- 备注
+   --
+   -- 所属运营商
+   --
+   FCIRCLE_ID                  10001                      -- 运营商id      
+   --
+   -- 发放
+   --
+   fissue_date                   当前时间                   -- 发放时间
+   fissue_CIRCLE_ID                 10001                      -- 发放机构id
+   fissue_TEAM_ID                1000101                    -- 发放部门id
+   fissue_TEAM_NAME              测试呼叫中心               -- 发放部门名称     
+   fissue_user_id                00001                      -- 发放操作员id
+   fissue_nickname               普通坐席1                  -- 发放操作员姓名
+   fissue_desc                   空                         -- 发放备注
+ 
+3、更新 设备表 FXP.P_DEVICE 使用标志
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 使用
+   --
+   fis_used                      Y                          -- 是否被使用
+   fused_type                    ISSUE                      -- 使用类型  ISSUE 发放  CANCEL 作废
+   fused_date                    当前时间                   -- 使用时间
+   fused_user_id                 00001                      -- 使用操作员id
+   fused_nickname                普通坐席1                  -- 使用操作员姓名
+   
+4、更新 定位设备 FXP.P_DEVICE_TEH 使用标志
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 使用
+   --
+   fis_used                      Y                          -- 是否被使用
+   fused_type                    ISSUE                      -- 使用类型  ISSUE 发放  CANCEL 作废
+   fused_date                    当前时间                   -- 使用时间
+   fused_user_id                 00001                      -- 使用操作员id
+   fused_nickname                普通坐席1                  -- 使用操作员姓名   
+ 

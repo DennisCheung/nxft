@@ -1,0 +1,5 @@
+1、暖心饭堂包括 DCGZZ(订餐工作站) PCGZZ (配餐工作站) ZCDGZZ(助餐点工作站组成)
+2、DCGZZ 
+
+和 ZCDGZZ 的圈相同，但 TEAM 不同
+3、PCGZZ 和 DCGZZ 圈不同, 通过 工作圈厨房签约表 (nxft.d_circle_kitchen )  

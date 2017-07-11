@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset> 
+
+  <FXP.INVITE_JOIN_TEAM  FTEAM_ID="1000101" FUSER_ID="00002" FCIRCLE_ID="10001"  FCREATE_USER_ID="00001" FCREATE_USER_NAME="张小明" />
+  
+  <FXP.P_TODO  FNOTE_TYPE_ID="INVITE_JOIN_TEAM"  FTODO_CONTENT="张小明邀请你加入番禺坐席工作站。"  FTODO_REMARK="[null]" 
+   FNODE_ID="ACCEPT" FNOTE_TAG="DEFAULT" FICON_FILE="受.png" FBLOCK_NO="2" FORDERNUM="1" 
+   FIS_GRABBED="Y"  FGRAB_CIRCLE_ID="[null]"  FGRAB_TEAM_ID="[null]"  FGRAB_USER_ID="00002" FGRAB_USER_NAME="普通坐席2" 
+   FPERSON_ID="[null]"  FPERSON_NAME="[null]" FFAMILY_ID="[null]"  FCIRCLE_ID="[null]" />
+   
+  <FXP.P_TODO_TEAM /> 
+ 
+</dataset>

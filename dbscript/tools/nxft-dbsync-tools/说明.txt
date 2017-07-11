@@ -1,0 +1,20 @@
+本工程作为中心数据库与本地开发数据库的同步工具，即从db8 oracle中导出，再导入到本地H2开发库中。
+
+1、若要从db8 oracle导出hmo用户的所有表数据（不含表结构），请在当前目录下执行：
+
+mvn dbunit:export -Pexport-from-db8-oracle
+
+该命令将把导出的数据保存到..\temp\hbcs-表数据.xml文件中，该文件无需进一步编辑就能被导入到其它数据库中。
+
+2、若要把上面导出的xml数据文件导入到本地H2库中，请先启动H2服务器，然后在当前目录下执行：
+
+mvn dbunit:operation -Pimport-to-local-h2
+
+该命令将先清空本地H2表数据，然后插入新数据。注意：
+
+- 如果表不存在则本命令将执行失败。
+- 本命令只涉及到在导出的xml数据文件中存在的表，其它的表不受影响。
+
+3、若要检查H2库中的数据与xml数据文件是否一致，请在当前目录下执行：
+
+mvn dbunit:compare -Pimport-to-local-h2

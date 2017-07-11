@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.wit.fxp.nxft</groupId>
+    <artifactId>nxft-parent</artifactId>
+    <version>1.0.39-SNAPSHOT</version>
+    <relativePath>../parent</relativePath>
+  </parent>
+  <artifactId>nxft-themes</artifactId>
+
+  <packaging>jar</packaging>
+
+  <dependencies>
+    <!-- vaadin -->
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-themes</artifactId>
+      <scope>compile</scope><!-- 参见下面的maven-dependency-plugin -->
+    </dependency>
+
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-server</artifactId>
+      <scope>compile</scope><!-- 参见下面的maven-dependency-plugin -->
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-maven-plugin</artifactId>
+        <version>${vaadin-plugin.version}</version>
+        <configuration>
+          <extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>
+          <webappDirectory>${basedir}/target/classes/VAADIN/widgetsets</webappDirectory>
+          <draftCompile>false</draftCompile>
+          <compileReport>false</compileReport>
+          <style>OBF</style>
+          <strict>true</strict>
+          <warSourceDirectory>${basedir}/target/classes</warSourceDirectory>
+        </configuration>
+        <executions>
+          <!-- 打包前生成styles.css -->
+          <execution>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>compile-theme</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <configuration>
+          <ignoredUnusedDeclaredDependencies>
+            <!-- 仅vaadin-maven-plugin使用，其它java程序编译时未使用 -->
+            <ignoredUsedUndeclaredDependency>com.vaadin:vaadin-themes</ignoredUsedUndeclaredDependency>
+            <ignoredUsedUndeclaredDependency>com.vaadin:vaadin-server</ignoredUsedUndeclaredDependency>
+          </ignoredUnusedDeclaredDependencies>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

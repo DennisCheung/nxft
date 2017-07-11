@@ -1,0 +1,245 @@
+普通坐席1（平台用户id fuser_id= 00001 ）新建配餐对象“赵大妈” 
+因为 赵大妈不是平台客户，所以先建平台客户，再建配餐对象
+
+初始化文件  fxp-dbscript\testcase\000\init.xml
+
+参数：
+  
+   1） fuser_id          00001          --  操作员id
+   2） fcircle_id        10001          --  登录的工作圈id
+   3） fteam_id          1000126        --  登录的团队id
+
+
+场景：
+
+   1、普通坐席1（平台用户id fuser_id= 00001 ）登录系统，在“对象管理”选择“新增对象”
+     
+   2、在创建对象界面输入
+   
+    
+     1）*姓名：      赵大妈                
+     2）联系电话：   13823452016
+     3）身份证号：  440101195407049120     （证件类型     01 二代身份证）  
+     4）*性别：      女                     --根据身份证号倒数第二位 计算
+     5）出生日期：  1954年7月4日            --根据身份证号
+   
+     6）家庭地址：广东省-广州市-番禺区-市桥街-侨基社区居委-  捷兴6路   
+   
+     7）对象类型： 01  全额补贴
+        透支额度   100
+        选择社区常见病 08 高血压 10 冠心病
+        
+        饭盒编号   10023
+     
+     8）配送方式   助餐点
+     
+     9）助餐点：   1000141  测试福来第一助餐点
+     
+        算法：查找操作员登录的CIRCLE 开通了ZCDGZZ 应用的TEAM 列表
+   
+      select X.FTEAM_ID,X.FTEAM_NAME from fxp.p_team x where x.fcircle_id = '10001' AND X.FAPPLICATION_ID = 'ZCDGZZ' AND X.FISAVAILABLE = 'Y'   ORDER BY X.FTEAM_ID ;
+  
+        
+     
+     10  备注：   赵大妈饭量小
+    
+     11）联系人：   赵丽丽                 
+     12）联系电话： 13898753440            
+      
+   3、点击 “保存” 系统提示“ 创建成功！” 完成对象创建
+   
+      3.1 数据校验
+      
+         1）按身份证号到客户表中查找，如找到记录，但 客户姓名 <> 对象姓名,提示“对象身份证号已被" + 客户姓名 + "占用，请核对！”
+         2）按电话号码到客户表中查找，如找到记录，但 客户姓名 <> 对象姓名,提示“对象电话号码已被" + 客户姓名 + "占用，请核对！”
+   
+      3.2 按 姓名+身份证号 或 姓名+联系电话  到客户表中查找，
+       
+         A)  查找到客户，只新建对象，不新建客户
+         B)  未查找到客户，新建客户同时新建对象 
+ 
+   
+数据结果：
+
+  1、新建家庭表 fxp.p_family
+-- +-----------------------------+--------------+-----------+
+   ffamily_id                    32位UUID                   -- 家庭id
+   ffamily_code                  00000100                   -- 家庭编号  票据号产生 BILL_TYPE_ID= FAMILY_CODE
+   ffamily_member                赵大妈                     -- 家庭成员  填对象姓名
+   -- 
+   -- 代理人
+   --
+   fagent_name                   赵大妈                     -- 代理人姓名  = 对象姓名
+   fagent_mobile                 13823452016                -- 代理人手机  = 对象联系电话
+   fagent_user_id                空                         -- 代理人user_id   
+   --
+   -- 所属工作圈
+   --
+   fcircle_id                    10001                      -- 工作圈id    操作员登录圈id
+   fteam_id                      1000101                    -- 呼叫中心id  
+   
+   算法：查找操作员登录的CIRCLE 开通了CC 应用的第一个TEAM
+   
+   select X.FTEAM_ID from fxp.p_team x where x.fcircle_id = '10001' AND X.FAPPLICATION_ID = 'CC' AND X.FISAVAILABLE = 'Y'   ORDER BY X.FTEAM_ID ;
+  
+   -- 
+   -- 联系方式
+   --
+   ffamily_Phone                 13823452016                -- 家庭电话
+   ffamily_last_Phone            空                         -- 家庭最新呼入电话
+   fregion_id                    6143                       -- 行政区域ID（其中包含省、市、区、街道、社区的各级编码），（只有最底层地址的编码，不含上级编码）
+   fregion_name                  广东省广州市番禺区市桥街侨基居委   -- 行政区域名称（包含完整的行政区域名称，如：广东省广州市番禺区)
+   faddress                      捷兴6路                    -- 详细地址（街道之后的详细地址）
+   fmap_addr                     空                         -- 地图地址
+   flatitude                     空                         -- 纬度值
+   flongitude                    空                         -- 经度值
+   --
+   -- 家庭情况
+   --
+   fliving_condi_name            空                        -- 居住情况，多选，用逗号分隔
+   ffamily_desc                  空                        -- 家庭备注
+   --
+   -- 创建者
+   --   
+   fcreate_date                  当前时间                   -- 创建日期（录入时输入的日期） 
+   fcreate_user_id               00001                      -- 创建操作员id
+   fcreate_user_name             普通坐席1                  -- 创建操作员姓名
+
+  2、新建客户  fxp.p_person 
+-- +-----------------------------+--------------+-----------+
+   fperson_id                    32位uuid                   -- 居民ID， 
+   fperson_code                  00000100                   -- 居民编号，票据号 PERSON_CODE
+   fuser_id                      空                         -- 用户id
+   --
+   -- 个人基本信息
+   -- 
+   fperson_name                  赵大妈                     --  居民姓名
+   fidtype_id                    01                         --  证件类别id ->p_id_typ
+   fidtype_name                  二代身份证                 --  证件类别中文     微信默认二代身份证
+   fid_no                        440101195407049120         --  证件编号（身份证）
+   fsex_id                       2                          --  性别id    1男 2女 3未知
+   fsex_name                     女                         --  性别中文
+   fbirth_date                   1954年7月4日               --  出生日期, 年龄通过出生日期计算出来。
+   --
+   -- 家庭
+   -- 
+   ffamily_id                                               --  家庭id
+   fhouse_relation_id            01                         --  与户主关系ID
+   fhouse_relation_name          户主                       --  与户主关系中文   
+   --
+   -- 扩展信息
+   --
+   fis_native                    空                         -- 是否本地户籍（本市）Y/N
+   fregister_addr                空                         -- 户籍地址
+   fnation_id                    空                         -- 民族id（->公共字典表）, 默认汉族
+   fnation_name                  空                         -- 民族中文
+   fmarriage_id                  空                         -- 婚姻状况id（->公共字典表）
+   fmarriage_name                空                         -- 婚姻状况中文
+   fedu_degree_id                空                         -- 文化程度id（->公共字典表）
+   fedu_degree_name              空                         -- 文化程度中文
+   foccupation_id                空                         -- 职业id（->公共字典表）
+   foccupation_name              空                         -- 职业中文  
+   flanguage_name                空                         -- 多选，日常沟通语言中文，用逗号分隔
+   fphoto_id                     空                         -- 照片id
+   feconomy_state_id             空                         -- 经济状况id
+   feconomy_state_name           空                         -- 经济状况中文
+   --
+   -- 联系信息
+   --
+   fperson_mobile                13823452016                --  居民手机
+   fworkunit_name                空                         --  工作单位名称
+   -- 
+   -- 医疗待遇
+   --
+   fmedinsu_meth_id               空                        -- 医疗保险方式id
+   fmedinsu_meth_name             空                        -- 医疗保险方式  名称
+   --
+   -- 健康状况
+   --
+   fhealth_state_id               空                        -- 健康状况id
+   fhealth_state_name             空                        -- 健康状况中文
+   fperson_disease                空                        -- 所患疾病，名称逗号分隔
+   fperson_desc                   空                        -- 个人备注     
+   --
+   -- 福来服务
+   --
+   fcustomer_type_id              空                        -- 客户类型id
+   fcustomer_type_name            空                        -- 客户类型中文名称
+   --
+   -- 所属工作圈
+   --   
+   fcircle_id                     10001                     -- 工作圈id
+   flast_service_date             当前日期                  -- 最后服务日期
+   --
+   -- 开通
+   --
+   fregist_way                    SEAT                       -- *注册方式   SELF  自助  CM  社区  SEAT 坐席
+   fcreate_date                   当前日期                   -- 注册日期（录入时输入的日期） 
+   fcreate_user_id                10001                      -- 注册操作员id
+   fcreate_user_name              普通坐席1                  -- 注册操作员姓名
+   --
+   -- 注销
+   --
+   fis_cancel                    N                          -- 是否被注销
+   -- 注销类型
+   fcancel_reason                空                         -- 注销原因
+   fcancel_date                  空                         -- 注销机器时间
+   fcancel_user_id               空                         -- 注销操作员id   
+   fcancel_user_name             空                         -- 注销操作员姓名
+
+ 3、 插配餐对象  nxft.nxft_subject (
+-- +-----------------------------+--------------+-----------+
+   fsubject_id                   100100                     -- 对象id
+   --
+   -- 对象基础信息
+   --
+   fperson_id                                               -- 客户ID  = fxp.p_person.fperson_id
+   fsubject_name                 赵大妈                     -- 姓名
+   fsex_id                       2                          -- 性别id     fxp.p_sex 字典
+   fsex_name                     女                         -- 性别name
+   fidtype_id                    01                         -- 证件类别id
+   fidtype_name                  二代身份证                 -- 证件类别中文
+   fidcardno                     440101195407049120         -- 身份证号
+   fbirth_date                   1954年7月4日               -- 出生日期               
+ 
+   fcontact_phone                13823452016                -- 联系电话                
+   fregion_id                    6143                       -- 行政区域ID              界面输入
+   fregion_name                  广东省广州市番禺区市桥街侨基居委   -- 行政区域名称    界面输入
+   faddress                      捷兴6路                    -- 详细地址                界面输入   
+   --
+   -- 客户所属
+   --
+   fcircle_id                    10001                      -- 客户所属的工作圈id   操作员登录的圈id
+   --
+   -- 对象扩展信息
+   --
+   frelation_name                赵丽丽                     -- 联系人姓名          界面输入
+   frelation_phone               13898753440                -- 联系人电话          界面输入
+   fsubject_type_id              01                         -- 对象类型id          界面输入
+   fsubject_type_name            低保                       -- 对象类型中文名称    界面输入
+   fsubject_desc                 赵大妈有胃病               -- 对象备注            界面输入
+   flunch_box_no                 10023                      -- 饭盒编号
+   --
+   -- 配餐信息
+   --
+   fdelive_type                  SITE                       -- 配送方式  助餐点 SITE  到户  HOME   界面输入
+   fdelive_site_id               1000141                    -- 配送地点id    界面输入
+   fdelive_site_name             测试福来第一助餐点         -- 配送地点名称  界面输入
+   foverdraft                    100                        -- 配餐透支额度  界面输入
+   --
+   -- 创建者信息
+   --
+   fcreate_time                  当前日期                   -- 创建时间
+   fcreate_circle_id             10001                      -- 创建工作圈id =操作员登录的工作圈id
+   fcreate_team_id               1000126                    -- 创建工作组id =操作员登录的工作组id
+   fcreate_user_id               00001                      -- 创建工号id   =操作员id
+   fcreate_nickname              普通坐席1                  -- 创建姓名     =操作员姓名
+   --
+   -- 注销
+   --
+   fis_cancel                    N                          -- 是否被注销
+   fcancel_reason                空                         -- 注销原因
+   fcancel_date                  空                         -- 注销机器时间
+   fcancel_user_id               空                         -- 注销操作员id   
+   fcancel_user_name             空                         -- 注销操作员姓名
+

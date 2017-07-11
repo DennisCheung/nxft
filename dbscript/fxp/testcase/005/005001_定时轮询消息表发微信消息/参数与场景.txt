@@ -1,0 +1,35 @@
+
+参数：消息ID FMESSAGE_ID="12345"
+
+场景：
+  1、后台JOB 定时轮询 消息发送表 FXP.P_MESSAGE_SEND。
+  
+  2、逐条处理消息，
+     
+     2.1 查找消息发送者（FXP.P_MESSAGE_SEND.FSEND_USER_ID）的企业号用户id  
+     
+         select FQYH_USER_ID
+         from  FXP.P_QYH_USER
+         where FUSER_ID = :send_user_id ; 
+         
+     2.2 查找消息接收者（FXP.P_MESSAGE_SEND.FRECEIVE_USER_ID）的企业号用户id  
+     
+         select FQYH_USER_ID
+         from  FXP.P_QYH_USER
+         where FUSER_ID = :receive_user_id ;          
+  
+   3、调用 微信企业号 “news消息” 接口
+   
+     touser	  接收者的企业号用户id                 -- 否	成员ID列表（消息接收者，多个接收者用‘|’分隔，最多支持1000个）。特殊情况：指定为@all，则向关注该企业应用的全部成员发送
+     toparty	忽略                                 -- 否	部门ID列表，多个接收者用‘|’分隔，最多支持100个。当touser为@all时忽略本参数
+     totag	  忽略                                 -- 否	标签ID列表，多个接收者用‘|’分隔，最多支持100个。当touser为@all时忽略本参数
+     msgtype	：news                               -- 是	消息类型，此时固定为：news （不支持主页型应用）
+     agentid	                                     -- 是企业应用的id，整型。可在应用的设置页面查看
+     articles	                                     -- 是	图文消息，一个图文消息支持1到8条图文
+     title	  FXP.P_MESSAGE_SEND.FMESSAGE_TITLE    -- 否	标题，不超过128个字节，超过会自动截断
+     description	FXP.P_MESSAGE_SEND.FMESSAGE_CONTENT   -- 否	描述，不超过512个字节，超过会自动截断
+     url	                                         -- 否	点击后跳转的链接。
+     picurl	                                       -- 否	图文消息的图片链接，支持JPG、PNG格式，较好的效果为大图640*320，小图80*80。如不填，在客户端不显示图片
+
+   4、将已处理的消息迁移到 FXP.P_MESSAGE_HISTORY
+    

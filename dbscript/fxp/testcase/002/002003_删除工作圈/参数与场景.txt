@@ -1,0 +1,39 @@
+使用 000\init_user.xml
+
+参数：张小明（fuser_id = 00001）删除工作圈 10001 番禺福来科技
+
+      
+  1、参数：
+     1）平台用户id fuser_id = 00001
+            
+     2）工作圈id fcircle_id = 10001
+     
+前置条件：
+  
+  1、执行删除的操作员是 BOSS 的管理员
+  
+  
+
+场景：
+
+  1、张小明已创建 10001 （番禺福来科技）工作圈
+  
+  2、删除工作圈
+  
+       
+  3、点击“保存”， 新增工作组完成
+  
+前置条件
+
+  1、只有老板id对应的管理员才能删除所管辖的工作圈
+
+   select y.fadmin_user_id from fxp.p_circle x, fxp.p_boss y where x.fboss_id = y.fboss_id and x.fcircle_id =  准备删除的工作圈id
+   
+    删除条件 y.fadmin_user_id = 登录的fuser_id
+
+结果：
+    
+ 1、更新 工作圈 fxp.p_circle
+
+   fisavailable                  N             -- 是否可用？ 不是真的删除该条记录，置为不可用
+  

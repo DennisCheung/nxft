@@ -1,0 +1,85 @@
+使用 000\init_user.xml
+
+参数：张小明（fuser_id = 00001）创建了 1000101  “番禺坐席工作站” 工作组，邀请00002 (普通坐席2) 加入工作组
+
+      
+  1、参数：
+     1）平台用户id fuser_id = 00001
+     
+     2）被邀请的用户id
+            
+     2）工作组id fcircle_id = 10001
+     
+ 前置条件：
+  
+   1、邀请者用户id fuser_id = 00001 是 BOSS 的管理员     
+
+场景：
+
+  1、张小明已创建 1000101  “番禺坐席工作站” 工作组
+  
+  2、扫  00002 (普通坐席2)  二维码 邀请其加入  1000101 工作组
+  
+     输入邀请消息： 番禺坐席工作站邀请普通坐席2 加入工作组
+       
+  3、点击“邀请”， 保存到数据库
+
+结果：
+
+1、 先按 fteam_id + fuser_id 监测是否已邀请，已邀请不再处理，未邀请则插邀请加入工作组fxp.invite_join_team
+
+-- +-----------------------------+--------------+-----------+
+   finvite_id                    生成32位UUID               -- 邀请id
+   fteam_id                      1000101                    -- 工作组id
+   fuser_id                      00002                      -- 用户id
+   fcircle_id                    10001                      -- 工作圈id
+   finvite_desc                  番禺坐席工作站邀请普通坐席2 加入工作组    -- 邀请备注 
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 创建者
+   --
+   fcreate_time                  当前时间                  -- 创建时间 
+   fcreate_user_id               00001                     -- 创建操作员id
+   fcreate_user_name             张小明                    -- 创建操作员姓名   
+
+2、插待办fxp.p_todo（对方在我的消息中查询入口）
+-- +-----------------------------+--------------+-----------+
+   ftodo_id                      32位UUID                   -- 待办id
+   --
+   -- 任务单据引用
+   --
+   fnote_type_id                 INVITE_JOIN_TEAM           -- 单据类型ID    表头代名词
+   fnote_id                      = fxp.invite_join_team.finvite_id    -- 任务要处理的单据主键,复合主键用逗号分隔
+   --
+   -- 任务说明
+   --
+   ftodo_content                 张小明邀请你加入番禺坐席工作站。   -- 任务内容     简要描述本环节工作内容   
+   
+     格式：  fxp.p_user.fnickname（用户昵称） + '邀请你加入' + fxp.p_circle.fcircle_name(商圈名称) + '。'
+   
+   ftodo_remark                  空                         -- 任务备注
+   fcreate_time                  当前时间                   -- 创建时间
+   fnode_id                      ACCEPT                     -- 环节ID    = fxp.p_note_tag.fnode_id
+   fnote_tag                     DEFAULT                    -- 单据tag 如无意义时填 'DEFAULT'
+   ficon_file                    受.png                     -- 图标文件名，如 abc.jpg  所有图标路径相同，由程序统一配置  = fxp.p_note_tag.ficon_file
+   fblock_no                     2                          -- 区号   = fxp.p_note_tag.fblock_no
+   fordernum                     1                          -- 排序号 = fxp.p_note_tag.fordernum
+   --
+   -- 抢单
+   --
+   fis_grabbed                   Y                          -- 是否被抢单？  Y/N
+   fgrab_time                    当前时间                   -- 抢单时间
+   fgrab_circle_id               空                         -- 抢单工作圈id
+   fgrab_team_id                 空                         -- 抢单工作组id
+   fgrab_user_id                 00002                      -- 抢单操作员id
+   fgrab_user_name               普通坐席2                  -- 抢单操作员姓名
+   --
+   -- 客户信息
+   --
+   fperson_id                    空                        -- 居民ID
+   fperson_name                  空                        -- 居民姓名
+   ffamily_id                    空                        -- 家庭id
+   fcircle_id                    空                        -- 工作圈id 
+
+   不插 工作组待办 待办fxp.p_todo_team
+   

@@ -1,0 +1,68 @@
+使用 000\init_user.xml
+
+参数：张小明（fuser_id = 00001）创建第一个工作圈并自动创建同名老板
+
+      
+  1、参数：
+     1）平台用户id fuser_id = 00001
+
+
+场景：
+  1、张小明已通过微信验证成为  系统用户，首次创建工作圈 
+     
+     在创建工作圈界面输入
+     
+     1) 工作圈LOGO  选 123.jpg
+     
+     2）工作圈名称    番禺福来科技
+     
+     3）工作圈简称    番禺福来
+     
+     4）备注          由张小明创建
+     
+       
+  2、点击“保存”， 实现工作圈注册
+
+结果：
+
+  1、判断第一个工作圈
+     select count(*) from fxp.p_boss t where t.fadmin_user_id = :本操作员id ;
+     
+     如果记录数=0 为首次创建工作圈
+
+  2、因为创建第一个工作圈，先插老板表 fxp.p_boss
+-- +-----------------------------+--------------+-----------+
+   fboss_id                      000100                   -- 老板id      票据号生成 FBILL_TYPE_ID = BOSS_ID
+   fboss_name                    番禺福来科技               -- 老板名称 默认第一个工作圈名称
+   fadmin_user_id                00001                      -- 管理员用户id = 登录的福来fxp.p_user.fuser_id
+   fboss_desc                    空                         -- 备注 
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 创建者
+   --
+   fcreate_time                  当前时间                  -- 创建时间 
+   fcreate_user_id               00001                     -- 创建操作员id
+   fcreate_user_name             张小明                    -- 创建操作员姓名  
+
+  
+  3、插工作圈 fxp.p_circle
+-- +-----------------------------+--------------+-----------+
+   fcircle_id                    000100                     -- 工作圈id     票据号生成 FBILL_TYPE_ID = CIRCLE_ID
+   fcircle_name                  番禺福来科技               -- 工作圈名称
+   fcircle_short_name            番禺福来                   -- 工作圈简称
+   flogo_id                                                 -- LOGO id  = pic.p_picture.fpicture_id
+   fboss_id                      000100                     -- 老板id = fxp.p_boss.fboss_id
+   fcircle_desc                  由张小明创建               -- 备注 
+-- +-----------------------------+--------------+-----------+
+   --
+   -- 创建者
+   --
+   fcreate_time                  当前时间                  -- 创建时间 
+   fcreate_user_id               00001                     -- 创建操作员id
+   fcreate_user_name             张小明                    -- 创建操作员姓名  
+   
+  
+
+   
+  
+ 

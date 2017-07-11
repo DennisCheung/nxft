@@ -1,0 +1,33 @@
+参数：
+  
+  1）平台用户id fuser_id= 00001
+ 
+     
+场景：
+  
+   1、按平台用户id获取本人的服务商列表
+  
+  
+结果：
+
+   1、查询服务商列表
+     select  z.fsupplier_id,     -- 服务商id
+             z.fsupplier_name,   -- 服务商名称
+             z.fcontact_person   -- 服务商联系人
+     from  fxp.p_qyh_user x,
+           fxp.p_qyh_user_org y,
+           fxp.p_supplier z
+       where x.fqyh_user_id = y.fqyh_user_id and
+             x.fuser_id = :fuser_id  and
+             y.forg_id = z.fsupplier_id ;
+
+             
+   2、取服务商logo
+      
+       select     flogo,       --  头像图片
+                  flogo_type,  --  头像图片类型
+                  flogo_size   -- 头像字节大小
+      from  fxp.p_org_logo x
+      where x.forg_id =  :supplier_id ;
+ 
+ 

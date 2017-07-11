@@ -1,0 +1,705 @@
+@import "../valo/valo.scss";
+
+@mixin fxp {
+  @include valo;
+
+/**
+  登录样式
+*/
+
+.topPanLayoutstyle .topPanRightLayoutStyle .logoutButtonstylestyle {
+    height: 20px;
+    margin-right: 2px;
+}
+
+   //全局错误处理相关样式
+   .errorinfomainvlystyle {
+      width:430px;
+      height:220px;
+   }
+
+   .imageerrorstyle {
+      margin-top:20px;
+   }
+
+   .errorvlyrightstyle {
+   }
+
+   .errorvlyrightstyle .v-label {
+      margin-top:30px;
+   }
+
+   .errorvlyrightstyle .errorinfo1style {
+      font-size:14px;
+      font-weight:bold;
+   }
+
+   .errorhor2style {
+      margin-top:10px;
+   }
+
+   .errorsupportstyle {
+     width:65px;
+    height:30px;
+    background:#FF8247;
+    border-radius:3px;
+    color:#f8fae6;
+    border:none;
+    font-size:12px;
+    font-weight:bold;
+    margin-top:5px;
+    margin-left:10px;
+   }
+
+   .errorclosestyle {
+    width:55px;
+    height:30px;
+    background:#FF8247;
+    border-radius:3px;
+    color:#f8fae6;
+    border:none;
+    font-size:12px;
+    font-weight:bold;
+    margin-top:5px;
+    margin-left:150px;
+   }
+
+   .showerrorinfomainvlystyle {
+      padding-left:15px;
+   }
+
+   .showerrorinfomainvlystyle .errorinfotitlestyle {
+      font-size:14px;
+      font-weight:bold;
+      margin-top:10px;
+      margin-left:15px;
+   }
+
+   //工作台 部门待办
+   .usertodohortitlestyle .v-label {
+     font-size:13px;
+     font-weight:bold;
+   }
+
+   .depttodotablestyle {
+   }
+
+   .workbench {
+   }
+
+   .workbenchwarp {
+   }
+
+   .usertodohortitlestyle {
+     background:#dcdddd;
+     height:30px;
+     line-height:30px;
+     margin:20px auto 0px auto;
+   }
+
+
+   //建档 搜索界面
+   .familypstyle {
+    font-size: 13px;
+    border: 1px solid #f4d293;
+    text-align: center;
+    margin-top: 35px;
+    height:350px;
+   }
+
+   .familypstyle .hor1style {
+    background: #f6dba9;
+    height: 30px;
+   }
+
+   .familypstyle .hor2style {
+    margin-top: 10px;
+   }
+
+   .familypstyle .jiatingstyle {
+    margin-left: 10px;
+    margin-top: 7px;
+    font-size: 12px;
+    font-weight: bold;
+   }
+
+   .callstyle {
+    font-size: 13px;
+    text-align: center;
+    background-color: #f8fae6;
+   }
+
+   .modelmainvlystyle {
+    border: 2px solid #f6dba9;
+    text-align: center;
+}
+.modelmainvlystyle .familyeditmainvlystyle {
+    width: 740px;
+    height: 400px;
+    border: 2px solid #f6dba9;
+    background: #FFFAF0;
+}
+.modelmainvlystyle .familyeditmainvlystyle .v-select-option.v-checkbox {
+    display: inline-block;
+}
+.modelmainvlystyle .familyeditmainvlystyle .lbbianhaostyle {
+    margin-left: 15px;
+}
+.modelmainvlystyle .familyeditmainvlystyle .fuwuwangdianstyle {
+    margin-left: 20px;
+}
+.modelmainvlystyle .familyedithor1style {
+    font-size: 12px;
+    font-weight: bold;
+    width: 700px;
+    height: 30px;
+    text-align: center;
+    margin-top: 0px;
+    margin-left: -5px;
+    background: #FFE7BA;
+}
+.modelmainvlystyle .familyedithor1style .v-label {
+    margin-top: 5px;
+}
+.modelmainvlystyle .familyedithor2style {
+    margin-top: 15px;
+    margin-left: 12px;
+}
+.modelmainvlystyle .familyedithor2style .v-label {} .modelmainvlystyle .familyedithor2style .v-textfield {
+    margin-top: 5px;
+}
+.modelmainvlystyle .familyedithor2style .v-label {
+    margin-top: 10px;
+}
+.modelmainvlystyle .familyedithor3style {
+    margin-top: 15px;
+    margin-left: 12px;
+}
+.modelmainvlystyle .familyedithor4style {
+    margin-top: 15px;
+    margin-left: 22px;
+}
+.modelmainvlystyle .familyedithor4style .v-label {
+    margin-top: 5px;
+}
+.modelmainvlystyle .familyedithor5style {
+    margin-top: 15px;
+    margin-left: 18px;
+}
+.modelmainvlystyle .familyedithor6style {
+    margin-top: 15px;
+    margin-left: 12px;
+}
+.modelmainvlystyle .familyedithor6style .lbt1style {
+    color:red;
+}
+.modelmainvlystyle .familyedithor6style .lbaddressstyle {
+    margin-left:5px;
+}
+.modelmainvlystyle .familyedithor7style {
+    margin-top: 15px;
+    margin-left: 12px;
+}
+.modelmainvlystyle .familyedithor7style .lbt2style {
+    color:red;
+}
+
+.modelmainvlystyle .lbt1style {
+    color:red;
+}
+.modelmainvlystyle .familyedithor7style .lbaddresssstyle {
+    margin-left:5px;
+}
+.modelmainvlystyle .familyedithor8style {
+    margin-top: 15px;
+    margin-left: 3px;
+}
+.modelmainvlystyle .familyedithor8style .lbdescstyle {
+    margin-left: 18px;
+}
+.modelmainvlystyle .familyedithor7style .v-textfield {
+    width: 500px;
+}
+.modelmainvlystyle .familyedithor8style .v-textfield {
+    width: 500px;
+}
+.modelmainvlystyle .familyedithor9style {
+    margin-top: 15px;
+}
+.modelmainvlystyle .familyedithor10style {
+    margin-left:10px;
+    margin-top: 15px;
+}
+.modelmainvlystyle .familyedithor10style  .v-label {
+    margin-left:3px;
+}
+.modelmainvlystyle .lbt3style {
+    color:red;
+    margin-top:4px;
+}
+
+.familyedithor9style .familyedithor9btnclosestyle {
+    margin-left: 40px;
+    width: 50px;
+    height: 30px;
+    background: #FF8247;
+    border-radius: 3px;
+    color: #f8fae6;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.familyedithor9style .familyedithor9btnsavestyle {
+    margin-left: 250px;
+    width: 50px;
+    height: 30px;
+    background: #FF8247;
+    border-radius: 3px;
+    color: #f8fae6;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.familyaddnewhorstyle {
+    margin-left:20px;
+}
+
+.editvlyleftstyle {
+    width:300px;
+}
+
+.editvlyleftstyle  .v-horizontal {
+    margin-top:15px;
+    margin-left:26px;
+}
+
+.editvlyrightstyle {
+    margin-left:30px;
+}
+
+.editvlyrightstyle  .v-horizontal {
+    margin-top:15px;
+}
+
+.familyaddkehuleixingstyle {
+    margin-left:10px;
+    margin-top:3px;
+}
+
+.editlbbranchstyle {
+   margin-top:4px;
+   margin-left:4px;
+}
+.editintostyle {
+
+  margin-left:15px;
+  margin-top:8px;
+
+}
+
+.personmainvlystyle {
+    border: 2px solid #f6dba9;
+}
+.personmainvlystyle .benaddManagerUnitstyle {
+    margin-left: 10px;
+    width: 35px;
+    height: 20px;
+    background: #FF8247;
+    border-radius: 3px;
+    color: #f8fae6;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 15px;
+    padding-right: 12px;
+}
+.personmainvlystyle .nshujistyle .v-select-select {
+    width: 150px;
+    font-size: 12px;
+}
+.personmainvlystyle .horhujistyle {
+    margin-left: 20px;
+}
+.personmainvlystyle .tfjibingqtstyle {
+    margin-top: 57px;
+    margin-left: -355px;
+}
+.personmainvlystyle .v-textfield {
+    width: 140px;
+}
+.personmainvlystyle .v-datefield .v-textfield {
+    width: 150px;
+}
+.personmainvlystyle .qtstyle {
+    margin-left: 5px;
+    width: 100px;
+}
+.personmainvlystyle .gongzuostyle {} .personmainvlystyle .horhujistyle {
+    margin-left: 0px;
+}
+.personmainvlystyle .yyqtstyle {
+    margin-left: -30px;
+    width: 100px;
+}
+.personmainvlystyle .ogsexstyle {} .personmainvlystyle .horsexstyle {} .personmainvlystyle .horsexstyle .v-label {
+    margin-top: 5px;
+}
+.personmainvlystyle .v-select-option.v-radiobutton {
+    display: inline-block;
+}
+.personmainvlystyle .ogjibingstyle {
+    width: 700px;
+}
+.personmainvlystyle .v-select-option.v-checkbox {
+    display: inline-block;
+    width: 60px;
+}
+.personmainvlystyle .horyuyanstyle {
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.personmainvlystyle .horyuyanstyle .v-label {
+    margin-top: 5px;
+}
+.personmainvlystyle .mainvlystyle {
+    width: 950px;
+    height: 540px;
+    background: #FFFAF0;
+    border: 2px solid #f6dba9;
+}
+.personmainvlystyle .mainvlystyle .hor1style {
+    font-size: 12px;
+    font-weight: bold;
+    width: 950px;
+    height: 30px;
+    text-align: center;
+    margin-top: 0px;
+    margin-left: -5px;
+}
+.personmainvlystyle .mainvlystyle .hor1style .v-label {
+    margin-top: 5px;
+}
+.personmainvlystyle .mainvlystyle .vly1style {} .personmainvlystyle .mainvlystyle .vly1style .v-filterselect {
+    width: 150px;
+    height: 25px;
+}
+.personmainvlystyle .mainvlystyle .vly2style .v-filterselect {
+    width: 150px;
+    height: 25px;
+}
+.personmainvlystyle .mainvlystyle .vly3style .v-filterselect {
+    width: 150px;
+    height: 25px;
+}
+
+/**============================================================ */
+.personmainvlystyle .horleixingstyle {
+    margin-left:10px;
+}
+.personmainvlystyle .phonestyle {
+    margin-left:10px;
+}
+.personmainvlystyle .hujistyle {
+    margin-left:4px;
+}
+.personmainvlystyle .jiankangstyle {
+    margin-left:4px;
+}
+/**============================================================ */
+.personmainvlystyle .mainvlystyle .vly1style .v-horizontal {
+    margin-top: 13px;
+}
+.personmainvlystyle .mainvlystyle .vly1style .nameinput{
+    margin-top: 0px;
+}
+.personmainvlystyle .mainvlystyle .vly1style .v-label {
+    margin-left: 5px;
+}
+.personmainvlystyle .mainvlystyle .vly2style {
+    margin-left: 40px;
+}
+.personmainvlystyle .mainvlystyle .vly2style .v-label {
+    margin-left: 10px;
+    margin-top: 8px;
+}
+.personmainvlystyle .mainvlystyle .vly2style .v-horizontal {
+    margin-top: 10px;
+}
+.personmainvlystyle .mainvlystyle .vly3style {
+    margin-left: 40px;
+}
+.personmainvlystyle .mainvlystyle .vly3style .v-label {
+    margin-top: 5px;
+}
+.personmainvlystyle .mainvlystyle .vly3style .v-horizontal {
+    margin-top: 10px;
+}
+.personmainvlystyle .mainvlystyle .hor2style {
+    margin-top: 15px;
+}
+.personmainvlystyle .mainvlystyle .hor3style {
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.personmainvlystyle .mainvlystyle .hor4style {
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.personmainvlystyle .mainvlystyle .hor4style .v-textfield {
+    width: 800px
+}
+.personmainvlystyle .mainvlystyle .hor5style {
+    margin-top: 15px;
+}
+.personmainvlystyle .mainvlystyle .hor5style .v-button {
+    margin-left: 250px;
+    width: 55px;
+    height: 30px;
+    background: #FF8247;
+    border-radius: 3px;
+    color: #f8fae6;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.personmainvlystyle .v-textfield {
+    width:150px;
+}
+.personmainvlystyle .v-select-select {
+    width:150px;
+}
+
+/**
+显示家庭信息相关样式
+*/
+
+.familymainvlystyle {
+    border: 1px solid #f6dba9;
+}
+
+.familymainvlystyle .familymainvlystylehorrlstyle {
+    width:1100px;
+}
+
+.familymainvlystyle .familymainvlystylehorrlstyle .v-button {
+    margin-left:10px;
+}
+
+.familymainvlystyle .familymainhorlstyle {
+    margin-left:-5px;
+}
+
+.familymainvlystyle .familymainlblstyle {
+    font-size:12px;
+    font-weight:bold;
+    margin-top:8px;
+}
+.familymainvlystyle  .familymainvly2style {
+    margin-left:200px;
+}
+
+.familymainvlystyle .v-horizontal {
+    margin-top: 5px;
+}
+.hor1style {
+    width: 1255px;
+    background: #f6dba9;
+    height: 30px;
+}
+
+.hor11style {
+    width: 1258px;
+    background: #f6dba9;
+    height: 30px;
+}
+.hor2style {} .hor2style .v-button {
+    margin-left: 15px;
+}
+
+.hor2style {} .hor2style .v-label {
+    margin-left: 15px;
+}
+.labelandlabelstyle {
+    margin-left: 20px;
+}
+.lbtitlestyle {
+    margin-left: 10px;
+    margin-top: 5px;
+    color: #803e24;
+    font-size: 13px;
+    font-weight: bold;
+}
+.familymainvlystyle .btneditstyle {
+    width: 45px;
+    height: 20px;
+    background:#DD8500;
+    border-radius:3px;
+    color:#f8fae6;
+    border:none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 1130px;
+}
+.permainvlystyle .btneditstyle {
+    width: 45px;
+    height: 20px;
+    background:#DD8500;
+    border-radius:3px;
+    color:#f8fae6;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.permainvlystyle .tocreatestyle {
+    width: 45px;
+    height: 20px;
+    background:#DD8500;
+    border-radius:3px;
+    color:#f8fae6;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 1075px;
+}
+
+.frendinfostyle {
+    font-size: 13px;
+    border: 1px solid #f4d293;
+    text-align: center;
+    color: #803e24;
+    margin-top: 35px;
+}
+
+.frendinfostyle .v-button {
+    width: 35px;
+    height: 20px;
+    background: #FF8247;
+    border-radius: 3px;
+    color: #f8fae6;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    padding-left: 5px;
+    margin-left: 5px;
+}
+
+.frendinfostyle .hor2style .v-button {
+    width: 55px;
+    height: 20px;
+    background: #FF8247;
+    border-radius: 3px;
+    color: #f8fae6;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    padding-left: 5px;
+    margin-left: 5px;
+}
+.frendinfostyle .hor1style {
+    background: #f6dba9;
+    height: 30px;
+}
+.frendinfostyle .hor1style .v-label {
+    margin-left: 10px;
+    margin-top: 7px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.frendinfostyle .hor1style .lbbbstyle {
+    margin-left: 826px;
+}
+
+.friendOlmainvlystyle {
+    width: 500px;
+    height: 430px;
+    text-align: center;
+}
+.friendOlmainvlystyle .v-textfield {
+    width: 240px;
+}
+
+.shenghuoOLstyle {
+    width: 500px;
+    height: 390px;
+    text-align: center;
+}
+
+.yiliaoOLstyle {
+    width: 500px;
+    height: 430px;
+    text-align: center;
+}
+
+.linjuOlstyle {
+    width: 500px;
+    height: 350px;
+    text-align: center;
+}
+
+.showShowPersonInfoViewstyle {
+    margin-top: 30px;
+}
+.permainvlystyle {
+    border: 1px solid #f6dba9;
+}
+.permainvlystyle .hor1style {
+    width: 1255px;
+    background: #f6dba9;
+    height: 30px;
+}
+.permainvlystyle .hor2style {} .permainvlystyle .vly1style {
+    width:200px;
+}
+.permainvlystyle .v-label {
+    margin-top: 5px;
+}
+.permainvlystyle .hor3style {
+    margin-left: 6px;
+}
+.permainvlystyle .hor4style {
+    margin-left: 6px;
+}
+
+.permainvlystyle .vly2style {
+    width:200px;
+    margin-left:200px;
+}
+
+.permainvlystyle .vly3style {
+   margin-left:209px;
+   width:200px;
+}
+
+.permainvlystyle .vly4style {
+   margin-left:70px;
+}
+
+.comboboxLayoutstyle {
+
+}
+.comboboxLayoutstyle .v-filterselect {
+    width: 189px;
+    height: 25px;
+    margin-left: 5px;
+}
+
+.familyedithorlbccstyle {
+  margin-left:4px;
+}
+
+.labelAndTextFieldStyle {} .requiredstyle {
+    color: red;
+}
+
+}
+

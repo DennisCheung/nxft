@@ -1,0 +1,57 @@
+使用 000\init_user.xml
+
+参数：
+    东东便利连锁店FSUPPLIER_ID="30108"  老板张小明 （平台用户id fuser_id = 00001）创建服务点
+      
+  1、参数：
+  
+     1）平台用户id fuser_id = 会话传入   00001
+     2）服务商ID         = 会话传入   30108
+     3）服务点名称       = 界面输入  东东甘棠士多店
+     3）店长 fuser_id    = 默认操作员  00001
+     4）商家联系手机     = 界面输入  13822290370
+     
+
+
+场景：
+  
+  1、在创建服务点界面输入
+     
+       1）服务点名称    东东甘棠士多店
+       2）商家联系手机  13822290370
+     
+  2、点击“完成”， 实现服务点创建
+
+结果：
+
+      
+   1、插服务点  fxp.p_site 表
+
+      fsite_id                 32位uuid生成                 -- 服务点id
+      fsite_name               东东甘棠士多店               -- 服务点名称   界面输入
+      fsite_info               空                           -- 服务点简介   界面输入
+      forg_id                  30108                        -- 所属的机构id   会话传入
+      fservice_scope_desc      空                           -- 服务范围       会话传入
+      faddress                 空                           -- 详细地址     界面输入
+      fadmin_user_id           00001                        -- 服务点负责人id   会话传入
+      fcontact_mobile          13822290370                  -- 联系手机   界面输入
+      fsite_desc               空                           -- 场所备注 
+      
+      fcreate_date            当前时间                      -- 创建日期（录入时输入的日期） 
+      fcreate_user_id         00001                         -- 创建操作员id
+      fcreate_user_name       张小明                        -- 创建操作员姓名
+   --
+   -- 注销
+   --
+   fis_cancel                    char(1) default 'N'  not null, -- 是否被注销           
+
+   2、插服务点用户表  fxp.p_site_user 表
+   
+     fsite_id                    fxp.p_site.fsite_id        -- 服务点id
+     fuser_id                    00001                      -- 用户id    = fxp.p_site.fadmin_user_id 
+     fcreate_date                当前日期                   -- 创建日期（录入时输入的日期） 
+     fcreate_user_id             00001                      -- 创建操作员id
+     fcreate_user_name           张小明                     -- 创建操作员姓名
+     
+   
+ 

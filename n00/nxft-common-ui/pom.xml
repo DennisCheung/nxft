@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.wit.fxp.nxft</groupId>
+    <artifactId>nxft-parent</artifactId>
+    <version>1.0.39-SNAPSHOT</version>
+    <relativePath>../../parent</relativePath>
+  </parent>
+  <artifactId>nxft-common-ui</artifactId>
+
+  <packaging>jar</packaging>
+
+  <dependencies>
+
+    <!-- nxft -->
+    <dependency>
+      <groupId>com.wit.fxp.nxft</groupId>
+      <artifactId>nxft-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.wit.fxp.nxft</groupId>
+      <artifactId>nxft-common-api</artifactId>
+    </dependency>
+
+    <!-- fxp -->
+    <dependency>
+      <groupId>com.wit.fxp</groupId>
+      <artifactId>fxp-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.wit.fxp</groupId>
+      <artifactId>fxp-vaadin</artifactId>
+    </dependency>
+
+    <!-- junit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- vaadin -->
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-server</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-shared</artifactId>
+    </dependency>
+
+    <!-- spring boot -->
+
+    <!-- springframework -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+    </dependency>
+
+    <!-- spring security -->
+
+    <!-- vaadin spring -->
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-spring</artifactId>
+    </dependency>
+
+    <!-- vaadin4spring -->
+    <dependency>
+      <groupId>org.vaadin.spring.extensions</groupId>
+      <artifactId>vaadin-spring-ext-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.vaadin.spring.addons</groupId>
+      <artifactId>vaadin-spring-addon-eventbus</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.vaadin.spring.extensions</groupId>
+      <artifactId>vaadin-spring-ext-security</artifactId>
+    </dependency>
+
+    <!-- servlet-api -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- slf4j -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- javax.validation -->
+
+    <!-- lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- HighChart -->
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>m2-snapshots</id>
+      <name>Benewit Maven2 Snapshot Repository</name>
+      <url>http://m2.benewit.com:8081/nexus/content/repositories/snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>interval:30</updatePolicy>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+    <repository>
+      <id>m2-releases</id>
+      <name>Benewit Maven2 Releases Repository</name>
+      <url>http://m2.benewit.com:8081/nexus/content/repositories/releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+
+  </repositories>
+</project>

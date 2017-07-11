@@ -1,0 +1,69 @@
+吴艳艳（平台用户id fuser_id= 10001028 ）在制作名单明细时，从历史名单中添加发券名单
+
+参数：
+   
+   1） fuser_id          10001028       --  操作员id
+   2） fnickname         吴艳艳         --  操作员姓名
+   3） forg_id           10001          --  登录的机构id
+   4） fsite_id          1000131        --  登录的服务点id
+   5） fsource_activity_id      00103          --  源活动id
+   6） fsource_crowds_id        20001          --  源名单id
+
+   7） ftarget_activity_id      00123          --  目标活动id
+   8） ftarget_crowds_id        30001          --  目标名单id
+      
+场景：
+
+  1、吴艳艳（平台用户id fuser_id= 10001028 ）登录系统，在 “我的主页” 选择 “发券管理”
+     进入“发券管理”界面
+     
+  2、在发券界面显示所有发券活动列表
+  
+  3、在 “2016年甘棠村基金助老服务” （目标活动id ftarget_activity_id = 00123） 一列选择 “活动主页”，进入活动主页面
+  
+  4、在活动主页选择 60-69岁老人（ 目标名单id ftarget_crowds_id  = 30001  ） “名单管理” 系统弹出 “名单管理” 编辑窗口
+  
+  5、在弹出框中选择 “历史名单”，系统显示所有已有成员明细的名单列表
+  
+  6、在列表中选择 “16年甘棠村助老服务 （源活动id fsource_activity_id = 00103  ）-- 60-69岁老人（源名单id fsource_crowds_id = 20001 ）” 的名单记录，点击 “确定”
+  
+  7、系统将 “16年甘棠村助老服务 -- 60-69岁老人” 活动的发券成员添加到已选成员中
+  
+ 结果：
+ 
+  1、将 源名单id fsource_crowds_id = 20001 名单明细 拷贝到 目标名单id ftarget_crowds_id  = 30001 名单明细
+  
+    1、插 活动名单明细表 fxp.p_crowds_list
+-- +-----------------------------+--------------+-----------+
+   fcrowds_id                    30001                      -- 名单id  = ftarget_crowds_id
+   --
+   -- 账户信息
+   --
+   fperson_id                                               -- 客户ID  = 源名单明细 fxp.p_crowds_list.fperson_id
+   fperson_NO                                               -- 客户编号 = 源名单明细 fxp.p_crowds_list.fperson_no
+   fperson_name                                             -- 客户姓名 = 源名单明细 fxp.p_crowds_list.fperson_name
+   fsex_name                                                -- 性别中文 = 源名单明细 fxp.p_crowds_list.fsex_name
+   fbirth_date                                              -- 出生日期, 年龄通过出生日期计算出来 = 源名单明细 fxp.p_crowds_list.fbirth_date
+   fperson_mobile                                           -- 客户手机   = 源名单明细 fxp.p_crowds_list.fperson_mobile
+   fid_no                                                   -- 证件编号（身份证） = 源名单明细 fxp.p_crowds_list.fid_no
+   --
+   -- 账号
+   --
+   faccount_id                                              -- 账户id   源名单明细 fxp.p_crowds_list.faccount_id
+   --
+   -- 活动
+   --  
+   factivity_id                  00123                      -- 活动id  = 目标名单id ftarget_crowds_id   
+   --
+   -- 所属运营商
+   --
+   foperator_id                  10001                      -- 运营商id   操作员登录机构id
+   flist_desc                    空                         -- 备注
+   --
+   -- 创建
+   --
+   fcreate_date                  当前时间                   -- 创建时间 
+  
+   
+   
+   

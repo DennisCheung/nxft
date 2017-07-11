@@ -1,0 +1,84 @@
+html {
+  height: 100%; }
+
+body {
+  padding-top: 100px;
+  overflow: hidden;
+  text-align: center;
+  height: 100%; }
+
+.mask {
+  display: none;
+  z-index: 999;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3); }
+  .mask .alert {
+    background: #fff;
+    position: absolute;
+    width: 380px;
+    height: 300px;
+    border: 1px solid #ccc;
+    top: 50%;
+    margin-top: -220px;
+    margin-left: -160px;
+    padding-top: 20px;
+    left: 50%; }
+    .mask .alert h2 {
+      text-align: center;
+      line-height: 30px;
+      font-size: 24px; }
+    .mask .alert p {
+      text-align: center;
+      font-size: 18px;
+      line-height: 55px; }
+    .mask .alert .false-alert {
+      line-height: 40px;
+      color: red;
+      font-size: 20px; }
+    .mask .alert .input {
+      text-align: center;
+      line-height: 40px; }
+      .mask .alert .input input {
+        width: 180px;
+        height: 30px; }
+    .mask .alert .btns {
+      line-height: 80px; }
+      .mask .alert .btns button {
+        width: 100px;
+        height: 40px;
+        background: #ff7e00;
+        border: none;
+        font-size: 20px;
+        color: #fff; }
+
+.use-list {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px; }
+  .use-list .head tr {
+    background: #ff7e00;
+    color: #fff;
+    line-height: 77px; }
+    .use-list .head tr th {
+      text-align: center;
+      width: 33.3333333%; }
+  .use-list .body tr {
+    line-height: 77px; }
+    .use-list .body tr td {
+      width: 33.3333333%;
+      text-align: center; }
+      .use-list .body tr td button {
+        width: 126px;
+        height: 50px;
+        border: 1px solid #ff7e00;
+        background: #fff;
+        font-size: 24px; }
+  .use-list .body tr:nth-child(even) {
+    background: whitesmoke; }
+
+/*# sourceMappingURL=grmsList.css.map */

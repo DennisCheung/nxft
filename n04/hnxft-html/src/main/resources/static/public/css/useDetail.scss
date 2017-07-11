@@ -1,0 +1,115 @@
+@charset "utf-8";
+body{
+  font-family: "Microsoft YaHei";
+}
+.selectIndex{
+  overflow: hidden;
+  .select-left{
+    width:3rem;
+    .menu{
+      width: 100%;
+      background: url("../images/3-bgnev.png") no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%;
+      li{
+        height: 2.16rem;
+        border-bottom:1px solid #736E6B;
+        color:#ffffff;
+        cursor:pointer;
+        font-size: 0;
+        i{
+          display: inline-block;
+          width: 38%;
+          height: 100%;
+          vertical-align: top;
+          padding-left:0.31rem;
+          padding-top: 0.8rem;
+          img{
+            vertical-align: top;
+            height: auto;
+            width: 0.67rem;
+          }
+        }
+        span{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.75rem;
+        }
+        .guidance{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.43rem;
+        }
+      }
+      li.active{
+        i{
+          background: #ff7e00;
+        }
+        span,.guidance{
+          color:#ff7e00;
+          background:#2a2d32;
+        }
+      }
+    }
+  }
+  .select-right{
+    padding-left:3rem;
+    /*用户信息*/
+    .info{
+      width: 100%;
+      background: #ff7e00;
+      color: #fefefe;
+      font-size: 0.30rem;
+      text-align: right;
+      padding: 0.16rem;
+        img{
+          cursor: pointer;
+          width: 0.41rem;
+        }
+      }
+    /*表格数据*/
+    .content{
+      padding-top: 0.26rem;
+      height: 9.3rem;
+      overflow-y: auto;
+      .data{
+        border-collapse: collapse;
+        width: 95.743368%;
+        margin: 0 auto;
+        td,th{
+          border: 1px solid #d2d2d2;
+          text-align: center;
+        }
+        thead{
+          font-size: 0.30rem;
+          color:#ff7e00;
+          background: #fff3e8;
+          line-height: 3.53;
+        }
+        tbody{
+          font-size:0.30rem;
+          color:#333333;
+          line-height: 2.36;
+          tr td{
+            button{
+              width: 120px;
+              height: 40px;
+              background: #ff7e00;
+              border: none;
+              font-size: 20px;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

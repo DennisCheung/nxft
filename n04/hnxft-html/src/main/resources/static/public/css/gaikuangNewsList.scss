@@ -1,0 +1,117 @@
+@charset "utf-8";
+body{
+  font-family: "Microsoft YaHei";
+}
+.selectIndex{
+  overflow: hidden;
+  .select-left{
+    width:3rem;
+    .menu{
+      width: 100%;
+      background: url("../images/3-bgnev.png");
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%;
+      li{
+        height: 2.16rem;
+        border-bottom:1px solid #736E6B;
+        color:#ffffff;
+        cursor:pointer;
+        font-size: 0;
+        i{
+          display: inline-block;
+          width: 38%;
+          height: 100%;
+          vertical-align: top;
+          padding-left:0.31rem;
+          padding-top: 0.8rem;
+          img{
+            vertical-align: top;
+            height: auto;
+            width: 0.67rem;
+          }
+        }
+        span{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.75rem;
+        }
+        .guidance{
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size:0.48rem;
+          padding-top: 0.43rem;
+        }
+      }
+      li.active{
+        i{
+          background: #ff7e00;
+        }
+        span,.guidance{
+          color:#ff7e00;
+          background:#2a2d32;
+        }
+      }
+    }
+  }
+  .select-right{
+    padding-left:3rem;
+    .system-ver{
+      width: 100%;
+      background: #ff7e00;
+      color: #fefefe;
+      font-size: 0.30rem;
+      text-align: right;
+      padding: 0.16rem;
+    }
+    .sel-module{
+      padding:0.36rem 0.28rem 0 0.33rem;
+      .news{
+        li{
+          line-height: 1.56rem;
+          height: 1.56rem;
+          border-left: 0.20rem solid #c6bc47;
+          background: #fefce9;
+          font-size: 0.36rem;
+          cursor:pointer;
+          color:#333333;
+          margin-bottom: 0.10rem;
+          text-overflow :ellipsis;
+          padding-left: 0.36rem;
+          position: relative;
+          padding-right: 2.20rem;
+          white-space:nowrap;
+          span{
+            position: absolute;
+            top: 50%;
+            margin-top: -0.78rem;
+            right:0.63rem;
+            color:#c6bc47;
+          }
+        }
+      }
+      .pages{
+        text-align: center;
+        line-height: 1rem;
+        li{
+          cursor:pointer;
+          display: inline-block;
+          width: 0.81rem;
+          height: 0.10rem;
+          border-radius: 5px;
+          background: #dcdcdc;
+          margin-right: 0.09rem;
+        }
+        .active{
+          background: #c6bc47;
+        }
+      }
+    }
+  }
+}

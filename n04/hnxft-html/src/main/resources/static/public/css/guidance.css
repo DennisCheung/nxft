@@ -1,0 +1,87 @@
+@charset "UTF-8";
+body {
+  font-family: "Microsoft YaHei"; }
+
+.selectIndex {
+  overflow: hidden; }
+  .selectIndex .select-left {
+    width: 3rem; }
+    .selectIndex .select-left .menu {
+      width: 100%;
+      background: url("../images/3-bgnev.png") no-repeat;
+      background-size: 100% 100%; }
+      .selectIndex .select-left .menu li {
+        height: 2.16rem;
+        border-bottom: 1px solid #736E6B;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 0; }
+        .selectIndex .select-left .menu li i {
+          display: inline-block;
+          width: 38%;
+          height: 100%;
+          vertical-align: top;
+          padding-left: 0.31rem;
+          padding-top: .80rem; }
+          .selectIndex .select-left .menu li i img {
+            vertical-align: top;
+            height: auto;
+            width: 0.67rem; }
+        .selectIndex .select-left .menu li span {
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          padding-top: 0.75rem;
+          font-size: 0.48rem; }
+        .selectIndex .select-left .menu li .guidance {
+          display: inline-block;
+          height: 100%;
+          width: 62%;
+          vertical-align: top;
+          padding-left: 0.23rem;
+          font-size: 0.48rem;
+          padding-top: 0.43rem; }
+      .selectIndex .select-left .menu li.active i {
+        background: #ff7e00; }
+      .selectIndex .select-left .menu li.active span, .selectIndex .select-left .menu li.active .guidance {
+        color: #ff7e00;
+        background: #2a2d32; }
+  .selectIndex .select-right {
+    padding-left: 3rem;
+    /*系统版本*/ }
+    .selectIndex .select-right .system-ver {
+      width: 100%;
+      background: #ff7e00;
+      color: #fefefe;
+      font-size: 0.30rem;
+      text-align: right;
+      padding: 0.16rem; }
+    .selectIndex .select-right .sel-module {
+      padding-left: 0.18rem; }
+      .selectIndex .select-right .sel-module ul li {
+        float: left;
+        margin-top: 0.46rem;
+        margin-left: 0.48rem;
+        position: relative;
+        cursor: pointer; }
+        .selectIndex .select-right .sel-module ul li img {
+          max-width: 100%;
+          width: 7.12rem;
+          height: auto; }
+        .selectIndex .select-right .sel-module ul li span {
+          border-radius: 0 0 0.1rem 0.1rem;
+          display: block;
+          color: #ffffff;
+          text-align: center;
+          height: 1.35rem;
+          line-height: 2.7;
+          font-size: 0.5rem;
+          background: rgba(0, 0, 0, 0.6);
+          width: 100%;
+          position: absolute;
+          left: 0;
+          bottom: 0; }
+
+/*# sourceMappingURL=guidance.css.map */

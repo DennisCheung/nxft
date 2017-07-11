@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+@import "variables";
+@import "addons";
+@import "fxp";
+@import "kitchen";
+@import "nxft_public";
+@import "meal";
+@import "fxplogin";
+
+.tests-valo-facebook {
+  @include addons;
+  @include fxp;
+  @include kitchen;
+  @include nxft_public;
+  @include meal;
+  @include fxplogin;
+}
